@@ -28,8 +28,8 @@ List of useful course links
 
 ### Todos
 
- - Write MOAR Tests
- - Add Night Mode
+ - Implement infrastructure classes
+ - Implement testing software and design interface for testnig
 
 
 **Free Software, Hell Yeah!**

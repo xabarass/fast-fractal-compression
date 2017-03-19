@@ -3,9 +3,8 @@
 #include "emmintrin.h"
 #include "include/perf.h"
 
-extern "C"{
-    #include "decoder/test_decoder.h"
-}
+#include <utils/BMPImage.h>
+#include <encoder/Encoder.h>
 
 using namespace std;
 
@@ -22,9 +21,13 @@ int main(){
     perf_init();
 
     cycles_count_start ();
-
+    BMPImage img("lena.bmp");
+    img.Load();
+    Encoder enc;
+    enc.Encode(img);
+    img.Save();
     int64_t cycles = cycles_count_stop ();
-    cout<<cycles<<endl;
+    cout<<"Counted cycles: "<<cycles<<endl;
 
     return 0;
 }

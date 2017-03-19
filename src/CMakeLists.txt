@@ -12,4 +12,4 @@ list(APPEND SRC_FILES "${CMAKE_CURRENT_BINARY_DIR}/GitVersion.cpp")
 list(APPEND SRC_FILES FractalCompression.cpp)
 add_executable(fractal-compression ${SRC_FILES})
 
-target_link_libraries(fractal-compression decoder pcm)
+target_link_libraries(fractal-compression utils encoder decoder pcm)

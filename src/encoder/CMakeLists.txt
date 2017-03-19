@@ -1,6 +1,7 @@
 set(ENCODER_SRC
-    test_encoder.c
+    QuadTreeEncoder.c
+    Encoder.cpp
 )
 add_library(encoder STATIC ${ENCODER_SRC})
 
-#target_link_libraries(encoder ...)
+target_link_libraries(encoder utils)

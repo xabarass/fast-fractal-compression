@@ -1,7 +1,12 @@
 #ifndef COMMON_H
 #define COMMON_H
 
+#include <stdlib.h>
+#include <stdbool.h>
 #include <stdio.h>
+#include <stdint.h>
+
+#include "frac_errors.h"
 
 #define LOGT(...) printf("T ["MODULE_NAME"]: " __VA_ARGS__)
 #define LOGD(...) printf("D ["MODULE_NAME"]: " __VA_ARGS__)

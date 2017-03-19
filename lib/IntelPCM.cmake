@@ -29,8 +29,8 @@ set(INIT_CMAKE_C_FLAGS   "${CMAKE_C_FLAGS}"  )
 # ================================================================================
 # Build all dependencies.
 # ================================================================================
-
 if (RDTSC_FAILBACK)
+    message(STATUS "Building RDTSC failback benchmark")
     set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -O2 -std=c++11")
 
     set(PERF_FILES
@@ -50,10 +50,9 @@ if (RDTSC_FAILBACK)
     )
 
 else (RDTSC_FAILBACK)
+    message(STATUS "Building Intel PCM benchmark")
     add_subdirectory(${CMAKE_CURRENT_LIST_DIR}/pcm)
-    #set(EXECUTABLE_OUTPUT_PATH ${CMAKE_CURRENT_LIST_DIR}/bin)
     include_directories(${CMAKE_CURRENT_LIST_DIR}/pcm)
-    message("INCLUDE DIR: ${CMAKE_CURRENT_LIST_DIR}/pcm")
 endif(RDTSC_FAILBACK)
 
 set(CMAKE_CXX_FLAGS "${INIT_CMAKE_CXX_FLAGS}")

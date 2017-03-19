@@ -38,7 +38,7 @@ set(PREDEFINED_CONFIGURATION "" CACHE STRING "Load predefined configuration")
 # Here we can add predefined option configuration for common build types
 # ================================================================================
 IF(OPTIMIZATION_TYPE)
-    message("We are trying to load predefined configuration ${OPTIMIZATION_TYPE}")
+    message(STATUS "We are trying to load predefined configuration ${OPTIMIZATION_TYPE}")
 ENDIF(OPTIMIZATION_TYPE)
 
 IF(USE_FMA)
