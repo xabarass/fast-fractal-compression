@@ -28,11 +28,6 @@ List of useful course links
 
 ### Todos
 
- - Implement infrastructure classes
- - Implement testing software and design interface for testnig
-
-
-**Free Software, Hell Yeah!**
-
-
+ - Finish default implementation
+ - Start implementing optimizations
 
