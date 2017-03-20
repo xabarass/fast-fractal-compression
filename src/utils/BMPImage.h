@@ -30,6 +30,7 @@ class BMPImage : public Image
 {
 public:
     BMPImage(string fileName);
+    BMPImage(string fileName, unsigned width, unsigned height, unsigned channels);
 
     /**
      * @brief Loads image in RGB format

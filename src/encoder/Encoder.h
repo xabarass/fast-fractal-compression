@@ -12,7 +12,7 @@ class Encoder
 public:
     Encoder();
 
-    void Encode(Image& image);
+    void Encode(Image& src, Image &dst);
 };
 
 #endif // ENCODER_H

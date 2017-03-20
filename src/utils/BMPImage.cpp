@@ -10,6 +10,9 @@ BMPInformation::BMPInformation():size(sizeof(BMPInformation)){}
 BMPImage::BMPImage(string fileName):Image(fileName){
 }
 
+BMPImage::BMPImage(string fileName, unsigned width, unsigned height, unsigned channels):
+Image(fileName, width, height, channels){}
+
 void BMPImage::Load(){
 
     FILE *f = fopen(fileName.c_str(), "rb");
@@ -64,12 +67,16 @@ void BMPImage::Save(){
     info.planes=1;
     info.compression=0;
     info.imagesize=imageSize;
-    info.xresolution=2835;
-    info.yresolution=2835;
-    info.ncolours=0;
+    info.xresolution=0;
+    info.yresolution=0;
+    info.ncolours=1;
     info.importantcolours=0;
     info.width=img.width;
     info.height=img.height;
+
+    LOGD("Channel bits: %d \n", info.bits);
+    LOGD("Offset: %d \n", header.offset);
+    LOGD("Size: %d w: %d h: %d \n", info.size, info.width, info.height);
 
     fwrite(&header,sizeof(BMPHeader), 1, f);
     fwrite(&info, sizeof(BMPInformation), 1, f);
@@ -79,7 +86,7 @@ void BMPImage::Save(){
     for (int i=0;i<info.height; ++i){
         for(int j=0;j<info.width; ++j, ++pixelIndex){
 
-            int segment=j*3;
+            int segment=j*img.channels;
             for (int c=img.channels-1; c>=0;--c){
                 row[segment++]=img.image_channels[c][pixelIndex];
             }

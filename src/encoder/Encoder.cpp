@@ -2,7 +2,7 @@
 
 Encoder::Encoder(){}
 
-void Encoder::Encode(Image &image){
+void Encoder::Encode(Image &src, Image &dst){
     struct encoder_params params;
-    qtree_encode(&image.img, params);
+    qtree_encode(&src.img, &dst.img, params);
 }

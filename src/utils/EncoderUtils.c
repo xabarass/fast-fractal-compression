@@ -1,5 +1,34 @@
-#include "imageData.h"
-#include "frac_errors.h"
+#include "EncoderUtils.h"
+
+ERR_RET filter_grayscale(struct image_data* src, struct image_data* dst){
+    //TODO: add checks of sizes
+
+    int size=src->width*src->height;
+    for (int i=0; i<size; ++i){
+        u_int32_t rgb=(src->image_channels[R][i]*77 +
+                       src->image_channels[G][i]*151+
+                       src->image_channels[B][i]*28)>>8;
+
+        dst->image_channels[R][i]=(rgb<<16)|(rgb<<8)|rgb;
+        dst->image_channels[G][i]=(rgb<<16)|(rgb<<8)|rgb;
+        dst->image_channels[B][i]=(rgb<<16)|(rgb<<8)|rgb;
+    }
+
+    return ERR_SUCCESS;
+}
+
+ERR_RET adjust_image_size(struct image_data* src, struct image_data* dst, u_int32_t rows, u_int32_t col){
+    u_int32_t width=src->width;
+    while(src->width%rows!=0)
+        width--;
+
+    u_int32_t height=src->height;
+    while(src->height%col!=0){
+        height--;
+    }
+
+    return ERR_SUCCESS;
+}
 
 int get_average_pixel(pixel_value* domain_data, int domain_width,
 	int domain_x, int domain_y, int size, int* average_pixel)

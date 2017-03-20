@@ -21,11 +21,12 @@ int main(){
     perf_init();
 
     cycles_count_start ();
-    BMPImage img("test_images/lena.bmp");
+    BMPImage img("lena.bmp");
     img.Load();
+    BMPImage res("result.bmp", img.GetWidth(), img.GetHeight(), img.GetChannels());
     Encoder enc;
-    enc.Encode(img);
-    img.Save();
+    enc.Encode(img, res);
+    res.Save();
     int64_t cycles = cycles_count_stop ();
     cout<<"Counted cycles: "<<cycles<<endl;
 
