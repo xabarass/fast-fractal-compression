@@ -1,5 +1,7 @@
 #include "EncoderUtils.h"
 
+#define MODULE_NAME "EncoderUtils"
+
 ERR_RET filter_grayscale(struct image_data* src, struct image_data* dst){
     //TODO: add checks of sizes
 
@@ -17,7 +19,7 @@ ERR_RET filter_grayscale(struct image_data* src, struct image_data* dst){
     return ERR_SUCCESS;
 }
 
-ERR_RET adjust_image_size(struct image_data* src, struct image_data* dst, u_int32_t rows, u_int32_t col){
+ERR_RET adjust_image_size_down(struct image_data* src, struct image_data* dst, u_int32_t rows, u_int32_t col){
     u_int32_t width=src->width;
     while(src->width%rows!=0)
         width--;
@@ -25,6 +27,30 @@ ERR_RET adjust_image_size(struct image_data* src, struct image_data* dst, u_int3
     u_int32_t height=src->height;
     while(src->height%col!=0){
         height--;
+    }
+
+    return ERR_SUCCESS;
+}
+
+ERR_RET tile_rectengular(struct image_data *img, u_int32_t rows, u_int32_t columns, struct image_tile_list *tiles){
+    adjust_image_size_down(img, img, rows, columns);
+
+    u_int32_t block_width=img->width/columns;
+    u_int32_t block_height=img->height/rows;
+
+    tiles->size=rows*columns;
+    tiles->tiles=(struct image_tile*)malloc(tiles->size*sizeof(struct image_tile));
+    tiles->src_image=img;
+    LOGD("Address 0x%04x\n", tiles->tiles);
+    size_t index=0;
+    for(size_t y=0; y<rows; y++){
+        for (size_t x=0; x<columns; x++){
+            tiles->tiles[index].x=block_width*x;
+            tiles->tiles[index].y=block_height*y;
+            tiles->tiles[index].width=block_width;
+            tiles->tiles[index].height=block_height;
+            index++;
+        }
     }
 
     return ERR_SUCCESS;
