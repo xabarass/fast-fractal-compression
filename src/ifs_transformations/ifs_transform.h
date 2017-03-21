@@ -45,6 +45,7 @@ struct ifs_transformation_list{
 ERR_RET ifs_trans_push_back(struct ifs_transformation_list* list, struct ifs_transformation* transformation);
 ERR_RET ifs_transformation_execute(struct ifs_transformation* transformation, pixel_value* src, u_int32_t src_width,
                                    pixel_value* dest, u_int32_t dest_width, bool downsampled);
-//static PixelValue *DownSample(pixel_value *src, int srcWidth, int startX, int startY, int targetSize);
+
+ERR_RET down_sample(pixel_value *src, int src_width, int start_x, int start_y, int target_size, pixel_value * sample);
 
 #endif //FRACTALCOMPRESSION_IFS_TRANSFORM_H
