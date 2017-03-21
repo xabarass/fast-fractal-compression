@@ -11,6 +11,6 @@ struct encoder_params{
 
 ERR_RET qtree_encode(struct image_data* src,struct image_data *dst, struct encoder_params params);
 ERR_RET find_matches_for(struct image_data *img, struct ifs_transformation_list* transformations, u_int32_t to_x,
-                         u_int32_t to_y, u_int32_t block_size);
+                         u_int32_t to_y, u_int32_t block_size, u_int32_t threshold);
 
 #endif // QUADTREEENCODER_H
