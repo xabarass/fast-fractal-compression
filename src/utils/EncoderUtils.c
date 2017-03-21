@@ -56,16 +56,16 @@ ERR_RET tile_rectengular(struct image_data *img, u_int32_t rows, u_int32_t colum
     return ERR_SUCCESS;
 }
 
-int get_average_pixel(pixel_value* domain_data, int domain_width,
-	int domain_x, int domain_y, int size, int* average_pixel)
+ERR_RET get_average_pixel(pixel_value* domain_data, u_int32_t domain_width,
+    u_int32_t domain_x, u_int32_t domain_y, u_int32_t size, u_int32_t* average_pixel)
 {
-	int top = 0;
-	int bottom = (size * size);
+    u_int32_t top = 0;
+    u_int32_t bottom = (size * size);
 
 	// Simple average of all pixels.
-	for (int y = domain_y; y < domain_y + size; y++)
+    for (size_t y = domain_y; y < domain_y + size; y++)
 	{
-		for (int x = domain_x; x < domain_x + size; x++)
+        for (size_t x = domain_x; x < domain_x + size; x++)
 		{
 			top += domain_data[y * domain_width + x];
 
@@ -81,7 +81,7 @@ int get_average_pixel(pixel_value* domain_data, int domain_width,
 }
 
 
-double get_error(
+ERR_RET get_error(
 	pixel_value* domain_data, int domain_width, int domain_x, int domain_y, int domain_avg,
 	pixel_value* range_data, int range_width, int range_x, int range_y, int range_avg,
 	int size, double scale, double* error)
@@ -109,10 +109,12 @@ double get_error(
 	}
 
 	*error = top / bottom;
+
+    return ERR_SUCCESS;
 }
 
 
-double get_scale_factor(
+ERR_RET get_scale_factor(
 	pixel_value* domain_data, int domain_width, int domain_x, int domain_y, int domain_avg,
 	pixel_value* range_Data, int range_width, int range_x, int range_y, int range_avg,
 	int size, double* scale_factor)
@@ -146,4 +148,5 @@ double get_scale_factor(
 	}
 
 	*scale_factor = ((double)top) / ((double)bottom);
+    return ERR_SUCCESS;
 }

@@ -4,4 +4,4 @@ set(ENCODER_SRC
 )
 add_library(encoder STATIC ${ENCODER_SRC})
 
-target_link_libraries(encoder utils)
+target_link_libraries(encoder utils ifs_transform)

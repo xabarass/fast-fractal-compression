@@ -24,3 +24,20 @@
 
 //    return dest;
 //}
+
+ERR_RET ifs_trans_push_back(struct ifs_transformation_list* list, struct ifs_transformation* transformation){
+    if(list->head==NULL && list->tail==NULL){
+        list->head=transformation;
+        list->tail=transformation;
+    }else{
+        list->tail->next=transformation;
+        list->tail=transformation;
+    }
+
+    return ERR_SUCCESS;
+}
+
+ERR_RET ifs_transformation_execute(struct ifs_transformation* transformation, pixel_value* src, u_int32_t src_width,
+                                   pixel_value* dest, u_int32_t dest_width, bool downsampled){
+
+}
