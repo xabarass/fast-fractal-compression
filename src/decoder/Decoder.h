@@ -13,6 +13,6 @@ class Decoder {
         Decoder();
         ~Decoder();
         void Decode(ifs_transformation_list list, int height, int width);
-}
+};
 
 #endif // DECODER_H
