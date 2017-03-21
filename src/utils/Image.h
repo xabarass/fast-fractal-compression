@@ -16,6 +16,7 @@ using std::runtime_error;
 using std::string;
 
 class Encoder;
+class Decoder;
 
 class Image
 {
@@ -43,6 +44,7 @@ protected:
     struct image_data img;
 
     friend class Encoder;
+    friend class Decoder;
 };
 
 #endif // IMAGE_H
