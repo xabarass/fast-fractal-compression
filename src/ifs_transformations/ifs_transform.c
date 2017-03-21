@@ -1,7 +1,6 @@
 #include "ifs_transform.h"
 
 ERR_RET down_sample(pixel_value *src, int src_width, int start_x, int start_y, int target_size, pixel_value* sample) {
-    sample = malloc((target_size * target_size)*sizeof(pixel_value));
     int dest_x = 0;
     int dest_y = 0;
 
@@ -41,4 +40,106 @@ ERR_RET ifs_trans_push_back(struct ifs_transformation_list* list, struct ifs_tra
 ERR_RET ifs_transformation_execute(struct ifs_transformation* transformation, pixel_value* src, u_int32_t src_width,
                                    pixel_value* dest, u_int32_t dest_width, bool downsampled){
 
+    int from_x = transformation->from_x/ 2;
+    int from_y = transformation->from_y / 2;
+    int d_x = 1;
+    int d_y = 1;
+    enum ifs_type symmetry=transformation->transformation_type;
+    bool in_order = isScanlineOrder(symmetry);
+
+    if (!downsampled)
+    {
+        pixel_value* downsampled=(pixel_value*)malloc(transformation->size*sizeof(pixel_value));
+        down_sample(src, src_width, transformation->from_x, transformation->from_y, transformation->size, downsampled);
+        src = downsampled;
+        src_width = transformation->size;
+        from_y = from_x = 0;
+    }
+
+    if (!isPositiveX(symmetry))
+    {
+        from_x += transformation->size - 1;
+        d_x = -1;
+    }
+
+    if (!isPositiveY(symmetry))
+    {
+        from_y += transformation->size - 1;
+        d_y = -1;
+    }
+
+    int start_x = from_x;
+    int start_y = from_y;
+
+    for (int to_y = transformation->to_y; to_y < (transformation->to_y +  transformation->size); to_y++)
+    {
+        for (int to_x = transformation->to_x; to_x < (transformation->to_x + transformation->size); to_x++)
+        {
+
+            int pixel = src[from_y * src_width+ from_x];
+            pixel = (int)(transformation->scale * pixel) + transformation->offset;
+
+            if (pixel < 0)
+                pixel = 0;
+            if (pixel > 255)
+                pixel = 255;
+
+            dest[to_y * dest_width+ to_x] = pixel;
+
+            if (in_order)
+                from_x += d_x;
+            else
+                from_y += d_y;
+        }
+
+        if (in_order)
+        {
+            from_x= start_x;
+            from_y += d_y;
+        }
+        else
+        {
+            from_y = start_y;
+            from_x += d_x;
+        }
+    }
+
+    if (!downsampled)
+    {
+        free(src);
+        src = NULL;
+    }
+
+    return ERR_SUCCESS;
+
+}
+
+bool isScanlineOrder(enum ifs_type symmetry)
+{
+    return (
+        symmetry == SYM_NONE ||
+        symmetry == SYM_R180 ||
+        symmetry == SYM_HFLIP ||
+        symmetry == SYM_VFLIP
+    );
+}
+
+bool isPositiveX(enum ifs_type symmetry)
+{
+    return (
+        symmetry == SYM_NONE ||
+        symmetry == SYM_R90 ||
+        symmetry == SYM_VFLIP ||
+        symmetry == SYM_RDFLIP
+    );
+}
+
+bool isPositiveY(enum ifs_type symmetry)
+{
+    return (
+        symmetry == SYM_NONE ||
+        symmetry == SYM_R270 ||
+        symmetry == SYM_HFLIP ||
+        symmetry == SYM_RDFLIP
+    );
 }

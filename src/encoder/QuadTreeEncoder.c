@@ -2,24 +2,46 @@
 
 #define MODULE_NAME "QuadTreeEncoder"
 
+#define BUFFER_SIZE (16)
+
 ERR_RET qtree_encode(struct image_data* src, struct image_data* dst, struct encoder_params params){
-    filter_grayscale(src,dst);
+    struct ifs_transformation_list* transformations=
+            (struct ifs_transformation_list*)malloc(sizeof(struct ifs_transformation_list));
 
-    struct image_tile_list tile_list;
-    tile_rectengular(dst, 64, 64, &tile_list);
+    struct image_data img;
+    u_int32_t width=src->width;
+    u_int32_t height=src->height;
+    u_int32_t size=width*height;
+    u_int32_t threshold=100;    //Temporary fixed value!
 
-    for(size_t tile=0; tile<tile_list.size; ++tile){
-        struct image_tile* current_tile=tile_list.tiles+tile;
-
-        for(size_t y=current_tile->y; y<current_tile->y+current_tile->height; ++y){
-            for(size_t x=y*tile_list.src_image->width+current_tile->x;
-                x<y*tile_list.src_image->width+current_tile->x+current_tile->width;++x){
-
-                if(tile%2)
-                    tile_list.src_image->image_channels[R][x]=0;
-            }
-        }
+    if (width % 32 != 0 || height % 32 != 0)
+    {
+        return ERR_IMAGE_WRONG_SIZE;
     }
+
+    init_image_data(&img, width, height,2);
+    for (size_t channel=0; channel<=src->channels; channel++){
+
+        memcpy(img.image_channels[0],src->image_channels[channel], size*sizeof(pixel_value));
+        down_sample(img.image_channels[0], width, 0,0,width/2, img.image_channels[1]);
+
+        if (channel >= 1)
+            threshold *= 2;
+
+        for (size_t y = 0; y < img.height; y += BUFFER_SIZE)
+        {
+            for (size_t x = 0; x < img.width; x += BUFFER_SIZE)
+            {
+                find_matches_for(&img, transformations,x,y,BUFFER_SIZE,threshold);
+                printf(".");
+            }
+            printf("\n");
+        }
+
+        if (channel >= 1 )
+            threshold /= 2;
+    }
+
 
     return ERR_SUCCESS;
 }
