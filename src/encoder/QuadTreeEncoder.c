@@ -25,13 +25,10 @@ ERR_RET qtree_encode(struct image_data* src, struct image_data* dst, struct enco
 }
 
 ERR_RET find_matches_for(struct image_data* img, struct ifs_transformation_list* transformations, u_int32_t to_x,
-                         u_int32_t to_y, u_int32_t block_size){
+                         u_int32_t to_y, u_int32_t block_size, u_int32_t threshold){
 
-    u_int32_t best_x = 0;
-    u_int32_t best_y = 0;
-    u_int32_t best_offset= 0;
-    enum ifs_type best_transformation = SYM_NONE;
-    double best_scale = 0;
+    struct ifs_transformation best_ifs_transform;
+    best_ifs_transform.transformation_type=SYM_NONE;
     double best_error = 1e9;
 
     pixel_value* buffer=(pixel_value*)malloc(block_size*block_size*sizeof(pixel_value));
@@ -70,18 +67,36 @@ ERR_RET find_matches_for(struct image_data* img, struct ifs_transformation_list*
                         img->width, to_x, to_y, range_avarage, block_size, scale_factor, &error);
 
                 if(error<best_error){
+                    best_ifs_transform.from_x=x;
+                    best_ifs_transform.from_y=y;
+                    best_ifs_transform.to_x=to_x;
+                    best_ifs_transform.to_y=to_y;
+                    best_ifs_transform.transformation_type=current_type;
+                    best_ifs_transform.scale=scale_factor;
+                    best_ifs_transform.offset=offset;
+
                     best_error=error;
-                    best_x=x;
-                    best_y=y;
-                    best_transformation=current_type;
-                    best_scale=scale_factor;
-                    best_offset=offset;
                 }
 
                 if(!transformations)
                     break;
             }
         }
+    }
+
+    if (block_size > 2 && best_error >= threshold)
+    {
+        // Recurse into the four corners of the current block.
+        block_size /= 2;
+        find_matches_for(img,transformations,to_x, to_y,block_size,threshold);
+        find_matches_for(img,transformations,to_x+block_size, to_y,block_size,threshold);
+        find_matches_for(img,transformations,to_x, to_y+block_size,block_size,threshold);
+        find_matches_for(img,transformations,to_x+block_size, to_y+block_size,block_size,threshold);
+    }
+    else
+    {
+        // Use this transformation
+        ifs_trans_push_back(transformations,&best_ifs_transform);
     }
 
     return ERR_SUCCESS;

@@ -7,6 +7,7 @@
 
 #include <common.h>
 #include <utils/ImageData.h>
+#include <string.h>
 
 enum ifs_type
 {

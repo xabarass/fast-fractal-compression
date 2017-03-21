@@ -25,12 +25,14 @@ ERR_RET down_sample(pixel_value *src, int src_width, int start_x, int start_y, i
 }
 
 ERR_RET ifs_trans_push_back(struct ifs_transformation_list* list, struct ifs_transformation* transformation){
+    struct ifs_transformation* new_transformation=(struct ifs_transformation*)malloc(sizeof(struct ifs_transformation));
+    memcpy(new_transformation, transformation, sizeof(struct ifs_transformation));
     if(list->head==NULL && list->tail==NULL){
-        list->head=transformation;
-        list->tail=transformation;
+        list->head=new_transformation;
+        list->tail=new_transformation;
     }else{
-        list->tail->next=transformation;
-        list->tail=transformation;
+        list->tail->next=new_transformation;
+        list->tail=new_transformation;
     }
 
     return ERR_SUCCESS;
