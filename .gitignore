@@ -19,6 +19,7 @@ Makefile
 release/
 lib/pcm/pcm_Export.h
 .DS_Store
+.idea
 FractalCompression.config
 FractalCompression.creator
 FractalCompression.files
