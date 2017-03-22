@@ -4,9 +4,8 @@
 
 #define BUFFER_SIZE (16)
 
-ERR_RET qtree_encode(struct image_data* src, struct image_data* dst, struct encoder_params params){
-    struct ifs_transformation_list* transformations=
-            (struct ifs_transformation_list*)malloc(sizeof(struct ifs_transformation_list));
+ERR_RET qtree_encode(struct Transforms* transformations, struct image_data* src, struct image_data* dst, struct encoder_params params){
+    transformations=(struct Transforms*)malloc(sizeof(struct Transforms));
 
     struct image_data img;
     u_int32_t width=src->width;
@@ -33,8 +32,8 @@ ERR_RET qtree_encode(struct image_data* src, struct image_data* dst, struct enco
         {
             for (size_t x = 0; x < img.width; x += BUFFER_SIZE)
             {
-                find_matches_for(&img, transformations,x,y,BUFFER_SIZE,threshold);
-                printf(".");
+                find_matches_for(&img, transformations->ch+channel,x,y,BUFFER_SIZE,threshold);
+                printf(".\n");
             }
             printf("\n");
         }

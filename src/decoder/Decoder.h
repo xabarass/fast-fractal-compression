@@ -11,8 +11,7 @@ extern "C"{
 class Decoder {
     public:
         Decoder();
-        ~Decoder();
-        void Decode(ifs_transformation_list list, int height, int width);
+        void Decode(Transforms* transform, int height, int width);
 };
 
 #endif // DECODER_H

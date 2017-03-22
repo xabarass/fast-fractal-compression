@@ -12,7 +12,7 @@ class Encoder
 public:
     Encoder();
 
-    void Encode(Image& src, Image &dst);
+    void Encode(Image& src, Image &dst, struct Transforms* transformation);
 };
 
 #endif // ENCODER_H

@@ -5,6 +5,7 @@
 
 #include <utils/BMPImage.h>
 #include <encoder/Encoder.h>
+#include <decoder/Decoder.h>
 
 using namespace std;
 
@@ -25,8 +26,11 @@ int main(){
     img.Load();
     BMPImage res("result.bmp", img.GetWidth(), img.GetHeight(), img.GetChannels());
     Encoder enc;
-    enc.Encode(img, res);
-    res.Save();
+    Transforms transforms;
+    enc.Encode(img, res, &transforms);
+    Decoder dec;
+    dec.Decode(&transforms, img.GetHeight(), img.GetWidth());
+    img.Save();
     int64_t cycles = cycles_count_stop ();
     cout<<"Counted cycles: "<<cycles<<endl;
 
