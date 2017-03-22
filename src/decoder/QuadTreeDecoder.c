@@ -1,6 +1,8 @@
 #include "QuadTreeDecoder.h"
 
-void qtree_decode(struct Transforms* transforms, int height, int width) {
+#define MODULE_NAME "QTDecoder"
+
+void qtree_decode(struct Transforms* transforms, int height, int width, struct image_data* destination) {
     struct image_data *img = (struct image_data *)malloc(sizeof(struct image_data));
     img->width = width;
     img->height = height;
@@ -25,7 +27,8 @@ void qtree_decode(struct Transforms* transforms, int height, int width) {
         struct ifs_transformation_list iter = transforms->ch[channel];
         struct ifs_transformation* temp = iter.head;
         while(temp != NULL) {
-            ifs_transformation_execute(temp, original_image, img->width, original_image, img->width, false);
+
+            ifs_transformation_execute(temp, original_image, img->width, destination->image_channels[channel], img->width, true);
             temp = temp->next;
         } 
     }

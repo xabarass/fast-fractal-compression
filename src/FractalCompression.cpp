@@ -43,13 +43,15 @@ int main(int argc, char** argv){
     cycles_count_start ();
     BMPImage img(image_path.c_str());
     img.Load();
-    BMPImage res("result.bmp", img.GetWidth(), img.GetHeight(), img.GetChannels());
     Encoder enc;
-    Transforms transforms;
-    enc.Encode(img, res, &transforms);
+    Transforms* transforms;
+    enc.Encode(img, &transforms);
+
+    BMPImage result("result.bmp", img.GetHeight(), img.GetWidth(), img.GetChannels());
     Decoder dec;
-    dec.Decode(&transforms, img.GetHeight(), img.GetWidth());
-    img.Save();
+    dec.Decode(transforms, result);
+    result.Save();
+
     int64_t cycles = cycles_count_stop ();
     cout<<"Counted cycles: "<<cycles<<endl;
 

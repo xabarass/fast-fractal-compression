@@ -41,6 +41,7 @@ struct ifs_transformation{
 struct ifs_transformation_list{
     struct ifs_transformation* head;
     struct ifs_transformation* tail;
+    u_int32_t elements;
 };
 
 

@@ -5,6 +5,7 @@
 #include <stdbool.h>
 #include <stdio.h>
 #include <stdint.h>
+#include <assert.h>
 
 #include "frac_errors.h"
 

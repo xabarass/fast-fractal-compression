@@ -1,5 +1,7 @@
 #include "ifs_transform.h"
 
+#define MODULE_NAME "ifsTransform"
+
 ERR_RET down_sample(pixel_value *src, int src_width, int start_x, int start_y, int target_size, pixel_value* sample) {
     int dest_x = 0;
     int dest_y = 0;
@@ -26,21 +28,23 @@ ERR_RET down_sample(pixel_value *src, int src_width, int start_x, int start_y, i
 ERR_RET ifs_trans_push_back(struct ifs_transformation_list* list, struct ifs_transformation* transformation){
     struct ifs_transformation* new_transformation=(struct ifs_transformation*)malloc(sizeof(struct ifs_transformation));
     memcpy(new_transformation, transformation, sizeof(struct ifs_transformation));
+    new_transformation->next=NULL;
     if(list->head==NULL && list->tail==NULL){
         list->head=new_transformation;
         list->tail=new_transformation;
     }else{
+        assert(list->tail!=NULL);
         list->tail->next=new_transformation;
         list->tail=new_transformation;
     }
-
+    list->elements++;
     return ERR_SUCCESS;
 }
 
 ERR_RET ifs_transformation_execute(struct ifs_transformation* transformation, pixel_value* src, u_int32_t src_width,
                                    pixel_value* dest, u_int32_t dest_width, bool downsampled){
 
-    int from_x = transformation->from_x/ 2;
+    int from_x = transformation->from_x / 2;
     int from_y = transformation->from_y / 2;
     int d_x = 1;
     int d_y = 1;
@@ -49,9 +53,9 @@ ERR_RET ifs_transformation_execute(struct ifs_transformation* transformation, pi
 
     if (!downsampled)
     {
-        pixel_value* downsampled=(pixel_value*)malloc(transformation->size*sizeof(pixel_value));
-        down_sample(src, src_width, transformation->from_x, transformation->from_y, transformation->size, downsampled);
-        src = downsampled;
+        pixel_value* downsampled_img=(pixel_value*)malloc(transformation->size*sizeof(pixel_value));
+        down_sample(src, src_width, transformation->from_x, transformation->from_y, transformation->size, downsampled_img);
+        src = downsampled_img;
         src_width = transformation->size;
         from_y = from_x = 0;
     }

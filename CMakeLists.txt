@@ -24,7 +24,7 @@ set (CMAKE_RUNTIME_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/bin")
 
 set(DEFAULT_FLAGS "-Wall -Wpedantic -Wchkp -Wno-cpp -Wno-variadic-macros")
 set(OPTIMIZATION_FLAGS  "-O3 -march=native")
-set(DEBUG_FLAGS         "-g")
+set(DEBUG_FLAGS         "-O0 -g")
 
 # ================================================================================
 # Options to customize build

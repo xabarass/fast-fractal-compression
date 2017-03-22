@@ -4,9 +4,7 @@
 
 #define BUFFER_SIZE (16)
 
-ERR_RET qtree_encode(struct Transforms* transformations, struct image_data* src, struct image_data* dst, struct encoder_params params){
-    transformations=(struct Transforms*)malloc(sizeof(struct Transforms));
-
+ERR_RET qtree_encode(struct Transforms* transformations, struct image_data* src, struct encoder_params params){
     struct image_data img;
     u_int32_t width=src->width;
     u_int32_t height=src->height;
@@ -19,21 +17,24 @@ ERR_RET qtree_encode(struct Transforms* transformations, struct image_data* src,
     }
 
     init_image_data(&img, width, height,2);
+    transformations->channels=src->channels;
 
     for (size_t channel=0; channel<src->channels; channel++){
         memcpy(img.image_channels[0],src->image_channels[channel], size*sizeof(pixel_value));
         down_sample(img.image_channels[0], width, 0,0,width/2, img.image_channels[1]);
+        transformations->ch[channel].head=NULL;
+        transformations->ch[channel].tail=NULL;
+        transformations->ch[channel].elements=0;
 
         if (channel >= 1)
             threshold *= 2;
 
-        printf("Height: %d, width: %d\n",img.height,img.width);
         for (size_t y = 0; y < img.height; y += BUFFER_SIZE)
         {
             for (size_t x = 0; x < img.width; x += BUFFER_SIZE)
             {
-                find_matches_for(&img, transformations->ch+channel,x,y,BUFFER_SIZE,threshold);
-                printf(".\n");
+                find_matches_for(&img, transformations->ch+channel,x,y, BUFFER_SIZE, threshold);
+                printf(".");
             }
             printf("\n");
         }
@@ -42,6 +43,8 @@ ERR_RET qtree_encode(struct Transforms* transformations, struct image_data* src,
             threshold /= 2;
     }
 
+
+    assert(transformations->channels==3);
 
     return ERR_SUCCESS;
 }
@@ -96,6 +99,7 @@ ERR_RET find_matches_for(struct image_data* img, struct ifs_transformation_list*
                     best_ifs_transform.transformation_type=current_type;
                     best_ifs_transform.scale=scale_factor;
                     best_ifs_transform.offset=offset;
+                    best_ifs_transform.size=ifs.size;
 
                     best_error=error;
                 }
@@ -118,7 +122,7 @@ ERR_RET find_matches_for(struct image_data* img, struct ifs_transformation_list*
     else
     {
         // Use this transformation
-        ifs_trans_push_back(transformations,&best_ifs_transform);
+        ifs_trans_push_back(transformations, &best_ifs_transform);
     }
 
     free(buffer);
