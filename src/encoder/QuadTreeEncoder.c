@@ -20,14 +20,15 @@ ERR_RET qtree_encode(struct image_data* src, struct image_data* dst, struct enco
     }
 
     init_image_data(&img, width, height,2);
-    for (size_t channel=0; channel<=src->channels; channel++){
 
+    for (size_t channel=0; channel<src->channels; channel++){
         memcpy(img.image_channels[0],src->image_channels[channel], size*sizeof(pixel_value));
         down_sample(img.image_channels[0], width, 0,0,width/2, img.image_channels[1]);
 
         if (channel >= 1)
             threshold *= 2;
 
+        printf("Height: %d, width: %d\n",img.height,img.width);
         for (size_t y = 0; y < img.height; y += BUFFER_SIZE)
         {
             for (size_t x = 0; x < img.width; x += BUFFER_SIZE)

@@ -21,7 +21,7 @@ int main(){
     perf_init();
 
     cycles_count_start ();
-    BMPImage img("lena.bmp");
+    BMPImage img("/Users/toshnh/study/htwfnc/project/fractal-compression/test_images/lena.bmp");
     img.Load();
     BMPImage res("result.bmp", img.GetWidth(), img.GetHeight(), img.GetChannels());
     Encoder enc;
