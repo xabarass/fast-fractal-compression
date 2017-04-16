@@ -4,18 +4,24 @@
 
 #define BUFFER_SIZE (16)
 
-ERR_RET qtree_encode(struct Transforms* transformations, struct image_data* src, struct encoder_params params){
+ERR_RET qtree_encode(struct Transforms* transformations, struct image_data* src, struct encoder_params params,
+                     u_int32_t threshold_param){
     struct image_data img;
     u_int32_t width=src->width;
     u_int32_t height=src->height;
     u_int32_t size=width*height;
-    u_int32_t threshold=100;    //Temporary fixed value!
+    u_int32_t threshold=threshold_param;    //Temporary fixed value!
 
     if (width % 32 != 0 || height % 32 != 0)
     {
         return ERR_IMAGE_WRONG_SIZE;
     }
 
+    /*
+     * Make sense because you are only working with two channels
+     * [0] -> Original channel data
+     * [1] -> Downsampled channel data
+     */
     init_image_data(&img, width, height,2);
     transformations->channels=src->channels;
 

@@ -26,11 +26,29 @@ int main(int argc, char** argv){
     cout<<"Git version: "<<" "<<s_GIT_SHA1_HASH<<" "<<s_GIT_REFSPEC<<endl;
     cout<<endl;
 
-    if (argc != 2) {
+    // Load some parameters
+    bool usage = true;
+    int verb;
+    u_int32_t threshold;
+    string image_path;
+    for(int i=1; i<argc && usage; i++) {
+        string param(argv[i]);
+        if (param == "-v" && i + 1 < argc)
+            verb = atoi(argv[i + 1]);
+        else if (param == "-t" && i + 1 < argc)
+            threshold = atoi(argv[i + 1]);
+
+        if (param.at(0) == '-') i++;
+        else {
+            image_path = param;
+            usage = false;
+        }
+    }
+
+    if (argc < 2) {
         std::cout << "Usage: fractal-compression <path-to-image>\n";
         return ERR_NO_IMAGE_PATH;
     }
-    std::string image_path(argv[1]);
 
     if (!exists_image(image_path.c_str())) {
         std::cout << "Provided image does not exist\n";
@@ -45,7 +63,7 @@ int main(int argc, char** argv){
     img.Load();
     Encoder enc;
     Transforms* transforms;
-    enc.Encode(img, &transforms);
+    enc.Encode(img, &transforms, threshold);
 
     BMPImage result("result.bmp", img.GetHeight(), img.GetWidth(), img.GetChannels());
     Decoder dec;
