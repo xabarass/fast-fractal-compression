@@ -9,7 +9,7 @@ ERR_RET down_sample(pixel_value *src, int src_width, int start_x, int start_y, i
     for (int y = start_y; y < start_y + target_size * 2; y += 2) {
         for (int x = start_x; x < start_x + target_size * 2; x += 2) {
             // Perform simple 2x2 average
-            uint8_t pixel = 0;
+            uint32_t pixel = 0;
             pixel += src[y * src_width + x];
             pixel += src[y * src_width + (x + 1)];
             pixel += src[(y + 1) * src_width + x];
