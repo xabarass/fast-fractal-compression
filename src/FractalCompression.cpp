@@ -64,10 +64,16 @@ int main(int argc, char** argv){
     Encoder enc;
     Transforms* transforms;
     enc.Encode(img, &transforms, threshold);
-
+    printf("BLA Image height: %d, width: %d\n", img.GetHeight(), img.GetWidth());
     BMPImage result("result.bmp", img.GetHeight(), img.GetWidth(), img.GetChannels());
     Decoder dec;
-    dec.Decode(transforms, result);
+    int maxphases = 1;
+    for (int phase = 1; phase <= maxphases; phase++) {
+        dec.Decode(transforms, result);
+        if (transforms == NULL) {
+            break;
+        }
+    }
     result.Save();
 
     int64_t cycles = cycles_count_stop ();

@@ -2,35 +2,31 @@
 
 #define MODULE_NAME "QTDecoder"
 
+ERR_RET print_transformation(struct ifs_transformation best_ifs) {
+    printf("to=(%d, %d)\n", best_ifs.to_x, best_ifs.to_y);
+    printf("from=(%d, %d)\n", best_ifs.from_x, best_ifs.from_y);
+    printf("best symmetry=%d\n", best_ifs.transformation_type);
+    printf("best offset=%d\n", best_ifs.offset);
+    printf("best scale=%lf\n", best_ifs.scale);
+    return ERR_SUCCESS;
+}
+
 void qtree_decode(struct Transforms* transforms, int height, int width, struct image_data* destination) {
-    struct image_data *img = (struct image_data *)malloc(sizeof(struct image_data));
-    img->width = width;
-    img->height = height;
-    img->channels = 3;
-    img->image_channels[0] = (pixel_value *)malloc(sizeof(pixel_value)* width * height);
-    img->image_channels[1] = (pixel_value *)malloc(sizeof(pixel_value)* width * height); 
-    img->image_channels[2] = (pixel_value *)malloc(sizeof(pixel_value)* width * height); 
-
-    // Initialize to grey image
-    for(int i = 0; i < img->channels; i++) {
-        for(int j = 0; j < img->width * img->height; j++) {
-            img->image_channels[i][j] = 127;
-        }
-    }
-
     // Decoding starts here
     printf("Decoder\n\n\n");
-    img->channels = transforms->channels;
-    for (int channel = 0; channel < img->channels; channel++) {
-        pixel_value *original_image = img->image_channels[channel];
+    destination->channels = transforms->channels;
+    for (int channel = 0; channel < destination->channels; channel++) {
+        pixel_value *original_image = destination->image_channels[channel];
 
         // Iterate over Transforms
         struct ifs_transformation_list iter = transforms->ch[channel];
         struct ifs_transformation* temp = iter.head;
         while(temp != NULL) {
-            ifs_transformation_execute(temp, original_image, img->width, destination->image_channels[channel], img->width, false);
+            // print_transformation(*temp);
+            ifs_transformation_execute(temp, original_image, destination->width, original_image, destination->width, false);
+            // Print the destination image
             temp = temp->next;
-        } 
+        }
     }
 
 }
