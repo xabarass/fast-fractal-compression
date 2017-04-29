@@ -2,8 +2,8 @@
 
 #define MODULE_NAME "bmp_image"
 
-BMPHeader::BMPHeader():type(0x4d42), reserved1(0x0), reserved2(0x0),
-    size(sizeof(BMPHeader)+sizeof(BMPInformation)), offset(sizeof(BMPHeader)+sizeof(BMPInformation)){}
+BMPHeader::BMPHeader():type(0x4d42), reserved1(0x0), reserved2(0x0), offset(sizeof(BMPHeader)+sizeof(BMPInformation)),size(sizeof(BMPHeader)+sizeof(BMPInformation)){
+}
 
 BMPInformation::BMPInformation():size(sizeof(BMPInformation)){}
 
@@ -47,6 +47,7 @@ void BMPImage::Load(){
             img.image_channels[j][element]=data[i++];
         }
     }
+    printf("%d\n", convert_from_RGB_to_YCbCr(&img));
 
     delete []data;
 }
@@ -80,7 +81,7 @@ void BMPImage::Save(){
 
     fwrite(&header,sizeof(BMPHeader), 1, f);
     fwrite(&info, sizeof(BMPInformation), 1, f);
-
+    convert_from_YCbCr_to_RGB(&img);
     unsigned char* row=new unsigned char[rowSize];
     int pixelIndex=0;
     for (int i=0;i<info.height; ++i){
