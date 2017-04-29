@@ -19,6 +19,7 @@ void qtree_decode(struct Transforms* transforms, int height, int width, struct i
     }
 
     // Decoding starts here
+    printf("Decoder\n\n\n");
     img->channels = transforms->channels;
     for (int channel = 0; channel < img->channels; channel++) {
         pixel_value *original_image = img->image_channels[channel];
@@ -27,8 +28,7 @@ void qtree_decode(struct Transforms* transforms, int height, int width, struct i
         struct ifs_transformation_list iter = transforms->ch[channel];
         struct ifs_transformation* temp = iter.head;
         while(temp != NULL) {
-
-            ifs_transformation_execute(temp, original_image, img->width, destination->image_channels[channel], img->width, true);
+            ifs_transformation_execute(temp, original_image, img->width, destination->image_channels[channel], img->width, false);
             temp = temp->next;
         } 
     }

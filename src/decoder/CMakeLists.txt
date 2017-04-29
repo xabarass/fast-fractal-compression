@@ -1,7 +1,7 @@
 set(DECODER_SRC
-    test_decoder.c
     QuadTreeDecoder.c
     Decoder.cpp
+    test_decoder.c
 )
 add_library(decoder STATIC ${DECODER_SRC})
 

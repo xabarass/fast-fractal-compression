@@ -15,7 +15,6 @@ ERR_RET down_sample(pixel_value *src, int src_width, int start_x, int start_y, i
             pixel += src[(y + 1) * src_width + x];
             pixel += src[(y + 1) * src_width + (x + 1)];
             pixel /= 4;
-
             sample[dest_y * target_size + dest_x] = pixel;
             dest_x++;
         }
@@ -50,7 +49,8 @@ ERR_RET ifs_transformation_execute(struct ifs_transformation* transformation, pi
     int d_y = 1;
     enum ifs_type symmetry=transformation->transformation_type;
     bool in_order = isScanlineOrder(symmetry);
-
+    // printf("from_x: %d, from_y: %d, d_x: %d, d_y: %d, in_order: %d\n",
+    //         from_x, from_y, d_x, d_y, in_order);
     if (!downsampled)
     {
         pixel_value* downsampled_img=(pixel_value*)malloc(transformation->size*sizeof(pixel_value));

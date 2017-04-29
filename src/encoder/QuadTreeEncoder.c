@@ -49,9 +49,20 @@ ERR_RET qtree_encode(struct Transforms* transformations, struct image_data* src,
             threshold /= 2;
     }
 
-
     assert(transformations->channels==3);
 
+    return ERR_SUCCESS;
+}
+
+ERR_RET print_best_transformation(struct ifs_transformation best_ifs) {
+    printf("from_x: %d\n", best_ifs.from_x);
+    printf("from_y: %d\n", best_ifs.from_y);
+    printf("to_x: %d\n", best_ifs.to_x);
+    printf("to_y: %d\n", best_ifs.to_y);
+    printf("transformation_type: %d\n", best_ifs.transformation_type);
+    printf("scale: %lf\n", best_ifs.scale);
+    printf("offset: %d\n", best_ifs.offset);
+    printf("size: %d\n", best_ifs.size);
     return ERR_SUCCESS;
 }
 
@@ -66,12 +77,15 @@ ERR_RET find_matches_for(struct image_data* img, struct ifs_transformation_list*
 
     u_int32_t range_avarage;
     get_average_pixel(img->image_channels[0], img->width, to_x, to_y, block_size, &range_avarage);
-
-    for(size_t y=0; y<img->height; y+=block_size*2){
-        for (size_t x=0; x<img->width; x+=block_size*2){
-            for(int transformation_type=0; transformation_type!=SYM_MAX; ++transformation_type){
+    printf("range avergae %d\n", range_avarage);
+    for(size_t y=0; y<img->height; y+=block_size*2)
+    {
+        for (size_t x=0; x<img->width; x+=block_size*2)
+        {
+            for(int transformation_type=0; transformation_type<SYM_MAX; ++transformation_type)
+            {
                 enum ifs_type current_type=(enum ifs_type)transformation_type;
-
+                // printf("trandformation type %d %d\n", current_type, SYM_MAX);
                 struct ifs_transformation ifs={
                     .from_x=x,
                     .from_y=y,
@@ -110,7 +124,7 @@ ERR_RET find_matches_for(struct image_data* img, struct ifs_transformation_list*
                     best_error=error;
                 }
 
-                if(!transformations)
+                if(!transformation_type)
                     break;
             }
         }
@@ -129,6 +143,7 @@ ERR_RET find_matches_for(struct image_data* img, struct ifs_transformation_list*
     {
         // Use this transformation
         ifs_trans_push_back(transformations, &best_ifs_transform);
+        // print_best_transformation(best_ifs_transform);
     }
 
     free(buffer);

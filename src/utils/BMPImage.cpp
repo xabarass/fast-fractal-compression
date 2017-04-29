@@ -30,7 +30,7 @@ void BMPImage::Load(){
     unsigned padding=(4-rowSize%4)%4;
     unsigned paddingPlaceholder;
 
-    fseek(f, header.offset, SEEK_SET);
+    //fseek(f, header.offset, SEEK_SET);
     for(int i=0; i<information.height; ++i){
         fread(data+(i*rowSize), 1, rowSize,f);
         fread(&paddingPlaceholder, 1, padding,f);
@@ -47,7 +47,7 @@ void BMPImage::Load(){
             img.image_channels[j][element]=data[i++];
         }
     }
-    printf("%d\n", convert_from_RGB_to_YCbCr(&img));
+    convert_from_RGB_to_YCbCr(&img);
 
     delete []data;
 }
