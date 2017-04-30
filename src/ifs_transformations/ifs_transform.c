@@ -10,6 +10,7 @@ ERR_RET down_sample(pixel_value *src, int src_width, int start_x, int start_y, i
         for (int x = start_x; x < start_x + target_size * 2; x += 2) {
             // Perform simple 2x2 average
             uint32_t pixel = 0;
+//            printf("Down_Sample: y: %d x: %d src_width: %d\n", y, x, src_width);
             pixel += src[y * src_width + x];
             pixel += src[y * src_width + (x + 1)];
             pixel += src[(y + 1) * src_width + x];
@@ -80,6 +81,7 @@ ERR_RET ifs_transformation_execute(struct ifs_transformation* transformation, pi
         for (int to_x = transformation->to_x; to_x < (transformation->to_x + transformation->size); to_x++)
         {
 
+//            printf("Execute: y: %d x: %d src_width: %d\n", from_y, from_x, src_width);
             int pixel = src[from_y * src_width+ from_x];
             pixel = (int)(transformation->scale * pixel) + transformation->offset;
 
