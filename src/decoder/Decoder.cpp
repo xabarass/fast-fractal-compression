@@ -4,7 +4,7 @@ Decoder::Decoder(){
 
 }
 
-void Decoder::Decode(Transforms* transform, Image& result){
+void Decoder::Decode(Transforms* transform, Image& result, int maxphases){
     struct image_data* destination = &result.img;
     destination->width = result.GetWidth();
     destination->height = result.GetHeight();
@@ -15,7 +15,7 @@ void Decoder::Decode(Transforms* transform, Image& result){
             destination->image_channels[i][j] = 127;
         }
     }
-    for (int phase = 1; phase <= 5; phase++) {
+    for (int phase = 1; phase <= maxphases; phase++) {
         qtree_decode(transform, result.GetHeight(), result.GetWidth(), destination);
     }
 }

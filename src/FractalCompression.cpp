@@ -29,14 +29,17 @@ int main(int argc, char** argv){
     // Load some parameters
     bool usage = true;
     int verb;
-    u_int32_t threshold;
+    u_int32_t threshold = 100;
     string image_path;
+    u_int32_t maxphases = 5;
     for(int i=1; i<argc && usage; i++) {
         string param(argv[i]);
         if (param == "-v" && i + 1 < argc)
             verb = atoi(argv[i + 1]);
         else if (param == "-t" && i + 1 < argc)
             threshold = atoi(argv[i + 1]);
+        else if (param == "-p" && i + 1 < argc)
+            maxphases = atoi(argv[i + 1]);
 
         if (param.at(0) == '-') i++;
         else {
@@ -67,9 +70,8 @@ int main(int argc, char** argv){
     printf("BLA Image height: %d, width: %d\n", img.GetHeight(), img.GetWidth());
     BMPImage result("result.bmp", img.GetHeight(), img.GetWidth(), img.GetChannels());
     Decoder dec;
-    int maxphases = 5;
     
-    dec.Decode(transforms, result);
+    dec.Decode(transforms, result, maxphases);
     result.Save();
 
     int64_t cycles = cycles_count_stop ();
