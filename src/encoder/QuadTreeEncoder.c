@@ -144,7 +144,7 @@ ERR_RET find_matches_for(struct image_data* img, struct ifs_transformation_list*
         // print_best_transformation(best_ifs_transform, best_error);
     }
 
-    free(buffer);
+    // free(buffer);
 
 
     return ERR_SUCCESS;
