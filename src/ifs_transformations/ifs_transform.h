@@ -57,6 +57,7 @@ struct Transforms {
 ERR_RET ifs_trans_push_back(struct ifs_transformation_list* list, struct ifs_transformation* transformation);
 ERR_RET ifs_transformation_execute(struct ifs_transformation* transformation, pixel_value* src, u_int32_t src_width,
                                    pixel_value* dest, u_int32_t dest_width, bool downsampled);
+ERR_RET ifs_trans_clear_list(struct Transforms* transforms);
 
 ERR_RET down_sample(pixel_value *src, int src_width, int start_x, int start_y, int target_size, pixel_value * sample);
 

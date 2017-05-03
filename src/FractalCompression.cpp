@@ -64,16 +64,18 @@ int main(int argc, char** argv){
     BMPImage img(image_path.c_str());
     img.Load();
     Encoder enc;
-    Transforms* transforms;
+    Transforms transforms;
     enc.Encode(img, &transforms, threshold);
     printf("BLA Image height: %d, width: %d\n", img.GetHeight(), img.GetWidth());
-    BMPImage result("result.bmp", img.GetHeight(), img.GetWidth(), transforms->channels);
+    BMPImage result("result.bmp", img.GetHeight(), img.GetWidth(), transforms.channels);
     Decoder dec;
-    dec.Decode(transforms, result, maxphases);
+    dec.Decode(&transforms, result, maxphases);
     result.Save();
-
     int64_t cycles = cycles_count_stop ();
     cout<<"Counted cycles: "<<cycles<<endl;
+
+    //Free memory
+    ifs_trans_clear_list(&transforms);
 
     return 0;
 }

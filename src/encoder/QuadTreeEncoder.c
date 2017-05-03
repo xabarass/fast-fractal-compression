@@ -52,6 +52,8 @@ ERR_RET qtree_encode(struct Transforms* transformations, struct image_data* src,
 
     assert(transformations->channels==3);
 
+    clear_image_data(&img);
+
     return ERR_SUCCESS;
 }
 

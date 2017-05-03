@@ -41,6 +41,21 @@ ERR_RET ifs_trans_push_back(struct ifs_transformation_list* list, struct ifs_tra
     return ERR_SUCCESS;
 }
 
+ERR_RET ifs_trans_clear_list(struct Transforms *transforms){
+    for(int i=0;i<transforms->channels;++i){
+        struct ifs_transformation_list* tr_list=transforms->ch+i;
+        while(tr_list->head!=NULL){
+            struct ifs_transformation* tmp=tr_list->head;
+            tr_list->head=tr_list->head->next;
+            free(tmp);
+        }
+        tr_list->tail=tr_list->head;
+        assert(tr_list->tail==NULL);
+    }
+
+    return ERR_SUCCESS;
+}
+
 ERR_RET ifs_transformation_execute(struct ifs_transformation* transformation, pixel_value* src, u_int32_t src_width,
                                    pixel_value* dest, u_int32_t dest_width, bool downsampled){
 
