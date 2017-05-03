@@ -58,7 +58,6 @@ int main(int argc, char** argv){
         return ERR_NO_IMAGE_PATH;
     }
 
-
     perf_init();
 
     cycles_count_start ();
@@ -68,9 +67,8 @@ int main(int argc, char** argv){
     Transforms* transforms;
     enc.Encode(img, &transforms, threshold);
     printf("BLA Image height: %d, width: %d\n", img.GetHeight(), img.GetWidth());
-    BMPImage result("result.bmp", img.GetHeight(), img.GetWidth(), img.GetChannels());
+    BMPImage result("result.bmp", img.GetHeight(), img.GetWidth(), transforms->channels);
     Decoder dec;
-    
     dec.Decode(transforms, result, maxphases);
     result.Save();
 

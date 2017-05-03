@@ -56,7 +56,7 @@ ERR_RET tile_rectengular(struct image_data *img, u_int32_t rows, u_int32_t colum
     return ERR_SUCCESS;
 }
 
-ERR_RET get_average_pixel(pixel_value* domain_data, u_int32_t domain_width,
+ERR_RET get_average_pixel(const pixel_value* domain_data, u_int32_t domain_width,
     u_int32_t domain_x, u_int32_t domain_y, u_int32_t size, u_int32_t* average_pixel)
 {
     u_int32_t top = 0;

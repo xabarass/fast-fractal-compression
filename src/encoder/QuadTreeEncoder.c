@@ -6,6 +6,7 @@
 
 ERR_RET qtree_encode(struct Transforms* transformations, struct image_data* src, struct encoder_params params,
                      u_int32_t threshold_param){
+
     struct image_data img;
     u_int32_t width=src->width;
     u_int32_t height=src->height;
@@ -22,12 +23,12 @@ ERR_RET qtree_encode(struct Transforms* transformations, struct image_data* src,
      * [0] -> Original channel data
      * [1] -> Downsampled channel data
      */
-    init_image_data(&img, width, height,2);
+    init_image_data(&img, width, height, 2);
     transformations->channels=src->channels;
 
     for (size_t channel=0; channel<src->channels; channel++){
-        memcpy(img.image_channels[0],src->image_channels[channel], size*sizeof(pixel_value));
-        down_sample(img.image_channels[0], width, 0,0,width/2, img.image_channels[1]);
+        memcpy(img.image_channels[0], src->image_channels[channel], size*sizeof(pixel_value));
+        down_sample(img.image_channels[0], width, 0,0, width/2, img.image_channels[1]);
         transformations->ch[channel].head=NULL;
         transformations->ch[channel].tail=NULL;
         transformations->ch[channel].elements=0;
@@ -39,7 +40,7 @@ ERR_RET qtree_encode(struct Transforms* transformations, struct image_data* src,
         {
             for (size_t x = 0; x < img.width; x += BUFFER_SIZE)
             {
-                find_matches_for(&img, transformations->ch+channel,x,y, BUFFER_SIZE, threshold);
+                find_matches_for(&img, transformations->ch+channel, x, y, BUFFER_SIZE, threshold);
                 printf(".");
             }
             printf("\n");
@@ -144,8 +145,7 @@ ERR_RET find_matches_for(struct image_data* img, struct ifs_transformation_list*
         // print_best_transformation(best_ifs_transform, best_error);
     }
 
-    // free(buffer);
-
+     free(buffer);
 
     return ERR_SUCCESS;
 }

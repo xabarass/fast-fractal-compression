@@ -23,7 +23,7 @@ ERR_RET adjust_image_size_down(struct image_data* src, struct image_data* dst, u
 
 ERR_RET tile_rectengular(struct image_data* img, u_int32_t rows, u_int32_t columns, struct image_tile_list* tiles);
 
-ERR_RET get_average_pixel(pixel_value* domain_data, u_int32_t domain_width,
+ERR_RET get_average_pixel(const pixel_value* domain_data, u_int32_t domain_width,
     u_int32_t domain_x, u_int32_t domain_y, u_int32_t size, u_int32_t *average_pixel);
 
 ERR_RET get_scale_factor(

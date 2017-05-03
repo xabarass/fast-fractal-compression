@@ -54,7 +54,7 @@ ERR_RET ifs_transformation_execute(struct ifs_transformation* transformation, pi
     //         from_x, from_y, d_x, d_y, in_order);
     if (!downsampled)
     {
-        pixel_value* downsampled_img=(pixel_value*)malloc(transformation->size*sizeof(pixel_value));
+        pixel_value* downsampled_img=(pixel_value*)malloc(transformation->size*transformation->size*sizeof(pixel_value));
         down_sample(src, src_width, transformation->from_x, transformation->from_y, transformation->size, downsampled_img);
         src = downsampled_img;
         src_width = transformation->size;
