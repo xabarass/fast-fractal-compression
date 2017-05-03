@@ -58,6 +58,7 @@ int main(int argc, char** argv){
         return ERR_NO_IMAGE_PATH;
     }
 
+
     perf_init();
 
     cycles_count_start ();
@@ -73,6 +74,17 @@ int main(int argc, char** argv){
     result.Save();
     int64_t cycles = cycles_count_stop ();
     cout<<"Counted cycles: "<<cycles<<endl;
+
+    // Calculate compression ratio
+    int64_t transformationsSize=0;
+    for(int i=0;i<transforms.channels;++i){
+        transformationsSize+=transforms.ch[i].elements*sizeof(struct ifs_transformation);
+    }
+
+    int64_t originalSize=img.getSize();
+
+    double compressionRatio=(double)transformationsSize/(double)originalSize;
+    cout<<"Compression ratio: "<<compressionRatio<<endl;
 
     //Free memory
     ifs_trans_clear_list(&transforms);

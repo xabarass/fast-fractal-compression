@@ -64,3 +64,7 @@ int Image::GetChannels()
 {
     return img.channels;
 }
+
+int64_t Image::getSize(){
+    return img.width*img.height*img.channels*sizeof(pixel_value);
+}

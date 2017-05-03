@@ -65,8 +65,9 @@ ERR_RET ifs_transformation_execute(struct ifs_transformation* transformation, pi
     int d_y = 1;
     enum ifs_type symmetry=transformation->transformation_type;
     bool in_order = isScanlineOrder(symmetry);
-    // printf("from_x: %d, from_y: %d, d_x: %d, d_y: %d, in_order: %d\n",
-    //         from_x, from_y, d_x, d_y, in_order);
+    double scale=transformation->scale;
+    u_int32_t offset=transformation->offset;
+
     if (!downsampled)
     {
         pixel_value* downsampled_img=(pixel_value*)malloc(transformation->size*transformation->size*sizeof(pixel_value));
@@ -95,17 +96,15 @@ ERR_RET ifs_transformation_execute(struct ifs_transformation* transformation, pi
     {
         for (int to_x = transformation->to_x; to_x < (transformation->to_x + transformation->size); to_x++)
         {
-
-//            printf("Execute: y: %d x: %d src_width: %d\n", from_y, from_x, src_width);
-            int pixel = src[from_y * src_width+ from_x];
-            pixel = (int)(transformation->scale * pixel) + transformation->offset;
+            int pixel = src[from_y * src_width + from_x];
+            pixel = (int)(transformation->scale) + offset;
 
             if (pixel < 0)
                 pixel = 0;
             if (pixel > 255)
                 pixel = 255;
 
-            dest[to_y * dest_width+ to_x] = pixel;
+            dest[to_y * dest_width + to_x] = pixel;
 
             if (in_order)
                 from_x += d_x;
@@ -132,7 +131,6 @@ ERR_RET ifs_transformation_execute(struct ifs_transformation* transformation, pi
     }
 
     return ERR_SUCCESS;
-
 }
 
 bool isScanlineOrder(enum ifs_type symmetry)

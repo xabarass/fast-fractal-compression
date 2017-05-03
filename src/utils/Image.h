@@ -39,6 +39,8 @@ public:
     int GetHeight();
 
     int GetChannels();
+
+    int64_t getSize();
 protected:
     string fileName;
     struct image_data img;
