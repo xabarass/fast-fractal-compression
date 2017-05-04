@@ -18,4 +18,9 @@ void Decoder::Decode(Transforms* transform, Image& result, int maxphases){
     for (int phase = 1; phase <= maxphases; phase++) {
         qtree_decode(transform, result.GetHeight(), result.GetWidth(), destination);
     }
+
+    destination->color_mode=transform->color_mode;
+    if(destination->color_mode==COLOR_MODE_YCbCr){
+        convert_from_YCbCr_to_RGB(destination);
+    }
 }

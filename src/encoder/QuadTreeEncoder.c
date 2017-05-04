@@ -18,6 +18,15 @@ ERR_RET qtree_encode(struct Transforms* transformations, struct image_data* src,
         return ERR_IMAGE_WRONG_SIZE;
     }
 
+    if(params.use_ycbcr){
+        if(src->color_mode!=COLOR_MODE_YCbCr){
+            convert_from_RGB_to_YCbCr(src);
+        }
+        transformations->color_mode=COLOR_MODE_YCbCr;
+    }else{
+        transformations->color_mode=COLOR_MODE_RGB;
+    }
+
     /*
      * Make sense because you are only working with two channels
      * [0] -> Original channel data
@@ -33,7 +42,7 @@ ERR_RET qtree_encode(struct Transforms* transformations, struct image_data* src,
         transformations->ch[channel].tail=NULL;
         transformations->ch[channel].elements=0;
 
-        if (channel >= 1)
+        if (channel >= 1 && params.use_ycbcr)
             threshold *= 2;
 
         for (size_t y = 0; y < img.height; y += BUFFER_SIZE)
@@ -41,16 +50,18 @@ ERR_RET qtree_encode(struct Transforms* transformations, struct image_data* src,
             for (size_t x = 0; x < img.width; x += BUFFER_SIZE)
             {
                 find_matches_for(&img, transformations->ch+channel, x, y, BUFFER_SIZE, threshold);
+                #ifdef DEBUG
                 printf(".");
+                #endif
             }
+            #ifdef DEBUG
             printf("\n");
+            #endif
         }
 
-        if (channel >= 1 )
+        if (channel >= 1 && params.use_ycbcr)
             threshold /= 2;
     }
-
-    assert(transformations->channels==3);
 
     clear_image_data(&img);
 

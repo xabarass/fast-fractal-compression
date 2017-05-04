@@ -7,6 +7,7 @@
 
 struct encoder_params{
     u_int32_t compress_ratio;
+    bool use_ycbcr;
 };
 
 ERR_RET qtree_encode(struct Transforms* transformed_channels, struct image_data* src, struct encoder_params params,

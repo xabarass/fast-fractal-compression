@@ -32,6 +32,7 @@ int main(int argc, char** argv){
     u_int32_t threshold = 100;
     string image_path;
     u_int32_t maxphases = 5;
+    string outputFile="result.bmp";
     for(int i=1; i<argc && usage; i++) {
         string param(argv[i]);
         if (param == "-v" && i + 1 < argc)
@@ -40,6 +41,9 @@ int main(int argc, char** argv){
             threshold = atoi(argv[i + 1]);
         else if (param == "-p" && i + 1 < argc)
             maxphases = atoi(argv[i + 1]);
+        else if(param=="-o" && i + 1 < argc){
+            outputFile=argv[i + 1];
+        }
 
         if (param.at(0) == '-') i++;
         else {
@@ -58,32 +62,41 @@ int main(int argc, char** argv){
         return ERR_NO_IMAGE_PATH;
     }
 
-
     perf_init();
 
-    cycles_count_start ();
     BMPImage img(image_path.c_str());
     img.Load();
     Encoder enc;
     Transforms transforms;
+
+    cycles_count_start ();
     enc.Encode(img, &transforms, threshold);
+    int64_t encodeCycles = cycles_count_stop ();
+
     printf("BLA Image height: %d, width: %d\n", img.GetHeight(), img.GetWidth());
-    BMPImage result("result.bmp", img.GetHeight(), img.GetWidth(), transforms.channels);
+    BMPImage result(outputFile, img.GetHeight(), img.GetWidth(), transforms.channels);
     Decoder dec;
+    cycles_count_start ();
     dec.Decode(&transforms, result, maxphases);
+    int64_t decodeCycles = cycles_count_stop ();
     result.Save();
-    int64_t cycles = cycles_count_stop ();
-    cout<<"Counted cycles: "<<cycles<<endl;
 
     // Calculate compression ratio
     int64_t transformationsSize=0;
+    int64_t transformationNumber=0;
     for(int i=0;i<transforms.channels;++i){
-        transformationsSize+=transforms.ch[i].elements*sizeof(struct ifs_transformation);
+        transformationNumber+=transforms.ch[i].elements;
     }
 
+    transformationsSize=transformationNumber*sizeof(struct ifs_transformation);
     int64_t originalSize=img.getSize();
+    double compressionRatio=(double)originalSize/(double)transformationsSize;
 
-    double compressionRatio=(double)transformationsSize/(double)originalSize;
+    cout<<"#### PERFORMANCE RESULTS #####"<<endl;
+    cout<<"Encode cycles: "<<encodeCycles<<endl;
+    cout<<"Decode cycles: "<<decodeCycles<<endl;
+    cout<<"No. of transformations: "<<transformationNumber<<endl;
+    cout<<"Image size: w: "<<result.GetWidth()<<" h: "<<result.GetHeight()<<endl;
     cout<<"Compression ratio: "<<compressionRatio<<endl;
 
     //Free memory

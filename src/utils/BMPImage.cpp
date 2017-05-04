@@ -48,6 +48,8 @@ void BMPImage::Load(){
         }
     }
 
+    img.color_mode=COLOR_MODE_RGB;
+
     delete []data;
 }
 

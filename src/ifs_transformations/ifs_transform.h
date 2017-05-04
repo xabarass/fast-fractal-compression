@@ -52,6 +52,7 @@ bool isPositiveY(enum ifs_type symmetry);
 struct Transforms {
     struct ifs_transformation_list ch[3];
     int channels;
+    enum color_mode color_mode;
 };
 
 ERR_RET ifs_trans_push_back(struct ifs_transformation_list* list, struct ifs_transformation* transformation);
