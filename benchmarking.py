@@ -63,13 +63,19 @@ def init_plot_data(image_results):
 
 def draw_encode_timings(branch_performance, img_results):
     images=range(len(img_results))
-    cycles=[]
-    for bp in branch_performance[0]:
-        cycles.append(bp.enc_cycles)
+
+    colors=['ro','go','bo','yo']
 
     axes = plt.gca()
     plt.grid(True)
-    plt.plot(images, cycles, '-ro')
+
+    for k, branch_perf in branch_performance.items():
+        cycles=[]
+        color=colors.pop()
+        for bp in branch_perf:
+            cycles.append(bp.enc_cycles)
+    
+        plt.plot(images, cycles, color)
 
     return plt
 
@@ -77,29 +83,29 @@ simd_bench=Benchmark('master')
 simd_bench.add_compiler_flag('USE_FMA','ON')
 simd_bench.add_compiler_flag('RDTSC_FAILBACK','ON')
 
-test_bench=Benchmark('test_git')
-test_bench.add_compiler_flag('USE_FMA','OFF')
+test_bench=Benchmark('simd')
+test_bench.add_compiler_flag('USE_FMA','ON')
 test_bench.add_compiler_flag('RDTSC_FAILBACK','ON')
 
 benchmarks=[test_bench, simd_bench]
 
 test_image_results={}
 
-# repo.remotes['origin'].fetch()
+repo.remotes['origin'].fetch()
 
 index=0;
 for bench in benchmarks:
     print("**** Benchmarking %s ****" %bench.branch)
-    # # Switch to branch and pull changes
-    # if bench.branch in repo.refs:
-    #     print("Branch "+bench.branch+" already exists")
-    #     repo.refs[bench.branch].checkout()
-    #     repo.remotes.origin.pull()
-    # else:
-    #     print("Branch "+bench.branch+" doesn't exist, checking out")        
-    #     repo.git.checkout('refs/remotes/origin/'+bench.branch, b=bench.branch)
+    # Switch to branch and pull changes
+    if bench.branch in repo.refs:
+        print("Branch "+bench.branch+" already exists")
+        repo.refs[bench.branch].checkout()
+        repo.remotes.origin.pull()
+    else:
+        print("Branch "+bench.branch+" doesn't exist, checking out")        
+        repo.git.checkout('refs/remotes/origin/'+bench.branch, b=bench.branch)
 
-    # Configure project
+    Configure project
     print("Configuring project")
 
     release_dir=os.path.join(os.getcwd(),bench.branch+"_release")
