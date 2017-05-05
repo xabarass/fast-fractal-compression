@@ -20,12 +20,12 @@ class Benchmark:
         self.compiler_flags={'CMAKE_BUILD_TYPE':'Release'}
 
     def add_compiler_flag(self, name, value):
-        self.compiler_flags[name]=value      
+        self.compiler_flags[name]=value
 
 re_perf=re.compile(
     r'#### PERFORMANCE RESULTS #####.Encode cycles: ([0-9]*).*?Decode cycles: ([0-9]*).*?No. of transformations: ([0-9]*).*?Image size: w: ([0-9]*) h: ([0-9]*).*?Compression ratio: ([0-9 .]*)',
     re.M | re.DOTALL
-)   
+)
 
 class BenchResult:
     def __init__(self, branch_name, branch_index, result=None):
@@ -74,7 +74,7 @@ def draw_encode_timings(branch_performance, img_results):
         color=colors.pop()
         for bp in branch_perf:
             cycles.append(bp.enc_cycles)
-    
+
         plt.plot(images, cycles, color)
 
     return plt
@@ -102,10 +102,10 @@ for bench in benchmarks:
         repo.refs[bench.branch].checkout()
         repo.remotes.origin.pull()
     else:
-        print("Branch "+bench.branch+" doesn't exist, checking out")        
+        print("Branch "+bench.branch+" doesn't exist, checking out")
         repo.git.checkout('refs/remotes/origin/'+bench.branch, b=bench.branch)
 
-    Configure project
+    #Configure project
     print("Configuring project")
 
     release_dir=os.path.join(os.getcwd(),bench.branch+"_release")
@@ -136,7 +136,7 @@ for bench in benchmarks:
             test_image_results[image]=[]
 
     run_command=[os.path.join(release_dir,'bin','fractal-compression')]
-    
+
     for image in test_images:
         print("Testing image %s" %image)
         command=run_command[:]
