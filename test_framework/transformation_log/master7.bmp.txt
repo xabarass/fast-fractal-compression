@@ -1,0 +1,13680 @@
+to=(0, 0)
+from=(128, 192)
+best symmetry=0
+best offset=370
+
+to=(16, 0)
+from=(224, 160)
+best symmetry=0
+best offset=382
+
+to=(32, 0)
+from=(0, 64)
+best symmetry=0
+best offset=90
+
+to=(48, 0)
+from=(32, 0)
+best symmetry=0
+best offset=204
+
+to=(64, 0)
+from=(32, 32)
+best symmetry=0
+best offset=65
+
+to=(80, 0)
+from=(32, 32)
+best symmetry=0
+best offset=121
+
+to=(96, 0)
+from=(32, 32)
+best symmetry=0
+best offset=176
+
+to=(112, 0)
+from=(32, 32)
+best symmetry=0
+best offset=123
+
+to=(128, 0)
+from=(96, 0)
+best symmetry=0
+best offset=227
+
+to=(144, 0)
+from=(64, 32)
+best symmetry=0
+best offset=119
+
+to=(160, 0)
+from=(128, 0)
+best symmetry=0
+best offset=45
+
+to=(176, 0)
+from=(128, 0)
+best symmetry=0
+best offset=193
+
+to=(192, 0)
+from=(128, 0)
+best symmetry=0
+best offset=37
+
+to=(208, 0)
+from=(128, 0)
+best symmetry=0
+best offset=31
+
+to=(224, 0)
+from=(96, 0)
+best symmetry=0
+best offset=124
+
+to=(240, 0)
+from=(224, 192)
+best symmetry=0
+best offset=122
+
+to=(0, 16)
+from=(0, 0)
+best symmetry=0
+best offset=151
+
+to=(16, 16)
+from=(224, 160)
+best symmetry=0
+best offset=379
+
+to=(32, 16)
+from=(32, 0)
+best symmetry=0
+best offset=3
+
+to=(48, 16)
+from=(32, 32)
+best symmetry=0
+best offset=134
+
+to=(64, 16)
+from=(32, 32)
+best symmetry=0
+best offset=100
+
+to=(80, 16)
+from=(96, 0)
+best symmetry=0
+best offset=195
+
+to=(96, 16)
+from=(96, 0)
+best symmetry=0
+best offset=194
+
+to=(112, 16)
+from=(128, 0)
+best symmetry=0
+best offset=-15
+
+to=(128, 16)
+from=(160, 0)
+best symmetry=0
+best offset=36
+
+to=(144, 16)
+from=(160, 0)
+best symmetry=0
+best offset=207
+
+to=(160, 16)
+from=(96, 32)
+best symmetry=0
+best offset=95
+
+to=(176, 16)
+from=(224, 96)
+best symmetry=0
+best offset=134
+
+to=(192, 16)
+from=(160, 0)
+best symmetry=0
+best offset=212
+
+to=(208, 16)
+from=(160, 0)
+best symmetry=0
+best offset=209
+
+to=(224, 16)
+from=(224, 32)
+best symmetry=0
+best offset=-11
+
+to=(240, 16)
+from=(96, 192)
+best symmetry=0
+best offset=434
+
+to=(0, 32)
+from=(128, 192)
+best symmetry=0
+best offset=376
+
+to=(16, 32)
+from=(0, 32)
+best symmetry=0
+best offset=80
+
+to=(32, 32)
+from=(128, 192)
+best symmetry=0
+best offset=398
+
+to=(48, 32)
+from=(32, 32)
+best symmetry=0
+best offset=78
+
+to=(64, 32)
+from=(128, 0)
+best symmetry=0
+best offset=110
+
+to=(80, 32)
+from=(160, 0)
+best symmetry=0
+best offset=-17
+
+to=(96, 32)
+from=(160, 0)
+best symmetry=0
+best offset=29
+
+to=(112, 32)
+from=(96, 32)
+best symmetry=0
+best offset=57
+
+to=(128, 32)
+from=(224, 128)
+best symmetry=0
+best offset=327
+
+to=(144, 32)
+from=(128, 32)
+best symmetry=0
+best offset=36
+
+to=(160, 32)
+from=(192, 32)
+best symmetry=0
+best offset=22
+
+to=(176, 32)
+from=(192, 32)
+best symmetry=0
+best offset=3
+
+to=(192, 32)
+from=(224, 64)
+best symmetry=0
+best offset=247
+
+to=(208, 32)
+from=(224, 64)
+best symmetry=0
+best offset=53
+
+to=(224, 32)
+from=(160, 0)
+best symmetry=0
+best offset=259
+
+to=(240, 32)
+from=(192, 192)
+best symmetry=0
+best offset=146
+
+to=(0, 48)
+from=(128, 192)
+best symmetry=0
+best offset=375
+
+to=(16, 48)
+from=(32, 0)
+best symmetry=0
+best offset=-7
+
+to=(32, 48)
+from=(64, 0)
+best symmetry=0
+best offset=30
+
+to=(48, 48)
+from=(128, 0)
+best symmetry=0
+best offset=-17
+
+to=(64, 48)
+from=(64, 32)
+best symmetry=0
+best offset=18
+
+to=(80, 48)
+from=(128, 32)
+best symmetry=0
+best offset=110
+
+to=(96, 48)
+from=(192, 32)
+best symmetry=0
+best offset=21
+
+to=(112, 48)
+from=(160, 32)
+best symmetry=0
+best offset=39
+
+to=(128, 48)
+from=(128, 192)
+best symmetry=0
+best offset=364
+
+to=(144, 48)
+from=(128, 192)
+best symmetry=0
+best offset=342
+
+to=(160, 48)
+from=(128, 192)
+best symmetry=0
+best offset=330
+
+to=(176, 48)
+from=(128, 192)
+best symmetry=0
+best offset=333
+
+to=(192, 48)
+from=(128, 192)
+best symmetry=0
+best offset=376
+
+to=(208, 48)
+from=(96, 192)
+best symmetry=0
+best offset=367
+
+to=(224, 48)
+from=(224, 64)
+best symmetry=0
+best offset=21
+
+to=(240, 48)
+from=(224, 32)
+best symmetry=0
+best offset=42
+
+to=(0, 64)
+from=(0, 160)
+best symmetry=0
+best offset=86
+
+to=(16, 64)
+from=(224, 160)
+best symmetry=0
+best offset=400
+
+to=(32, 64)
+from=(224, 192)
+best symmetry=0
+best offset=350
+
+to=(48, 64)
+from=(224, 176)
+best symmetry=0
+best offset=351
+
+to=(56, 64)
+from=(64, 48)
+best symmetry=0
+best offset=67
+
+to=(48, 72)
+from=(248, 224)
+best symmetry=0
+best offset=366
+
+to=(52, 72)
+from=(248, 112)
+best symmetry=0
+best offset=42
+
+to=(48, 76)
+from=(112, 72)
+best symmetry=0
+best offset=148
+
+to=(52, 76)
+from=(44, 140)
+best symmetry=0
+best offset=391
+
+to=(54, 76)
+from=(88, 124)
+best symmetry=0
+best offset=372
+
+to=(52, 78)
+from=(72, 120)
+best symmetry=0
+best offset=234
+
+to=(54, 78)
+from=(72, 120)
+best symmetry=0
+best offset=227
+
+to=(56, 72)
+from=(64, 248)
+best symmetry=0
+best offset=365
+
+to=(60, 72)
+from=(88, 112)
+best symmetry=0
+best offset=54
+
+to=(56, 76)
+from=(120, 72)
+best symmetry=0
+best offset=2
+
+to=(60, 76)
+from=(56, 136)
+best symmetry=0
+best offset=266
+
+to=(62, 76)
+from=(84, 100)
+best symmetry=0
+best offset=262
+
+to=(60, 78)
+from=(200, 112)
+best symmetry=0
+best offset=316
+
+to=(62, 78)
+from=(112, 112)
+best symmetry=0
+best offset=266
+
+to=(64, 64)
+from=(80, 192)
+best symmetry=0
+best offset=56
+
+to=(72, 64)
+from=(64, 32)
+best symmetry=0
+best offset=309
+
+to=(64, 72)
+from=(92, 88)
+best symmetry=0
+best offset=238
+
+to=(66, 72)
+from=(164, 116)
+best symmetry=0
+best offset=304
+
+to=(64, 74)
+from=(188, 168)
+best symmetry=0
+best offset=293
+
+to=(66, 74)
+from=(84, 96)
+best symmetry=0
+best offset=62
+
+to=(68, 72)
+from=(188, 156)
+best symmetry=0
+best offset=235
+
+to=(70, 72)
+from=(60, 116)
+best symmetry=0
+best offset=233
+
+to=(68, 74)
+from=(144, 88)
+best symmetry=0
+best offset=286
+
+to=(70, 74)
+from=(176, 84)
+best symmetry=0
+best offset=61
+
+to=(64, 76)
+from=(104, 128)
+best symmetry=0
+best offset=75
+
+to=(68, 76)
+from=(56, 88)
+best symmetry=0
+best offset=97
+
+to=(72, 72)
+from=(112, 72)
+best symmetry=0
+best offset=153
+
+to=(76, 72)
+from=(96, 80)
+best symmetry=0
+best offset=76
+
+to=(72, 76)
+from=(128, 128)
+best symmetry=0
+best offset=91
+
+to=(76, 76)
+from=(112, 112)
+best symmetry=0
+best offset=270
+
+to=(80, 64)
+from=(128, 64)
+best symmetry=0
+best offset=125
+
+to=(88, 64)
+from=(112, 48)
+best symmetry=0
+best offset=53
+
+to=(80, 72)
+from=(120, 128)
+best symmetry=0
+best offset=71
+
+to=(84, 72)
+from=(128, 120)
+best symmetry=0
+best offset=315
+
+to=(80, 76)
+from=(160, 104)
+best symmetry=0
+best offset=198
+
+to=(84, 76)
+from=(232, 248)
+best symmetry=0
+best offset=302
+
+to=(88, 72)
+from=(176, 80)
+best symmetry=0
+best offset=14
+
+to=(96, 64)
+from=(64, 0)
+best symmetry=0
+best offset=344
+
+to=(112, 64)
+from=(208, 112)
+best symmetry=0
+best offset=39
+
+to=(120, 64)
+from=(160, 16)
+best symmetry=0
+best offset=367
+
+to=(112, 72)
+from=(216, 136)
+best symmetry=0
+best offset=30
+
+to=(116, 72)
+from=(248, 16)
+best symmetry=0
+best offset=374
+
+to=(112, 76)
+from=(192, 88)
+best symmetry=0
+best offset=91
+
+to=(114, 76)
+from=(92, 88)
+best symmetry=0
+best offset=241
+
+to=(112, 78)
+from=(104, 104)
+best symmetry=0
+best offset=230
+
+to=(114, 78)
+from=(136, 164)
+best symmetry=0
+best offset=276
+
+to=(116, 76)
+from=(164, 116)
+best symmetry=0
+best offset=306
+
+to=(118, 76)
+from=(136, 144)
+best symmetry=0
+best offset=240
+
+to=(116, 78)
+from=(104, 112)
+best symmetry=0
+best offset=154
+
+to=(118, 78)
+from=(168, 96)
+best symmetry=0
+best offset=12
+
+to=(120, 72)
+from=(192, 80)
+best symmetry=0
+best offset=25
+
+to=(128, 64)
+from=(32, 32)
+best symmetry=0
+best offset=291
+
+to=(144, 64)
+from=(192, 32)
+best symmetry=0
+best offset=368
+
+to=(160, 64)
+from=(192, 32)
+best symmetry=0
+best offset=366
+
+to=(176, 64)
+from=(160, 32)
+best symmetry=0
+best offset=274
+
+to=(192, 64)
+from=(160, 32)
+best symmetry=0
+best offset=286
+
+to=(208, 64)
+from=(192, 32)
+best symmetry=0
+best offset=329
+
+to=(224, 64)
+from=(160, 32)
+best symmetry=0
+best offset=68
+
+to=(240, 64)
+from=(160, 0)
+best symmetry=0
+best offset=253
+
+to=(0, 80)
+from=(0, 128)
+best symmetry=0
+best offset=146
+
+to=(16, 80)
+from=(32, 32)
+best symmetry=0
+best offset=67
+
+to=(32, 80)
+from=(224, 192)
+best symmetry=0
+best offset=327
+
+to=(40, 80)
+from=(16, 112)
+best symmetry=0
+best offset=336
+
+to=(32, 88)
+from=(224, 224)
+best symmetry=0
+best offset=365
+
+to=(40, 88)
+from=(64, 112)
+best symmetry=0
+best offset=229
+
+to=(44, 88)
+from=(140, 92)
+best symmetry=0
+best offset=330
+
+to=(46, 88)
+from=(136, 112)
+best symmetry=0
+best offset=286
+
+to=(44, 90)
+from=(76, 72)
+best symmetry=0
+best offset=-3
+
+to=(46, 90)
+from=(176, 168)
+best symmetry=0
+best offset=272
+
+to=(40, 92)
+from=(168, 156)
+best symmetry=0
+best offset=238
+
+to=(42, 92)
+from=(48, 80)
+best symmetry=0
+best offset=29
+
+to=(40, 94)
+from=(76, 92)
+best symmetry=0
+best offset=275
+
+to=(42, 94)
+from=(84, 136)
+best symmetry=0
+best offset=253
+
+to=(44, 92)
+from=(176, 128)
+best symmetry=0
+best offset=249
+
+to=(48, 80)
+from=(92, 116)
+best symmetry=0
+best offset=70
+
+to=(50, 80)
+from=(172, 136)
+best symmetry=0
+best offset=256
+
+to=(48, 82)
+from=(68, 140)
+best symmetry=0
+best offset=39
+
+to=(50, 82)
+from=(176, 88)
+best symmetry=0
+best offset=226
+
+to=(52, 80)
+from=(72, 136)
+best symmetry=0
+best offset=62
+
+to=(48, 84)
+from=(80, 148)
+best symmetry=0
+best offset=260
+
+to=(50, 84)
+from=(48, 120)
+best symmetry=0
+best offset=129
+
+to=(48, 86)
+from=(116, 136)
+best symmetry=0
+best offset=24
+
+to=(50, 86)
+from=(80, 100)
+best symmetry=0
+best offset=175
+
+to=(52, 84)
+from=(56, 136)
+best symmetry=0
+best offset=50
+
+to=(56, 80)
+from=(0, 40)
+best symmetry=0
+best offset=300
+
+to=(60, 80)
+from=(84, 156)
+best symmetry=0
+best offset=182
+
+to=(62, 80)
+from=(140, 92)
+best symmetry=0
+best offset=215
+
+to=(60, 82)
+from=(84, 84)
+best symmetry=0
+best offset=256
+
+to=(62, 82)
+from=(136, 128)
+best symmetry=0
+best offset=241
+
+to=(56, 84)
+from=(184, 160)
+best symmetry=0
+best offset=48
+
+to=(60, 84)
+from=(80, 72)
+best symmetry=0
+best offset=248
+
+to=(48, 88)
+from=(132, 128)
+best symmetry=0
+best offset=-11
+
+to=(50, 88)
+from=(116, 96)
+best symmetry=0
+best offset=248
+
+to=(48, 90)
+from=(144, 116)
+best symmetry=0
+best offset=157
+
+to=(50, 90)
+from=(140, 124)
+best symmetry=0
+best offset=228
+
+to=(52, 88)
+from=(72, 104)
+best symmetry=0
+best offset=41
+
+to=(48, 92)
+from=(200, 136)
+best symmetry=0
+best offset=241
+
+to=(52, 92)
+from=(128, 120)
+best symmetry=0
+best offset=225
+
+to=(56, 88)
+from=(80, 72)
+best symmetry=0
+best offset=42
+
+to=(60, 88)
+from=(176, 128)
+best symmetry=0
+best offset=316
+
+to=(56, 92)
+from=(52, 128)
+best symmetry=0
+best offset=198
+
+to=(58, 92)
+from=(128, 104)
+best symmetry=0
+best offset=96
+
+to=(56, 94)
+from=(56, 104)
+best symmetry=0
+best offset=127
+
+to=(58, 94)
+from=(72, 148)
+best symmetry=0
+best offset=211
+
+to=(60, 92)
+from=(108, 144)
+best symmetry=0
+best offset=111
+
+to=(62, 92)
+from=(148, 136)
+best symmetry=0
+best offset=312
+
+to=(60, 94)
+from=(164, 116)
+best symmetry=0
+best offset=233
+
+to=(62, 94)
+from=(92, 84)
+best symmetry=0
+best offset=-2
+
+to=(64, 80)
+from=(152, 104)
+best symmetry=0
+best offset=26
+
+to=(68, 80)
+from=(88, 112)
+best symmetry=0
+best offset=315
+
+to=(64, 84)
+from=(48, 100)
+best symmetry=0
+best offset=130
+
+to=(66, 84)
+from=(48, 116)
+best symmetry=0
+best offset=164
+
+to=(64, 86)
+from=(124, 76)
+best symmetry=0
+best offset=287
+
+to=(66, 86)
+from=(168, 152)
+best symmetry=0
+best offset=164
+
+to=(68, 84)
+from=(64, 168)
+best symmetry=0
+best offset=330
+
+to=(72, 80)
+from=(200, 88)
+best symmetry=0
+best offset=329
+
+to=(76, 80)
+from=(176, 120)
+best symmetry=0
+best offset=275
+
+to=(72, 84)
+from=(72, 168)
+best symmetry=0
+best offset=331
+
+to=(76, 84)
+from=(192, 104)
+best symmetry=0
+best offset=225
+
+to=(78, 84)
+from=(140, 136)
+best symmetry=0
+best offset=214
+
+to=(76, 86)
+from=(176, 164)
+best symmetry=0
+best offset=277
+
+to=(78, 86)
+from=(188, 156)
+best symmetry=0
+best offset=222
+
+to=(64, 88)
+from=(116, 144)
+best symmetry=0
+best offset=307
+
+to=(66, 88)
+from=(168, 116)
+best symmetry=0
+best offset=36
+
+to=(64, 90)
+from=(132, 84)
+best symmetry=0
+best offset=239
+
+to=(66, 90)
+from=(56, 96)
+best symmetry=0
+best offset=234
+
+to=(68, 88)
+from=(120, 72)
+best symmetry=0
+best offset=328
+
+to=(64, 92)
+from=(60, 92)
+best symmetry=0
+best offset=7
+
+to=(66, 92)
+from=(120, 140)
+best symmetry=0
+best offset=283
+
+to=(64, 94)
+from=(188, 160)
+best symmetry=0
+best offset=186
+
+to=(66, 94)
+from=(140, 136)
+best symmetry=0
+best offset=16
+
+to=(68, 92)
+from=(184, 88)
+best symmetry=0
+best offset=46
+
+to=(70, 92)
+from=(152, 136)
+best symmetry=0
+best offset=64
+
+to=(68, 94)
+from=(124, 80)
+best symmetry=0
+best offset=11
+
+to=(70, 94)
+from=(68, 92)
+best symmetry=0
+best offset=129
+
+to=(72, 88)
+from=(152, 96)
+best symmetry=0
+best offset=26
+
+to=(76, 88)
+from=(112, 168)
+best symmetry=0
+best offset=293
+
+to=(72, 92)
+from=(200, 104)
+best symmetry=0
+best offset=279
+
+to=(76, 92)
+from=(72, 160)
+best symmetry=0
+best offset=38
+
+to=(80, 80)
+from=(160, 104)
+best symmetry=0
+best offset=191
+
+to=(84, 80)
+from=(168, 136)
+best symmetry=0
+best offset=65
+
+to=(80, 84)
+from=(200, 88)
+best symmetry=0
+best offset=314
+
+to=(84, 84)
+from=(136, 88)
+best symmetry=0
+best offset=83
+
+to=(88, 80)
+from=(200, 88)
+best symmetry=0
+best offset=349
+
+to=(92, 80)
+from=(88, 72)
+best symmetry=0
+best offset=11
+
+to=(88, 84)
+from=(128, 152)
+best symmetry=0
+best offset=103
+
+to=(92, 84)
+from=(136, 100)
+best symmetry=0
+best offset=1
+
+to=(94, 84)
+from=(148, 132)
+best symmetry=0
+best offset=268
+
+to=(92, 86)
+from=(84, 100)
+best symmetry=0
+best offset=223
+
+to=(94, 86)
+from=(56, 164)
+best symmetry=0
+best offset=248
+
+to=(80, 88)
+from=(180, 168)
+best symmetry=0
+best offset=300
+
+to=(82, 88)
+from=(160, 92)
+best symmetry=0
+best offset=302
+
+to=(80, 90)
+from=(184, 112)
+best symmetry=0
+best offset=281
+
+to=(82, 90)
+from=(120, 96)
+best symmetry=0
+best offset=285
+
+to=(84, 88)
+from=(176, 80)
+best symmetry=0
+best offset=332
+
+to=(80, 92)
+from=(88, 72)
+best symmetry=0
+best offset=316
+
+to=(84, 92)
+from=(120, 112)
+best symmetry=0
+best offset=290
+
+to=(88, 88)
+from=(124, 144)
+best symmetry=0
+best offset=282
+
+to=(90, 88)
+from=(88, 88)
+best symmetry=0
+best offset=0
+
+to=(88, 90)
+from=(96, 136)
+best symmetry=0
+best offset=44
+
+to=(90, 90)
+from=(108, 152)
+best symmetry=0
+best offset=55
+
+to=(92, 88)
+from=(112, 128)
+best symmetry=0
+best offset=232
+
+to=(88, 92)
+from=(136, 104)
+best symmetry=0
+best offset=9
+
+to=(90, 92)
+from=(72, 164)
+best symmetry=0
+best offset=158
+
+to=(88, 94)
+from=(200, 124)
+best symmetry=0
+best offset=289
+
+to=(90, 94)
+from=(172, 84)
+best symmetry=0
+best offset=192
+
+to=(92, 92)
+from=(88, 168)
+best symmetry=0
+best offset=249
+
+to=(96, 80)
+from=(56, 72)
+best symmetry=0
+best offset=59
+
+to=(100, 80)
+from=(184, 136)
+best symmetry=0
+best offset=0
+
+to=(102, 80)
+from=(72, 168)
+best symmetry=0
+best offset=284
+
+to=(100, 82)
+from=(180, 164)
+best symmetry=0
+best offset=202
+
+to=(102, 82)
+from=(56, 108)
+best symmetry=0
+best offset=181
+
+to=(96, 84)
+from=(128, 156)
+best symmetry=0
+best offset=-3
+
+to=(98, 84)
+from=(72, 96)
+best symmetry=0
+best offset=16
+
+to=(96, 86)
+from=(100, 144)
+best symmetry=0
+best offset=32
+
+to=(98, 86)
+from=(140, 92)
+best symmetry=0
+best offset=198
+
+to=(100, 84)
+from=(184, 160)
+best symmetry=0
+best offset=187
+
+to=(104, 80)
+from=(104, 80)
+best symmetry=0
+best offset=68
+
+to=(106, 80)
+from=(180, 168)
+best symmetry=0
+best offset=298
+
+to=(104, 82)
+from=(132, 160)
+best symmetry=0
+best offset=193
+
+to=(106, 82)
+from=(136, 140)
+best symmetry=0
+best offset=25
+
+to=(108, 80)
+from=(124, 116)
+best symmetry=0
+best offset=298
+
+to=(110, 80)
+from=(132, 128)
+best symmetry=0
+best offset=-1
+
+to=(108, 82)
+from=(136, 144)
+best symmetry=0
+best offset=141
+
+to=(110, 82)
+from=(184, 160)
+best symmetry=0
+best offset=193
+
+to=(104, 84)
+from=(0, 40)
+best symmetry=0
+best offset=225
+
+to=(108, 84)
+from=(64, 112)
+best symmetry=0
+best offset=85
+
+to=(96, 88)
+from=(24, 248)
+best symmetry=0
+best offset=215
+
+to=(98, 88)
+from=(152, 96)
+best symmetry=0
+best offset=180
+
+to=(96, 90)
+from=(108, 144)
+best symmetry=0
+best offset=237
+
+to=(98, 90)
+from=(164, 100)
+best symmetry=0
+best offset=141
+
+to=(100, 88)
+from=(32, 88)
+best symmetry=0
+best offset=235
+
+to=(96, 92)
+from=(108, 92)
+best symmetry=0
+best offset=23
+
+to=(98, 92)
+from=(148, 120)
+best symmetry=0
+best offset=155
+
+to=(96, 94)
+from=(100, 76)
+best symmetry=0
+best offset=255
+
+to=(98, 94)
+from=(196, 136)
+best symmetry=0
+best offset=11
+
+to=(100, 92)
+from=(88, 72)
+best symmetry=0
+best offset=234
+
+to=(104, 88)
+from=(0, 96)
+best symmetry=0
+best offset=228
+
+to=(106, 88)
+from=(116, 120)
+best symmetry=0
+best offset=232
+
+to=(104, 90)
+from=(180, 140)
+best symmetry=0
+best offset=223
+
+to=(106, 90)
+from=(60, 80)
+best symmetry=0
+best offset=169
+
+to=(108, 88)
+from=(84, 152)
+best symmetry=0
+best offset=236
+
+to=(110, 88)
+from=(104, 128)
+best symmetry=0
+best offset=-6
+
+to=(108, 90)
+from=(84, 160)
+best symmetry=0
+best offset=208
+
+to=(110, 90)
+from=(136, 128)
+best symmetry=0
+best offset=228
+
+to=(104, 92)
+from=(184, 96)
+best symmetry=0
+best offset=226
+
+to=(108, 92)
+from=(184, 168)
+best symmetry=0
+best offset=296
+
+to=(110, 92)
+from=(96, 128)
+best symmetry=0
+best offset=4
+
+to=(108, 94)
+from=(168, 144)
+best symmetry=0
+best offset=234
+
+to=(110, 94)
+from=(124, 96)
+best symmetry=0
+best offset=175
+
+to=(112, 80)
+from=(72, 168)
+best symmetry=0
+best offset=264
+
+to=(116, 80)
+from=(112, 80)
+best symmetry=0
+best offset=19
+
+to=(112, 84)
+from=(128, 168)
+best symmetry=0
+best offset=242
+
+to=(116, 84)
+from=(128, 72)
+best symmetry=0
+best offset=245
+
+to=(120, 80)
+from=(176, 168)
+best symmetry=0
+best offset=249
+
+to=(124, 80)
+from=(180, 168)
+best symmetry=0
+best offset=277
+
+to=(126, 80)
+from=(168, 116)
+best symmetry=0
+best offset=279
+
+to=(124, 82)
+from=(132, 96)
+best symmetry=0
+best offset=228
+
+to=(126, 82)
+from=(60, 84)
+best symmetry=0
+best offset=219
+
+to=(120, 84)
+from=(112, 72)
+best symmetry=0
+best offset=250
+
+to=(124, 84)
+from=(40, 80)
+best symmetry=0
+best offset=255
+
+to=(112, 88)
+from=(188, 148)
+best symmetry=0
+best offset=94
+
+to=(114, 88)
+from=(76, 68)
+best symmetry=0
+best offset=238
+
+to=(112, 90)
+from=(100, 76)
+best symmetry=0
+best offset=246
+
+to=(114, 90)
+from=(128, 156)
+best symmetry=0
+best offset=240
+
+to=(116, 88)
+from=(104, 72)
+best symmetry=0
+best offset=248
+
+to=(112, 92)
+from=(48, 120)
+best symmetry=0
+best offset=98
+
+to=(114, 92)
+from=(80, 132)
+best symmetry=0
+best offset=2
+
+to=(112, 94)
+from=(184, 112)
+best symmetry=0
+best offset=235
+
+to=(114, 94)
+from=(52, 84)
+best symmetry=0
+best offset=8
+
+to=(116, 92)
+from=(56, 120)
+best symmetry=0
+best offset=189
+
+to=(118, 92)
+from=(172, 80)
+best symmetry=0
+best offset=260
+
+to=(116, 94)
+from=(172, 116)
+best symmetry=0
+best offset=92
+
+to=(118, 94)
+from=(52, 112)
+best symmetry=0
+best offset=214
+
+to=(120, 88)
+from=(192, 148)
+best symmetry=0
+best offset=28
+
+to=(122, 88)
+from=(136, 164)
+best symmetry=0
+best offset=277
+
+to=(120, 90)
+from=(104, 160)
+best symmetry=0
+best offset=95
+
+to=(122, 90)
+from=(164, 96)
+best symmetry=0
+best offset=146
+
+to=(124, 88)
+from=(200, 136)
+best symmetry=0
+best offset=257
+
+to=(120, 92)
+from=(176, 80)
+best symmetry=0
+best offset=265
+
+to=(124, 92)
+from=(104, 104)
+best symmetry=0
+best offset=29
+
+to=(126, 92)
+from=(124, 136)
+best symmetry=0
+best offset=215
+
+to=(124, 94)
+from=(88, 84)
+best symmetry=0
+best offset=244
+
+to=(126, 94)
+from=(184, 112)
+best symmetry=0
+best offset=297
+
+to=(128, 80)
+from=(176, 80)
+best symmetry=0
+best offset=73
+
+to=(130, 80)
+from=(160, 80)
+best symmetry=0
+best offset=80
+
+to=(128, 82)
+from=(96, 132)
+best symmetry=0
+best offset=249
+
+to=(130, 82)
+from=(68, 148)
+best symmetry=0
+best offset=279
+
+to=(132, 80)
+from=(96, 80)
+best symmetry=0
+best offset=30
+
+to=(134, 80)
+from=(132, 128)
+best symmetry=0
+best offset=10
+
+to=(132, 82)
+from=(48, 80)
+best symmetry=0
+best offset=49
+
+to=(134, 82)
+from=(44, 80)
+best symmetry=0
+best offset=293
+
+to=(128, 84)
+from=(120, 96)
+best symmetry=0
+best offset=255
+
+to=(130, 84)
+from=(180, 96)
+best symmetry=0
+best offset=339
+
+to=(128, 86)
+from=(104, 120)
+best symmetry=0
+best offset=192
+
+to=(130, 86)
+from=(104, 84)
+best symmetry=0
+best offset=223
+
+to=(132, 84)
+from=(144, 136)
+best symmetry=0
+best offset=275
+
+to=(136, 80)
+from=(64, 168)
+best symmetry=0
+best offset=309
+
+to=(140, 80)
+from=(120, 128)
+best symmetry=0
+best offset=88
+
+to=(136, 84)
+from=(160, 104)
+best symmetry=0
+best offset=190
+
+to=(140, 84)
+from=(48, 72)
+best symmetry=0
+best offset=327
+
+to=(128, 88)
+from=(68, 136)
+best symmetry=0
+best offset=183
+
+to=(130, 88)
+from=(120, 168)
+best symmetry=0
+best offset=354
+
+to=(128, 90)
+from=(128, 136)
+best symmetry=0
+best offset=174
+
+to=(130, 90)
+from=(124, 84)
+best symmetry=0
+best offset=177
+
+to=(132, 88)
+from=(200, 112)
+best symmetry=0
+best offset=274
+
+to=(128, 92)
+from=(112, 80)
+best symmetry=0
+best offset=177
+
+to=(132, 92)
+from=(80, 72)
+best symmetry=0
+best offset=252
+
+to=(136, 88)
+from=(80, 104)
+best symmetry=0
+best offset=92
+
+to=(140, 88)
+from=(128, 120)
+best symmetry=0
+best offset=340
+
+to=(136, 92)
+from=(44, 96)
+best symmetry=0
+best offset=150
+
+to=(138, 92)
+from=(152, 88)
+best symmetry=0
+best offset=-14
+
+to=(136, 94)
+from=(116, 144)
+best symmetry=0
+best offset=308
+
+to=(138, 94)
+from=(64, 88)
+best symmetry=0
+best offset=59
+
+to=(140, 92)
+from=(104, 72)
+best symmetry=0
+best offset=339
+
+to=(144, 80)
+from=(176, 80)
+best symmetry=0
+best offset=-10
+
+to=(148, 80)
+from=(24, 72)
+best symmetry=0
+best offset=368
+
+to=(144, 84)
+from=(64, 168)
+best symmetry=0
+best offset=342
+
+to=(148, 84)
+from=(48, 104)
+best symmetry=0
+best offset=245
+
+to=(150, 84)
+from=(68, 120)
+best symmetry=0
+best offset=235
+
+to=(148, 86)
+from=(176, 104)
+best symmetry=0
+best offset=247
+
+to=(150, 86)
+from=(76, 152)
+best symmetry=0
+best offset=209
+
+to=(152, 80)
+from=(224, 112)
+best symmetry=0
+best offset=314
+
+to=(156, 80)
+from=(96, 240)
+best symmetry=0
+best offset=379
+
+to=(152, 84)
+from=(64, 72)
+best symmetry=0
+best offset=64
+
+to=(156, 84)
+from=(176, 80)
+best symmetry=0
+best offset=-3
+
+to=(144, 88)
+from=(176, 128)
+best symmetry=0
+best offset=332
+
+to=(148, 88)
+from=(112, 112)
+best symmetry=0
+best offset=287
+
+to=(144, 92)
+from=(12, 0)
+best symmetry=0
+best offset=311
+
+to=(146, 92)
+from=(108, 108)
+best symmetry=0
+best offset=178
+
+to=(144, 94)
+from=(196, 104)
+best symmetry=0
+best offset=263
+
+to=(146, 94)
+from=(124, 148)
+best symmetry=0
+best offset=268
+
+to=(148, 92)
+from=(144, 112)
+best symmetry=0
+best offset=52
+
+to=(152, 88)
+from=(232, 248)
+best symmetry=0
+best offset=298
+
+to=(156, 88)
+from=(80, 104)
+best symmetry=0
+best offset=133
+
+to=(152, 92)
+from=(192, 96)
+best symmetry=0
+best offset=96
+
+to=(156, 92)
+from=(128, 80)
+best symmetry=0
+best offset=137
+
+to=(160, 80)
+from=(128, 72)
+best symmetry=0
+best offset=55
+
+to=(164, 80)
+from=(132, 76)
+best symmetry=0
+best offset=132
+
+to=(166, 80)
+from=(140, 92)
+best symmetry=0
+best offset=335
+
+to=(164, 82)
+from=(104, 104)
+best symmetry=0
+best offset=244
+
+to=(166, 82)
+from=(140, 96)
+best symmetry=0
+best offset=55
+
+to=(160, 84)
+from=(168, 136)
+best symmetry=0
+best offset=292
+
+to=(164, 84)
+from=(168, 128)
+best symmetry=0
+best offset=102
+
+to=(168, 80)
+from=(192, 88)
+best symmetry=0
+best offset=-6
+
+to=(172, 80)
+from=(152, 80)
+best symmetry=0
+best offset=-4
+
+to=(168, 84)
+from=(128, 168)
+best symmetry=0
+best offset=325
+
+to=(172, 84)
+from=(0, 40)
+best symmetry=0
+best offset=312
+
+to=(160, 88)
+from=(88, 120)
+best symmetry=0
+best offset=88
+
+to=(164, 88)
+from=(152, 104)
+best symmetry=0
+best offset=43
+
+to=(160, 92)
+from=(180, 140)
+best symmetry=0
+best offset=330
+
+to=(162, 92)
+from=(100, 152)
+best symmetry=0
+best offset=214
+
+to=(160, 94)
+from=(176, 140)
+best symmetry=0
+best offset=326
+
+to=(162, 94)
+from=(76, 72)
+best symmetry=0
+best offset=21
+
+to=(164, 92)
+from=(40, 96)
+best symmetry=0
+best offset=54
+
+to=(166, 92)
+from=(44, 128)
+best symmetry=0
+best offset=193
+
+to=(164, 94)
+from=(128, 92)
+best symmetry=0
+best offset=207
+
+to=(166, 94)
+from=(72, 160)
+best symmetry=0
+best offset=209
+
+to=(168, 88)
+from=(240, 248)
+best symmetry=0
+best offset=289
+
+to=(172, 88)
+from=(48, 72)
+best symmetry=0
+best offset=330
+
+to=(168, 92)
+from=(232, 248)
+best symmetry=0
+best offset=298
+
+to=(172, 92)
+from=(64, 72)
+best symmetry=0
+best offset=82
+
+to=(176, 80)
+from=(176, 80)
+best symmetry=0
+best offset=122
+
+to=(180, 80)
+from=(48, 208)
+best symmetry=0
+best offset=375
+
+to=(176, 84)
+from=(128, 120)
+best symmetry=0
+best offset=343
+
+to=(180, 84)
+from=(88, 72)
+best symmetry=0
+best offset=96
+
+to=(184, 80)
+from=(96, 192)
+best symmetry=0
+best offset=355
+
+to=(176, 88)
+from=(56, 240)
+best symmetry=0
+best offset=321
+
+to=(180, 88)
+from=(128, 120)
+best symmetry=0
+best offset=343
+
+to=(176, 92)
+from=(200, 136)
+best symmetry=0
+best offset=343
+
+to=(180, 92)
+from=(176, 96)
+best symmetry=0
+best offset=131
+
+to=(184, 88)
+from=(48, 120)
+best symmetry=0
+best offset=241
+
+to=(188, 88)
+from=(152, 8)
+best symmetry=0
+best offset=363
+
+to=(184, 92)
+from=(120, 120)
+best symmetry=0
+best offset=102
+
+to=(188, 92)
+from=(112, 128)
+best symmetry=0
+best offset=67
+
+to=(192, 80)
+from=(144, 32)
+best symmetry=0
+best offset=361
+
+to=(200, 80)
+from=(96, 192)
+best symmetry=0
+best offset=328
+
+to=(192, 88)
+from=(64, 112)
+best symmetry=0
+best offset=233
+
+to=(196, 88)
+from=(176, 80)
+best symmetry=0
+best offset=158
+
+to=(192, 92)
+from=(184, 168)
+best symmetry=0
+best offset=328
+
+to=(196, 92)
+from=(120, 128)
+best symmetry=0
+best offset=114
+
+to=(200, 88)
+from=(208, 248)
+best symmetry=0
+best offset=372
+
+to=(204, 88)
+from=(48, 208)
+best symmetry=0
+best offset=381
+
+to=(200, 92)
+from=(56, 104)
+best symmetry=0
+best offset=240
+
+to=(204, 92)
+from=(152, 8)
+best symmetry=0
+best offset=347
+
+to=(208, 80)
+from=(160, 32)
+best symmetry=0
+best offset=281
+
+to=(224, 80)
+from=(160, 32)
+best symmetry=0
+best offset=230
+
+to=(240, 80)
+from=(224, 64)
+best symmetry=0
+best offset=25
+
+to=(0, 96)
+from=(0, 160)
+best symmetry=0
+best offset=118
+
+to=(16, 96)
+from=(32, 192)
+best symmetry=0
+best offset=29
+
+to=(32, 96)
+from=(0, 80)
+best symmetry=0
+best offset=364
+
+to=(40, 96)
+from=(40, 128)
+best symmetry=0
+best offset=-15
+
+to=(44, 96)
+from=(192, 160)
+best symmetry=0
+best offset=238
+
+to=(40, 100)
+from=(128, 144)
+best symmetry=0
+best offset=66
+
+to=(44, 100)
+from=(52, 88)
+best symmetry=0
+best offset=148
+
+to=(46, 100)
+from=(144, 88)
+best symmetry=0
+best offset=200
+
+to=(44, 102)
+from=(136, 132)
+best symmetry=0
+best offset=208
+
+to=(46, 102)
+from=(116, 124)
+best symmetry=0
+best offset=232
+
+to=(32, 104)
+from=(240, 16)
+best symmetry=0
+best offset=337
+
+to=(40, 104)
+from=(56, 72)
+best symmetry=0
+best offset=125
+
+to=(44, 104)
+from=(108, 136)
+best symmetry=0
+best offset=288
+
+to=(46, 104)
+from=(64, 76)
+best symmetry=0
+best offset=172
+
+to=(44, 106)
+from=(84, 136)
+best symmetry=0
+best offset=255
+
+to=(46, 106)
+from=(88, 152)
+best symmetry=0
+best offset=257
+
+to=(40, 108)
+from=(112, 136)
+best symmetry=0
+best offset=54
+
+to=(44, 108)
+from=(88, 72)
+best symmetry=0
+best offset=280
+
+to=(48, 96)
+from=(72, 152)
+best symmetry=0
+best offset=144
+
+to=(52, 96)
+from=(84, 152)
+best symmetry=0
+best offset=236
+
+to=(54, 96)
+from=(12, 0)
+best symmetry=0
+best offset=214
+
+to=(52, 98)
+from=(108, 92)
+best symmetry=0
+best offset=28
+
+to=(54, 98)
+from=(8, 8)
+best symmetry=0
+best offset=213
+
+to=(48, 100)
+from=(120, 120)
+best symmetry=0
+best offset=231
+
+to=(52, 100)
+from=(128, 72)
+best symmetry=0
+best offset=244
+
+to=(56, 96)
+from=(16, 48)
+best symmetry=0
+best offset=228
+
+to=(48, 104)
+from=(112, 80)
+best symmetry=0
+best offset=116
+
+to=(52, 104)
+from=(112, 80)
+best symmetry=0
+best offset=123
+
+to=(48, 108)
+from=(240, 248)
+best symmetry=0
+best offset=246
+
+to=(52, 108)
+from=(72, 136)
+best symmetry=0
+best offset=29
+
+to=(56, 104)
+from=(176, 80)
+best symmetry=0
+best offset=246
+
+to=(60, 104)
+from=(216, 240)
+best symmetry=0
+best offset=223
+
+to=(56, 108)
+from=(176, 144)
+best symmetry=0
+best offset=279
+
+to=(60, 108)
+from=(200, 104)
+best symmetry=0
+best offset=239
+
+to=(64, 96)
+from=(48, 72)
+best symmetry=0
+best offset=239
+
+to=(68, 96)
+from=(128, 120)
+best symmetry=0
+best offset=238
+
+to=(70, 96)
+from=(184, 152)
+best symmetry=0
+best offset=217
+
+to=(68, 98)
+from=(84, 68)
+best symmetry=0
+best offset=247
+
+to=(70, 98)
+from=(192, 124)
+best symmetry=0
+best offset=18
+
+to=(64, 100)
+from=(120, 100)
+best symmetry=0
+best offset=234
+
+to=(66, 100)
+from=(164, 92)
+best symmetry=0
+best offset=233
+
+to=(64, 102)
+from=(152, 152)
+best symmetry=0
+best offset=22
+
+to=(66, 102)
+from=(172, 168)
+best symmetry=0
+best offset=241
+
+to=(68, 100)
+from=(112, 112)
+best symmetry=0
+best offset=232
+
+to=(72, 96)
+from=(116, 136)
+best symmetry=0
+best offset=102
+
+to=(74, 96)
+from=(68, 136)
+best symmetry=0
+best offset=-1
+
+to=(72, 98)
+from=(136, 164)
+best symmetry=0
+best offset=274
+
+to=(74, 98)
+from=(176, 116)
+best symmetry=0
+best offset=240
+
+to=(76, 96)
+from=(128, 120)
+best symmetry=0
+best offset=271
+
+to=(72, 100)
+from=(64, 152)
+best symmetry=0
+best offset=14
+
+to=(76, 100)
+from=(240, 248)
+best symmetry=0
+best offset=251
+
+to=(64, 104)
+from=(0, 32)
+best symmetry=0
+best offset=215
+
+to=(72, 104)
+from=(160, 104)
+best symmetry=0
+best offset=152
+
+to=(76, 104)
+from=(116, 120)
+best symmetry=0
+best offset=276
+
+to=(78, 104)
+from=(140, 164)
+best symmetry=0
+best offset=-1
+
+to=(76, 106)
+from=(168, 104)
+best symmetry=0
+best offset=48
+
+to=(78, 106)
+from=(196, 156)
+best symmetry=0
+best offset=298
+
+to=(72, 108)
+from=(128, 120)
+best symmetry=0
+best offset=225
+
+to=(76, 108)
+from=(48, 120)
+best symmetry=0
+best offset=123
+
+to=(80, 96)
+from=(184, 168)
+best symmetry=0
+best offset=297
+
+to=(84, 96)
+from=(192, 104)
+best symmetry=0
+best offset=25
+
+to=(80, 100)
+from=(72, 152)
+best symmetry=0
+best offset=170
+
+to=(84, 100)
+from=(112, 96)
+best symmetry=0
+best offset=63
+
+to=(86, 100)
+from=(88, 84)
+best symmetry=0
+best offset=296
+
+to=(84, 102)
+from=(76, 156)
+best symmetry=0
+best offset=237
+
+to=(86, 102)
+from=(124, 148)
+best symmetry=0
+best offset=100
+
+to=(88, 96)
+from=(172, 92)
+best symmetry=0
+best offset=266
+
+to=(90, 96)
+from=(60, 144)
+best symmetry=0
+best offset=172
+
+to=(88, 98)
+from=(116, 80)
+best symmetry=0
+best offset=212
+
+to=(90, 98)
+from=(72, 72)
+best symmetry=0
+best offset=353
+
+to=(92, 96)
+from=(168, 80)
+best symmetry=0
+best offset=260
+
+to=(94, 96)
+from=(52, 76)
+best symmetry=0
+best offset=260
+
+to=(92, 98)
+from=(52, 112)
+best symmetry=0
+best offset=255
+
+to=(94, 98)
+from=(128, 144)
+best symmetry=0
+best offset=11
+
+to=(88, 100)
+from=(240, 248)
+best symmetry=0
+best offset=329
+
+to=(92, 100)
+from=(0, 240)
+best symmetry=0
+best offset=335
+
+to=(80, 104)
+from=(184, 96)
+best symmetry=0
+best offset=278
+
+to=(84, 104)
+from=(80, 144)
+best symmetry=0
+best offset=128
+
+to=(80, 108)
+from=(88, 112)
+best symmetry=0
+best offset=278
+
+to=(84, 108)
+from=(176, 112)
+best symmetry=0
+best offset=-4
+
+to=(88, 104)
+from=(0, 32)
+best symmetry=0
+best offset=335
+
+to=(96, 96)
+from=(88, 164)
+best symmetry=0
+best offset=5
+
+to=(98, 96)
+from=(164, 92)
+best symmetry=0
+best offset=274
+
+to=(96, 98)
+from=(120, 152)
+best symmetry=0
+best offset=344
+
+to=(98, 98)
+from=(184, 136)
+best symmetry=0
+best offset=-16
+
+to=(100, 96)
+from=(144, 140)
+best symmetry=0
+best offset=273
+
+to=(102, 96)
+from=(84, 116)
+best symmetry=0
+best offset=222
+
+to=(100, 98)
+from=(160, 96)
+best symmetry=0
+best offset=0
+
+to=(102, 98)
+from=(84, 124)
+best symmetry=0
+best offset=231
+
+to=(96, 100)
+from=(164, 88)
+best symmetry=0
+best offset=274
+
+to=(98, 100)
+from=(76, 124)
+best symmetry=0
+best offset=-3
+
+to=(96, 102)
+from=(192, 116)
+best symmetry=0
+best offset=301
+
+to=(98, 102)
+from=(108, 116)
+best symmetry=0
+best offset=220
+
+to=(100, 100)
+from=(56, 112)
+best symmetry=0
+best offset=8
+
+to=(104, 96)
+from=(224, 240)
+best symmetry=0
+best offset=222
+
+to=(96, 104)
+from=(136, 84)
+best symmetry=0
+best offset=285
+
+to=(98, 104)
+from=(172, 120)
+best symmetry=0
+best offset=215
+
+to=(96, 106)
+from=(40, 128)
+best symmetry=0
+best offset=30
+
+to=(98, 106)
+from=(144, 136)
+best symmetry=0
+best offset=235
+
+to=(100, 104)
+from=(176, 136)
+best symmetry=0
+best offset=223
+
+to=(96, 108)
+from=(180, 88)
+best symmetry=0
+best offset=329
+
+to=(98, 108)
+from=(80, 148)
+best symmetry=0
+best offset=221
+
+to=(96, 110)
+from=(44, 84)
+best symmetry=0
+best offset=-15
+
+to=(98, 110)
+from=(172, 156)
+best symmetry=0
+best offset=252
+
+to=(100, 108)
+from=(56, 248)
+best symmetry=0
+best offset=217
+
+to=(104, 104)
+from=(96, 160)
+best symmetry=0
+best offset=30
+
+to=(106, 104)
+from=(84, 152)
+best symmetry=0
+best offset=219
+
+to=(104, 106)
+from=(48, 156)
+best symmetry=0
+best offset=256
+
+to=(106, 106)
+from=(76, 164)
+best symmetry=0
+best offset=266
+
+to=(108, 104)
+from=(80, 156)
+best symmetry=0
+best offset=92
+
+to=(110, 104)
+from=(132, 84)
+best symmetry=0
+best offset=158
+
+to=(108, 106)
+from=(64, 16)
+best symmetry=0
+best offset=231
+
+to=(110, 106)
+from=(152, 136)
+best symmetry=0
+best offset=233
+
+to=(104, 108)
+from=(128, 168)
+best symmetry=0
+best offset=243
+
+to=(108, 108)
+from=(72, 152)
+best symmetry=0
+best offset=150
+
+to=(112, 96)
+from=(40, 104)
+best symmetry=0
+best offset=259
+
+to=(114, 96)
+from=(188, 116)
+best symmetry=0
+best offset=231
+
+to=(112, 98)
+from=(92, 128)
+best symmetry=0
+best offset=256
+
+to=(114, 98)
+from=(48, 116)
+best symmetry=0
+best offset=211
+
+to=(116, 96)
+from=(112, 80)
+best symmetry=0
+best offset=225
+
+to=(112, 100)
+from=(176, 104)
+best symmetry=0
+best offset=4
+
+to=(116, 100)
+from=(88, 104)
+best symmetry=0
+best offset=60
+
+to=(120, 96)
+from=(196, 92)
+best symmetry=0
+best offset=304
+
+to=(122, 96)
+from=(156, 84)
+best symmetry=0
+best offset=297
+
+to=(120, 98)
+from=(104, 108)
+best symmetry=0
+best offset=225
+
+to=(122, 98)
+from=(180, 88)
+best symmetry=0
+best offset=309
+
+to=(124, 96)
+from=(232, 248)
+best symmetry=0
+best offset=296
+
+to=(120, 100)
+from=(192, 96)
+best symmetry=0
+best offset=298
+
+to=(124, 100)
+from=(156, 112)
+best symmetry=0
+best offset=19
+
+to=(126, 100)
+from=(52, 136)
+best symmetry=0
+best offset=229
+
+to=(124, 102)
+from=(84, 156)
+best symmetry=0
+best offset=169
+
+to=(126, 102)
+from=(72, 80)
+best symmetry=0
+best offset=250
+
+to=(112, 104)
+from=(128, 136)
+best symmetry=0
+best offset=225
+
+to=(116, 104)
+from=(0, 32)
+best symmetry=0
+best offset=346
+
+to=(112, 108)
+from=(116, 160)
+best symmetry=0
+best offset=58
+
+to=(114, 108)
+from=(128, 140)
+best symmetry=0
+best offset=248
+
+to=(112, 110)
+from=(188, 116)
+best symmetry=0
+best offset=238
+
+to=(114, 110)
+from=(88, 84)
+best symmetry=0
+best offset=303
+
+to=(116, 108)
+from=(168, 88)
+best symmetry=0
+best offset=295
+
+to=(120, 104)
+from=(64, 116)
+best symmetry=0
+best offset=220
+
+to=(122, 104)
+from=(120, 104)
+best symmetry=0
+best offset=-4
+
+to=(120, 106)
+from=(68, 80)
+best symmetry=0
+best offset=298
+
+to=(122, 106)
+from=(196, 144)
+best symmetry=0
+best offset=300
+
+to=(124, 104)
+from=(248, 248)
+best symmetry=0
+best offset=254
+
+to=(120, 108)
+from=(72, 168)
+best symmetry=0
+best offset=291
+
+to=(124, 108)
+from=(240, 248)
+best symmetry=0
+best offset=263
+
+to=(128, 96)
+from=(232, 248)
+best symmetry=0
+best offset=312
+
+to=(132, 96)
+from=(176, 88)
+best symmetry=0
+best offset=269
+
+to=(128, 100)
+from=(176, 96)
+best symmetry=0
+best offset=117
+
+to=(132, 100)
+from=(240, 112)
+best symmetry=0
+best offset=342
+
+to=(136, 96)
+from=(64, 168)
+best symmetry=0
+best offset=336
+
+to=(140, 96)
+from=(164, 116)
+best symmetry=0
+best offset=295
+
+to=(142, 96)
+from=(68, 120)
+best symmetry=0
+best offset=222
+
+to=(140, 98)
+from=(196, 108)
+best symmetry=0
+best offset=233
+
+to=(142, 98)
+from=(92, 88)
+best symmetry=0
+best offset=153
+
+to=(136, 100)
+from=(20, 0)
+best symmetry=0
+best offset=321
+
+to=(138, 100)
+from=(76, 92)
+best symmetry=0
+best offset=235
+
+to=(136, 102)
+from=(176, 140)
+best symmetry=0
+best offset=324
+
+to=(138, 102)
+from=(84, 120)
+best symmetry=0
+best offset=244
+
+to=(140, 100)
+from=(240, 248)
+best symmetry=0
+best offset=244
+
+to=(128, 104)
+from=(80, 152)
+best symmetry=0
+best offset=84
+
+to=(132, 104)
+from=(124, 164)
+best symmetry=0
+best offset=64
+
+to=(134, 104)
+from=(168, 120)
+best symmetry=0
+best offset=222
+
+to=(132, 106)
+from=(136, 104)
+best symmetry=0
+best offset=260
+
+to=(134, 106)
+from=(72, 112)
+best symmetry=0
+best offset=237
+
+to=(128, 108)
+from=(136, 72)
+best symmetry=0
+best offset=303
+
+to=(132, 108)
+from=(160, 88)
+best symmetry=0
+best offset=257
+
+to=(134, 108)
+from=(176, 80)
+best symmetry=0
+best offset=12
+
+to=(132, 110)
+from=(52, 100)
+best symmetry=0
+best offset=149
+
+to=(134, 110)
+from=(88, 96)
+best symmetry=0
+best offset=277
+
+to=(136, 104)
+from=(104, 88)
+best symmetry=0
+best offset=177
+
+to=(138, 104)
+from=(176, 152)
+best symmetry=0
+best offset=263
+
+to=(136, 106)
+from=(140, 136)
+best symmetry=0
+best offset=226
+
+to=(138, 106)
+from=(172, 144)
+best symmetry=0
+best offset=258
+
+to=(140, 104)
+from=(232, 248)
+best symmetry=0
+best offset=260
+
+to=(136, 108)
+from=(48, 132)
+best symmetry=0
+best offset=283
+
+to=(138, 108)
+from=(96, 108)
+best symmetry=0
+best offset=3
+
+to=(136, 110)
+from=(172, 168)
+best symmetry=0
+best offset=288
+
+to=(138, 110)
+from=(168, 124)
+best symmetry=0
+best offset=195
+
+to=(140, 108)
+from=(200, 88)
+best symmetry=0
+best offset=293
+
+to=(144, 96)
+from=(160, 168)
+best symmetry=0
+best offset=275
+
+to=(148, 96)
+from=(128, 136)
+best symmetry=0
+best offset=176
+
+to=(144, 100)
+from=(48, 104)
+best symmetry=0
+best offset=68
+
+to=(148, 100)
+from=(64, 168)
+best symmetry=0
+best offset=290
+
+to=(152, 96)
+from=(0, 208)
+best symmetry=0
+best offset=308
+
+to=(156, 96)
+from=(64, 112)
+best symmetry=0
+best offset=177
+
+to=(152, 100)
+from=(80, 136)
+best symmetry=0
+best offset=226
+
+to=(154, 100)
+from=(72, 128)
+best symmetry=0
+best offset=43
+
+to=(152, 102)
+from=(136, 148)
+best symmetry=0
+best offset=229
+
+to=(154, 102)
+from=(168, 144)
+best symmetry=0
+best offset=263
+
+to=(156, 100)
+from=(184, 168)
+best symmetry=0
+best offset=292
+
+to=(144, 104)
+from=(44, 128)
+best symmetry=0
+best offset=189
+
+to=(146, 104)
+from=(164, 80)
+best symmetry=0
+best offset=312
+
+to=(144, 106)
+from=(48, 120)
+best symmetry=0
+best offset=147
+
+to=(146, 106)
+from=(168, 168)
+best symmetry=0
+best offset=328
+
+to=(148, 104)
+from=(192, 160)
+best symmetry=0
+best offset=295
+
+to=(144, 108)
+from=(128, 168)
+best symmetry=0
+best offset=298
+
+to=(148, 108)
+from=(40, 152)
+best symmetry=0
+best offset=290
+
+to=(152, 104)
+from=(232, 248)
+best symmetry=0
+best offset=257
+
+to=(156, 104)
+from=(104, 156)
+best symmetry=0
+best offset=134
+
+to=(158, 104)
+from=(248, 244)
+best symmetry=0
+best offset=273
+
+to=(156, 106)
+from=(116, 108)
+best symmetry=0
+best offset=271
+
+to=(158, 106)
+from=(120, 80)
+best symmetry=0
+best offset=209
+
+to=(152, 108)
+from=(232, 248)
+best symmetry=0
+best offset=258
+
+to=(156, 108)
+from=(64, 168)
+best symmetry=0
+best offset=297
+
+to=(160, 96)
+from=(192, 160)
+best symmetry=0
+best offset=282
+
+to=(168, 96)
+from=(76, 80)
+best symmetry=0
+best offset=197
+
+to=(170, 96)
+from=(116, 128)
+best symmetry=0
+best offset=314
+
+to=(168, 98)
+from=(64, 108)
+best symmetry=0
+best offset=131
+
+to=(170, 98)
+from=(168, 112)
+best symmetry=0
+best offset=64
+
+to=(172, 96)
+from=(152, 96)
+best symmetry=0
+best offset=0
+
+to=(168, 100)
+from=(144, 160)
+best symmetry=0
+best offset=31
+
+to=(170, 100)
+from=(76, 108)
+best symmetry=0
+best offset=196
+
+to=(168, 102)
+from=(148, 128)
+best symmetry=0
+best offset=232
+
+to=(170, 102)
+from=(136, 96)
+best symmetry=0
+best offset=311
+
+to=(172, 100)
+from=(200, 88)
+best symmetry=0
+best offset=299
+
+to=(160, 104)
+from=(32, 144)
+best symmetry=0
+best offset=286
+
+to=(168, 104)
+from=(88, 144)
+best symmetry=0
+best offset=289
+
+to=(172, 104)
+from=(72, 168)
+best symmetry=0
+best offset=297
+
+to=(168, 108)
+from=(0, 96)
+best symmetry=0
+best offset=279
+
+to=(172, 108)
+from=(128, 168)
+best symmetry=0
+best offset=293
+
+to=(176, 96)
+from=(92, 88)
+best symmetry=0
+best offset=188
+
+to=(178, 96)
+from=(172, 100)
+best symmetry=0
+best offset=235
+
+to=(176, 98)
+from=(116, 88)
+best symmetry=0
+best offset=144
+
+to=(178, 98)
+from=(80, 124)
+best symmetry=0
+best offset=74
+
+to=(180, 96)
+from=(160, 104)
+best symmetry=0
+best offset=261
+
+to=(176, 100)
+from=(80, 104)
+best symmetry=0
+best offset=14
+
+to=(180, 100)
+from=(80, 128)
+best symmetry=0
+best offset=133
+
+to=(184, 96)
+from=(0, 232)
+best symmetry=0
+best offset=344
+
+to=(188, 96)
+from=(184, 112)
+best symmetry=0
+best offset=85
+
+to=(184, 100)
+from=(240, 112)
+best symmetry=0
+best offset=384
+
+to=(188, 100)
+from=(128, 120)
+best symmetry=0
+best offset=16
+
+to=(176, 104)
+from=(124, 108)
+best symmetry=0
+best offset=50
+
+to=(178, 104)
+from=(148, 128)
+best symmetry=0
+best offset=237
+
+to=(176, 106)
+from=(132, 152)
+best symmetry=0
+best offset=293
+
+to=(178, 106)
+from=(84, 100)
+best symmetry=0
+best offset=27
+
+to=(180, 104)
+from=(160, 104)
+best symmetry=0
+best offset=262
+
+to=(176, 108)
+from=(144, 88)
+best symmetry=0
+best offset=268
+
+to=(180, 108)
+from=(232, 248)
+best symmetry=0
+best offset=324
+
+to=(184, 104)
+from=(152, 224)
+best symmetry=0
+best offset=374
+
+to=(188, 104)
+from=(48, 104)
+best symmetry=0
+best offset=243
+
+to=(190, 104)
+from=(76, 72)
+best symmetry=0
+best offset=57
+
+to=(188, 106)
+from=(68, 128)
+best symmetry=0
+best offset=269
+
+to=(190, 106)
+from=(124, 84)
+best symmetry=0
+best offset=164
+
+to=(184, 108)
+from=(32, 104)
+best symmetry=0
+best offset=383
+
+to=(188, 108)
+from=(80, 104)
+best symmetry=0
+best offset=261
+
+to=(192, 96)
+from=(192, 112)
+best symmetry=0
+best offset=103
+
+to=(200, 96)
+from=(176, 88)
+best symmetry=0
+best offset=-8
+
+to=(204, 96)
+from=(0, 32)
+best symmetry=0
+best offset=361
+
+to=(200, 100)
+from=(164, 168)
+best symmetry=0
+best offset=345
+
+to=(202, 100)
+from=(132, 84)
+best symmetry=0
+best offset=260
+
+to=(200, 102)
+from=(136, 120)
+best symmetry=0
+best offset=59
+
+to=(202, 102)
+from=(152, 160)
+best symmetry=0
+best offset=240
+
+to=(204, 100)
+from=(0, 224)
+best symmetry=0
+best offset=364
+
+to=(192, 104)
+from=(184, 160)
+best symmetry=0
+best offset=225
+
+to=(196, 104)
+from=(80, 72)
+best symmetry=0
+best offset=54
+
+to=(192, 108)
+from=(136, 144)
+best symmetry=0
+best offset=86
+
+to=(196, 108)
+from=(184, 160)
+best symmetry=0
+best offset=69
+
+to=(200, 104)
+from=(200, 104)
+best symmetry=0
+best offset=15
+
+to=(204, 104)
+from=(48, 0)
+best symmetry=0
+best offset=377
+
+to=(200, 108)
+from=(128, 120)
+best symmetry=0
+best offset=331
+
+to=(204, 108)
+from=(0, 120)
+best symmetry=0
+best offset=370
+
+to=(208, 96)
+from=(64, 0)
+best symmetry=0
+best offset=372
+
+to=(224, 96)
+from=(64, 0)
+best symmetry=0
+best offset=366
+
+to=(240, 96)
+from=(224, 128)
+best symmetry=0
+best offset=47
+
+to=(0, 112)
+from=(0, 128)
+best symmetry=0
+best offset=183
+
+to=(16, 112)
+from=(32, 192)
+best symmetry=0
+best offset=37
+
+to=(32, 112)
+from=(32, 144)
+best symmetry=0
+best offset=82
+
+to=(40, 112)
+from=(64, 248)
+best symmetry=0
+best offset=368
+
+to=(44, 112)
+from=(64, 164)
+best symmetry=0
+best offset=132
+
+to=(46, 112)
+from=(48, 148)
+best symmetry=0
+best offset=28
+
+to=(44, 114)
+from=(168, 156)
+best symmetry=0
+best offset=239
+
+to=(46, 114)
+from=(108, 136)
+best symmetry=0
+best offset=287
+
+to=(40, 116)
+from=(40, 80)
+best symmetry=0
+best offset=100
+
+to=(44, 116)
+from=(40, 92)
+best symmetry=0
+best offset=82
+
+to=(46, 116)
+from=(132, 88)
+best symmetry=0
+best offset=5
+
+to=(44, 118)
+from=(108, 120)
+best symmetry=0
+best offset=258
+
+to=(46, 118)
+from=(192, 116)
+best symmetry=0
+best offset=207
+
+to=(32, 120)
+from=(224, 224)
+best symmetry=0
+best offset=370
+
+to=(40, 120)
+from=(32, 136)
+best symmetry=0
+best offset=369
+
+to=(44, 120)
+from=(48, 148)
+best symmetry=0
+best offset=86
+
+to=(46, 120)
+from=(172, 144)
+best symmetry=0
+best offset=264
+
+to=(44, 122)
+from=(64, 164)
+best symmetry=0
+best offset=135
+
+to=(46, 122)
+from=(136, 156)
+best symmetry=0
+best offset=278
+
+to=(40, 124)
+from=(64, 112)
+best symmetry=0
+best offset=233
+
+to=(44, 124)
+from=(68, 80)
+best symmetry=0
+best offset=309
+
+to=(46, 124)
+from=(132, 80)
+best symmetry=0
+best offset=14
+
+to=(44, 126)
+from=(72, 96)
+best symmetry=0
+best offset=54
+
+to=(46, 126)
+from=(76, 168)
+best symmetry=0
+best offset=284
+
+to=(48, 112)
+from=(248, 16)
+best symmetry=0
+best offset=277
+
+to=(52, 112)
+from=(104, 80)
+best symmetry=0
+best offset=73
+
+to=(48, 116)
+from=(120, 120)
+best symmetry=0
+best offset=232
+
+to=(52, 116)
+from=(232, 8)
+best symmetry=0
+best offset=235
+
+to=(56, 112)
+from=(48, 112)
+best symmetry=0
+best offset=15
+
+to=(60, 112)
+from=(120, 168)
+best symmetry=0
+best offset=240
+
+to=(56, 116)
+from=(24, 248)
+best symmetry=0
+best offset=214
+
+to=(60, 116)
+from=(80, 64)
+best symmetry=0
+best offset=236
+
+to=(48, 120)
+from=(16, 240)
+best symmetry=0
+best offset=212
+
+to=(56, 120)
+from=(48, 96)
+best symmetry=0
+best offset=26
+
+to=(58, 120)
+from=(160, 84)
+best symmetry=0
+best offset=275
+
+to=(56, 122)
+from=(116, 112)
+best symmetry=0
+best offset=232
+
+to=(58, 122)
+from=(80, 152)
+best symmetry=0
+best offset=27
+
+to=(60, 120)
+from=(188, 132)
+best symmetry=0
+best offset=38
+
+to=(62, 120)
+from=(148, 120)
+best symmetry=0
+best offset=155
+
+to=(60, 122)
+from=(164, 148)
+best symmetry=0
+best offset=0
+
+to=(62, 122)
+from=(64, 16)
+best symmetry=0
+best offset=238
+
+to=(56, 124)
+from=(240, 240)
+best symmetry=0
+best offset=224
+
+to=(60, 124)
+from=(64, 120)
+best symmetry=0
+best offset=27
+
+to=(64, 112)
+from=(224, 240)
+best symmetry=0
+best offset=215
+
+to=(72, 112)
+from=(128, 168)
+best symmetry=0
+best offset=243
+
+to=(76, 112)
+from=(232, 248)
+best symmetry=0
+best offset=219
+
+to=(72, 116)
+from=(92, 152)
+best symmetry=0
+best offset=244
+
+to=(74, 116)
+from=(108, 144)
+best symmetry=0
+best offset=224
+
+to=(72, 118)
+from=(188, 100)
+best symmetry=0
+best offset=239
+
+to=(74, 118)
+from=(96, 84)
+best symmetry=0
+best offset=10
+
+to=(76, 116)
+from=(184, 104)
+best symmetry=0
+best offset=234
+
+to=(64, 120)
+from=(56, 96)
+best symmetry=0
+best offset=88
+
+to=(68, 120)
+from=(48, 112)
+best symmetry=0
+best offset=130
+
+to=(64, 124)
+from=(104, 72)
+best symmetry=0
+best offset=259
+
+to=(68, 124)
+from=(144, 112)
+best symmetry=0
+best offset=51
+
+to=(72, 120)
+from=(76, 88)
+best symmetry=0
+best offset=152
+
+to=(74, 120)
+from=(60, 124)
+best symmetry=0
+best offset=28
+
+to=(72, 122)
+from=(120, 156)
+best symmetry=0
+best offset=248
+
+to=(74, 122)
+from=(168, 128)
+best symmetry=0
+best offset=181
+
+to=(76, 120)
+from=(96, 80)
+best symmetry=0
+best offset=262
+
+to=(78, 120)
+from=(148, 164)
+best symmetry=0
+best offset=257
+
+to=(76, 122)
+from=(104, 76)
+best symmetry=0
+best offset=314
+
+to=(78, 122)
+from=(108, 104)
+best symmetry=0
+best offset=147
+
+to=(72, 124)
+from=(176, 104)
+best symmetry=0
+best offset=59
+
+to=(76, 124)
+from=(112, 120)
+best symmetry=0
+best offset=311
+
+to=(78, 124)
+from=(188, 120)
+best symmetry=0
+best offset=47
+
+to=(76, 126)
+from=(128, 96)
+best symmetry=0
+best offset=278
+
+to=(78, 126)
+from=(64, 152)
+best symmetry=0
+best offset=145
+
+to=(80, 112)
+from=(40, 128)
+best symmetry=0
+best offset=272
+
+to=(82, 112)
+from=(44, 96)
+best symmetry=0
+best offset=201
+
+to=(80, 114)
+from=(140, 116)
+best symmetry=0
+best offset=252
+
+to=(82, 114)
+from=(132, 112)
+best symmetry=0
+best offset=257
+
+to=(84, 112)
+from=(120, 120)
+best symmetry=0
+best offset=-5
+
+to=(80, 116)
+from=(124, 100)
+best symmetry=0
+best offset=269
+
+to=(82, 116)
+from=(92, 148)
+best symmetry=0
+best offset=348
+
+to=(80, 118)
+from=(72, 124)
+best symmetry=0
+best offset=305
+
+to=(82, 118)
+from=(136, 144)
+best symmetry=0
+best offset=198
+
+to=(84, 116)
+from=(200, 104)
+best symmetry=0
+best offset=108
+
+to=(88, 112)
+from=(56, 96)
+best symmetry=0
+best offset=233
+
+to=(92, 112)
+from=(40, 112)
+best symmetry=0
+best offset=147
+
+to=(88, 116)
+from=(240, 112)
+best symmetry=0
+best offset=385
+
+to=(92, 116)
+from=(124, 120)
+best symmetry=0
+best offset=355
+
+to=(94, 116)
+from=(108, 160)
+best symmetry=0
+best offset=218
+
+to=(92, 118)
+from=(92, 116)
+best symmetry=0
+best offset=88
+
+to=(94, 118)
+from=(100, 168)
+best symmetry=0
+best offset=296
+
+to=(80, 120)
+from=(112, 168)
+best symmetry=0
+best offset=298
+
+to=(84, 120)
+from=(80, 120)
+best symmetry=0
+best offset=71
+
+to=(80, 124)
+from=(92, 112)
+best symmetry=0
+best offset=270
+
+to=(82, 124)
+from=(120, 144)
+best symmetry=0
+best offset=289
+
+to=(80, 126)
+from=(108, 112)
+best symmetry=0
+best offset=73
+
+to=(82, 126)
+from=(84, 136)
+best symmetry=0
+best offset=87
+
+to=(84, 124)
+from=(200, 112)
+best symmetry=0
+best offset=133
+
+to=(88, 120)
+from=(16, 240)
+best symmetry=0
+best offset=329
+
+to=(92, 120)
+from=(144, 136)
+best symmetry=0
+best offset=278
+
+to=(88, 124)
+from=(248, 240)
+best symmetry=0
+best offset=345
+
+to=(92, 124)
+from=(72, 108)
+best symmetry=0
+best offset=221
+
+to=(94, 124)
+from=(176, 124)
+best symmetry=0
+best offset=281
+
+to=(92, 126)
+from=(180, 100)
+best symmetry=0
+best offset=350
+
+to=(94, 126)
+from=(200, 104)
+best symmetry=0
+best offset=324
+
+to=(96, 112)
+from=(120, 84)
+best symmetry=0
+best offset=226
+
+to=(98, 112)
+from=(96, 112)
+best symmetry=0
+best offset=7
+
+to=(96, 114)
+from=(124, 148)
+best symmetry=0
+best offset=273
+
+to=(98, 114)
+from=(120, 120)
+best symmetry=0
+best offset=261
+
+to=(100, 112)
+from=(184, 88)
+best symmetry=0
+best offset=252
+
+to=(96, 116)
+from=(24, 128)
+best symmetry=0
+best offset=279
+
+to=(100, 116)
+from=(72, 152)
+best symmetry=0
+best offset=155
+
+to=(104, 112)
+from=(88, 160)
+best symmetry=0
+best offset=35
+
+to=(108, 112)
+from=(180, 156)
+best symmetry=0
+best offset=236
+
+to=(110, 112)
+from=(108, 112)
+best symmetry=0
+best offset=36
+
+to=(108, 114)
+from=(48, 152)
+best symmetry=0
+best offset=259
+
+to=(110, 114)
+from=(96, 128)
+best symmetry=0
+best offset=212
+
+to=(104, 116)
+from=(176, 120)
+best symmetry=0
+best offset=281
+
+to=(108, 116)
+from=(188, 112)
+best symmetry=0
+best offset=204
+
+to=(110, 116)
+from=(104, 120)
+best symmetry=0
+best offset=263
+
+to=(108, 118)
+from=(44, 96)
+best symmetry=0
+best offset=142
+
+to=(110, 118)
+from=(72, 160)
+best symmetry=0
+best offset=266
+
+to=(96, 120)
+from=(232, 248)
+best symmetry=0
+best offset=264
+
+to=(100, 120)
+from=(104, 156)
+best symmetry=0
+best offset=142
+
+to=(102, 120)
+from=(148, 128)
+best symmetry=0
+best offset=271
+
+to=(100, 122)
+from=(0, 32)
+best symmetry=0
+best offset=279
+
+to=(102, 122)
+from=(56, 116)
+best symmetry=0
+best offset=162
+
+to=(96, 124)
+from=(64, 112)
+best symmetry=0
+best offset=132
+
+to=(100, 124)
+from=(160, 144)
+best symmetry=0
+best offset=11
+
+to=(104, 120)
+from=(48, 144)
+best symmetry=0
+best offset=84
+
+to=(108, 120)
+from=(52, 100)
+best symmetry=0
+best offset=138
+
+to=(110, 120)
+from=(140, 112)
+best symmetry=0
+best offset=242
+
+to=(108, 122)
+from=(40, 124)
+best symmetry=0
+best offset=288
+
+to=(110, 122)
+from=(188, 116)
+best symmetry=0
+best offset=245
+
+to=(104, 124)
+from=(184, 168)
+best symmetry=0
+best offset=252
+
+to=(108, 124)
+from=(188, 96)
+best symmetry=0
+best offset=268
+
+to=(110, 124)
+from=(48, 100)
+best symmetry=0
+best offset=216
+
+to=(108, 126)
+from=(88, 92)
+best symmetry=0
+best offset=185
+
+to=(110, 126)
+from=(44, 84)
+best symmetry=0
+best offset=364
+
+to=(112, 112)
+from=(240, 240)
+best symmetry=0
+best offset=324
+
+to=(120, 112)
+from=(200, 104)
+best symmetry=0
+best offset=299
+
+to=(124, 112)
+from=(168, 120)
+best symmetry=0
+best offset=92
+
+to=(120, 116)
+from=(144, 128)
+best symmetry=0
+best offset=19
+
+to=(124, 116)
+from=(192, 88)
+best symmetry=0
+best offset=308
+
+to=(112, 120)
+from=(16, 96)
+best symmetry=0
+best offset=295
+
+to=(120, 120)
+from=(224, 208)
+best symmetry=0
+best offset=314
+
+to=(128, 112)
+from=(184, 168)
+best symmetry=0
+best offset=306
+
+to=(132, 112)
+from=(32, 88)
+best symmetry=0
+best offset=294
+
+to=(128, 116)
+from=(152, 80)
+best symmetry=0
+best offset=311
+
+to=(132, 116)
+from=(136, 144)
+best symmetry=0
+best offset=79
+
+to=(136, 112)
+from=(112, 80)
+best symmetry=0
+best offset=167
+
+to=(140, 112)
+from=(80, 68)
+best symmetry=0
+best offset=305
+
+to=(142, 112)
+from=(140, 140)
+best symmetry=0
+best offset=140
+
+to=(140, 114)
+from=(56, 148)
+best symmetry=0
+best offset=177
+
+to=(142, 114)
+from=(172, 148)
+best symmetry=0
+best offset=209
+
+to=(136, 116)
+from=(44, 128)
+best symmetry=0
+best offset=220
+
+to=(138, 116)
+from=(44, 92)
+best symmetry=0
+best offset=234
+
+to=(136, 118)
+from=(44, 84)
+best symmetry=0
+best offset=330
+
+to=(138, 118)
+from=(100, 112)
+best symmetry=0
+best offset=222
+
+to=(140, 116)
+from=(64, 80)
+best symmetry=0
+best offset=240
+
+to=(142, 116)
+from=(144, 140)
+best symmetry=0
+best offset=249
+
+to=(140, 118)
+from=(84, 144)
+best symmetry=0
+best offset=315
+
+to=(142, 118)
+from=(60, 80)
+best symmetry=0
+best offset=20
+
+to=(128, 120)
+from=(8, 240)
+best symmetry=0
+best offset=328
+
+to=(132, 120)
+from=(88, 72)
+best symmetry=0
+best offset=326
+
+to=(128, 124)
+from=(32, 112)
+best symmetry=0
+best offset=394
+
+to=(132, 124)
+from=(176, 88)
+best symmetry=0
+best offset=318
+
+to=(136, 120)
+from=(160, 104)
+best symmetry=0
+best offset=229
+
+to=(140, 120)
+from=(164, 88)
+best symmetry=0
+best offset=238
+
+to=(142, 120)
+from=(136, 128)
+best symmetry=0
+best offset=258
+
+to=(140, 122)
+from=(72, 72)
+best symmetry=0
+best offset=354
+
+to=(142, 122)
+from=(84, 72)
+best symmetry=0
+best offset=292
+
+to=(136, 124)
+from=(112, 96)
+best symmetry=0
+best offset=130
+
+to=(140, 124)
+from=(240, 248)
+best symmetry=0
+best offset=333
+
+to=(144, 112)
+from=(160, 104)
+best symmetry=0
+best offset=172
+
+to=(148, 112)
+from=(240, 248)
+best symmetry=0
+best offset=262
+
+to=(144, 116)
+from=(232, 248)
+best symmetry=0
+best offset=261
+
+to=(148, 116)
+from=(144, 128)
+best symmetry=0
+best offset=293
+
+to=(152, 112)
+from=(184, 96)
+best symmetry=0
+best offset=283
+
+to=(156, 112)
+from=(128, 156)
+best symmetry=0
+best offset=297
+
+to=(158, 112)
+from=(52, 76)
+best symmetry=0
+best offset=306
+
+to=(156, 114)
+from=(120, 84)
+best symmetry=0
+best offset=226
+
+to=(158, 114)
+from=(72, 168)
+best symmetry=0
+best offset=298
+
+to=(152, 116)
+from=(120, 120)
+best symmetry=0
+best offset=286
+
+to=(156, 116)
+from=(72, 152)
+best symmetry=0
+best offset=147
+
+to=(144, 120)
+from=(200, 88)
+best symmetry=0
+best offset=295
+
+to=(148, 120)
+from=(0, 48)
+best symmetry=0
+best offset=285
+
+to=(144, 124)
+from=(56, 88)
+best symmetry=0
+best offset=298
+
+to=(146, 124)
+from=(120, 140)
+best symmetry=0
+best offset=36
+
+to=(144, 126)
+from=(104, 84)
+best symmetry=0
+best offset=231
+
+to=(146, 126)
+from=(100, 132)
+best symmetry=0
+best offset=226
+
+to=(148, 124)
+from=(200, 88)
+best symmetry=0
+best offset=305
+
+to=(152, 120)
+from=(32, 120)
+best symmetry=0
+best offset=301
+
+to=(156, 120)
+from=(124, 112)
+best symmetry=0
+best offset=192
+
+to=(158, 120)
+from=(52, 144)
+best symmetry=0
+best offset=181
+
+to=(156, 122)
+from=(140, 92)
+best symmetry=0
+best offset=221
+
+to=(158, 122)
+from=(60, 108)
+best symmetry=0
+best offset=177
+
+to=(152, 124)
+from=(240, 248)
+best symmetry=0
+best offset=274
+
+to=(156, 124)
+from=(112, 80)
+best symmetry=0
+best offset=177
+
+to=(160, 112)
+from=(80, 120)
+best symmetry=0
+best offset=250
+
+to=(162, 112)
+from=(84, 136)
+best symmetry=0
+best offset=254
+
+to=(160, 114)
+from=(104, 120)
+best symmetry=0
+best offset=38
+
+to=(162, 114)
+from=(80, 72)
+best symmetry=0
+best offset=197
+
+to=(164, 112)
+from=(232, 248)
+best symmetry=0
+best offset=260
+
+to=(160, 116)
+from=(112, 80)
+best symmetry=0
+best offset=171
+
+to=(164, 116)
+from=(112, 80)
+best symmetry=0
+best offset=182
+
+to=(168, 112)
+from=(68, 128)
+best symmetry=0
+best offset=16
+
+to=(170, 112)
+from=(200, 96)
+best symmetry=0
+best offset=300
+
+to=(168, 114)
+from=(0, 96)
+best symmetry=0
+best offset=281
+
+to=(170, 114)
+from=(88, 124)
+best symmetry=0
+best offset=290
+
+to=(172, 112)
+from=(40, 144)
+best symmetry=0
+best offset=299
+
+to=(168, 116)
+from=(68, 164)
+best symmetry=0
+best offset=2
+
+to=(170, 116)
+from=(80, 156)
+best symmetry=0
+best offset=141
+
+to=(168, 118)
+from=(164, 168)
+best symmetry=0
+best offset=362
+
+to=(170, 118)
+from=(144, 136)
+best symmetry=0
+best offset=280
+
+to=(172, 116)
+from=(88, 112)
+best symmetry=0
+best offset=294
+
+to=(160, 120)
+from=(176, 88)
+best symmetry=0
+best offset=7
+
+to=(164, 120)
+from=(144, 116)
+best symmetry=0
+best offset=242
+
+to=(166, 120)
+from=(76, 92)
+best symmetry=0
+best offset=236
+
+to=(164, 122)
+from=(92, 116)
+best symmetry=0
+best offset=119
+
+to=(166, 122)
+from=(80, 124)
+best symmetry=0
+best offset=211
+
+to=(160, 124)
+from=(52, 128)
+best symmetry=0
+best offset=225
+
+to=(162, 124)
+from=(60, 124)
+best symmetry=0
+best offset=191
+
+to=(160, 126)
+from=(52, 160)
+best symmetry=0
+best offset=94
+
+to=(162, 126)
+from=(108, 140)
+best symmetry=0
+best offset=238
+
+to=(164, 124)
+from=(160, 168)
+best symmetry=0
+best offset=247
+
+to=(168, 120)
+from=(184, 168)
+best symmetry=0
+best offset=246
+
+to=(172, 120)
+from=(80, 104)
+best symmetry=0
+best offset=-9
+
+to=(168, 124)
+from=(100, 76)
+best symmetry=0
+best offset=242
+
+to=(170, 124)
+from=(144, 132)
+best symmetry=0
+best offset=233
+
+to=(168, 126)
+from=(40, 92)
+best symmetry=0
+best offset=244
+
+to=(170, 126)
+from=(96, 132)
+best symmetry=0
+best offset=-4
+
+to=(172, 124)
+from=(108, 152)
+best symmetry=0
+best offset=24
+
+to=(174, 124)
+from=(120, 152)
+best symmetry=0
+best offset=332
+
+to=(172, 126)
+from=(132, 124)
+best symmetry=0
+best offset=238
+
+to=(174, 126)
+from=(104, 116)
+best symmetry=0
+best offset=200
+
+to=(176, 112)
+from=(56, 104)
+best symmetry=0
+best offset=207
+
+to=(180, 112)
+from=(0, 32)
+best symmetry=0
+best offset=317
+
+to=(176, 116)
+from=(112, 80)
+best symmetry=0
+best offset=219
+
+to=(180, 116)
+from=(240, 248)
+best symmetry=0
+best offset=336
+
+to=(184, 112)
+from=(64, 112)
+best symmetry=0
+best offset=214
+
+to=(188, 112)
+from=(96, 104)
+best symmetry=0
+best offset=84
+
+to=(184, 116)
+from=(104, 96)
+best symmetry=0
+best offset=220
+
+to=(188, 116)
+from=(200, 112)
+best symmetry=0
+best offset=297
+
+to=(190, 116)
+from=(64, 108)
+best symmetry=0
+best offset=143
+
+to=(188, 118)
+from=(76, 124)
+best symmetry=0
+best offset=-2
+
+to=(190, 118)
+from=(124, 80)
+best symmetry=0
+best offset=49
+
+to=(176, 120)
+from=(192, 80)
+best symmetry=0
+best offset=116
+
+to=(184, 120)
+from=(104, 96)
+best symmetry=0
+best offset=228
+
+to=(188, 120)
+from=(96, 148)
+best symmetry=0
+best offset=48
+
+to=(190, 120)
+from=(48, 108)
+best symmetry=0
+best offset=135
+
+to=(188, 122)
+from=(172, 152)
+best symmetry=0
+best offset=233
+
+to=(190, 122)
+from=(152, 104)
+best symmetry=0
+best offset=132
+
+to=(184, 124)
+from=(184, 96)
+best symmetry=0
+best offset=143
+
+to=(188, 124)
+from=(188, 124)
+best symmetry=0
+best offset=35
+
+to=(190, 124)
+from=(48, 112)
+best symmetry=0
+best offset=135
+
+to=(188, 126)
+from=(40, 96)
+best symmetry=0
+best offset=28
+
+to=(190, 126)
+from=(44, 100)
+best symmetry=0
+best offset=35
+
+to=(192, 112)
+from=(64, 80)
+best symmetry=0
+best offset=59
+
+to=(196, 112)
+from=(104, 96)
+best symmetry=0
+best offset=192
+
+to=(192, 116)
+from=(64, 80)
+best symmetry=0
+best offset=96
+
+to=(196, 116)
+from=(40, 80)
+best symmetry=0
+best offset=335
+
+to=(200, 112)
+from=(136, 160)
+best symmetry=0
+best offset=241
+
+to=(202, 112)
+from=(188, 112)
+best symmetry=0
+best offset=282
+
+to=(200, 114)
+from=(184, 112)
+best symmetry=0
+best offset=323
+
+to=(202, 114)
+from=(76, 156)
+best symmetry=0
+best offset=270
+
+to=(204, 112)
+from=(0, 120)
+best symmetry=0
+best offset=368
+
+to=(200, 116)
+from=(56, 112)
+best symmetry=0
+best offset=239
+
+to=(204, 116)
+from=(48, 208)
+best symmetry=0
+best offset=373
+
+to=(192, 120)
+from=(168, 168)
+best symmetry=0
+best offset=245
+
+to=(196, 120)
+from=(124, 116)
+best symmetry=0
+best offset=214
+
+to=(198, 120)
+from=(120, 92)
+best symmetry=0
+best offset=169
+
+to=(196, 122)
+from=(56, 148)
+best symmetry=0
+best offset=94
+
+to=(198, 122)
+from=(40, 108)
+best symmetry=0
+best offset=248
+
+to=(192, 124)
+from=(112, 136)
+best symmetry=0
+best offset=235
+
+to=(196, 124)
+from=(80, 148)
+best symmetry=0
+best offset=223
+
+to=(198, 124)
+from=(108, 104)
+best symmetry=0
+best offset=38
+
+to=(196, 126)
+from=(60, 164)
+best symmetry=0
+best offset=249
+
+to=(198, 126)
+from=(164, 120)
+best symmetry=0
+best offset=208
+
+to=(200, 120)
+from=(136, 104)
+best symmetry=0
+best offset=277
+
+to=(202, 120)
+from=(204, 116)
+best symmetry=0
+best offset=0
+
+to=(200, 122)
+from=(40, 96)
+best symmetry=0
+best offset=265
+
+to=(202, 122)
+from=(0, 32)
+best symmetry=0
+best offset=368
+
+to=(204, 120)
+from=(192, 72)
+best symmetry=0
+best offset=0
+
+to=(200, 124)
+from=(184, 144)
+best symmetry=0
+best offset=268
+
+to=(202, 124)
+from=(224, 0)
+best symmetry=0
+best offset=391
+
+to=(200, 126)
+from=(132, 88)
+best symmetry=0
+best offset=268
+
+to=(202, 126)
+from=(140, 68)
+best symmetry=0
+best offset=0
+
+to=(204, 124)
+from=(224, 224)
+best symmetry=0
+best offset=382
+
+to=(208, 112)
+from=(160, 192)
+best symmetry=0
+best offset=375
+
+to=(224, 112)
+from=(96, 192)
+best symmetry=0
+best offset=363
+
+to=(240, 112)
+from=(96, 32)
+best symmetry=0
+best offset=9
+
+to=(0, 128)
+from=(0, 32)
+best symmetry=0
+best offset=145
+
+to=(16, 128)
+from=(32, 192)
+best symmetry=0
+best offset=14
+
+to=(32, 128)
+from=(32, 144)
+best symmetry=0
+best offset=73
+
+to=(40, 128)
+from=(184, 104)
+best symmetry=0
+best offset=48
+
+to=(44, 128)
+from=(120, 120)
+best symmetry=0
+best offset=270
+
+to=(40, 132)
+from=(80, 72)
+best symmetry=0
+best offset=299
+
+to=(44, 132)
+from=(88, 72)
+best symmetry=0
+best offset=283
+
+to=(32, 136)
+from=(224, 48)
+best symmetry=0
+best offset=388
+
+to=(40, 136)
+from=(16, 96)
+best symmetry=0
+best offset=369
+
+to=(44, 136)
+from=(188, 100)
+best symmetry=0
+best offset=21
+
+to=(46, 136)
+from=(44, 108)
+best symmetry=0
+best offset=19
+
+to=(44, 138)
+from=(56, 0)
+best symmetry=0
+best offset=382
+
+to=(46, 138)
+from=(40, 100)
+best symmetry=0
+best offset=0
+
+to=(40, 140)
+from=(216, 248)
+best symmetry=0
+best offset=371
+
+to=(44, 140)
+from=(32, 240)
+best symmetry=0
+best offset=364
+
+to=(48, 128)
+from=(232, 248)
+best symmetry=0
+best offset=262
+
+to=(52, 128)
+from=(8, 240)
+best symmetry=0
+best offset=253
+
+to=(48, 132)
+from=(232, 248)
+best symmetry=0
+best offset=268
+
+to=(52, 132)
+from=(176, 112)
+best symmetry=0
+best offset=284
+
+to=(56, 128)
+from=(168, 104)
+best symmetry=0
+best offset=178
+
+to=(60, 128)
+from=(240, 248)
+best symmetry=0
+best offset=258
+
+to=(56, 132)
+from=(184, 160)
+best symmetry=0
+best offset=219
+
+to=(60, 132)
+from=(0, 40)
+best symmetry=0
+best offset=271
+
+to=(48, 136)
+from=(120, 72)
+best symmetry=0
+best offset=295
+
+to=(52, 136)
+from=(104, 96)
+best symmetry=0
+best offset=145
+
+to=(48, 140)
+from=(88, 112)
+best symmetry=0
+best offset=24
+
+to=(52, 140)
+from=(168, 136)
+best symmetry=0
+best offset=275
+
+to=(54, 140)
+from=(200, 112)
+best symmetry=0
+best offset=293
+
+to=(52, 142)
+from=(100, 80)
+best symmetry=0
+best offset=-12
+
+to=(54, 142)
+from=(136, 92)
+best symmetry=0
+best offset=189
+
+to=(56, 136)
+from=(144, 112)
+best symmetry=0
+best offset=48
+
+to=(60, 136)
+from=(72, 152)
+best symmetry=0
+best offset=197
+
+to=(56, 140)
+from=(40, 116)
+best symmetry=0
+best offset=286
+
+to=(58, 140)
+from=(136, 88)
+best symmetry=0
+best offset=49
+
+to=(56, 142)
+from=(60, 84)
+best symmetry=0
+best offset=183
+
+to=(58, 142)
+from=(196, 112)
+best symmetry=0
+best offset=254
+
+to=(60, 140)
+from=(80, 72)
+best symmetry=0
+best offset=94
+
+to=(64, 128)
+from=(176, 80)
+best symmetry=0
+best offset=282
+
+to=(68, 128)
+from=(168, 152)
+best symmetry=0
+best offset=86
+
+to=(64, 132)
+from=(72, 168)
+best symmetry=0
+best offset=300
+
+to=(68, 132)
+from=(64, 112)
+best symmetry=0
+best offset=135
+
+to=(72, 128)
+from=(0, 40)
+best symmetry=0
+best offset=312
+
+to=(76, 128)
+from=(40, 128)
+best symmetry=0
+best offset=66
+
+to=(72, 132)
+from=(80, 88)
+best symmetry=0
+best offset=66
+
+to=(74, 132)
+from=(160, 104)
+best symmetry=0
+best offset=227
+
+to=(72, 134)
+from=(160, 108)
+best symmetry=0
+best offset=184
+
+to=(74, 134)
+from=(252, 0)
+best symmetry=0
+best offset=284
+
+to=(76, 132)
+from=(112, 168)
+best symmetry=0
+best offset=296
+
+to=(64, 136)
+from=(0, 240)
+best symmetry=0
+best offset=275
+
+to=(68, 136)
+from=(80, 128)
+best symmetry=0
+best offset=264
+
+to=(64, 140)
+from=(40, 80)
+best symmetry=0
+best offset=331
+
+to=(68, 140)
+from=(140, 80)
+best symmetry=0
+best offset=291
+
+to=(70, 140)
+from=(200, 104)
+best symmetry=0
+best offset=271
+
+to=(68, 142)
+from=(124, 156)
+best symmetry=0
+best offset=-8
+
+to=(70, 142)
+from=(144, 96)
+best symmetry=0
+best offset=-5
+
+to=(72, 136)
+from=(232, 248)
+best symmetry=0
+best offset=267
+
+to=(76, 136)
+from=(108, 84)
+best symmetry=0
+best offset=153
+
+to=(78, 136)
+from=(196, 88)
+best symmetry=0
+best offset=303
+
+to=(76, 138)
+from=(196, 136)
+best symmetry=0
+best offset=68
+
+to=(78, 138)
+from=(80, 92)
+best symmetry=0
+best offset=4
+
+to=(72, 140)
+from=(48, 120)
+best symmetry=0
+best offset=140
+
+to=(76, 140)
+from=(120, 96)
+best symmetry=0
+best offset=304
+
+to=(78, 140)
+from=(112, 108)
+best symmetry=0
+best offset=277
+
+to=(76, 142)
+from=(40, 104)
+best symmetry=0
+best offset=302
+
+to=(78, 142)
+from=(64, 108)
+best symmetry=0
+best offset=157
+
+to=(80, 128)
+from=(76, 156)
+best symmetry=0
+best offset=224
+
+to=(82, 128)
+from=(180, 104)
+best symmetry=0
+best offset=46
+
+to=(80, 130)
+from=(132, 84)
+best symmetry=0
+best offset=246
+
+to=(82, 130)
+from=(176, 148)
+best symmetry=0
+best offset=25
+
+to=(84, 128)
+from=(176, 128)
+best symmetry=0
+best offset=115
+
+to=(80, 132)
+from=(128, 140)
+best symmetry=0
+best offset=244
+
+to=(82, 132)
+from=(92, 148)
+best symmetry=0
+best offset=371
+
+to=(80, 134)
+from=(188, 100)
+best symmetry=0
+best offset=291
+
+to=(82, 134)
+from=(60, 148)
+best symmetry=0
+best offset=217
+
+to=(84, 132)
+from=(192, 88)
+best symmetry=0
+best offset=123
+
+to=(88, 128)
+from=(32, 112)
+best symmetry=0
+best offset=370
+
+to=(92, 128)
+from=(164, 112)
+best symmetry=0
+best offset=269
+
+to=(94, 128)
+from=(112, 100)
+best symmetry=0
+best offset=287
+
+to=(92, 130)
+from=(192, 112)
+best symmetry=0
+best offset=298
+
+to=(94, 130)
+from=(92, 80)
+best symmetry=0
+best offset=305
+
+to=(88, 132)
+from=(32, 88)
+best symmetry=0
+best offset=380
+
+to=(92, 132)
+from=(176, 168)
+best symmetry=0
+best offset=94
+
+to=(80, 136)
+from=(176, 152)
+best symmetry=0
+best offset=280
+
+to=(84, 136)
+from=(80, 120)
+best symmetry=0
+best offset=70
+
+to=(80, 140)
+from=(40, 80)
+best symmetry=0
+best offset=301
+
+to=(84, 140)
+from=(112, 96)
+best symmetry=0
+best offset=128
+
+to=(88, 136)
+from=(48, 64)
+best symmetry=0
+best offset=46
+
+to=(96, 128)
+from=(152, 88)
+best symmetry=0
+best offset=207
+
+to=(100, 128)
+from=(128, 72)
+best symmetry=0
+best offset=249
+
+to=(96, 132)
+from=(196, 132)
+best symmetry=0
+best offset=18
+
+to=(98, 132)
+from=(84, 112)
+best symmetry=0
+best offset=226
+
+to=(96, 134)
+from=(196, 128)
+best symmetry=0
+best offset=214
+
+to=(98, 134)
+from=(52, 88)
+best symmetry=0
+best offset=153
+
+to=(100, 132)
+from=(184, 96)
+best symmetry=0
+best offset=232
+
+to=(104, 128)
+from=(80, 64)
+best symmetry=0
+best offset=246
+
+to=(108, 128)
+from=(40, 96)
+best symmetry=0
+best offset=230
+
+to=(110, 128)
+from=(56, 100)
+best symmetry=0
+best offset=209
+
+to=(108, 130)
+from=(48, 156)
+best symmetry=0
+best offset=254
+
+to=(110, 130)
+from=(60, 108)
+best symmetry=0
+best offset=212
+
+to=(104, 132)
+from=(196, 140)
+best symmetry=0
+best offset=278
+
+to=(106, 132)
+from=(0, 200)
+best symmetry=0
+best offset=229
+
+to=(104, 134)
+from=(116, 96)
+best symmetry=0
+best offset=238
+
+to=(106, 134)
+from=(160, 80)
+best symmetry=0
+best offset=254
+
+to=(108, 132)
+from=(104, 120)
+best symmetry=0
+best offset=176
+
+to=(110, 132)
+from=(52, 152)
+best symmetry=0
+best offset=197
+
+to=(108, 134)
+from=(116, 120)
+best symmetry=0
+best offset=257
+
+to=(110, 134)
+from=(188, 116)
+best symmetry=0
+best offset=250
+
+to=(96, 136)
+from=(68, 160)
+best symmetry=0
+best offset=276
+
+to=(98, 136)
+from=(64, 84)
+best symmetry=0
+best offset=175
+
+to=(96, 138)
+from=(80, 144)
+best symmetry=0
+best offset=273
+
+to=(98, 138)
+from=(112, 112)
+best symmetry=0
+best offset=226
+
+to=(100, 136)
+from=(232, 40)
+best symmetry=0
+best offset=244
+
+to=(96, 140)
+from=(140, 144)
+best symmetry=0
+best offset=232
+
+to=(98, 140)
+from=(88, 148)
+best symmetry=0
+best offset=234
+
+to=(96, 142)
+from=(84, 144)
+best symmetry=0
+best offset=225
+
+to=(98, 142)
+from=(4, 208)
+best symmetry=0
+best offset=216
+
+to=(100, 140)
+from=(116, 152)
+best symmetry=0
+best offset=227
+
+to=(102, 140)
+from=(172, 108)
+best symmetry=0
+best offset=139
+
+to=(100, 142)
+from=(96, 160)
+best symmetry=0
+best offset=2
+
+to=(102, 142)
+from=(108, 144)
+best symmetry=0
+best offset=210
+
+to=(104, 136)
+from=(40, 80)
+best symmetry=0
+best offset=255
+
+to=(108, 136)
+from=(176, 104)
+best symmetry=0
+best offset=2
+
+to=(104, 140)
+from=(184, 96)
+best symmetry=0
+best offset=230
+
+to=(108, 140)
+from=(80, 144)
+best symmetry=0
+best offset=75
+
+to=(112, 128)
+from=(120, 120)
+best symmetry=0
+best offset=119
+
+to=(116, 128)
+from=(32, 104)
+best symmetry=0
+best offset=383
+
+to=(112, 132)
+from=(120, 120)
+best symmetry=0
+best offset=-13
+
+to=(116, 132)
+from=(192, 244)
+best symmetry=0
+best offset=-30
+
+to=(118, 132)
+from=(116, 120)
+best symmetry=0
+best offset=-8
+
+to=(116, 134)
+from=(136, 120)
+best symmetry=0
+best offset=313
+
+to=(118, 134)
+from=(100, 168)
+best symmetry=0
+best offset=307
+
+to=(120, 128)
+from=(92, 128)
+best symmetry=0
+best offset=10
+
+to=(122, 128)
+from=(80, 92)
+best symmetry=0
+best offset=271
+
+to=(120, 130)
+from=(172, 120)
+best symmetry=0
+best offset=262
+
+to=(122, 130)
+from=(148, 108)
+best symmetry=0
+best offset=191
+
+to=(124, 128)
+from=(144, 80)
+best symmetry=0
+best offset=116
+
+to=(126, 128)
+from=(52, 136)
+best symmetry=0
+best offset=281
+
+to=(124, 130)
+from=(60, 148)
+best symmetry=0
+best offset=197
+
+to=(126, 130)
+from=(128, 116)
+best symmetry=0
+best offset=278
+
+to=(120, 132)
+from=(112, 168)
+best symmetry=0
+best offset=303
+
+to=(124, 132)
+from=(136, 72)
+best symmetry=0
+best offset=311
+
+to=(112, 136)
+from=(240, 248)
+best symmetry=0
+best offset=341
+
+to=(116, 136)
+from=(140, 128)
+best symmetry=0
+best offset=373
+
+to=(118, 136)
+from=(156, 144)
+best symmetry=0
+best offset=195
+
+to=(116, 138)
+from=(180, 100)
+best symmetry=0
+best offset=349
+
+to=(118, 138)
+from=(176, 112)
+best symmetry=0
+best offset=290
+
+to=(112, 140)
+from=(0, 48)
+best symmetry=0
+best offset=346
+
+to=(116, 140)
+from=(88, 144)
+best symmetry=0
+best offset=131
+
+to=(120, 136)
+from=(232, 248)
+best symmetry=0
+best offset=278
+
+to=(124, 136)
+from=(152, 136)
+best symmetry=0
+best offset=320
+
+to=(126, 136)
+from=(192, 164)
+best symmetry=0
+best offset=316
+
+to=(124, 138)
+from=(128, 120)
+best symmetry=0
+best offset=301
+
+to=(126, 138)
+from=(108, 164)
+best symmetry=0
+best offset=162
+
+to=(120, 140)
+from=(120, 140)
+best symmetry=0
+best offset=22
+
+to=(122, 140)
+from=(224, 0)
+best symmetry=0
+best offset=300
+
+to=(120, 142)
+from=(40, 132)
+best symmetry=0
+best offset=44
+
+to=(122, 142)
+from=(56, 92)
+best symmetry=0
+best offset=231
+
+to=(124, 140)
+from=(64, 104)
+best symmetry=0
+best offset=159
+
+to=(128, 128)
+from=(112, 152)
+best symmetry=0
+best offset=113
+
+to=(132, 128)
+from=(168, 156)
+best symmetry=0
+best offset=224
+
+to=(134, 128)
+from=(52, 128)
+best symmetry=0
+best offset=233
+
+to=(132, 130)
+from=(124, 156)
+best symmetry=0
+best offset=-9
+
+to=(134, 130)
+from=(148, 132)
+best symmetry=0
+best offset=262
+
+to=(128, 132)
+from=(48, 104)
+best symmetry=0
+best offset=185
+
+to=(132, 132)
+from=(112, 80)
+best symmetry=0
+best offset=9
+
+to=(136, 128)
+from=(48, 120)
+best symmetry=0
+best offset=218
+
+to=(140, 128)
+from=(0, 40)
+best symmetry=0
+best offset=322
+
+to=(136, 132)
+from=(44, 120)
+best symmetry=0
+best offset=249
+
+to=(138, 132)
+from=(104, 116)
+best symmetry=0
+best offset=263
+
+to=(136, 134)
+from=(152, 116)
+best symmetry=0
+best offset=169
+
+to=(138, 134)
+from=(180, 168)
+best symmetry=0
+best offset=275
+
+to=(140, 132)
+from=(48, 120)
+best symmetry=0
+best offset=226
+
+to=(128, 136)
+from=(120, 120)
+best symmetry=0
+best offset=275
+
+to=(130, 136)
+from=(52, 108)
+best symmetry=0
+best offset=179
+
+to=(128, 138)
+from=(140, 152)
+best symmetry=0
+best offset=287
+
+to=(130, 138)
+from=(112, 104)
+best symmetry=0
+best offset=223
+
+to=(132, 136)
+from=(32, 96)
+best symmetry=0
+best offset=251
+
+to=(128, 140)
+from=(80, 72)
+best symmetry=0
+best offset=219
+
+to=(132, 140)
+from=(96, 144)
+best symmetry=0
+best offset=38
+
+to=(136, 136)
+from=(88, 160)
+best symmetry=0
+best offset=43
+
+to=(140, 136)
+from=(120, 88)
+best symmetry=0
+best offset=12
+
+to=(142, 136)
+from=(124, 116)
+best symmetry=0
+best offset=225
+
+to=(140, 138)
+from=(0, 32)
+best symmetry=0
+best offset=224
+
+to=(142, 138)
+from=(132, 124)
+best symmetry=0
+best offset=236
+
+to=(136, 140)
+from=(116, 136)
+best symmetry=0
+best offset=246
+
+to=(138, 140)
+from=(108, 116)
+best symmetry=0
+best offset=229
+
+to=(136, 142)
+from=(116, 124)
+best symmetry=0
+best offset=234
+
+to=(138, 142)
+from=(196, 108)
+best symmetry=0
+best offset=189
+
+to=(140, 140)
+from=(88, 112)
+best symmetry=0
+best offset=239
+
+to=(144, 128)
+from=(32, 120)
+best symmetry=0
+best offset=389
+
+to=(148, 128)
+from=(144, 136)
+best symmetry=0
+best offset=296
+
+to=(144, 132)
+from=(176, 136)
+best symmetry=0
+best offset=312
+
+to=(148, 132)
+from=(144, 124)
+best symmetry=0
+best offset=19
+
+to=(150, 132)
+from=(168, 120)
+best symmetry=0
+best offset=205
+
+to=(148, 134)
+from=(236, 244)
+best symmetry=0
+best offset=348
+
+to=(150, 134)
+from=(92, 132)
+best symmetry=0
+best offset=116
+
+to=(152, 128)
+from=(152, 88)
+best symmetry=0
+best offset=52
+
+to=(156, 128)
+from=(0, 88)
+best symmetry=0
+best offset=333
+
+to=(152, 132)
+from=(176, 80)
+best symmetry=0
+best offset=343
+
+to=(156, 132)
+from=(172, 92)
+best symmetry=0
+best offset=90
+
+to=(158, 132)
+from=(88, 124)
+best symmetry=0
+best offset=336
+
+to=(156, 134)
+from=(128, 144)
+best symmetry=0
+best offset=283
+
+to=(158, 134)
+from=(184, 168)
+best symmetry=0
+best offset=254
+
+to=(144, 136)
+from=(176, 96)
+best symmetry=0
+best offset=53
+
+to=(148, 136)
+from=(240, 248)
+best symmetry=0
+best offset=345
+
+to=(144, 140)
+from=(80, 148)
+best symmetry=0
+best offset=0
+
+to=(146, 140)
+from=(92, 148)
+best symmetry=0
+best offset=362
+
+to=(144, 142)
+from=(132, 88)
+best symmetry=0
+best offset=213
+
+to=(146, 142)
+from=(108, 140)
+best symmetry=0
+best offset=97
+
+to=(148, 140)
+from=(0, 40)
+best symmetry=0
+best offset=349
+
+to=(152, 136)
+from=(184, 128)
+best symmetry=0
+best offset=75
+
+to=(154, 136)
+from=(196, 140)
+best symmetry=0
+best offset=309
+
+to=(152, 138)
+from=(24, 92)
+best symmetry=0
+best offset=407
+
+to=(154, 138)
+from=(160, 140)
+best symmetry=0
+best offset=285
+
+to=(156, 136)
+from=(240, 240)
+best symmetry=0
+best offset=267
+
+to=(152, 140)
+from=(24, 92)
+best symmetry=0
+best offset=401
+
+to=(154, 140)
+from=(188, 96)
+best symmetry=0
+best offset=2
+
+to=(152, 142)
+from=(124, 120)
+best symmetry=0
+best offset=355
+
+to=(154, 142)
+from=(104, 144)
+best symmetry=0
+best offset=228
+
+to=(156, 140)
+from=(184, 144)
+best symmetry=0
+best offset=84
+
+to=(160, 128)
+from=(164, 88)
+best symmetry=0
+best offset=245
+
+to=(162, 128)
+from=(80, 148)
+best symmetry=0
+best offset=221
+
+to=(160, 130)
+from=(144, 116)
+best symmetry=0
+best offset=235
+
+to=(162, 130)
+from=(172, 120)
+best symmetry=0
+best offset=217
+
+to=(164, 128)
+from=(248, 16)
+best symmetry=0
+best offset=239
+
+to=(160, 132)
+from=(136, 100)
+best symmetry=0
+best offset=7
+
+to=(162, 132)
+from=(192, 164)
+best symmetry=0
+best offset=253
+
+to=(160, 134)
+from=(56, 144)
+best symmetry=0
+best offset=140
+
+to=(162, 134)
+from=(168, 84)
+best symmetry=0
+best offset=212
+
+to=(164, 132)
+from=(136, 72)
+best symmetry=0
+best offset=249
+
+to=(168, 128)
+from=(64, 100)
+best symmetry=0
+best offset=25
+
+to=(170, 128)
+from=(200, 124)
+best symmetry=0
+best offset=256
+
+to=(168, 130)
+from=(116, 112)
+best symmetry=0
+best offset=239
+
+to=(170, 130)
+from=(88, 124)
+best symmetry=0
+best offset=239
+
+to=(172, 128)
+from=(152, 116)
+best symmetry=0
+best offset=176
+
+to=(174, 128)
+from=(168, 160)
+best symmetry=0
+best offset=47
+
+to=(172, 130)
+from=(48, 140)
+best symmetry=0
+best offset=263
+
+to=(174, 130)
+from=(84, 136)
+best symmetry=0
+best offset=1
+
+to=(168, 132)
+from=(168, 156)
+best symmetry=0
+best offset=34
+
+to=(170, 132)
+from=(92, 140)
+best symmetry=0
+best offset=245
+
+to=(168, 134)
+from=(192, 156)
+best symmetry=0
+best offset=19
+
+to=(170, 134)
+from=(188, 136)
+best symmetry=0
+best offset=217
+
+to=(172, 132)
+from=(56, 76)
+best symmetry=0
+best offset=309
+
+to=(174, 132)
+from=(112, 100)
+best symmetry=0
+best offset=93
+
+to=(172, 134)
+from=(176, 168)
+best symmetry=0
+best offset=308
+
+to=(174, 134)
+from=(60, 108)
+best symmetry=0
+best offset=210
+
+to=(160, 136)
+from=(240, 248)
+best symmetry=0
+best offset=263
+
+to=(164, 136)
+from=(8, 240)
+best symmetry=0
+best offset=259
+
+to=(160, 140)
+from=(136, 84)
+best symmetry=0
+best offset=-4
+
+to=(162, 140)
+from=(124, 164)
+best symmetry=0
+best offset=18
+
+to=(160, 142)
+from=(124, 112)
+best symmetry=0
+best offset=9
+
+to=(162, 142)
+from=(144, 124)
+best symmetry=0
+best offset=311
+
+to=(164, 140)
+from=(144, 136)
+best symmetry=0
+best offset=291
+
+to=(168, 136)
+from=(80, 152)
+best symmetry=0
+best offset=88
+
+to=(172, 136)
+from=(136, 144)
+best symmetry=0
+best offset=89
+
+to=(168, 140)
+from=(168, 128)
+best symmetry=0
+best offset=70
+
+to=(172, 140)
+from=(120, 120)
+best symmetry=0
+best offset=24
+
+to=(176, 128)
+from=(224, 240)
+best symmetry=0
+best offset=281
+
+to=(184, 128)
+from=(104, 96)
+best symmetry=0
+best offset=225
+
+to=(188, 128)
+from=(60, 76)
+best symmetry=0
+best offset=37
+
+to=(190, 128)
+from=(164, 168)
+best symmetry=0
+best offset=256
+
+to=(188, 130)
+from=(96, 148)
+best symmetry=0
+best offset=33
+
+to=(190, 130)
+from=(92, 76)
+best symmetry=0
+best offset=242
+
+to=(184, 132)
+from=(40, 152)
+best symmetry=0
+best offset=384
+
+to=(188, 132)
+from=(108, 116)
+best symmetry=0
+best offset=229
+
+to=(190, 132)
+from=(164, 112)
+best symmetry=0
+best offset=135
+
+to=(188, 134)
+from=(40, 96)
+best symmetry=0
+best offset=44
+
+to=(190, 134)
+from=(164, 88)
+best symmetry=0
+best offset=154
+
+to=(176, 136)
+from=(0, 224)
+best symmetry=0
+best offset=334
+
+to=(184, 136)
+from=(160, 80)
+best symmetry=0
+best offset=0
+
+to=(188, 136)
+from=(96, 112)
+best symmetry=0
+best offset=3
+
+to=(184, 140)
+from=(96, 104)
+best symmetry=0
+best offset=70
+
+to=(188, 140)
+from=(72, 152)
+best symmetry=0
+best offset=190
+
+to=(192, 128)
+from=(176, 136)
+best symmetry=0
+best offset=227
+
+to=(196, 128)
+from=(48, 96)
+best symmetry=0
+best offset=31
+
+to=(198, 128)
+from=(44, 112)
+best symmetry=0
+best offset=274
+
+to=(196, 130)
+from=(88, 124)
+best symmetry=0
+best offset=233
+
+to=(198, 130)
+from=(120, 148)
+best symmetry=0
+best offset=239
+
+to=(192, 132)
+from=(72, 152)
+best symmetry=0
+best offset=142
+
+to=(196, 132)
+from=(168, 80)
+best symmetry=0
+best offset=248
+
+to=(198, 132)
+from=(148, 108)
+best symmetry=0
+best offset=157
+
+to=(196, 134)
+from=(124, 156)
+best symmetry=0
+best offset=28
+
+to=(198, 134)
+from=(72, 156)
+best symmetry=0
+best offset=165
+
+to=(200, 128)
+from=(200, 128)
+best symmetry=0
+best offset=2
+
+to=(204, 128)
+from=(152, 224)
+best symmetry=0
+best offset=379
+
+to=(200, 132)
+from=(128, 84)
+best symmetry=0
+best offset=22
+
+to=(202, 132)
+from=(0, 32)
+best symmetry=0
+best offset=371
+
+to=(200, 134)
+from=(148, 148)
+best symmetry=0
+best offset=252
+
+to=(202, 134)
+from=(144, 64)
+best symmetry=0
+best offset=0
+
+to=(204, 132)
+from=(152, 72)
+best symmetry=0
+best offset=24
+
+to=(192, 136)
+from=(152, 96)
+best symmetry=0
+best offset=183
+
+to=(196, 136)
+from=(184, 116)
+best symmetry=0
+best offset=234
+
+to=(198, 136)
+from=(168, 132)
+best symmetry=0
+best offset=14
+
+to=(196, 138)
+from=(52, 140)
+best symmetry=0
+best offset=242
+
+to=(198, 138)
+from=(80, 96)
+best symmetry=0
+best offset=290
+
+to=(192, 140)
+from=(152, 80)
+best symmetry=0
+best offset=300
+
+to=(196, 140)
+from=(124, 160)
+best symmetry=0
+best offset=257
+
+to=(198, 140)
+from=(36, 96)
+best symmetry=0
+best offset=412
+
+to=(196, 142)
+from=(76, 124)
+best symmetry=0
+best offset=248
+
+to=(198, 142)
+from=(36, 96)
+best symmetry=0
+best offset=449
+
+to=(200, 136)
+from=(192, 160)
+best symmetry=0
+best offset=59
+
+to=(208, 128)
+from=(64, 0)
+best symmetry=0
+best offset=375
+
+to=(224, 128)
+from=(64, 0)
+best symmetry=0
+best offset=371
+
+to=(240, 128)
+from=(192, 0)
+best symmetry=0
+best offset=358
+
+to=(0, 144)
+from=(64, 0)
+best symmetry=0
+best offset=368
+
+to=(16, 144)
+from=(0, 64)
+best symmetry=0
+best offset=18
+
+to=(32, 144)
+from=(224, 0)
+best symmetry=0
+best offset=298
+
+to=(48, 144)
+from=(108, 160)
+best symmetry=0
+best offset=219
+
+to=(50, 144)
+from=(200, 116)
+best symmetry=0
+best offset=284
+
+to=(48, 146)
+from=(144, 140)
+best symmetry=0
+best offset=290
+
+to=(50, 146)
+from=(108, 104)
+best symmetry=0
+best offset=134
+
+to=(52, 144)
+from=(176, 128)
+best symmetry=0
+best offset=236
+
+to=(48, 148)
+from=(48, 148)
+best symmetry=0
+best offset=78
+
+to=(50, 148)
+from=(144, 136)
+best symmetry=0
+best offset=244
+
+to=(48, 150)
+from=(84, 84)
+best symmetry=0
+best offset=323
+
+to=(50, 150)
+from=(48, 148)
+best symmetry=0
+best offset=-3
+
+to=(52, 148)
+from=(56, 96)
+best symmetry=0
+best offset=20
+
+to=(56, 144)
+from=(64, 168)
+best symmetry=0
+best offset=240
+
+to=(60, 144)
+from=(168, 148)
+best symmetry=0
+best offset=7
+
+to=(62, 144)
+from=(168, 124)
+best symmetry=0
+best offset=166
+
+to=(60, 146)
+from=(236, 4)
+best symmetry=0
+best offset=236
+
+to=(62, 146)
+from=(160, 160)
+best symmetry=0
+best offset=91
+
+to=(56, 148)
+from=(128, 168)
+best symmetry=0
+best offset=243
+
+to=(60, 148)
+from=(252, 244)
+best symmetry=0
+best offset=220
+
+to=(62, 148)
+from=(80, 156)
+best symmetry=0
+best offset=93
+
+to=(60, 150)
+from=(164, 152)
+best symmetry=0
+best offset=11
+
+to=(62, 150)
+from=(96, 132)
+best symmetry=0
+best offset=6
+
+to=(48, 152)
+from=(40, 112)
+best symmetry=0
+best offset=109
+
+to=(52, 152)
+from=(96, 132)
+best symmetry=0
+best offset=-3
+
+to=(54, 152)
+from=(84, 68)
+best symmetry=0
+best offset=235
+
+to=(52, 154)
+from=(84, 120)
+best symmetry=0
+best offset=255
+
+to=(54, 154)
+from=(196, 104)
+best symmetry=0
+best offset=175
+
+to=(48, 156)
+from=(152, 104)
+best symmetry=0
+best offset=281
+
+to=(50, 156)
+from=(108, 120)
+best symmetry=0
+best offset=259
+
+to=(48, 158)
+from=(176, 152)
+best symmetry=0
+best offset=378
+
+to=(50, 158)
+from=(180, 88)
+best symmetry=0
+best offset=329
+
+to=(52, 156)
+from=(80, 128)
+best symmetry=0
+best offset=240
+
+to=(56, 152)
+from=(216, 240)
+best symmetry=0
+best offset=225
+
+to=(60, 152)
+from=(128, 168)
+best symmetry=0
+best offset=246
+
+to=(56, 156)
+from=(48, 120)
+best symmetry=0
+best offset=11
+
+to=(60, 156)
+from=(120, 72)
+best symmetry=0
+best offset=247
+
+to=(64, 144)
+from=(184, 168)
+best symmetry=0
+best offset=255
+
+to=(68, 144)
+from=(64, 104)
+best symmetry=0
+best offset=108
+
+to=(64, 148)
+from=(72, 152)
+best symmetry=0
+best offset=144
+
+to=(68, 148)
+from=(232, 248)
+best symmetry=0
+best offset=260
+
+to=(72, 144)
+from=(232, 248)
+best symmetry=0
+best offset=255
+
+to=(76, 144)
+from=(152, 112)
+best symmetry=0
+best offset=41
+
+to=(72, 148)
+from=(72, 76)
+best symmetry=0
+best offset=246
+
+to=(74, 148)
+from=(56, 148)
+best symmetry=0
+best offset=145
+
+to=(72, 150)
+from=(168, 168)
+best symmetry=0
+best offset=310
+
+to=(74, 150)
+from=(124, 148)
+best symmetry=0
+best offset=283
+
+to=(76, 148)
+from=(8, 248)
+best symmetry=0
+best offset=245
+
+to=(64, 152)
+from=(100, 156)
+best symmetry=0
+best offset=8
+
+to=(66, 152)
+from=(188, 164)
+best symmetry=0
+best offset=227
+
+to=(64, 154)
+from=(44, 128)
+best symmetry=0
+best offset=148
+
+to=(66, 154)
+from=(116, 88)
+best symmetry=0
+best offset=117
+
+to=(68, 152)
+from=(48, 120)
+best symmetry=0
+best offset=133
+
+to=(64, 156)
+from=(160, 104)
+best symmetry=0
+best offset=142
+
+to=(68, 156)
+from=(240, 248)
+best symmetry=0
+best offset=253
+
+to=(72, 152)
+from=(16, 112)
+best symmetry=0
+best offset=283
+
+to=(80, 144)
+from=(168, 136)
+best symmetry=0
+best offset=0
+
+to=(84, 144)
+from=(240, 248)
+best symmetry=0
+best offset=286
+
+to=(80, 148)
+from=(128, 136)
+best symmetry=0
+best offset=203
+
+to=(84, 148)
+from=(232, 248)
+best symmetry=0
+best offset=307
+
+to=(88, 144)
+from=(224, 224)
+best symmetry=0
+best offset=377
+
+to=(92, 144)
+from=(100, 132)
+best symmetry=0
+best offset=225
+
+to=(94, 144)
+from=(136, 156)
+best symmetry=0
+best offset=245
+
+to=(92, 146)
+from=(104, 108)
+best symmetry=0
+best offset=227
+
+to=(94, 146)
+from=(168, 112)
+best symmetry=0
+best offset=272
+
+to=(88, 148)
+from=(232, 248)
+best symmetry=0
+best offset=344
+
+to=(92, 148)
+from=(8, 248)
+best symmetry=0
+best offset=329
+
+to=(80, 152)
+from=(116, 140)
+best symmetry=0
+best offset=274
+
+to=(82, 152)
+from=(44, 108)
+best symmetry=0
+best offset=229
+
+to=(80, 154)
+from=(136, 92)
+best symmetry=0
+best offset=177
+
+to=(82, 154)
+from=(68, 96)
+best symmetry=0
+best offset=17
+
+to=(84, 152)
+from=(184, 116)
+best symmetry=0
+best offset=357
+
+to=(86, 152)
+from=(0, 112)
+best symmetry=0
+best offset=365
+
+to=(84, 154)
+from=(108, 144)
+best symmetry=0
+best offset=14
+
+to=(86, 154)
+from=(128, 108)
+best symmetry=0
+best offset=275
+
+to=(80, 156)
+from=(232, 248)
+best symmetry=0
+best offset=217
+
+to=(84, 156)
+from=(132, 112)
+best symmetry=0
+best offset=155
+
+to=(86, 156)
+from=(188, 100)
+best symmetry=0
+best offset=250
+
+to=(84, 158)
+from=(164, 120)
+best symmetry=0
+best offset=209
+
+to=(86, 158)
+from=(108, 88)
+best symmetry=0
+best offset=24
+
+to=(88, 152)
+from=(176, 152)
+best symmetry=0
+best offset=79
+
+to=(92, 152)
+from=(40, 24)
+best symmetry=0
+best offset=331
+
+to=(94, 152)
+from=(136, 120)
+best symmetry=0
+best offset=313
+
+to=(92, 154)
+from=(124, 144)
+best symmetry=0
+best offset=317
+
+to=(94, 154)
+from=(44, 124)
+best symmetry=0
+best offset=12
+
+to=(88, 156)
+from=(144, 168)
+best symmetry=0
+best offset=254
+
+to=(90, 156)
+from=(112, 156)
+best symmetry=0
+best offset=-14
+
+to=(88, 158)
+from=(104, 84)
+best symmetry=0
+best offset=100
+
+to=(90, 158)
+from=(96, 164)
+best symmetry=0
+best offset=33
+
+to=(92, 156)
+from=(176, 104)
+best symmetry=0
+best offset=223
+
+to=(96, 144)
+from=(88, 72)
+best symmetry=0
+best offset=239
+
+to=(100, 144)
+from=(168, 168)
+best symmetry=0
+best offset=244
+
+to=(96, 148)
+from=(40, 96)
+best symmetry=0
+best offset=18
+
+to=(98, 148)
+from=(80, 76)
+best symmetry=0
+best offset=162
+
+to=(96, 150)
+from=(96, 136)
+best symmetry=0
+best offset=54
+
+to=(98, 150)
+from=(140, 152)
+best symmetry=0
+best offset=231
+
+to=(100, 148)
+from=(32, 88)
+best symmetry=0
+best offset=236
+
+to=(104, 144)
+from=(108, 76)
+best symmetry=0
+best offset=245
+
+to=(106, 144)
+from=(60, 76)
+best symmetry=0
+best offset=230
+
+to=(104, 146)
+from=(104, 120)
+best symmetry=0
+best offset=168
+
+to=(106, 146)
+from=(168, 168)
+best symmetry=0
+best offset=298
+
+to=(108, 144)
+from=(116, 140)
+best symmetry=0
+best offset=336
+
+to=(110, 144)
+from=(200, 92)
+best symmetry=0
+best offset=91
+
+to=(108, 146)
+from=(156, 124)
+best symmetry=0
+best offset=210
+
+to=(110, 146)
+from=(124, 80)
+best symmetry=0
+best offset=44
+
+to=(104, 148)
+from=(128, 168)
+best symmetry=0
+best offset=242
+
+to=(108, 148)
+from=(104, 116)
+best symmetry=0
+best offset=155
+
+to=(110, 148)
+from=(40, 128)
+best symmetry=0
+best offset=286
+
+to=(108, 150)
+from=(168, 152)
+best symmetry=0
+best offset=105
+
+to=(110, 150)
+from=(40, 128)
+best symmetry=0
+best offset=309
+
+to=(96, 152)
+from=(76, 164)
+best symmetry=0
+best offset=246
+
+to=(98, 152)
+from=(124, 120)
+best symmetry=0
+best offset=227
+
+to=(96, 154)
+from=(132, 116)
+best symmetry=0
+best offset=155
+
+to=(98, 154)
+from=(76, 168)
+best symmetry=0
+best offset=232
+
+to=(100, 152)
+from=(184, 96)
+best symmetry=0
+best offset=225
+
+to=(96, 156)
+from=(64, 112)
+best symmetry=0
+best offset=21
+
+to=(100, 156)
+from=(248, 240)
+best symmetry=0
+best offset=219
+
+to=(104, 152)
+from=(120, 76)
+best symmetry=0
+best offset=273
+
+to=(106, 152)
+from=(84, 116)
+best symmetry=0
+best offset=222
+
+to=(104, 154)
+from=(96, 84)
+best symmetry=0
+best offset=7
+
+to=(106, 154)
+from=(100, 100)
+best symmetry=0
+best offset=29
+
+to=(108, 152)
+from=(180, 148)
+best symmetry=0
+best offset=223
+
+to=(110, 152)
+from=(68, 136)
+best symmetry=0
+best offset=233
+
+to=(108, 154)
+from=(104, 92)
+best symmetry=0
+best offset=15
+
+to=(110, 154)
+from=(136, 104)
+best symmetry=0
+best offset=219
+
+to=(104, 156)
+from=(32, 112)
+best symmetry=0
+best offset=235
+
+to=(108, 156)
+from=(136, 168)
+best symmetry=0
+best offset=239
+
+to=(112, 144)
+from=(192, 144)
+best symmetry=0
+best offset=153
+
+to=(120, 144)
+from=(200, 112)
+best symmetry=0
+best offset=331
+
+to=(124, 144)
+from=(168, 136)
+best symmetry=0
+best offset=106
+
+to=(120, 148)
+from=(72, 104)
+best symmetry=0
+best offset=236
+
+to=(124, 148)
+from=(176, 104)
+best symmetry=0
+best offset=106
+
+to=(112, 152)
+from=(80, 128)
+best symmetry=0
+best offset=144
+
+to=(116, 152)
+from=(88, 104)
+best symmetry=0
+best offset=62
+
+to=(112, 156)
+from=(168, 116)
+best symmetry=0
+best offset=270
+
+to=(114, 156)
+from=(164, 136)
+best symmetry=0
+best offset=269
+
+to=(112, 158)
+from=(192, 124)
+best symmetry=0
+best offset=16
+
+to=(114, 158)
+from=(180, 168)
+best symmetry=0
+best offset=286
+
+to=(116, 156)
+from=(112, 72)
+best symmetry=0
+best offset=30
+
+to=(120, 152)
+from=(128, 144)
+best symmetry=0
+best offset=145
+
+to=(124, 152)
+from=(40, 80)
+best symmetry=0
+best offset=364
+
+to=(120, 156)
+from=(56, 84)
+best symmetry=0
+best offset=296
+
+to=(122, 156)
+from=(68, 72)
+best symmetry=0
+best offset=4
+
+to=(120, 158)
+from=(164, 168)
+best symmetry=0
+best offset=325
+
+to=(122, 158)
+from=(80, 68)
+best symmetry=0
+best offset=317
+
+to=(124, 156)
+from=(140, 148)
+best symmetry=0
+best offset=360
+
+to=(126, 156)
+from=(152, 84)
+best symmetry=0
+best offset=-1
+
+to=(124, 158)
+from=(100, 116)
+best symmetry=0
+best offset=217
+
+to=(126, 158)
+from=(92, 100)
+best symmetry=0
+best offset=285
+
+to=(128, 144)
+from=(136, 120)
+best symmetry=0
+best offset=101
+
+to=(132, 144)
+from=(108, 144)
+best symmetry=0
+best offset=245
+
+to=(134, 144)
+from=(152, 156)
+best symmetry=0
+best offset=4
+
+to=(132, 146)
+from=(116, 144)
+best symmetry=0
+best offset=369
+
+to=(134, 146)
+from=(124, 80)
+best symmetry=0
+best offset=242
+
+to=(128, 148)
+from=(0, 208)
+best symmetry=0
+best offset=352
+
+to=(132, 148)
+from=(184, 96)
+best symmetry=0
+best offset=116
+
+to=(136, 144)
+from=(152, 96)
+best symmetry=0
+best offset=185
+
+to=(140, 144)
+from=(192, 104)
+best symmetry=0
+best offset=153
+
+to=(142, 144)
+from=(112, 108)
+best symmetry=0
+best offset=3
+
+to=(140, 146)
+from=(132, 128)
+best symmetry=0
+best offset=247
+
+to=(142, 146)
+from=(176, 128)
+best symmetry=0
+best offset=-6
+
+to=(136, 148)
+from=(168, 104)
+best symmetry=0
+best offset=232
+
+to=(140, 148)
+from=(200, 112)
+best symmetry=0
+best offset=53
+
+to=(128, 152)
+from=(0, 32)
+best symmetry=0
+best offset=345
+
+to=(132, 152)
+from=(112, 128)
+best symmetry=0
+best offset=-27
+
+to=(128, 156)
+from=(52, 124)
+best symmetry=0
+best offset=221
+
+to=(130, 156)
+from=(92, 100)
+best symmetry=0
+best offset=372
+
+to=(128, 158)
+from=(148, 132)
+best symmetry=0
+best offset=274
+
+to=(130, 158)
+from=(104, 112)
+best symmetry=0
+best offset=173
+
+to=(132, 156)
+from=(44, 88)
+best symmetry=0
+best offset=105
+
+to=(134, 156)
+from=(200, 124)
+best symmetry=0
+best offset=298
+
+to=(132, 158)
+from=(124, 168)
+best symmetry=0
+best offset=308
+
+to=(134, 158)
+from=(104, 108)
+best symmetry=0
+best offset=148
+
+to=(136, 152)
+from=(56, 96)
+best symmetry=0
+best offset=213
+
+to=(140, 152)
+from=(232, 248)
+best symmetry=0
+best offset=344
+
+to=(136, 156)
+from=(120, 112)
+best symmetry=0
+best offset=262
+
+to=(138, 156)
+from=(92, 148)
+best symmetry=0
+best offset=363
+
+to=(136, 158)
+from=(104, 168)
+best symmetry=0
+best offset=303
+
+to=(138, 158)
+from=(120, 92)
+best symmetry=0
+best offset=231
+
+to=(140, 156)
+from=(128, 152)
+best symmetry=0
+best offset=105
+
+to=(144, 144)
+from=(0, 240)
+best symmetry=0
+best offset=319
+
+to=(148, 144)
+from=(88, 152)
+best symmetry=0
+best offset=71
+
+to=(150, 144)
+from=(180, 128)
+best symmetry=0
+best offset=372
+
+to=(148, 146)
+from=(80, 144)
+best symmetry=0
+best offset=286
+
+to=(150, 146)
+from=(136, 164)
+best symmetry=0
+best offset=268
+
+to=(144, 148)
+from=(16, 208)
+best symmetry=0
+best offset=351
+
+to=(148, 148)
+from=(104, 144)
+best symmetry=0
+best offset=234
+
+to=(150, 148)
+from=(128, 96)
+best symmetry=0
+best offset=204
+
+to=(148, 150)
+from=(108, 148)
+best symmetry=0
+best offset=217
+
+to=(150, 150)
+from=(152, 128)
+best symmetry=0
+best offset=193
+
+to=(152, 144)
+from=(96, 80)
+best symmetry=0
+best offset=-10
+
+to=(156, 144)
+from=(48, 120)
+best symmetry=0
+best offset=134
+
+to=(152, 148)
+from=(88, 136)
+best symmetry=0
+best offset=235
+
+to=(156, 148)
+from=(56, 144)
+best symmetry=0
+best offset=16
+
+to=(158, 148)
+from=(196, 120)
+best symmetry=0
+best offset=-1
+
+to=(156, 150)
+from=(84, 152)
+best symmetry=0
+best offset=231
+
+to=(158, 150)
+from=(8, 8)
+best symmetry=0
+best offset=217
+
+to=(144, 152)
+from=(32, 88)
+best symmetry=0
+best offset=390
+
+to=(148, 152)
+from=(108, 116)
+best symmetry=0
+best offset=247
+
+to=(150, 152)
+from=(84, 140)
+best symmetry=0
+best offset=223
+
+to=(148, 154)
+from=(44, 120)
+best symmetry=0
+best offset=41
+
+to=(150, 154)
+from=(68, 152)
+best symmetry=0
+best offset=145
+
+to=(144, 156)
+from=(124, 144)
+best symmetry=0
+best offset=320
+
+to=(146, 156)
+from=(88, 96)
+best symmetry=0
+best offset=274
+
+to=(144, 158)
+from=(148, 168)
+best symmetry=0
+best offset=309
+
+to=(146, 158)
+from=(116, 104)
+best symmetry=0
+best offset=286
+
+to=(148, 156)
+from=(84, 88)
+best symmetry=0
+best offset=326
+
+to=(150, 156)
+from=(136, 132)
+best symmetry=0
+best offset=227
+
+to=(148, 158)
+from=(120, 152)
+best symmetry=0
+best offset=288
+
+to=(150, 158)
+from=(168, 124)
+best symmetry=0
+best offset=211
+
+to=(152, 152)
+from=(88, 144)
+best symmetry=0
+best offset=236
+
+to=(156, 152)
+from=(76, 164)
+best symmetry=0
+best offset=253
+
+to=(158, 152)
+from=(96, 120)
+best symmetry=0
+best offset=140
+
+to=(156, 154)
+from=(164, 96)
+best symmetry=0
+best offset=139
+
+to=(158, 154)
+from=(236, 244)
+best symmetry=0
+best offset=225
+
+to=(152, 156)
+from=(176, 80)
+best symmetry=0
+best offset=251
+
+to=(156, 156)
+from=(64, 112)
+best symmetry=0
+best offset=79
+
+to=(160, 144)
+from=(0, 40)
+best symmetry=0
+best offset=278
+
+to=(164, 144)
+from=(40, 80)
+best symmetry=0
+best offset=300
+
+to=(160, 148)
+from=(48, 112)
+best symmetry=0
+best offset=8
+
+to=(164, 148)
+from=(72, 168)
+best symmetry=0
+best offset=252
+
+to=(168, 144)
+from=(104, 152)
+best symmetry=0
+best offset=219
+
+to=(170, 144)
+from=(196, 148)
+best symmetry=0
+best offset=349
+
+to=(168, 146)
+from=(60, 108)
+best symmetry=0
+best offset=233
+
+to=(170, 146)
+from=(68, 124)
+best symmetry=0
+best offset=281
+
+to=(172, 144)
+from=(48, 120)
+best symmetry=0
+best offset=217
+
+to=(168, 148)
+from=(140, 120)
+best symmetry=0
+best offset=219
+
+to=(170, 148)
+from=(100, 80)
+best symmetry=0
+best offset=10
+
+to=(168, 150)
+from=(128, 48)
+best symmetry=0
+best offset=250
+
+to=(170, 150)
+from=(116, 124)
+best symmetry=0
+best offset=236
+
+to=(172, 148)
+from=(76, 80)
+best symmetry=0
+best offset=195
+
+to=(174, 148)
+from=(64, 128)
+best symmetry=0
+best offset=230
+
+to=(172, 150)
+from=(132, 124)
+best symmetry=0
+best offset=260
+
+to=(174, 150)
+from=(80, 124)
+best symmetry=0
+best offset=85
+
+to=(160, 152)
+from=(176, 152)
+best symmetry=0
+best offset=225
+
+to=(164, 152)
+from=(116, 120)
+best symmetry=0
+best offset=232
+
+to=(166, 152)
+from=(140, 96)
+best symmetry=0
+best offset=228
+
+to=(164, 154)
+from=(40, 132)
+best symmetry=0
+best offset=246
+
+to=(166, 154)
+from=(144, 168)
+best symmetry=0
+best offset=285
+
+to=(160, 156)
+from=(200, 136)
+best symmetry=0
+best offset=237
+
+to=(164, 156)
+from=(0, 32)
+best symmetry=0
+best offset=220
+
+to=(168, 152)
+from=(200, 120)
+best symmetry=0
+best offset=246
+
+to=(172, 152)
+from=(92, 128)
+best symmetry=0
+best offset=251
+
+to=(174, 152)
+from=(84, 120)
+best symmetry=0
+best offset=64
+
+to=(172, 154)
+from=(140, 116)
+best symmetry=0
+best offset=223
+
+to=(174, 154)
+from=(44, 84)
+best symmetry=0
+best offset=369
+
+to=(168, 156)
+from=(72, 152)
+best symmetry=0
+best offset=150
+
+to=(172, 156)
+from=(172, 124)
+best symmetry=0
+best offset=20
+
+to=(174, 156)
+from=(72, 160)
+best symmetry=0
+best offset=274
+
+to=(172, 158)
+from=(124, 136)
+best symmetry=0
+best offset=206
+
+to=(174, 158)
+from=(52, 152)
+best symmetry=0
+best offset=203
+
+to=(176, 144)
+from=(0, 0)
+best symmetry=0
+best offset=295
+
+to=(184, 144)
+from=(152, 168)
+best symmetry=0
+best offset=127
+
+to=(186, 144)
+from=(156, 144)
+best symmetry=0
+best offset=181
+
+to=(184, 146)
+from=(116, 132)
+best symmetry=0
+best offset=0
+
+to=(186, 146)
+from=(160, 112)
+best symmetry=0
+best offset=31
+
+to=(188, 144)
+from=(0, 32)
+best symmetry=0
+best offset=262
+
+to=(184, 148)
+from=(80, 144)
+best symmetry=0
+best offset=235
+
+to=(188, 148)
+from=(128, 168)
+best symmetry=0
+best offset=242
+
+to=(176, 152)
+from=(0, 32)
+best symmetry=0
+best offset=298
+
+to=(184, 152)
+from=(40, 96)
+best symmetry=0
+best offset=2
+
+to=(186, 152)
+from=(192, 116)
+best symmetry=0
+best offset=173
+
+to=(184, 154)
+from=(148, 116)
+best symmetry=0
+best offset=271
+
+to=(186, 154)
+from=(136, 128)
+best symmetry=0
+best offset=228
+
+to=(188, 152)
+from=(72, 152)
+best symmetry=0
+best offset=143
+
+to=(184, 156)
+from=(80, 144)
+best symmetry=0
+best offset=271
+
+to=(186, 156)
+from=(64, 84)
+best symmetry=0
+best offset=161
+
+to=(184, 158)
+from=(200, 124)
+best symmetry=0
+best offset=292
+
+to=(186, 158)
+from=(100, 144)
+best symmetry=0
+best offset=140
+
+to=(188, 156)
+from=(152, 96)
+best symmetry=0
+best offset=180
+
+to=(192, 144)
+from=(128, 116)
+best symmetry=0
+best offset=253
+
+to=(194, 144)
+from=(144, 120)
+best symmetry=0
+best offset=216
+
+to=(192, 146)
+from=(76, 148)
+best symmetry=0
+best offset=189
+
+to=(194, 146)
+from=(160, 84)
+best symmetry=0
+best offset=317
+
+to=(196, 144)
+from=(200, 112)
+best symmetry=0
+best offset=19
+
+to=(192, 148)
+from=(48, 124)
+best symmetry=0
+best offset=123
+
+to=(194, 148)
+from=(44, 120)
+best symmetry=0
+best offset=288
+
+to=(192, 150)
+from=(104, 140)
+best symmetry=0
+best offset=35
+
+to=(194, 150)
+from=(120, 148)
+best symmetry=0
+best offset=240
+
+to=(196, 148)
+from=(200, 128)
+best symmetry=0
+best offset=24
+
+to=(200, 144)
+from=(128, 48)
+best symmetry=0
+best offset=327
+
+to=(192, 152)
+from=(80, 160)
+best symmetry=0
+best offset=8
+
+to=(194, 152)
+from=(100, 132)
+best symmetry=0
+best offset=29
+
+to=(192, 154)
+from=(200, 124)
+best symmetry=0
+best offset=258
+
+to=(194, 154)
+from=(116, 108)
+best symmetry=0
+best offset=228
+
+to=(196, 152)
+from=(40, 96)
+best symmetry=0
+best offset=268
+
+to=(198, 152)
+from=(0, 32)
+best symmetry=0
+best offset=369
+
+to=(196, 154)
+from=(88, 92)
+best symmetry=0
+best offset=226
+
+to=(198, 154)
+from=(184, 36)
+best symmetry=0
+best offset=0
+
+to=(192, 156)
+from=(160, 160)
+best symmetry=0
+best offset=96
+
+to=(194, 156)
+from=(188, 112)
+best symmetry=0
+best offset=184
+
+to=(192, 158)
+from=(124, 156)
+best symmetry=0
+best offset=224
+
+to=(194, 158)
+from=(48, 88)
+best symmetry=0
+best offset=220
+
+to=(196, 156)
+from=(200, 112)
+best symmetry=0
+best offset=7
+
+to=(200, 152)
+from=(128, 192)
+best symmetry=0
+best offset=39
+
+to=(208, 144)
+from=(160, 32)
+best symmetry=0
+best offset=257
+
+to=(224, 144)
+from=(224, 128)
+best symmetry=0
+best offset=23
+
+to=(240, 144)
+from=(192, 192)
+best symmetry=0
+best offset=103
+
+to=(0, 160)
+from=(192, 32)
+best symmetry=0
+best offset=387
+
+to=(16, 160)
+from=(32, 0)
+best symmetry=0
+best offset=28
+
+to=(32, 160)
+from=(224, 0)
+best symmetry=0
+best offset=334
+
+to=(48, 160)
+from=(32, 136)
+best symmetry=0
+best offset=353
+
+to=(52, 160)
+from=(192, 148)
+best symmetry=0
+best offset=237
+
+to=(54, 160)
+from=(168, 136)
+best symmetry=0
+best offset=184
+
+to=(52, 162)
+from=(176, 152)
+best symmetry=0
+best offset=375
+
+to=(54, 162)
+from=(80, 164)
+best symmetry=0
+best offset=1
+
+to=(48, 164)
+from=(56, 168)
+best symmetry=0
+best offset=38
+
+to=(52, 164)
+from=(16, 96)
+best symmetry=0
+best offset=373
+
+to=(56, 160)
+from=(164, 112)
+best symmetry=0
+best offset=164
+
+to=(58, 160)
+from=(184, 128)
+best symmetry=0
+best offset=238
+
+to=(56, 162)
+from=(120, 76)
+best symmetry=0
+best offset=247
+
+to=(58, 162)
+from=(100, 140)
+best symmetry=0
+best offset=21
+
+to=(60, 160)
+from=(72, 168)
+best symmetry=0
+best offset=256
+
+to=(62, 160)
+from=(104, 148)
+best symmetry=0
+best offset=95
+
+to=(60, 162)
+from=(164, 80)
+best symmetry=0
+best offset=259
+
+to=(62, 162)
+from=(52, 140)
+best symmetry=0
+best offset=250
+
+to=(56, 164)
+from=(184, 168)
+best symmetry=0
+best offset=110
+
+to=(60, 164)
+from=(120, 168)
+best symmetry=0
+best offset=-2
+
+to=(48, 168)
+from=(64, 192)
+best symmetry=0
+best offset=50
+
+to=(56, 168)
+from=(144, 208)
+best symmetry=0
+best offset=59
+
+to=(64, 160)
+from=(104, 112)
+best symmetry=0
+best offset=8
+
+to=(66, 160)
+from=(152, 116)
+best symmetry=0
+best offset=191
+
+to=(64, 162)
+from=(68, 72)
+best symmetry=0
+best offset=315
+
+to=(66, 162)
+from=(104, 76)
+best symmetry=0
+best offset=283
+
+to=(68, 160)
+from=(40, 116)
+best symmetry=0
+best offset=293
+
+to=(70, 160)
+from=(92, 152)
+best symmetry=0
+best offset=294
+
+to=(68, 162)
+from=(64, 80)
+best symmetry=0
+best offset=71
+
+to=(70, 162)
+from=(40, 100)
+best symmetry=0
+best offset=304
+
+to=(64, 164)
+from=(172, 164)
+best symmetry=0
+best offset=335
+
+to=(66, 164)
+from=(44, 120)
+best symmetry=0
+best offset=19
+
+to=(64, 166)
+from=(100, 72)
+best symmetry=0
+best offset=395
+
+to=(66, 166)
+from=(140, 88)
+best symmetry=0
+best offset=331
+
+to=(68, 164)
+from=(200, 88)
+best symmetry=0
+best offset=300
+
+to=(72, 160)
+from=(200, 120)
+best symmetry=0
+best offset=302
+
+to=(76, 160)
+from=(12, 244)
+best symmetry=0
+best offset=255
+
+to=(78, 160)
+from=(84, 72)
+best symmetry=0
+best offset=250
+
+to=(76, 162)
+from=(76, 68)
+best symmetry=0
+best offset=298
+
+to=(78, 162)
+from=(136, 100)
+best symmetry=0
+best offset=277
+
+to=(72, 164)
+from=(128, 72)
+best symmetry=0
+best offset=305
+
+to=(76, 164)
+from=(132, 152)
+best symmetry=0
+best offset=292
+
+to=(78, 164)
+from=(96, 128)
+best symmetry=0
+best offset=251
+
+to=(76, 166)
+from=(112, 108)
+best symmetry=0
+best offset=39
+
+to=(78, 166)
+from=(148, 108)
+best symmetry=0
+best offset=287
+
+to=(64, 168)
+from=(32, 240)
+best symmetry=0
+best offset=336
+
+to=(72, 168)
+from=(184, 168)
+best symmetry=0
+best offset=30
+
+to=(76, 168)
+from=(72, 168)
+best symmetry=0
+best offset=97
+
+to=(72, 172)
+from=(168, 208)
+best symmetry=0
+best offset=0
+
+to=(76, 172)
+from=(224, 112)
+best symmetry=0
+best offset=19
+
+to=(80, 160)
+from=(60, 132)
+best symmetry=0
+best offset=146
+
+to=(82, 160)
+from=(36, 96)
+best symmetry=0
+best offset=244
+
+to=(80, 162)
+from=(108, 88)
+best symmetry=0
+best offset=4
+
+to=(82, 162)
+from=(104, 128)
+best symmetry=0
+best offset=8
+
+to=(84, 160)
+from=(40, 132)
+best symmetry=0
+best offset=251
+
+to=(86, 160)
+from=(100, 80)
+best symmetry=0
+best offset=-10
+
+to=(84, 162)
+from=(80, 136)
+best symmetry=0
+best offset=150
+
+to=(86, 162)
+from=(180, 116)
+best symmetry=0
+best offset=237
+
+to=(80, 164)
+from=(64, 164)
+best symmetry=0
+best offset=-4
+
+to=(82, 164)
+from=(84, 152)
+best symmetry=0
+best offset=243
+
+to=(80, 166)
+from=(172, 4)
+best symmetry=0
+best offset=392
+
+to=(82, 166)
+from=(168, 112)
+best symmetry=0
+best offset=293
+
+to=(84, 164)
+from=(168, 124)
+best symmetry=0
+best offset=36
+
+to=(86, 164)
+from=(72, 72)
+best symmetry=0
+best offset=251
+
+to=(84, 166)
+from=(128, 156)
+best symmetry=0
+best offset=283
+
+to=(86, 166)
+from=(108, 168)
+best symmetry=0
+best offset=0
+
+to=(88, 160)
+from=(128, 72)
+best symmetry=0
+best offset=255
+
+to=(92, 160)
+from=(200, 136)
+best symmetry=0
+best offset=241
+
+to=(88, 164)
+from=(120, 128)
+best symmetry=0
+best offset=215
+
+to=(90, 164)
+from=(96, 84)
+best symmetry=0
+best offset=219
+
+to=(88, 166)
+from=(104, 124)
+best symmetry=0
+best offset=245
+
+to=(90, 166)
+from=(80, 68)
+best symmetry=0
+best offset=404
+
+to=(92, 164)
+from=(96, 132)
+best symmetry=0
+best offset=-3
+
+to=(94, 164)
+from=(104, 128)
+best symmetry=0
+best offset=0
+
+to=(92, 166)
+from=(192, 148)
+best symmetry=0
+best offset=238
+
+to=(94, 166)
+from=(176, 124)
+best symmetry=0
+best offset=234
+
+to=(80, 168)
+from=(224, 128)
+best symmetry=0
+best offset=65
+
+to=(88, 168)
+from=(72, 0)
+best symmetry=0
+best offset=364
+
+to=(92, 168)
+from=(48, 160)
+best symmetry=0
+best offset=-16
+
+to=(88, 172)
+from=(96, 184)
+best symmetry=0
+best offset=0
+
+to=(92, 172)
+from=(32, 232)
+best symmetry=0
+best offset=366
+
+to=(96, 160)
+from=(100, 76)
+best symmetry=0
+best offset=240
+
+to=(98, 160)
+from=(52, 124)
+best symmetry=0
+best offset=10
+
+to=(96, 162)
+from=(48, 152)
+best symmetry=0
+best offset=248
+
+to=(98, 162)
+from=(88, 156)
+best symmetry=0
+best offset=203
+
+to=(100, 160)
+from=(48, 120)
+best symmetry=0
+best offset=12
+
+to=(96, 164)
+from=(132, 96)
+best symmetry=0
+best offset=215
+
+to=(98, 164)
+from=(120, 84)
+best symmetry=0
+best offset=177
+
+to=(96, 166)
+from=(116, 116)
+best symmetry=0
+best offset=239
+
+to=(98, 166)
+from=(132, 140)
+best symmetry=0
+best offset=106
+
+to=(100, 164)
+from=(156, 152)
+best symmetry=0
+best offset=47
+
+to=(102, 164)
+from=(92, 116)
+best symmetry=0
+best offset=239
+
+to=(100, 166)
+from=(40, 104)
+best symmetry=0
+best offset=273
+
+to=(102, 166)
+from=(48, 80)
+best symmetry=0
+best offset=283
+
+to=(104, 160)
+from=(88, 104)
+best symmetry=0
+best offset=224
+
+to=(108, 160)
+from=(116, 116)
+best symmetry=0
+best offset=226
+
+to=(110, 160)
+from=(96, 80)
+best symmetry=0
+best offset=250
+
+to=(108, 162)
+from=(104, 92)
+best symmetry=0
+best offset=24
+
+to=(110, 162)
+from=(92, 124)
+best symmetry=0
+best offset=242
+
+to=(104, 164)
+from=(92, 164)
+best symmetry=0
+best offset=-8
+
+to=(106, 164)
+from=(76, 88)
+best symmetry=0
+best offset=141
+
+to=(104, 166)
+from=(56, 120)
+best symmetry=0
+best offset=243
+
+to=(106, 166)
+from=(84, 152)
+best symmetry=0
+best offset=235
+
+to=(108, 164)
+from=(232, 248)
+best symmetry=0
+best offset=222
+
+to=(96, 168)
+from=(168, 80)
+best symmetry=0
+best offset=266
+
+to=(98, 168)
+from=(124, 156)
+best symmetry=0
+best offset=244
+
+to=(96, 170)
+from=(168, 84)
+best symmetry=0
+best offset=315
+
+to=(98, 170)
+from=(132, 168)
+best symmetry=0
+best offset=58
+
+to=(100, 168)
+from=(96, 84)
+best symmetry=0
+best offset=236
+
+to=(102, 168)
+from=(200, 136)
+best symmetry=0
+best offset=19
+
+to=(100, 170)
+from=(92, 104)
+best symmetry=0
+best offset=378
+
+to=(102, 170)
+from=(156, 44)
+best symmetry=0
+best offset=0
+
+to=(96, 172)
+from=(208, 48)
+best symmetry=0
+best offset=-16
+
+to=(100, 172)
+from=(224, 0)
+best symmetry=0
+best offset=371
+
+to=(104, 168)
+from=(40, 136)
+best symmetry=0
+best offset=-31
+
+to=(108, 168)
+from=(92, 96)
+best symmetry=0
+best offset=-1
+
+to=(110, 168)
+from=(108, 80)
+best symmetry=0
+best offset=242
+
+to=(108, 170)
+from=(104, 108)
+best symmetry=0
+best offset=238
+
+to=(110, 170)
+from=(236, 244)
+best symmetry=0
+best offset=370
+
+to=(104, 172)
+from=(40, 184)
+best symmetry=0
+best offset=379
+
+to=(108, 172)
+from=(128, 56)
+best symmetry=0
+best offset=0
+
+to=(112, 160)
+from=(200, 128)
+best symmetry=0
+best offset=252
+
+to=(116, 160)
+from=(192, 100)
+best symmetry=0
+best offset=184
+
+to=(118, 160)
+from=(76, 156)
+best symmetry=0
+best offset=186
+
+to=(116, 162)
+from=(104, 120)
+best symmetry=0
+best offset=173
+
+to=(118, 162)
+from=(168, 152)
+best symmetry=0
+best offset=162
+
+to=(112, 164)
+from=(104, 96)
+best symmetry=0
+best offset=95
+
+to=(114, 164)
+from=(192, 156)
+best symmetry=0
+best offset=10
+
+to=(112, 166)
+from=(96, 80)
+best symmetry=0
+best offset=264
+
+to=(114, 166)
+from=(72, 96)
+best symmetry=0
+best offset=270
+
+to=(116, 164)
+from=(120, 76)
+best symmetry=0
+best offset=282
+
+to=(118, 164)
+from=(144, 88)
+best symmetry=0
+best offset=259
+
+to=(116, 166)
+from=(104, 168)
+best symmetry=0
+best offset=28
+
+to=(118, 166)
+from=(128, 164)
+best symmetry=0
+best offset=49
+
+to=(120, 160)
+from=(152, 88)
+best symmetry=0
+best offset=64
+
+to=(124, 160)
+from=(40, 128)
+best symmetry=0
+best offset=31
+
+to=(120, 164)
+from=(136, 80)
+best symmetry=0
+best offset=108
+
+to=(124, 164)
+from=(156, 96)
+best symmetry=0
+best offset=270
+
+to=(126, 164)
+from=(60, 144)
+best symmetry=0
+best offset=218
+
+to=(124, 166)
+from=(44, 92)
+best symmetry=0
+best offset=223
+
+to=(126, 166)
+from=(144, 88)
+best symmetry=0
+best offset=334
+
+to=(112, 168)
+from=(192, 160)
+best symmetry=0
+best offset=105
+
+to=(120, 168)
+from=(240, 240)
+best symmetry=0
+best offset=341
+
+to=(128, 160)
+from=(232, 248)
+best symmetry=0
+best offset=267
+
+to=(132, 160)
+from=(40, 88)
+best symmetry=0
+best offset=306
+
+to=(134, 160)
+from=(184, 88)
+best symmetry=0
+best offset=311
+
+to=(132, 162)
+from=(76, 128)
+best symmetry=0
+best offset=245
+
+to=(134, 162)
+from=(108, 136)
+best symmetry=0
+best offset=292
+
+to=(128, 164)
+from=(128, 80)
+best symmetry=0
+best offset=298
+
+to=(130, 164)
+from=(36, 96)
+best symmetry=0
+best offset=304
+
+to=(128, 166)
+from=(152, 168)
+best symmetry=0
+best offset=111
+
+to=(130, 166)
+from=(56, 76)
+best symmetry=0
+best offset=310
+
+to=(132, 164)
+from=(48, 72)
+best symmetry=0
+best offset=311
+
+to=(136, 160)
+from=(104, 96)
+best symmetry=0
+best offset=149
+
+to=(140, 160)
+from=(0, 40)
+best symmetry=0
+best offset=274
+
+to=(136, 164)
+from=(188, 92)
+best symmetry=0
+best offset=305
+
+to=(138, 164)
+from=(108, 168)
+best symmetry=0
+best offset=50
+
+to=(136, 166)
+from=(188, 168)
+best symmetry=0
+best offset=19
+
+to=(138, 166)
+from=(168, 84)
+best symmetry=0
+best offset=316
+
+to=(140, 164)
+from=(88, 72)
+best symmetry=0
+best offset=295
+
+to=(128, 168)
+from=(80, 240)
+best symmetry=0
+best offset=363
+
+to=(136, 168)
+from=(24, 72)
+best symmetry=0
+best offset=372
+
+to=(140, 168)
+from=(104, 168)
+best symmetry=0
+best offset=10
+
+to=(136, 172)
+from=(48, 0)
+best symmetry=0
+best offset=384
+
+to=(140, 172)
+from=(64, 248)
+best symmetry=0
+best offset=368
+
+to=(144, 160)
+from=(88, 112)
+best symmetry=0
+best offset=297
+
+to=(148, 160)
+from=(88, 72)
+best symmetry=0
+best offset=298
+
+to=(144, 164)
+from=(64, 168)
+best symmetry=0
+best offset=308
+
+to=(148, 164)
+from=(140, 148)
+best symmetry=0
+best offset=303
+
+to=(150, 164)
+from=(104, 136)
+best symmetry=0
+best offset=160
+
+to=(148, 166)
+from=(156, 96)
+best symmetry=0
+best offset=263
+
+to=(150, 166)
+from=(164, 80)
+best symmetry=0
+best offset=318
+
+to=(152, 160)
+from=(200, 112)
+best symmetry=0
+best offset=245
+
+to=(156, 160)
+from=(248, 248)
+best symmetry=0
+best offset=204
+
+to=(152, 164)
+from=(84, 116)
+best symmetry=0
+best offset=228
+
+to=(154, 164)
+from=(172, 108)
+best symmetry=0
+best offset=140
+
+to=(152, 166)
+from=(188, 124)
+best symmetry=0
+best offset=17
+
+to=(154, 166)
+from=(104, 108)
+best symmetry=0
+best offset=95
+
+to=(156, 164)
+from=(88, 128)
+best symmetry=0
+best offset=238
+
+to=(144, 168)
+from=(100, 144)
+best symmetry=0
+best offset=183
+
+to=(146, 168)
+from=(140, 156)
+best symmetry=0
+best offset=306
+
+to=(144, 170)
+from=(80, 68)
+best symmetry=0
+best offset=377
+
+to=(146, 170)
+from=(132, 168)
+best symmetry=0
+best offset=29
+
+to=(148, 168)
+from=(56, 112)
+best symmetry=0
+best offset=240
+
+to=(144, 172)
+from=(224, 208)
+best symmetry=0
+best offset=377
+
+to=(148, 172)
+from=(48, 224)
+best symmetry=0
+best offset=378
+
+to=(152, 168)
+from=(192, 148)
+best symmetry=0
+best offset=242
+
+to=(154, 168)
+from=(156, 84)
+best symmetry=0
+best offset=252
+
+to=(152, 170)
+from=(176, 152)
+best symmetry=0
+best offset=378
+
+to=(154, 170)
+from=(80, 152)
+best symmetry=0
+best offset=247
+
+to=(156, 168)
+from=(48, 104)
+best symmetry=0
+best offset=29
+
+to=(158, 168)
+from=(180, 156)
+best symmetry=0
+best offset=241
+
+to=(156, 170)
+from=(92, 96)
+best symmetry=0
+best offset=4
+
+to=(158, 170)
+from=(108, 80)
+best symmetry=0
+best offset=251
+
+to=(152, 172)
+from=(40, 248)
+best symmetry=0
+best offset=361
+
+to=(156, 172)
+from=(248, 248)
+best symmetry=0
+best offset=355
+
+to=(160, 160)
+from=(80, 64)
+best symmetry=0
+best offset=241
+
+to=(164, 160)
+from=(0, 104)
+best symmetry=0
+best offset=227
+
+to=(160, 164)
+from=(44, 108)
+best symmetry=0
+best offset=5
+
+to=(162, 164)
+from=(88, 104)
+best symmetry=0
+best offset=237
+
+to=(160, 166)
+from=(80, 116)
+best symmetry=0
+best offset=231
+
+to=(162, 166)
+from=(168, 124)
+best symmetry=0
+best offset=20
+
+to=(164, 164)
+from=(192, 104)
+best symmetry=0
+best offset=148
+
+to=(166, 164)
+from=(168, 80)
+best symmetry=0
+best offset=269
+
+to=(164, 166)
+from=(40, 92)
+best symmetry=0
+best offset=254
+
+to=(166, 166)
+from=(120, 80)
+best symmetry=0
+best offset=241
+
+to=(168, 160)
+from=(76, 116)
+best symmetry=0
+best offset=12
+
+to=(170, 160)
+from=(120, 156)
+best symmetry=0
+best offset=265
+
+to=(168, 162)
+from=(128, 136)
+best symmetry=0
+best offset=175
+
+to=(170, 162)
+from=(48, 152)
+best symmetry=0
+best offset=332
+
+to=(172, 160)
+from=(112, 80)
+best symmetry=0
+best offset=185
+
+to=(168, 164)
+from=(128, 160)
+best symmetry=0
+best offset=43
+
+to=(172, 164)
+from=(48, 120)
+best symmetry=0
+best offset=201
+
+to=(160, 168)
+from=(100, 100)
+best symmetry=0
+best offset=143
+
+to=(162, 168)
+from=(164, 80)
+best symmetry=0
+best offset=300
+
+to=(160, 170)
+from=(96, 84)
+best symmetry=0
+best offset=247
+
+to=(162, 170)
+from=(112, 80)
+best symmetry=0
+best offset=262
+
+to=(164, 168)
+from=(72, 168)
+best symmetry=0
+best offset=68
+
+to=(160, 172)
+from=(216, 248)
+best symmetry=0
+best offset=369
+
+to=(164, 172)
+from=(48, 224)
+best symmetry=0
+best offset=379
+
+to=(168, 168)
+from=(56, 88)
+best symmetry=0
+best offset=317
+
+to=(170, 168)
+from=(76, 108)
+best symmetry=0
+best offset=227
+
+to=(168, 170)
+from=(212, 52)
+best symmetry=0
+best offset=0
+
+to=(170, 170)
+from=(72, 112)
+best symmetry=0
+best offset=237
+
+to=(172, 168)
+from=(160, 144)
+best symmetry=0
+best offset=243
+
+to=(168, 172)
+from=(32, 232)
+best symmetry=0
+best offset=373
+
+to=(172, 172)
+from=(240, 200)
+best symmetry=0
+best offset=376
+
+to=(176, 160)
+from=(100, 112)
+best symmetry=0
+best offset=205
+
+to=(178, 160)
+from=(148, 132)
+best symmetry=0
+best offset=321
+
+to=(176, 162)
+from=(116, 100)
+best symmetry=0
+best offset=321
+
+to=(178, 162)
+from=(72, 100)
+best symmetry=0
+best offset=174
+
+to=(180, 160)
+from=(72, 120)
+best symmetry=0
+best offset=222
+
+to=(182, 160)
+from=(180, 160)
+best symmetry=0
+best offset=-6
+
+to=(180, 162)
+from=(192, 100)
+best symmetry=0
+best offset=199
+
+to=(182, 162)
+from=(48, 116)
+best symmetry=0
+best offset=154
+
+to=(176, 164)
+from=(96, 120)
+best symmetry=0
+best offset=233
+
+to=(180, 164)
+from=(128, 160)
+best symmetry=0
+best offset=54
+
+to=(184, 160)
+from=(112, 80)
+best symmetry=0
+best offset=173
+
+to=(188, 160)
+from=(112, 80)
+best symmetry=0
+best offset=187
+
+to=(184, 164)
+from=(80, 80)
+best symmetry=0
+best offset=37
+
+to=(188, 164)
+from=(112, 112)
+best symmetry=0
+best offset=329
+
+to=(176, 168)
+from=(112, 80)
+best symmetry=0
+best offset=237
+
+to=(180, 168)
+from=(120, 96)
+best symmetry=0
+best offset=42
+
+to=(182, 168)
+from=(196, 88)
+best symmetry=0
+best offset=325
+
+to=(180, 170)
+from=(116, 168)
+best symmetry=0
+best offset=-26
+
+to=(182, 170)
+from=(192, 120)
+best symmetry=0
+best offset=235
+
+to=(176, 172)
+from=(128, 72)
+best symmetry=0
+best offset=247
+
+to=(180, 172)
+from=(32, 232)
+best symmetry=0
+best offset=368
+
+to=(184, 168)
+from=(160, 144)
+best symmetry=0
+best offset=234
+
+to=(188, 168)
+from=(184, 168)
+best symmetry=0
+best offset=8
+
+to=(184, 172)
+from=(64, 248)
+best symmetry=0
+best offset=363
+
+to=(188, 172)
+from=(152, 192)
+best symmetry=0
+best offset=397
+
+to=(192, 160)
+from=(192, 160)
+best symmetry=0
+best offset=134
+
+to=(208, 160)
+from=(192, 32)
+best symmetry=0
+best offset=308
+
+to=(224, 160)
+from=(224, 128)
+best symmetry=0
+best offset=15
+
+to=(240, 160)
+from=(128, 0)
+best symmetry=0
+best offset=242
+
+to=(0, 176)
+from=(0, 192)
+best symmetry=0
+best offset=195
+
+to=(16, 176)
+from=(0, 128)
+best symmetry=0
+best offset=51
+
+to=(32, 176)
+from=(224, 64)
+best symmetry=0
+best offset=410
+
+to=(48, 176)
+from=(128, 0)
+best symmetry=0
+best offset=79
+
+to=(64, 176)
+from=(160, 0)
+best symmetry=0
+best offset=259
+
+to=(80, 176)
+from=(128, 32)
+best symmetry=0
+best offset=183
+
+to=(96, 176)
+from=(160, 32)
+best symmetry=0
+best offset=236
+
+to=(112, 176)
+from=(192, 32)
+best symmetry=0
+best offset=345
+
+to=(128, 176)
+from=(160, 32)
+best symmetry=0
+best offset=283
+
+to=(144, 176)
+from=(160, 32)
+best symmetry=0
+best offset=287
+
+to=(160, 176)
+from=(160, 32)
+best symmetry=0
+best offset=295
+
+to=(176, 176)
+from=(192, 32)
+best symmetry=0
+best offset=333
+
+to=(192, 176)
+from=(160, 32)
+best symmetry=0
+best offset=261
+
+to=(208, 176)
+from=(224, 64)
+best symmetry=0
+best offset=67
+
+to=(224, 176)
+from=(224, 128)
+best symmetry=0
+best offset=92
+
+to=(240, 176)
+from=(64, 0)
+best symmetry=0
+best offset=366
+
+to=(0, 192)
+from=(160, 64)
+best symmetry=0
+best offset=164
+
+to=(16, 192)
+from=(0, 160)
+best symmetry=0
+best offset=-20
+
+to=(32, 192)
+from=(224, 96)
+best symmetry=0
+best offset=393
+
+to=(48, 192)
+from=(224, 96)
+best symmetry=0
+best offset=429
+
+to=(64, 192)
+from=(64, 192)
+best symmetry=0
+best offset=4
+
+to=(80, 192)
+from=(224, 96)
+best symmetry=0
+best offset=370
+
+to=(96, 192)
+from=(192, 0)
+best symmetry=0
+best offset=361
+
+to=(112, 192)
+from=(192, 0)
+best symmetry=0
+best offset=372
+
+to=(128, 192)
+from=(160, 32)
+best symmetry=0
+best offset=247
+
+to=(144, 192)
+from=(192, 0)
+best symmetry=0
+best offset=358
+
+to=(160, 192)
+from=(192, 0)
+best symmetry=0
+best offset=368
+
+to=(176, 192)
+from=(128, 192)
+best symmetry=0
+best offset=63
+
+to=(192, 192)
+from=(64, 0)
+best symmetry=0
+best offset=371
+
+to=(208, 192)
+from=(64, 0)
+best symmetry=0
+best offset=369
+
+to=(224, 192)
+from=(192, 192)
+best symmetry=0
+best offset=34
+
+to=(240, 192)
+from=(64, 0)
+best symmetry=0
+best offset=380
+
+to=(0, 208)
+from=(64, 0)
+best symmetry=0
+best offset=366
+
+to=(16, 208)
+from=(224, 0)
+best symmetry=0
+best offset=381
+
+to=(32, 208)
+from=(0, 96)
+best symmetry=0
+best offset=68
+
+to=(48, 208)
+from=(224, 0)
+best symmetry=0
+best offset=404
+
+to=(64, 208)
+from=(128, 224)
+best symmetry=0
+best offset=85
+
+to=(80, 208)
+from=(64, 192)
+best symmetry=0
+best offset=141
+
+to=(96, 208)
+from=(224, 32)
+best symmetry=0
+best offset=323
+
+to=(112, 208)
+from=(96, 192)
+best symmetry=0
+best offset=106
+
+to=(128, 208)
+from=(192, 0)
+best symmetry=0
+best offset=373
+
+to=(144, 208)
+from=(160, 192)
+best symmetry=0
+best offset=57
+
+to=(160, 208)
+from=(64, 0)
+best symmetry=0
+best offset=361
+
+to=(176, 208)
+from=(192, 192)
+best symmetry=0
+best offset=138
+
+to=(192, 208)
+from=(64, 0)
+best symmetry=0
+best offset=379
+
+to=(208, 208)
+from=(96, 32)
+best symmetry=0
+best offset=417
+
+to=(224, 208)
+from=(64, 32)
+best symmetry=0
+best offset=396
+
+to=(240, 208)
+from=(64, 0)
+best symmetry=0
+best offset=397
+
+to=(0, 224)
+from=(0, 224)
+best symmetry=0
+best offset=117
+
+to=(16, 224)
+from=(224, 0)
+best symmetry=0
+best offset=368
+
+to=(32, 224)
+from=(224, 0)
+best symmetry=0
+best offset=380
+
+to=(48, 224)
+from=(224, 0)
+best symmetry=0
+best offset=400
+
+to=(64, 224)
+from=(192, 0)
+best symmetry=0
+best offset=400
+
+to=(80, 224)
+from=(96, 224)
+best symmetry=0
+best offset=108
+
+to=(96, 224)
+from=(128, 224)
+best symmetry=0
+best offset=24
+
+to=(112, 224)
+from=(192, 192)
+best symmetry=0
+best offset=50
+
+to=(128, 224)
+from=(96, 32)
+best symmetry=0
+best offset=403
+
+to=(144, 224)
+from=(192, 0)
+best symmetry=0
+best offset=389
+
+to=(160, 224)
+from=(96, 32)
+best symmetry=0
+best offset=391
+
+to=(176, 224)
+from=(192, 192)
+best symmetry=0
+best offset=51
+
+to=(192, 224)
+from=(96, 32)
+best symmetry=0
+best offset=393
+
+to=(208, 224)
+from=(192, 224)
+best symmetry=0
+best offset=78
+
+to=(224, 224)
+from=(64, 0)
+best symmetry=0
+best offset=392
+
+to=(240, 224)
+from=(96, 32)
+best symmetry=0
+best offset=380
+
+to=(0, 240)
+from=(224, 0)
+best symmetry=0
+best offset=340
+
+to=(16, 240)
+from=(224, 0)
+best symmetry=0
+best offset=354
+
+to=(32, 240)
+from=(224, 0)
+best symmetry=0
+best offset=362
+
+to=(48, 240)
+from=(224, 0)
+best symmetry=0
+best offset=373
+
+to=(64, 240)
+from=(32, 224)
+best symmetry=0
+best offset=123
+
+to=(80, 240)
+from=(64, 224)
+best symmetry=0
+best offset=0
+
+to=(96, 240)
+from=(192, 0)
+best symmetry=0
+best offset=387
+
+to=(112, 240)
+from=(64, 224)
+best symmetry=0
+best offset=75
+
+to=(128, 240)
+from=(96, 32)
+best symmetry=0
+best offset=386
+
+to=(144, 240)
+from=(192, 0)
+best symmetry=0
+best offset=399
+
+to=(160, 240)
+from=(96, 32)
+best symmetry=0
+best offset=406
+
+to=(176, 240)
+from=(96, 32)
+best symmetry=0
+best offset=387
+
+to=(192, 240)
+from=(96, 32)
+best symmetry=0
+best offset=395
+
+to=(208, 240)
+from=(64, 0)
+best symmetry=0
+best offset=374
+
+to=(224, 240)
+from=(0, 32)
+best symmetry=0
+best offset=346
+
+to=(240, 240)
+from=(0, 32)
+best symmetry=0
+best offset=321
+
+to=(0, 0)
+from=(224, 160)
+best symmetry=0
+best offset=213
+
+to=(16, 0)
+from=(0, 0)
+best symmetry=0
+best offset=95
+
+to=(32, 0)
+from=(0, 32)
+best symmetry=0
+best offset=13
+
+to=(48, 0)
+from=(32, 0)
+best symmetry=0
+best offset=35
+
+to=(64, 0)
+from=(32, 32)
+best symmetry=0
+best offset=7
+
+to=(80, 0)
+from=(64, 0)
+best symmetry=0
+best offset=12
+
+to=(96, 0)
+from=(64, 32)
+best symmetry=0
+best offset=117
+
+to=(112, 0)
+from=(96, 0)
+best symmetry=0
+best offset=18
+
+to=(128, 0)
+from=(224, 192)
+best symmetry=0
+best offset=174
+
+to=(144, 0)
+from=(128, 0)
+best symmetry=0
+best offset=37
+
+to=(160, 0)
+from=(192, 0)
+best symmetry=0
+best offset=28
+
+to=(176, 0)
+from=(160, 0)
+best symmetry=0
+best offset=1
+
+to=(192, 0)
+from=(192, 0)
+best symmetry=0
+best offset=2
+
+to=(208, 0)
+from=(192, 0)
+best symmetry=0
+best offset=19
+
+to=(224, 0)
+from=(96, 192)
+best symmetry=0
+best offset=222
+
+to=(240, 0)
+from=(96, 0)
+best symmetry=0
+best offset=55
+
+to=(0, 16)
+from=(224, 160)
+best symmetry=0
+best offset=215
+
+to=(16, 16)
+from=(0, 32)
+best symmetry=0
+best offset=12
+
+to=(32, 16)
+from=(224, 128)
+best symmetry=0
+best offset=220
+
+to=(48, 16)
+from=(224, 160)
+best symmetry=0
+best offset=221
+
+to=(64, 16)
+from=(224, 160)
+best symmetry=0
+best offset=229
+
+to=(80, 16)
+from=(224, 160)
+best symmetry=0
+best offset=231
+
+to=(96, 16)
+from=(224, 160)
+best symmetry=0
+best offset=224
+
+to=(112, 16)
+from=(224, 192)
+best symmetry=0
+best offset=190
+
+to=(128, 16)
+from=(160, 0)
+best symmetry=0
+best offset=1
+
+to=(144, 16)
+from=(224, 32)
+best symmetry=0
+best offset=49
+
+to=(160, 16)
+from=(128, 0)
+best symmetry=0
+best offset=142
+
+to=(176, 16)
+from=(128, 32)
+best symmetry=0
+best offset=23
+
+to=(192, 16)
+from=(160, 192)
+best symmetry=0
+best offset=187
+
+to=(208, 16)
+from=(224, 32)
+best symmetry=0
+best offset=27
+
+to=(224, 16)
+from=(192, 0)
+best symmetry=0
+best offset=1
+
+to=(240, 16)
+from=(96, 192)
+best symmetry=0
+best offset=192
+
+to=(0, 32)
+from=(0, 192)
+best symmetry=0
+best offset=7
+
+to=(16, 32)
+from=(0, 64)
+best symmetry=0
+best offset=20
+
+to=(32, 32)
+from=(224, 160)
+best symmetry=0
+best offset=223
+
+to=(48, 32)
+from=(64, 0)
+best symmetry=0
+best offset=7
+
+to=(64, 32)
+from=(224, 160)
+best symmetry=0
+best offset=226
+
+to=(80, 32)
+from=(96, 0)
+best symmetry=0
+best offset=15
+
+to=(96, 32)
+from=(224, 160)
+best symmetry=0
+best offset=267
+
+to=(112, 32)
+from=(224, 160)
+best symmetry=0
+best offset=213
+
+to=(128, 32)
+from=(128, 0)
+best symmetry=0
+best offset=142
+
+to=(144, 32)
+from=(128, 32)
+best symmetry=0
+best offset=39
+
+to=(160, 32)
+from=(160, 32)
+best symmetry=0
+best offset=28
+
+to=(176, 32)
+from=(160, 32)
+best symmetry=0
+best offset=35
+
+to=(192, 32)
+from=(96, 192)
+best symmetry=0
+best offset=216
+
+to=(208, 32)
+from=(224, 96)
+best symmetry=0
+best offset=42
+
+to=(224, 32)
+from=(224, 32)
+best symmetry=0
+best offset=48
+
+to=(240, 32)
+from=(192, 0)
+best symmetry=0
+best offset=9
+
+to=(0, 48)
+from=(0, 32)
+best symmetry=0
+best offset=13
+
+to=(16, 48)
+from=(0, 96)
+best symmetry=0
+best offset=65
+
+to=(32, 48)
+from=(32, 192)
+best symmetry=0
+best offset=34
+
+to=(48, 48)
+from=(224, 160)
+best symmetry=0
+best offset=230
+
+to=(64, 48)
+from=(96, 0)
+best symmetry=0
+best offset=-3
+
+to=(80, 48)
+from=(224, 192)
+best symmetry=0
+best offset=187
+
+to=(96, 48)
+from=(224, 160)
+best symmetry=0
+best offset=203
+
+to=(112, 48)
+from=(128, 32)
+best symmetry=0
+best offset=34
+
+to=(128, 48)
+from=(128, 32)
+best symmetry=0
+best offset=143
+
+to=(144, 48)
+from=(160, 32)
+best symmetry=0
+best offset=40
+
+to=(160, 48)
+from=(160, 32)
+best symmetry=0
+best offset=138
+
+to=(176, 48)
+from=(160, 32)
+best symmetry=0
+best offset=136
+
+to=(192, 48)
+from=(160, 32)
+best symmetry=0
+best offset=145
+
+to=(208, 48)
+from=(160, 32)
+best symmetry=0
+best offset=42
+
+to=(224, 48)
+from=(224, 96)
+best symmetry=0
+best offset=39
+
+to=(240, 48)
+from=(224, 32)
+best symmetry=0
+best offset=48
+
+to=(0, 64)
+from=(0, 160)
+best symmetry=0
+best offset=45
+
+to=(16, 64)
+from=(32, 0)
+best symmetry=0
+best offset=23
+
+to=(32, 64)
+from=(224, 128)
+best symmetry=0
+best offset=226
+
+to=(48, 64)
+from=(0, 224)
+best symmetry=0
+best offset=156
+
+to=(64, 64)
+from=(64, 64)
+best symmetry=0
+best offset=39
+
+to=(80, 64)
+from=(128, 64)
+best symmetry=0
+best offset=30
+
+to=(96, 64)
+from=(0, 0)
+best symmetry=0
+best offset=205
+
+to=(112, 64)
+from=(0, 224)
+best symmetry=0
+best offset=193
+
+to=(128, 64)
+from=(0, 224)
+best symmetry=0
+best offset=202
+
+to=(144, 64)
+from=(160, 32)
+best symmetry=0
+best offset=138
+
+to=(160, 64)
+from=(128, 32)
+best symmetry=0
+best offset=173
+
+to=(176, 64)
+from=(192, 128)
+best symmetry=0
+best offset=123
+
+to=(192, 64)
+from=(160, 32)
+best symmetry=0
+best offset=140
+
+to=(208, 64)
+from=(160, 32)
+best symmetry=0
+best offset=146
+
+to=(224, 64)
+from=(192, 32)
+best symmetry=0
+best offset=35
+
+to=(240, 64)
+from=(224, 64)
+best symmetry=0
+best offset=28
+
+to=(0, 80)
+from=(0, 32)
+best symmetry=0
+best offset=17
+
+to=(16, 80)
+from=(0, 128)
+best symmetry=0
+best offset=66
+
+to=(32, 80)
+from=(64, 64)
+best symmetry=0
+best offset=40
+
+to=(48, 80)
+from=(128, 96)
+best symmetry=0
+best offset=183
+
+to=(64, 80)
+from=(192, 64)
+best symmetry=0
+best offset=196
+
+to=(80, 80)
+from=(32, 128)
+best symmetry=0
+best offset=54
+
+to=(96, 80)
+from=(128, 64)
+best symmetry=0
+best offset=185
+
+to=(112, 80)
+from=(0, 224)
+best symmetry=0
+best offset=192
+
+to=(128, 80)
+from=(64, 32)
+best symmetry=0
+best offset=167
+
+to=(144, 80)
+from=(160, 160)
+best symmetry=0
+best offset=186
+
+to=(160, 80)
+from=(64, 32)
+best symmetry=0
+best offset=170
+
+to=(176, 80)
+from=(160, 64)
+best symmetry=0
+best offset=60
+
+to=(192, 80)
+from=(160, 64)
+best symmetry=0
+best offset=72
+
+to=(208, 80)
+from=(160, 32)
+best symmetry=0
+best offset=147
+
+to=(224, 80)
+from=(128, 32)
+best symmetry=0
+best offset=152
+
+to=(240, 80)
+from=(224, 128)
+best symmetry=0
+best offset=25
+
+to=(0, 96)
+from=(224, 160)
+best symmetry=0
+best offset=216
+
+to=(16, 96)
+from=(32, 0)
+best symmetry=0
+best offset=123
+
+to=(32, 96)
+from=(96, 160)
+best symmetry=0
+best offset=169
+
+to=(48, 96)
+from=(96, 64)
+best symmetry=0
+best offset=174
+
+to=(64, 96)
+from=(32, 96)
+best symmetry=0
+best offset=186
+
+to=(80, 96)
+from=(192, 96)
+best symmetry=0
+best offset=179
+
+to=(96, 96)
+from=(192, 144)
+best symmetry=0
+best offset=206
+
+to=(100, 96)
+from=(176, 96)
+best symmetry=0
+best offset=190
+
+to=(96, 100)
+from=(168, 152)
+best symmetry=0
+best offset=197
+
+to=(100, 100)
+from=(56, 112)
+best symmetry=0
+best offset=30
+
+to=(104, 96)
+from=(16, 128)
+best symmetry=0
+best offset=227
+
+to=(96, 104)
+from=(184, 128)
+best symmetry=0
+best offset=3
+
+to=(100, 104)
+from=(232, 216)
+best symmetry=0
+best offset=237
+
+to=(96, 108)
+from=(160, 152)
+best symmetry=0
+best offset=222
+
+to=(100, 108)
+from=(248, 248)
+best symmetry=0
+best offset=238
+
+to=(104, 104)
+from=(112, 64)
+best symmetry=0
+best offset=204
+
+to=(112, 96)
+from=(96, 96)
+best symmetry=0
+best offset=200
+
+to=(120, 96)
+from=(64, 96)
+best symmetry=0
+best offset=198
+
+to=(112, 104)
+from=(80, 112)
+best symmetry=0
+best offset=12
+
+to=(120, 104)
+from=(192, 128)
+best symmetry=0
+best offset=202
+
+to=(128, 96)
+from=(224, 224)
+best symmetry=0
+best offset=191
+
+to=(144, 96)
+from=(64, 160)
+best symmetry=0
+best offset=206
+
+to=(160, 96)
+from=(32, 32)
+best symmetry=0
+best offset=170
+
+to=(176, 96)
+from=(192, 160)
+best symmetry=0
+best offset=183
+
+to=(192, 96)
+from=(32, 128)
+best symmetry=0
+best offset=49
+
+to=(208, 96)
+from=(160, 32)
+best symmetry=0
+best offset=146
+
+to=(224, 96)
+from=(160, 32)
+best symmetry=0
+best offset=46
+
+to=(240, 96)
+from=(224, 64)
+best symmetry=0
+best offset=27
+
+to=(0, 112)
+from=(0, 160)
+best symmetry=0
+best offset=4
+
+to=(16, 112)
+from=(32, 192)
+best symmetry=0
+best offset=51
+
+to=(32, 112)
+from=(64, 32)
+best symmetry=0
+best offset=173
+
+to=(48, 112)
+from=(96, 160)
+best symmetry=0
+best offset=202
+
+to=(64, 112)
+from=(32, 128)
+best symmetry=0
+best offset=187
+
+to=(80, 112)
+from=(192, 96)
+best symmetry=0
+best offset=180
+
+to=(96, 112)
+from=(128, 160)
+best symmetry=0
+best offset=167
+
+to=(112, 112)
+from=(96, 160)
+best symmetry=0
+best offset=183
+
+to=(128, 112)
+from=(144, 112)
+best symmetry=0
+best offset=51
+
+to=(136, 112)
+from=(32, 96)
+best symmetry=0
+best offset=72
+
+to=(128, 120)
+from=(112, 112)
+best symmetry=0
+best offset=18
+
+to=(136, 120)
+from=(128, 160)
+best symmetry=0
+best offset=178
+
+to=(144, 112)
+from=(128, 96)
+best symmetry=0
+best offset=62
+
+to=(160, 112)
+from=(160, 64)
+best symmetry=0
+best offset=163
+
+to=(176, 112)
+from=(192, 160)
+best symmetry=0
+best offset=188
+
+to=(184, 112)
+from=(176, 128)
+best symmetry=0
+best offset=40
+
+to=(176, 120)
+from=(80, 208)
+best symmetry=0
+best offset=177
+
+to=(184, 120)
+from=(176, 144)
+best symmetry=0
+best offset=18
+
+to=(192, 112)
+from=(128, 160)
+best symmetry=0
+best offset=58
+
+to=(208, 112)
+from=(160, 32)
+best symmetry=0
+best offset=148
+
+to=(224, 112)
+from=(128, 32)
+best symmetry=0
+best offset=154
+
+to=(240, 112)
+from=(224, 128)
+best symmetry=0
+best offset=38
+
+to=(0, 128)
+from=(0, 64)
+best symmetry=0
+best offset=8
+
+to=(16, 128)
+from=(224, 160)
+best symmetry=0
+best offset=222
+
+to=(32, 128)
+from=(64, 96)
+best symmetry=0
+best offset=95
+
+to=(48, 128)
+from=(32, 64)
+best symmetry=0
+best offset=80
+
+to=(64, 128)
+from=(96, 96)
+best symmetry=0
+best offset=91
+
+to=(80, 128)
+from=(192, 64)
+best symmetry=0
+best offset=183
+
+to=(96, 128)
+from=(48, 144)
+best symmetry=0
+best offset=28
+
+to=(104, 128)
+from=(176, 112)
+best symmetry=0
+best offset=180
+
+to=(96, 136)
+from=(96, 96)
+best symmetry=0
+best offset=30
+
+to=(104, 136)
+from=(176, 144)
+best symmetry=0
+best offset=180
+
+to=(112, 128)
+from=(224, 224)
+best symmetry=0
+best offset=176
+
+to=(128, 128)
+from=(64, 112)
+best symmetry=0
+best offset=196
+
+to=(136, 128)
+from=(80, 144)
+best symmetry=0
+best offset=38
+
+to=(128, 136)
+from=(48, 144)
+best symmetry=0
+best offset=41
+
+to=(136, 136)
+from=(32, 96)
+best symmetry=0
+best offset=203
+
+to=(144, 128)
+from=(160, 160)
+best symmetry=0
+best offset=182
+
+to=(160, 128)
+from=(144, 144)
+best symmetry=0
+best offset=67
+
+to=(168, 128)
+from=(176, 128)
+best symmetry=0
+best offset=174
+
+to=(160, 136)
+from=(192, 32)
+best symmetry=0
+best offset=210
+
+to=(168, 136)
+from=(112, 128)
+best symmetry=0
+best offset=149
+
+to=(176, 128)
+from=(224, 240)
+best symmetry=0
+best offset=178
+
+to=(184, 128)
+from=(176, 144)
+best symmetry=0
+best offset=9
+
+to=(176, 136)
+from=(32, 144)
+best symmetry=0
+best offset=175
+
+to=(184, 136)
+from=(64, 144)
+best symmetry=0
+best offset=197
+
+to=(192, 128)
+from=(192, 96)
+best symmetry=0
+best offset=182
+
+to=(208, 128)
+from=(160, 32)
+best symmetry=0
+best offset=144
+
+to=(224, 128)
+from=(128, 32)
+best symmetry=0
+best offset=153
+
+to=(240, 128)
+from=(224, 128)
+best symmetry=0
+best offset=26
+
+to=(0, 144)
+from=(0, 128)
+best symmetry=0
+best offset=1
+
+to=(16, 144)
+from=(32, 192)
+best symmetry=0
+best offset=0
+
+to=(32, 144)
+from=(64, 192)
+best symmetry=0
+best offset=191
+
+to=(48, 144)
+from=(160, 160)
+best symmetry=0
+best offset=172
+
+to=(64, 144)
+from=(96, 128)
+best symmetry=0
+best offset=78
+
+to=(80, 144)
+from=(112, 128)
+best symmetry=0
+best offset=138
+
+to=(88, 144)
+from=(112, 112)
+best symmetry=0
+best offset=23
+
+to=(80, 152)
+from=(184, 88)
+best symmetry=0
+best offset=200
+
+to=(84, 152)
+from=(144, 120)
+best symmetry=0
+best offset=158
+
+to=(80, 156)
+from=(120, 240)
+best symmetry=0
+best offset=236
+
+to=(84, 156)
+from=(144, 88)
+best symmetry=0
+best offset=204
+
+to=(88, 152)
+from=(120, 240)
+best symmetry=0
+best offset=178
+
+to=(92, 152)
+from=(184, 96)
+best symmetry=0
+best offset=19
+
+to=(88, 156)
+from=(88, 96)
+best symmetry=0
+best offset=192
+
+to=(92, 156)
+from=(112, 96)
+best symmetry=0
+best offset=199
+
+to=(96, 144)
+from=(80, 128)
+best symmetry=0
+best offset=192
+
+to=(104, 144)
+from=(160, 144)
+best symmetry=0
+best offset=29
+
+to=(96, 152)
+from=(112, 240)
+best symmetry=0
+best offset=219
+
+to=(104, 152)
+from=(32, 96)
+best symmetry=0
+best offset=205
+
+to=(112, 144)
+from=(192, 64)
+best symmetry=0
+best offset=186
+
+to=(128, 144)
+from=(112, 112)
+best symmetry=0
+best offset=45
+
+to=(136, 144)
+from=(56, 88)
+best symmetry=0
+best offset=218
+
+to=(140, 144)
+from=(136, 144)
+best symmetry=0
+best offset=8
+
+to=(136, 148)
+from=(56, 88)
+best symmetry=0
+best offset=191
+
+to=(140, 148)
+from=(200, 120)
+best symmetry=0
+best offset=188
+
+to=(128, 152)
+from=(64, 112)
+best symmetry=0
+best offset=198
+
+to=(136, 152)
+from=(112, 64)
+best symmetry=0
+best offset=185
+
+to=(144, 144)
+from=(176, 144)
+best symmetry=0
+best offset=32
+
+to=(152, 144)
+from=(128, 128)
+best symmetry=0
+best offset=76
+
+to=(144, 152)
+from=(160, 160)
+best symmetry=0
+best offset=178
+
+to=(152, 152)
+from=(48, 112)
+best symmetry=0
+best offset=98
+
+to=(160, 144)
+from=(64, 112)
+best symmetry=0
+best offset=216
+
+to=(168, 144)
+from=(48, 96)
+best symmetry=0
+best offset=205
+
+to=(160, 152)
+from=(112, 112)
+best symmetry=0
+best offset=197
+
+to=(168, 152)
+from=(176, 144)
+best symmetry=0
+best offset=194
+
+to=(176, 144)
+from=(64, 96)
+best symmetry=0
+best offset=174
+
+to=(192, 144)
+from=(192, 128)
+best symmetry=0
+best offset=156
+
+to=(208, 144)
+from=(160, 32)
+best symmetry=0
+best offset=150
+
+to=(224, 144)
+from=(128, 0)
+best symmetry=0
+best offset=219
+
+to=(240, 144)
+from=(224, 32)
+best symmetry=0
+best offset=53
+
+to=(0, 160)
+from=(0, 192)
+best symmetry=0
+best offset=0
+
+to=(16, 160)
+from=(192, 32)
+best symmetry=0
+best offset=223
+
+to=(32, 160)
+from=(96, 224)
+best symmetry=0
+best offset=7
+
+to=(48, 160)
+from=(64, 160)
+best symmetry=0
+best offset=33
+
+to=(64, 160)
+from=(128, 64)
+best symmetry=0
+best offset=190
+
+to=(80, 160)
+from=(160, 160)
+best symmetry=0
+best offset=167
+
+to=(96, 160)
+from=(160, 160)
+best symmetry=0
+best offset=182
+
+to=(112, 160)
+from=(160, 160)
+best symmetry=0
+best offset=71
+
+to=(128, 160)
+from=(128, 64)
+best symmetry=0
+best offset=182
+
+to=(144, 160)
+from=(32, 96)
+best symmetry=0
+best offset=61
+
+to=(160, 160)
+from=(128, 160)
+best symmetry=0
+best offset=157
+
+to=(176, 160)
+from=(128, 64)
+best symmetry=0
+best offset=163
+
+to=(192, 160)
+from=(192, 160)
+best symmetry=0
+best offset=85
+
+to=(208, 160)
+from=(128, 32)
+best symmetry=0
+best offset=151
+
+to=(224, 160)
+from=(224, 96)
+best symmetry=0
+best offset=27
+
+to=(240, 160)
+from=(128, 0)
+best symmetry=0
+best offset=202
+
+to=(0, 176)
+from=(0, 32)
+best symmetry=0
+best offset=16
+
+to=(16, 176)
+from=(32, 0)
+best symmetry=0
+best offset=49
+
+to=(32, 176)
+from=(224, 128)
+best symmetry=0
+best offset=224
+
+to=(48, 176)
+from=(32, 160)
+best symmetry=0
+best offset=89
+
+to=(64, 176)
+from=(96, 0)
+best symmetry=0
+best offset=42
+
+to=(80, 176)
+from=(96, 192)
+best symmetry=0
+best offset=56
+
+to=(96, 176)
+from=(128, 192)
+best symmetry=0
+best offset=22
+
+to=(112, 176)
+from=(128, 0)
+best symmetry=0
+best offset=158
+
+to=(128, 176)
+from=(128, 32)
+best symmetry=0
+best offset=56
+
+to=(144, 176)
+from=(128, 32)
+best symmetry=0
+best offset=160
+
+to=(160, 176)
+from=(128, 32)
+best symmetry=0
+best offset=151
+
+to=(176, 176)
+from=(128, 32)
+best symmetry=0
+best offset=149
+
+to=(192, 176)
+from=(128, 32)
+best symmetry=0
+best offset=156
+
+to=(208, 176)
+from=(224, 96)
+best symmetry=0
+best offset=40
+
+to=(224, 176)
+from=(160, 192)
+best symmetry=0
+best offset=54
+
+to=(240, 176)
+from=(224, 192)
+best symmetry=0
+best offset=48
+
+to=(0, 192)
+from=(224, 128)
+best symmetry=0
+best offset=217
+
+to=(16, 192)
+from=(0, 64)
+best symmetry=0
+best offset=122
+
+to=(32, 192)
+from=(32, 32)
+best symmetry=0
+best offset=98
+
+to=(48, 192)
+from=(64, 0)
+best symmetry=0
+best offset=85
+
+to=(64, 192)
+from=(64, 192)
+best symmetry=0
+best offset=24
+
+to=(80, 192)
+from=(192, 32)
+best symmetry=0
+best offset=238
+
+to=(96, 192)
+from=(128, 192)
+best symmetry=0
+best offset=17
+
+to=(112, 192)
+from=(128, 192)
+best symmetry=0
+best offset=9
+
+to=(128, 192)
+from=(160, 192)
+best symmetry=0
+best offset=39
+
+to=(144, 192)
+from=(128, 32)
+best symmetry=0
+best offset=136
+
+to=(160, 192)
+from=(128, 32)
+best symmetry=0
+best offset=114
+
+to=(176, 192)
+from=(224, 96)
+best symmetry=0
+best offset=56
+
+to=(192, 192)
+from=(224, 96)
+best symmetry=0
+best offset=43
+
+to=(208, 192)
+from=(224, 128)
+best symmetry=0
+best offset=35
+
+to=(224, 192)
+from=(128, 0)
+best symmetry=0
+best offset=200
+
+to=(240, 192)
+from=(64, 0)
+best symmetry=0
+best offset=214
+
+to=(0, 208)
+from=(0, 192)
+best symmetry=0
+best offset=41
+
+to=(16, 208)
+from=(32, 224)
+best symmetry=0
+best offset=77
+
+to=(32, 208)
+from=(32, 192)
+best symmetry=0
+best offset=65
+
+to=(48, 208)
+from=(96, 224)
+best symmetry=0
+best offset=37
+
+to=(64, 208)
+from=(96, 224)
+best symmetry=0
+best offset=79
+
+to=(80, 208)
+from=(64, 192)
+best symmetry=0
+best offset=111
+
+to=(96, 208)
+from=(192, 32)
+best symmetry=0
+best offset=233
+
+to=(112, 208)
+from=(96, 192)
+best symmetry=0
+best offset=27
+
+to=(128, 208)
+from=(128, 192)
+best symmetry=0
+best offset=2
+
+to=(144, 208)
+from=(192, 32)
+best symmetry=0
+best offset=245
+
+to=(160, 208)
+from=(128, 192)
+best symmetry=0
+best offset=11
+
+to=(176, 208)
+from=(128, 192)
+best symmetry=0
+best offset=19
+
+to=(192, 208)
+from=(128, 192)
+best symmetry=0
+best offset=11
+
+to=(208, 208)
+from=(128, 192)
+best symmetry=0
+best offset=17
+
+to=(224, 208)
+from=(128, 192)
+best symmetry=0
+best offset=53
+
+to=(240, 208)
+from=(32, 0)
+best symmetry=0
+best offset=209
+
+to=(0, 224)
+from=(224, 160)
+best symmetry=0
+best offset=217
+
+to=(16, 224)
+from=(0, 64)
+best symmetry=0
+best offset=40
+
+to=(32, 224)
+from=(32, 0)
+best symmetry=0
+best offset=41
+
+to=(48, 224)
+from=(64, 224)
+best symmetry=0
+best offset=74
+
+to=(64, 224)
+from=(64, 0)
+best symmetry=0
+best offset=93
+
+to=(80, 224)
+from=(32, 160)
+best symmetry=0
+best offset=91
+
+to=(96, 224)
+from=(128, 224)
+best symmetry=0
+best offset=121
+
+to=(112, 224)
+from=(32, 128)
+best symmetry=0
+best offset=105
+
+to=(128, 224)
+from=(96, 0)
+best symmetry=0
+best offset=136
+
+to=(144, 224)
+from=(224, 0)
+best symmetry=0
+best offset=38
+
+to=(160, 224)
+from=(96, 192)
+best symmetry=0
+best offset=66
+
+to=(176, 224)
+from=(224, 0)
+best symmetry=0
+best offset=41
+
+to=(192, 224)
+from=(224, 0)
+best symmetry=0
+best offset=48
+
+to=(208, 224)
+from=(224, 0)
+best symmetry=0
+best offset=126
+
+to=(224, 224)
+from=(224, 0)
+best symmetry=0
+best offset=20
+
+to=(240, 224)
+from=(0, 64)
+best symmetry=0
+best offset=208
+
+to=(0, 240)
+from=(96, 192)
+best symmetry=0
+best offset=215
+
+to=(16, 240)
+from=(0, 224)
+best symmetry=0
+best offset=61
+
+to=(32, 240)
+from=(0, 224)
+best symmetry=0
+best offset=76
+
+to=(48, 240)
+from=(192, 32)
+best symmetry=0
+best offset=223
+
+to=(64, 240)
+from=(192, 32)
+best symmetry=0
+best offset=224
+
+to=(80, 240)
+from=(192, 32)
+best symmetry=0
+best offset=225
+
+to=(96, 240)
+from=(192, 32)
+best symmetry=0
+best offset=228
+
+to=(112, 240)
+from=(192, 32)
+best symmetry=0
+best offset=224
+
+to=(128, 240)
+from=(32, 160)
+best symmetry=0
+best offset=96
+
+to=(144, 240)
+from=(64, 192)
+best symmetry=0
+best offset=81
+
+to=(160, 240)
+from=(192, 32)
+best symmetry=0
+best offset=226
+
+to=(176, 240)
+from=(96, 0)
+best symmetry=0
+best offset=90
+
+to=(192, 240)
+from=(96, 0)
+best symmetry=0
+best offset=94
+
+to=(208, 240)
+from=(96, 0)
+best symmetry=0
+best offset=105
+
+to=(224, 240)
+from=(224, 224)
+best symmetry=0
+best offset=70
+
+to=(240, 240)
+from=(32, 32)
+best symmetry=0
+best offset=185
+
+to=(0, 0)
+from=(224, 160)
+best symmetry=0
+best offset=244
+
+to=(16, 0)
+from=(0, 0)
+best symmetry=0
+best offset=15
+
+to=(32, 0)
+from=(224, 128)
+best symmetry=0
+best offset=236
+
+to=(48, 0)
+from=(160, 192)
+best symmetry=0
+best offset=241
+
+to=(64, 0)
+from=(64, 0)
+best symmetry=0
+best offset=163
+
+to=(80, 0)
+from=(64, 0)
+best symmetry=0
+best offset=59
+
+to=(96, 0)
+from=(64, 0)
+best symmetry=0
+best offset=94
+
+to=(112, 0)
+from=(64, 224)
+best symmetry=0
+best offset=61
+
+to=(128, 0)
+from=(96, 0)
+best symmetry=0
+best offset=77
+
+to=(144, 0)
+from=(96, 0)
+best symmetry=0
+best offset=79
+
+to=(160, 0)
+from=(192, 0)
+best symmetry=0
+best offset=57
+
+to=(176, 0)
+from=(192, 0)
+best symmetry=0
+best offset=27
+
+to=(192, 0)
+from=(224, 32)
+best symmetry=0
+best offset=40
+
+to=(208, 0)
+from=(224, 32)
+best symmetry=0
+best offset=6
+
+to=(224, 0)
+from=(224, 192)
+best symmetry=0
+best offset=18
+
+to=(240, 0)
+from=(224, 224)
+best symmetry=0
+best offset=16
+
+to=(0, 16)
+from=(160, 32)
+best symmetry=0
+best offset=240
+
+to=(16, 16)
+from=(224, 0)
+best symmetry=0
+best offset=243
+
+to=(32, 16)
+from=(0, 160)
+best symmetry=0
+best offset=29
+
+to=(48, 16)
+from=(32, 0)
+best symmetry=0
+best offset=137
+
+to=(64, 16)
+from=(32, 32)
+best symmetry=0
+best offset=4
+
+to=(80, 16)
+from=(160, 192)
+best symmetry=0
+best offset=237
+
+to=(96, 16)
+from=(64, 224)
+best symmetry=0
+best offset=59
+
+to=(112, 16)
+from=(96, 0)
+best symmetry=0
+best offset=77
+
+to=(128, 16)
+from=(64, 192)
+best symmetry=0
+best offset=38
+
+to=(144, 16)
+from=(160, 0)
+best symmetry=0
+best offset=34
+
+to=(160, 16)
+from=(160, 0)
+best symmetry=0
+best offset=34
+
+to=(176, 16)
+from=(160, 0)
+best symmetry=0
+best offset=31
+
+to=(192, 16)
+from=(160, 0)
+best symmetry=0
+best offset=48
+
+to=(208, 16)
+from=(192, 0)
+best symmetry=0
+best offset=27
+
+to=(224, 16)
+from=(224, 32)
+best symmetry=0
+best offset=10
+
+to=(240, 16)
+from=(224, 0)
+best symmetry=0
+best offset=53
+
+to=(0, 32)
+from=(0, 0)
+best symmetry=0
+best offset=66
+
+to=(16, 32)
+from=(0, 32)
+best symmetry=0
+best offset=38
+
+to=(32, 32)
+from=(0, 96)
+best symmetry=0
+best offset=29
+
+to=(48, 32)
+from=(32, 224)
+best symmetry=0
+best offset=95
+
+to=(64, 32)
+from=(160, 192)
+best symmetry=0
+best offset=235
+
+to=(80, 32)
+from=(64, 224)
+best symmetry=0
+best offset=53
+
+to=(96, 32)
+from=(160, 192)
+best symmetry=0
+best offset=227
+
+to=(112, 32)
+from=(160, 0)
+best symmetry=0
+best offset=35
+
+to=(128, 32)
+from=(128, 0)
+best symmetry=0
+best offset=40
+
+to=(144, 32)
+from=(128, 0)
+best symmetry=0
+best offset=72
+
+to=(160, 32)
+from=(128, 32)
+best symmetry=0
+best offset=55
+
+to=(176, 32)
+from=(128, 0)
+best symmetry=0
+best offset=90
+
+to=(192, 32)
+from=(160, 0)
+best symmetry=0
+best offset=44
+
+to=(208, 32)
+from=(96, 0)
+best symmetry=0
+best offset=123
+
+to=(224, 32)
+from=(192, 224)
+best symmetry=0
+best offset=62
+
+to=(240, 32)
+from=(32, 0)
+best symmetry=0
+best offset=153
+
+to=(0, 48)
+from=(0, 0)
+best symmetry=0
+best offset=87
+
+to=(16, 48)
+from=(224, 0)
+best symmetry=0
+best offset=233
+
+to=(32, 48)
+from=(32, 0)
+best symmetry=0
+best offset=171
+
+to=(48, 48)
+from=(64, 0)
+best symmetry=0
+best offset=52
+
+to=(64, 48)
+from=(96, 0)
+best symmetry=0
+best offset=64
+
+to=(80, 48)
+from=(160, 0)
+best symmetry=0
+best offset=55
+
+to=(96, 48)
+from=(96, 32)
+best symmetry=0
+best offset=67
+
+to=(112, 48)
+from=(128, 32)
+best symmetry=0
+best offset=50
+
+to=(128, 48)
+from=(128, 32)
+best symmetry=0
+best offset=52
+
+to=(144, 48)
+from=(128, 32)
+best symmetry=0
+best offset=42
+
+to=(160, 48)
+from=(128, 32)
+best symmetry=0
+best offset=35
+
+to=(176, 48)
+from=(128, 32)
+best symmetry=0
+best offset=34
+
+to=(192, 48)
+from=(128, 32)
+best symmetry=0
+best offset=45
+
+to=(208, 48)
+from=(160, 0)
+best symmetry=0
+best offset=44
+
+to=(224, 48)
+from=(64, 192)
+best symmetry=0
+best offset=184
+
+to=(240, 48)
+from=(224, 192)
+best symmetry=0
+best offset=3
+
+to=(0, 64)
+from=(0, 0)
+best symmetry=0
+best offset=45
+
+to=(16, 64)
+from=(0, 32)
+best symmetry=0
+best offset=25
+
+to=(32, 64)
+from=(224, 160)
+best symmetry=0
+best offset=189
+
+to=(48, 64)
+from=(224, 160)
+best symmetry=0
+best offset=186
+
+to=(64, 64)
+from=(128, 64)
+best symmetry=0
+best offset=63
+
+to=(80, 64)
+from=(160, 64)
+best symmetry=0
+best offset=43
+
+to=(96, 64)
+from=(128, 0)
+best symmetry=0
+best offset=108
+
+to=(112, 64)
+from=(224, 0)
+best symmetry=0
+best offset=235
+
+to=(128, 64)
+from=(160, 192)
+best symmetry=0
+best offset=215
+
+to=(144, 64)
+from=(160, 32)
+best symmetry=0
+best offset=64
+
+to=(160, 64)
+from=(128, 32)
+best symmetry=0
+best offset=84
+
+to=(176, 64)
+from=(128, 32)
+best symmetry=0
+best offset=86
+
+to=(192, 64)
+from=(160, 32)
+best symmetry=0
+best offset=73
+
+to=(208, 64)
+from=(160, 0)
+best symmetry=0
+best offset=51
+
+to=(224, 64)
+from=(192, 0)
+best symmetry=0
+best offset=57
+
+to=(240, 64)
+from=(64, 0)
+best symmetry=0
+best offset=183
+
+to=(0, 80)
+from=(0, 128)
+best symmetry=0
+best offset=177
+
+to=(16, 80)
+from=(0, 160)
+best symmetry=0
+best offset=25
+
+to=(32, 80)
+from=(192, 0)
+best symmetry=0
+best offset=207
+
+to=(48, 80)
+from=(48, 80)
+best symmetry=0
+best offset=54
+
+to=(56, 80)
+from=(144, 80)
+best symmetry=0
+best offset=67
+
+to=(48, 88)
+from=(32, 128)
+best symmetry=0
+best offset=226
+
+to=(56, 88)
+from=(192, 80)
+best symmetry=0
+best offset=206
+
+to=(64, 80)
+from=(48, 160)
+best symmetry=0
+best offset=222
+
+to=(72, 80)
+from=(192, 96)
+best symmetry=0
+best offset=55
+
+to=(64, 88)
+from=(96, 160)
+best symmetry=0
+best offset=216
+
+to=(72, 88)
+from=(72, 128)
+best symmetry=0
+best offset=52
+
+to=(76, 88)
+from=(96, 112)
+best symmetry=0
+best offset=38
+
+to=(72, 92)
+from=(112, 160)
+best symmetry=0
+best offset=273
+
+to=(76, 92)
+from=(40, 104)
+best symmetry=0
+best offset=326
+
+to=(80, 80)
+from=(32, 80)
+best symmetry=0
+best offset=215
+
+to=(88, 80)
+from=(192, 96)
+best symmetry=0
+best offset=43
+
+to=(80, 88)
+from=(184, 144)
+best symmetry=0
+best offset=294
+
+to=(84, 88)
+from=(80, 72)
+best symmetry=0
+best offset=196
+
+to=(80, 92)
+from=(128, 128)
+best symmetry=0
+best offset=328
+
+to=(84, 92)
+from=(128, 128)
+best symmetry=0
+best offset=53
+
+to=(88, 88)
+from=(192, 144)
+best symmetry=0
+best offset=234
+
+to=(96, 80)
+from=(32, 160)
+best symmetry=0
+best offset=224
+
+to=(112, 80)
+from=(224, 192)
+best symmetry=0
+best offset=204
+
+to=(128, 80)
+from=(192, 96)
+best symmetry=0
+best offset=198
+
+to=(144, 80)
+from=(96, 64)
+best symmetry=0
+best offset=217
+
+to=(160, 80)
+from=(96, 64)
+best symmetry=0
+best offset=208
+
+to=(176, 80)
+from=(192, 128)
+best symmetry=0
+best offset=211
+
+to=(192, 80)
+from=(160, 64)
+best symmetry=0
+best offset=61
+
+to=(208, 80)
+from=(128, 32)
+best symmetry=0
+best offset=54
+
+to=(224, 80)
+from=(192, 0)
+best symmetry=0
+best offset=58
+
+to=(240, 80)
+from=(32, 32)
+best symmetry=0
+best offset=154
+
+to=(0, 96)
+from=(64, 0)
+best symmetry=0
+best offset=238
+
+to=(16, 96)
+from=(224, 64)
+best symmetry=0
+best offset=242
+
+to=(32, 96)
+from=(32, 64)
+best symmetry=0
+best offset=236
+
+to=(48, 96)
+from=(48, 64)
+best symmetry=0
+best offset=252
+
+to=(56, 96)
+from=(0, 240)
+best symmetry=0
+best offset=243
+
+to=(48, 104)
+from=(64, 72)
+best symmetry=0
+best offset=273
+
+to=(52, 104)
+from=(120, 128)
+best symmetry=0
+best offset=23
+
+to=(48, 108)
+from=(176, 128)
+best symmetry=0
+best offset=332
+
+to=(52, 108)
+from=(72, 136)
+best symmetry=0
+best offset=69
+
+to=(56, 104)
+from=(144, 120)
+best symmetry=0
+best offset=341
+
+to=(60, 104)
+from=(56, 72)
+best symmetry=0
+best offset=255
+
+to=(56, 108)
+from=(40, 128)
+best symmetry=0
+best offset=328
+
+to=(60, 108)
+from=(80, 152)
+best symmetry=0
+best offset=77
+
+to=(64, 96)
+from=(48, 64)
+best symmetry=0
+best offset=243
+
+to=(72, 96)
+from=(112, 160)
+best symmetry=0
+best offset=267
+
+to=(76, 96)
+from=(72, 144)
+best symmetry=0
+best offset=63
+
+to=(72, 100)
+from=(64, 152)
+best symmetry=0
+best offset=51
+
+to=(76, 100)
+from=(160, 168)
+best symmetry=0
+best offset=322
+
+to=(64, 104)
+from=(0, 224)
+best symmetry=0
+best offset=245
+
+to=(72, 104)
+from=(80, 144)
+best symmetry=0
+best offset=342
+
+to=(76, 104)
+from=(136, 144)
+best symmetry=0
+best offset=335
+
+to=(72, 108)
+from=(160, 112)
+best symmetry=0
+best offset=70
+
+to=(76, 108)
+from=(160, 144)
+best symmetry=0
+best offset=-3
+
+to=(80, 96)
+from=(48, 104)
+best symmetry=0
+best offset=56
+
+to=(84, 96)
+from=(200, 96)
+best symmetry=0
+best offset=278
+
+to=(80, 100)
+from=(200, 96)
+best symmetry=0
+best offset=299
+
+to=(84, 100)
+from=(200, 96)
+best symmetry=0
+best offset=262
+
+to=(88, 96)
+from=(96, 80)
+best symmetry=0
+best offset=255
+
+to=(80, 104)
+from=(80, 96)
+best symmetry=0
+best offset=46
+
+to=(88, 104)
+from=(32, 80)
+best symmetry=0
+best offset=248
+
+to=(96, 96)
+from=(0, 224)
+best symmetry=0
+best offset=244
+
+to=(112, 96)
+from=(96, 80)
+best symmetry=0
+best offset=250
+
+to=(120, 96)
+from=(144, 128)
+best symmetry=0
+best offset=11
+
+to=(124, 96)
+from=(200, 104)
+best symmetry=0
+best offset=219
+
+to=(120, 100)
+from=(176, 152)
+best symmetry=0
+best offset=244
+
+to=(124, 100)
+from=(120, 112)
+best symmetry=0
+best offset=296
+
+to=(112, 104)
+from=(96, 128)
+best symmetry=0
+best offset=212
+
+to=(120, 104)
+from=(80, 96)
+best symmetry=0
+best offset=328
+
+to=(128, 96)
+from=(96, 144)
+best symmetry=0
+best offset=236
+
+to=(136, 96)
+from=(136, 112)
+best symmetry=0
+best offset=62
+
+to=(140, 96)
+from=(64, 72)
+best symmetry=0
+best offset=244
+
+to=(136, 100)
+from=(72, 160)
+best symmetry=0
+best offset=293
+
+to=(140, 100)
+from=(176, 104)
+best symmetry=0
+best offset=339
+
+to=(128, 104)
+from=(128, 104)
+best symmetry=0
+best offset=26
+
+to=(130, 104)
+from=(160, 148)
+best symmetry=0
+best offset=298
+
+to=(128, 106)
+from=(116, 88)
+best symmetry=0
+best offset=339
+
+to=(130, 106)
+from=(188, 160)
+best symmetry=0
+best offset=294
+
+to=(132, 104)
+from=(128, 160)
+best symmetry=0
+best offset=307
+
+to=(128, 108)
+from=(136, 160)
+best symmetry=0
+best offset=83
+
+to=(132, 108)
+from=(136, 104)
+best symmetry=0
+best offset=325
+
+to=(136, 104)
+from=(152, 136)
+best symmetry=0
+best offset=17
+
+to=(140, 104)
+from=(120, 120)
+best symmetry=0
+best offset=342
+
+to=(136, 108)
+from=(48, 88)
+best symmetry=0
+best offset=234
+
+to=(140, 108)
+from=(144, 120)
+best symmetry=0
+best offset=30
+
+to=(144, 96)
+from=(72, 128)
+best symmetry=0
+best offset=106
+
+to=(148, 96)
+from=(64, 160)
+best symmetry=0
+best offset=285
+
+to=(144, 100)
+from=(112, 112)
+best symmetry=0
+best offset=340
+
+to=(148, 100)
+from=(152, 144)
+best symmetry=0
+best offset=313
+
+to=(152, 96)
+from=(96, 24)
+best symmetry=0
+best offset=217
+
+to=(156, 96)
+from=(112, 152)
+best symmetry=0
+best offset=233
+
+to=(152, 100)
+from=(152, 96)
+best symmetry=0
+best offset=47
+
+to=(156, 100)
+from=(128, 116)
+best symmetry=0
+best offset=300
+
+to=(158, 100)
+from=(136, 164)
+best symmetry=0
+best offset=317
+
+to=(156, 102)
+from=(164, 148)
+best symmetry=0
+best offset=348
+
+to=(158, 102)
+from=(144, 144)
+best symmetry=0
+best offset=344
+
+to=(144, 104)
+from=(80, 160)
+best symmetry=0
+best offset=321
+
+to=(152, 104)
+from=(96, 128)
+best symmetry=0
+best offset=336
+
+to=(160, 96)
+from=(192, 144)
+best symmetry=0
+best offset=270
+
+to=(164, 96)
+from=(80, 72)
+best symmetry=0
+best offset=288
+
+to=(160, 100)
+from=(72, 168)
+best symmetry=0
+best offset=309
+
+to=(164, 100)
+from=(136, 72)
+best symmetry=0
+best offset=323
+
+to=(168, 96)
+from=(144, 96)
+best symmetry=0
+best offset=5
+
+to=(172, 96)
+from=(96, 124)
+best symmetry=0
+best offset=298
+
+to=(174, 96)
+from=(172, 168)
+best symmetry=0
+best offset=28
+
+to=(172, 98)
+from=(124, 116)
+best symmetry=0
+best offset=361
+
+to=(174, 98)
+from=(104, 112)
+best symmetry=0
+best offset=-6
+
+to=(168, 100)
+from=(64, 144)
+best symmetry=0
+best offset=341
+
+to=(172, 100)
+from=(80, 128)
+best symmetry=0
+best offset=336
+
+to=(160, 104)
+from=(112, 64)
+best symmetry=0
+best offset=316
+
+to=(168, 104)
+from=(0, 240)
+best symmetry=0
+best offset=323
+
+to=(176, 96)
+from=(128, 88)
+best symmetry=0
+best offset=235
+
+to=(180, 96)
+from=(120, 120)
+best symmetry=0
+best offset=26
+
+to=(176, 100)
+from=(64, 136)
+best symmetry=0
+best offset=299
+
+to=(180, 100)
+from=(120, 120)
+best symmetry=0
+best offset=19
+
+to=(184, 96)
+from=(32, 80)
+best symmetry=0
+best offset=227
+
+to=(176, 104)
+from=(80, 96)
+best symmetry=0
+best offset=7
+
+to=(184, 104)
+from=(32, 112)
+best symmetry=0
+best offset=221
+
+to=(192, 96)
+from=(32, 64)
+best symmetry=0
+best offset=200
+
+to=(208, 96)
+from=(128, 0)
+best symmetry=0
+best offset=91
+
+to=(224, 96)
+from=(224, 160)
+best symmetry=0
+best offset=48
+
+to=(240, 96)
+from=(64, 0)
+best symmetry=0
+best offset=178
+
+to=(0, 112)
+from=(0, 32)
+best symmetry=0
+best offset=74
+
+to=(16, 112)
+from=(0, 160)
+best symmetry=0
+best offset=10
+
+to=(32, 112)
+from=(96, 64)
+best symmetry=0
+best offset=174
+
+to=(48, 112)
+from=(128, 160)
+best symmetry=0
+best offset=37
+
+to=(56, 112)
+from=(80, 144)
+best symmetry=0
+best offset=52
+
+to=(48, 120)
+from=(64, 64)
+best symmetry=0
+best offset=251
+
+to=(56, 120)
+from=(112, 144)
+best symmetry=0
+best offset=228
+
+to=(64, 112)
+from=(64, 176)
+best symmetry=0
+best offset=252
+
+to=(72, 112)
+from=(176, 208)
+best symmetry=0
+best offset=244
+
+to=(64, 120)
+from=(112, 152)
+best symmetry=0
+best offset=16
+
+to=(68, 120)
+from=(152, 128)
+best symmetry=0
+best offset=222
+
+to=(64, 124)
+from=(120, 112)
+best symmetry=0
+best offset=314
+
+to=(68, 124)
+from=(48, 144)
+best symmetry=0
+best offset=230
+
+to=(72, 120)
+from=(152, 128)
+best symmetry=0
+best offset=218
+
+to=(76, 120)
+from=(48, 104)
+best symmetry=0
+best offset=306
+
+to=(72, 124)
+from=(176, 128)
+best symmetry=0
+best offset=239
+
+to=(76, 124)
+from=(120, 160)
+best symmetry=0
+best offset=2
+
+to=(80, 112)
+from=(32, 64)
+best symmetry=0
+best offset=247
+
+to=(96, 112)
+from=(64, 72)
+best symmetry=0
+best offset=259
+
+to=(100, 112)
+from=(120, 128)
+best symmetry=0
+best offset=22
+
+to=(96, 116)
+from=(112, 96)
+best symmetry=0
+best offset=335
+
+to=(100, 116)
+from=(40, 120)
+best symmetry=0
+best offset=330
+
+to=(104, 112)
+from=(160, 128)
+best symmetry=0
+best offset=75
+
+to=(96, 120)
+from=(32, 96)
+best symmetry=0
+best offset=314
+
+to=(104, 120)
+from=(192, 112)
+best symmetry=0
+best offset=276
+
+to=(112, 112)
+from=(80, 144)
+best symmetry=0
+best offset=119
+
+to=(120, 112)
+from=(80, 136)
+best symmetry=0
+best offset=342
+
+to=(124, 112)
+from=(64, 168)
+best symmetry=0
+best offset=325
+
+to=(120, 116)
+from=(48, 88)
+best symmetry=0
+best offset=279
+
+to=(124, 116)
+from=(48, 112)
+best symmetry=0
+best offset=65
+
+to=(112, 120)
+from=(96, 144)
+best symmetry=0
+best offset=90
+
+to=(120, 120)
+from=(80, 128)
+best symmetry=0
+best offset=107
+
+to=(128, 112)
+from=(104, 120)
+best symmetry=0
+best offset=335
+
+to=(132, 112)
+from=(136, 96)
+best symmetry=0
+best offset=294
+
+to=(128, 116)
+from=(160, 144)
+best symmetry=0
+best offset=-34
+
+to=(132, 116)
+from=(120, 104)
+best symmetry=0
+best offset=300
+
+to=(136, 112)
+from=(136, 80)
+best symmetry=0
+best offset=-7
+
+to=(140, 112)
+from=(120, 96)
+best symmetry=0
+best offset=214
+
+to=(136, 116)
+from=(144, 136)
+best symmetry=0
+best offset=239
+
+to=(140, 116)
+from=(72, 160)
+best symmetry=0
+best offset=294
+
+to=(128, 120)
+from=(112, 96)
+best symmetry=0
+best offset=119
+
+to=(136, 120)
+from=(48, 112)
+best symmetry=0
+best offset=274
+
+to=(144, 112)
+from=(80, 112)
+best symmetry=0
+best offset=330
+
+to=(152, 112)
+from=(88, 120)
+best symmetry=0
+best offset=347
+
+to=(156, 112)
+from=(120, 128)
+best symmetry=0
+best offset=312
+
+to=(152, 116)
+from=(152, 160)
+best symmetry=0
+best offset=338
+
+to=(156, 116)
+from=(64, 152)
+best symmetry=0
+best offset=319
+
+to=(144, 120)
+from=(80, 128)
+best symmetry=0
+best offset=326
+
+to=(148, 120)
+from=(96, 152)
+best symmetry=0
+best offset=341
+
+to=(144, 124)
+from=(48, 88)
+best symmetry=0
+best offset=269
+
+to=(148, 124)
+from=(160, 144)
+best symmetry=0
+best offset=17
+
+to=(152, 120)
+from=(40, 120)
+best symmetry=0
+best offset=324
+
+to=(156, 120)
+from=(72, 96)
+best symmetry=0
+best offset=301
+
+to=(152, 124)
+from=(44, 124)
+best symmetry=0
+best offset=324
+
+to=(154, 124)
+from=(160, 96)
+best symmetry=0
+best offset=278
+
+to=(152, 126)
+from=(132, 156)
+best symmetry=0
+best offset=312
+
+to=(154, 126)
+from=(140, 160)
+best symmetry=0
+best offset=303
+
+to=(156, 124)
+from=(128, 88)
+best symmetry=0
+best offset=37
+
+to=(160, 112)
+from=(48, 88)
+best symmetry=0
+best offset=249
+
+to=(164, 112)
+from=(136, 152)
+best symmetry=0
+best offset=344
+
+to=(160, 116)
+from=(136, 80)
+best symmetry=0
+best offset=12
+
+to=(164, 116)
+from=(160, 112)
+best symmetry=0
+best offset=40
+
+to=(168, 112)
+from=(152, 168)
+best symmetry=0
+best offset=316
+
+to=(172, 112)
+from=(40, 120)
+best symmetry=0
+best offset=322
+
+to=(168, 116)
+from=(56, 92)
+best symmetry=0
+best offset=294
+
+to=(170, 116)
+from=(96, 84)
+best symmetry=0
+best offset=330
+
+to=(168, 118)
+from=(180, 168)
+best symmetry=0
+best offset=246
+
+to=(170, 118)
+from=(152, 132)
+best symmetry=0
+best offset=267
+
+to=(172, 116)
+from=(48, 136)
+best symmetry=0
+best offset=114
+
+to=(160, 120)
+from=(64, 112)
+best symmetry=0
+best offset=229
+
+to=(168, 120)
+from=(48, 64)
+best symmetry=0
+best offset=255
+
+to=(176, 112)
+from=(224, 0)
+best symmetry=0
+best offset=216
+
+to=(192, 112)
+from=(48, 64)
+best symmetry=0
+best offset=217
+
+to=(200, 112)
+from=(80, 144)
+best symmetry=0
+best offset=271
+
+to=(192, 120)
+from=(80, 160)
+best symmetry=0
+best offset=206
+
+to=(200, 120)
+from=(192, 144)
+best symmetry=0
+best offset=99
+
+to=(208, 112)
+from=(160, 0)
+best symmetry=0
+best offset=60
+
+to=(224, 112)
+from=(192, 0)
+best symmetry=0
+best offset=51
+
+to=(240, 112)
+from=(224, 32)
+best symmetry=0
+best offset=26
+
+to=(0, 128)
+from=(0, 0)
+best symmetry=0
+best offset=101
+
+to=(16, 128)
+from=(224, 0)
+best symmetry=0
+best offset=248
+
+to=(32, 128)
+from=(96, 160)
+best symmetry=0
+best offset=181
+
+to=(48, 128)
+from=(0, 128)
+best symmetry=0
+best offset=320
+
+to=(56, 128)
+from=(176, 160)
+best symmetry=0
+best offset=287
+
+to=(60, 128)
+from=(144, 144)
+best symmetry=0
+best offset=334
+
+to=(56, 132)
+from=(200, 112)
+best symmetry=0
+best offset=291
+
+to=(58, 132)
+from=(164, 92)
+best symmetry=0
+best offset=283
+
+to=(56, 134)
+from=(76, 128)
+best symmetry=0
+best offset=286
+
+to=(58, 134)
+from=(164, 96)
+best symmetry=0
+best offset=328
+
+to=(60, 132)
+from=(136, 152)
+best symmetry=0
+best offset=322
+
+to=(48, 136)
+from=(128, 160)
+best symmetry=0
+best offset=15
+
+to=(56, 136)
+from=(48, 144)
+best symmetry=0
+best offset=220
+
+to=(64, 128)
+from=(40, 136)
+best symmetry=0
+best offset=311
+
+to=(68, 128)
+from=(64, 160)
+best symmetry=0
+best offset=282
+
+to=(64, 132)
+from=(72, 168)
+best symmetry=0
+best offset=312
+
+to=(68, 132)
+from=(152, 144)
+best symmetry=0
+best offset=278
+
+to=(72, 128)
+from=(48, 248)
+best symmetry=0
+best offset=218
+
+to=(76, 128)
+from=(176, 88)
+best symmetry=0
+best offset=18
+
+to=(72, 132)
+from=(172, 168)
+best symmetry=0
+best offset=1
+
+to=(74, 132)
+from=(128, 116)
+best symmetry=0
+best offset=301
+
+to=(72, 134)
+from=(124, 92)
+best symmetry=0
+best offset=284
+
+to=(74, 134)
+from=(124, 136)
+best symmetry=0
+best offset=79
+
+to=(76, 132)
+from=(96, 112)
+best symmetry=0
+best offset=29
+
+to=(64, 136)
+from=(72, 120)
+best symmetry=0
+best offset=19
+
+to=(68, 136)
+from=(40, 128)
+best symmetry=0
+best offset=-1
+
+to=(64, 140)
+from=(48, 80)
+best symmetry=0
+best offset=218
+
+to=(68, 140)
+from=(112, 160)
+best symmetry=0
+best offset=272
+
+to=(72, 136)
+from=(192, 96)
+best symmetry=0
+best offset=296
+
+to=(80, 128)
+from=(192, 128)
+best symmetry=0
+best offset=59
+
+to=(88, 128)
+from=(0, 240)
+best symmetry=0
+best offset=247
+
+to=(80, 136)
+from=(88, 80)
+best symmetry=0
+best offset=287
+
+to=(84, 136)
+from=(80, 104)
+best symmetry=0
+best offset=127
+
+to=(80, 140)
+from=(120, 160)
+best symmetry=0
+best offset=289
+
+to=(84, 140)
+from=(48, 144)
+best symmetry=0
+best offset=266
+
+to=(88, 136)
+from=(224, 144)
+best symmetry=0
+best offset=248
+
+to=(96, 128)
+from=(32, 192)
+best symmetry=0
+best offset=254
+
+to=(112, 128)
+from=(112, 80)
+best symmetry=0
+best offset=256
+
+to=(120, 128)
+from=(64, 72)
+best symmetry=0
+best offset=268
+
+to=(124, 128)
+from=(120, 152)
+best symmetry=0
+best offset=266
+
+to=(120, 132)
+from=(80, 152)
+best symmetry=0
+best offset=338
+
+to=(124, 132)
+from=(136, 160)
+best symmetry=0
+best offset=162
+
+to=(112, 136)
+from=(112, 112)
+best symmetry=0
+best offset=21
+
+to=(120, 136)
+from=(200, 128)
+best symmetry=0
+best offset=319
+
+to=(124, 136)
+from=(104, 120)
+best symmetry=0
+best offset=342
+
+to=(120, 140)
+from=(120, 112)
+best symmetry=0
+best offset=45
+
+to=(124, 140)
+from=(160, 120)
+best symmetry=0
+best offset=292
+
+to=(128, 128)
+from=(80, 128)
+best symmetry=0
+best offset=45
+
+to=(136, 128)
+from=(128, 128)
+best symmetry=0
+best offset=128
+
+to=(128, 136)
+from=(80, 96)
+best symmetry=0
+best offset=11
+
+to=(136, 136)
+from=(48, 64)
+best symmetry=0
+best offset=255
+
+to=(144, 128)
+from=(176, 112)
+best symmetry=0
+best offset=78
+
+to=(152, 128)
+from=(192, 104)
+best symmetry=0
+best offset=83
+
+to=(156, 128)
+from=(104, 144)
+best symmetry=0
+best offset=244
+
+to=(152, 132)
+from=(80, 72)
+best symmetry=0
+best offset=204
+
+to=(156, 132)
+from=(160, 144)
+best symmetry=0
+best offset=295
+
+to=(144, 136)
+from=(176, 112)
+best symmetry=0
+best offset=94
+
+to=(152, 136)
+from=(160, 160)
+best symmetry=0
+best offset=253
+
+to=(156, 136)
+from=(176, 104)
+best symmetry=0
+best offset=346
+
+to=(152, 140)
+from=(184, 112)
+best symmetry=0
+best offset=270
+
+to=(156, 140)
+from=(144, 136)
+best symmetry=0
+best offset=340
+
+to=(160, 128)
+from=(88, 80)
+best symmetry=0
+best offset=11
+
+to=(164, 128)
+from=(120, 120)
+best symmetry=0
+best offset=268
+
+to=(160, 132)
+from=(72, 88)
+best symmetry=0
+best offset=28
+
+to=(162, 132)
+from=(72, 168)
+best symmetry=0
+best offset=287
+
+to=(160, 134)
+from=(148, 168)
+best symmetry=0
+best offset=319
+
+to=(162, 134)
+from=(124, 104)
+best symmetry=0
+best offset=30
+
+to=(164, 132)
+from=(72, 104)
+best symmetry=0
+best offset=342
+
+to=(168, 128)
+from=(16, 240)
+best symmetry=0
+best offset=260
+
+to=(160, 136)
+from=(112, 72)
+best symmetry=0
+best offset=325
+
+to=(164, 136)
+from=(88, 168)
+best symmetry=0
+best offset=324
+
+to=(160, 140)
+from=(88, 120)
+best symmetry=0
+best offset=321
+
+to=(164, 140)
+from=(168, 136)
+best symmetry=0
+best offset=350
+
+to=(168, 136)
+from=(176, 80)
+best symmetry=0
+best offset=270
+
+to=(176, 128)
+from=(80, 144)
+best symmetry=0
+best offset=102
+
+to=(184, 128)
+from=(112, 64)
+best symmetry=0
+best offset=250
+
+to=(176, 136)
+from=(112, 64)
+best symmetry=0
+best offset=246
+
+to=(184, 136)
+from=(64, 72)
+best symmetry=0
+best offset=252
+
+to=(188, 136)
+from=(96, 112)
+best symmetry=0
+best offset=0
+
+to=(184, 140)
+from=(80, 136)
+best symmetry=0
+best offset=339
+
+to=(188, 140)
+from=(136, 136)
+best symmetry=0
+best offset=343
+
+to=(192, 128)
+from=(112, 144)
+best symmetry=0
+best offset=120
+
+to=(200, 128)
+from=(96, 128)
+best symmetry=0
+best offset=273
+
+to=(192, 136)
+from=(144, 120)
+best symmetry=0
+best offset=343
+
+to=(196, 136)
+from=(160, 120)
+best symmetry=0
+best offset=249
+
+to=(192, 140)
+from=(144, 120)
+best symmetry=0
+best offset=23
+
+to=(196, 140)
+from=(64, 152)
+best symmetry=0
+best offset=313
+
+to=(200, 136)
+from=(240, 32)
+best symmetry=0
+best offset=257
+
+to=(208, 128)
+from=(160, 32)
+best symmetry=0
+best offset=83
+
+to=(224, 128)
+from=(96, 0)
+best symmetry=0
+best offset=115
+
+to=(240, 128)
+from=(96, 32)
+best symmetry=0
+best offset=234
+
+to=(0, 144)
+from=(0, 0)
+best symmetry=0
+best offset=62
+
+to=(16, 144)
+from=(0, 32)
+best symmetry=0
+best offset=35
+
+to=(32, 144)
+from=(224, 128)
+best symmetry=0
+best offset=200
+
+to=(48, 144)
+from=(32, 160)
+best symmetry=0
+best offset=217
+
+to=(64, 144)
+from=(88, 96)
+best symmetry=0
+best offset=263
+
+to=(68, 144)
+from=(184, 136)
+best symmetry=0
+best offset=64
+
+to=(64, 148)
+from=(40, 128)
+best symmetry=0
+best offset=18
+
+to=(68, 148)
+from=(176, 128)
+best symmetry=0
+best offset=336
+
+to=(72, 144)
+from=(16, 240)
+best symmetry=0
+best offset=316
+
+to=(64, 152)
+from=(184, 104)
+best symmetry=0
+best offset=268
+
+to=(68, 152)
+from=(128, 80)
+best symmetry=0
+best offset=313
+
+to=(64, 156)
+from=(80, 96)
+best symmetry=0
+best offset=319
+
+to=(68, 156)
+from=(160, 168)
+best symmetry=0
+best offset=326
+
+to=(72, 152)
+from=(176, 128)
+best symmetry=0
+best offset=341
+
+to=(80, 144)
+from=(192, 96)
+best symmetry=0
+best offset=250
+
+to=(96, 144)
+from=(192, 160)
+best symmetry=0
+best offset=252
+
+to=(112, 144)
+from=(96, 64)
+best symmetry=0
+best offset=218
+
+to=(128, 144)
+from=(160, 64)
+best symmetry=0
+best offset=244
+
+to=(144, 144)
+from=(128, 64)
+best symmetry=0
+best offset=248
+
+to=(152, 144)
+from=(160, 160)
+best symmetry=0
+best offset=265
+
+to=(144, 152)
+from=(48, 96)
+best symmetry=0
+best offset=23
+
+to=(152, 152)
+from=(112, 64)
+best symmetry=0
+best offset=256
+
+to=(160, 144)
+from=(48, 128)
+best symmetry=0
+best offset=90
+
+to=(168, 144)
+from=(48, 112)
+best symmetry=0
+best offset=115
+
+to=(160, 152)
+from=(224, 144)
+best symmetry=0
+best offset=250
+
+to=(168, 152)
+from=(112, 144)
+best symmetry=0
+best offset=50
+
+to=(176, 144)
+from=(64, 240)
+best symmetry=0
+best offset=250
+
+to=(184, 144)
+from=(160, 112)
+best symmetry=0
+best offset=94
+
+to=(176, 152)
+from=(32, 80)
+best symmetry=0
+best offset=248
+
+to=(184, 152)
+from=(112, 144)
+best symmetry=0
+best offset=55
+
+to=(192, 144)
+from=(192, 96)
+best symmetry=0
+best offset=205
+
+to=(208, 144)
+from=(128, 0)
+best symmetry=0
+best offset=118
+
+to=(224, 144)
+from=(32, 0)
+best symmetry=0
+best offset=256
+
+to=(240, 144)
+from=(64, 0)
+best symmetry=0
+best offset=171
+
+to=(0, 160)
+from=(0, 32)
+best symmetry=0
+best offset=40
+
+to=(16, 160)
+from=(0, 160)
+best symmetry=0
+best offset=28
+
+to=(32, 160)
+from=(32, 32)
+best symmetry=0
+best offset=0
+
+to=(48, 160)
+from=(32, 160)
+best symmetry=0
+best offset=107
+
+to=(64, 160)
+from=(80, 136)
+best symmetry=0
+best offset=309
+
+to=(68, 160)
+from=(168, 88)
+best symmetry=0
+best offset=287
+
+to=(64, 164)
+from=(48, 88)
+best symmetry=0
+best offset=241
+
+to=(68, 164)
+from=(136, 152)
+best symmetry=0
+best offset=331
+
+to=(72, 160)
+from=(144, 112)
+best symmetry=0
+best offset=34
+
+to=(64, 168)
+from=(48, 144)
+best symmetry=0
+best offset=252
+
+to=(72, 168)
+from=(192, 144)
+best symmetry=0
+best offset=37
+
+to=(80, 160)
+from=(96, 64)
+best symmetry=0
+best offset=218
+
+to=(96, 160)
+from=(96, 64)
+best symmetry=0
+best offset=222
+
+to=(112, 160)
+from=(160, 160)
+best symmetry=0
+best offset=73
+
+to=(128, 160)
+from=(120, 104)
+best symmetry=0
+best offset=114
+
+to=(132, 160)
+from=(160, 136)
+best symmetry=0
+best offset=59
+
+to=(128, 164)
+from=(144, 120)
+best symmetry=0
+best offset=27
+
+to=(132, 164)
+from=(56, 120)
+best symmetry=0
+best offset=326
+
+to=(136, 160)
+from=(48, 96)
+best symmetry=0
+best offset=329
+
+to=(128, 168)
+from=(48, 160)
+best symmetry=0
+best offset=79
+
+to=(136, 168)
+from=(48, 144)
+best symmetry=0
+best offset=217
+
+to=(144, 160)
+from=(32, 96)
+best symmetry=0
+best offset=319
+
+to=(152, 160)
+from=(192, 160)
+best symmetry=0
+best offset=250
+
+to=(144, 168)
+from=(48, 136)
+best symmetry=0
+best offset=-18
+
+to=(148, 168)
+from=(136, 120)
+best symmetry=0
+best offset=256
+
+to=(144, 172)
+from=(216, 80)
+best symmetry=0
+best offset=8
+
+to=(148, 172)
+from=(128, 40)
+best symmetry=0
+best offset=0
+
+to=(152, 168)
+from=(160, 112)
+best symmetry=0
+best offset=97
+
+to=(160, 160)
+from=(192, 96)
+best symmetry=0
+best offset=175
+
+to=(176, 160)
+from=(128, 64)
+best symmetry=0
+best offset=179
+
+to=(192, 160)
+from=(32, 32)
+best symmetry=0
+best offset=239
+
+to=(208, 160)
+from=(128, 0)
+best symmetry=0
+best offset=103
+
+to=(224, 160)
+from=(224, 160)
+best symmetry=0
+best offset=55
+
+to=(240, 160)
+from=(64, 0)
+best symmetry=0
+best offset=175
+
+to=(0, 176)
+from=(64, 0)
+best symmetry=0
+best offset=239
+
+to=(16, 176)
+from=(0, 160)
+best symmetry=0
+best offset=26
+
+to=(32, 176)
+from=(32, 192)
+best symmetry=0
+best offset=20
+
+to=(48, 176)
+from=(96, 0)
+best symmetry=0
+best offset=76
+
+to=(64, 176)
+from=(64, 192)
+best symmetry=0
+best offset=18
+
+to=(80, 176)
+from=(64, 192)
+best symmetry=0
+best offset=5
+
+to=(96, 176)
+from=(128, 0)
+best symmetry=0
+best offset=111
+
+to=(112, 176)
+from=(128, 32)
+best symmetry=0
+best offset=53
+
+to=(128, 176)
+from=(192, 64)
+best symmetry=0
+best offset=136
+
+to=(144, 176)
+from=(160, 32)
+best symmetry=0
+best offset=85
+
+to=(160, 176)
+from=(160, 32)
+best symmetry=0
+best offset=83
+
+to=(176, 176)
+from=(160, 32)
+best symmetry=0
+best offset=82
+
+to=(192, 176)
+from=(128, 32)
+best symmetry=0
+best offset=45
+
+to=(208, 176)
+from=(192, 192)
+best symmetry=0
+best offset=39
+
+to=(224, 176)
+from=(224, 128)
+best symmetry=0
+best offset=16
+
+to=(240, 176)
+from=(32, 32)
+best symmetry=0
+best offset=197
+
+to=(0, 192)
+from=(0, 32)
+best symmetry=0
+best offset=145
+
+to=(16, 192)
+from=(224, 0)
+best symmetry=0
+best offset=251
+
+to=(32, 192)
+from=(224, 64)
+best symmetry=0
+best offset=214
+
+to=(48, 192)
+from=(64, 0)
+best symmetry=0
+best offset=177
+
+to=(64, 192)
+from=(160, 32)
+best symmetry=0
+best offset=208
+
+to=(80, 192)
+from=(64, 192)
+best symmetry=0
+best offset=16
+
+to=(96, 192)
+from=(96, 192)
+best symmetry=0
+best offset=59
+
+to=(112, 192)
+from=(192, 192)
+best symmetry=0
+best offset=20
+
+to=(128, 192)
+from=(128, 0)
+best symmetry=0
+best offset=130
+
+to=(144, 192)
+from=(128, 32)
+best symmetry=0
+best offset=53
+
+to=(160, 192)
+from=(128, 32)
+best symmetry=0
+best offset=58
+
+to=(176, 192)
+from=(160, 32)
+best symmetry=0
+best offset=87
+
+to=(192, 192)
+from=(160, 192)
+best symmetry=0
+best offset=61
+
+to=(208, 192)
+from=(192, 192)
+best symmetry=0
+best offset=35
+
+to=(224, 192)
+from=(224, 160)
+best symmetry=0
+best offset=2
+
+to=(240, 192)
+from=(224, 224)
+best symmetry=0
+best offset=38
+
+to=(0, 208)
+from=(160, 32)
+best symmetry=0
+best offset=240
+
+to=(16, 208)
+from=(0, 192)
+best symmetry=0
+best offset=25
+
+to=(32, 208)
+from=(224, 32)
+best symmetry=0
+best offset=202
+
+to=(48, 208)
+from=(32, 192)
+best symmetry=0
+best offset=25
+
+to=(64, 208)
+from=(96, 0)
+best symmetry=0
+best offset=85
+
+to=(80, 208)
+from=(96, 0)
+best symmetry=0
+best offset=80
+
+to=(96, 208)
+from=(192, 32)
+best symmetry=0
+best offset=203
+
+to=(112, 208)
+from=(96, 32)
+best symmetry=0
+best offset=205
+
+to=(128, 208)
+from=(192, 192)
+best symmetry=0
+best offset=41
+
+to=(144, 208)
+from=(192, 192)
+best symmetry=0
+best offset=40
+
+to=(160, 208)
+from=(64, 192)
+best symmetry=0
+best offset=1
+
+to=(176, 208)
+from=(128, 32)
+best symmetry=0
+best offset=200
+
+to=(192, 208)
+from=(160, 32)
+best symmetry=0
+best offset=200
+
+to=(208, 208)
+from=(96, 0)
+best symmetry=0
+best offset=103
+
+to=(224, 208)
+from=(32, 0)
+best symmetry=0
+best offset=244
+
+to=(240, 208)
+from=(224, 224)
+best symmetry=0
+best offset=26
+
+to=(0, 224)
+from=(160, 0)
+best symmetry=0
+best offset=245
+
+to=(16, 224)
+from=(224, 0)
+best symmetry=0
+best offset=233
+
+to=(32, 224)
+from=(0, 160)
+best symmetry=0
+best offset=29
+
+to=(48, 224)
+from=(160, 32)
+best symmetry=0
+best offset=220
+
+to=(64, 224)
+from=(32, 192)
+best symmetry=0
+best offset=11
+
+to=(80, 224)
+from=(96, 0)
+best symmetry=0
+best offset=102
+
+to=(96, 224)
+from=(32, 192)
+best symmetry=0
+best offset=61
+
+to=(112, 224)
+from=(96, 0)
+best symmetry=0
+best offset=100
+
+to=(128, 224)
+from=(96, 0)
+best symmetry=0
+best offset=108
+
+to=(144, 224)
+from=(96, 0)
+best symmetry=0
+best offset=111
+
+to=(160, 224)
+from=(96, 0)
+best symmetry=0
+best offset=115
+
+to=(176, 224)
+from=(96, 0)
+best symmetry=0
+best offset=102
+
+to=(192, 224)
+from=(224, 128)
+best symmetry=0
+best offset=38
+
+to=(208, 224)
+from=(224, 192)
+best symmetry=0
+best offset=52
+
+to=(224, 224)
+from=(32, 32)
+best symmetry=0
+best offset=186
+
+to=(240, 224)
+from=(0, 224)
+best symmetry=0
+best offset=179
+
+to=(0, 240)
+from=(224, 128)
+best symmetry=0
+best offset=204
+
+to=(16, 240)
+from=(64, 160)
+best symmetry=0
+best offset=119
+
+to=(32, 240)
+from=(32, 32)
+best symmetry=0
+best offset=69
+
+to=(48, 240)
+from=(192, 192)
+best symmetry=0
+best offset=193
+
+to=(64, 240)
+from=(32, 160)
+best symmetry=0
+best offset=99
+
+to=(80, 240)
+from=(192, 0)
+best symmetry=0
+best offset=57
+
+to=(96, 240)
+from=(192, 0)
+best symmetry=0
+best offset=52
+
+to=(112, 240)
+from=(192, 0)
+best symmetry=0
+best offset=60
+
+to=(128, 240)
+from=(192, 0)
+best symmetry=0
+best offset=52
+
+to=(144, 240)
+from=(192, 0)
+best symmetry=0
+best offset=48
+
+to=(160, 240)
+from=(192, 0)
+best symmetry=0
+best offset=54
+
+to=(176, 240)
+from=(192, 0)
+best symmetry=0
+best offset=48
+
+to=(192, 240)
+from=(224, 32)
+best symmetry=0
+best offset=13
+
+to=(208, 240)
+from=(160, 224)
+best symmetry=0
+best offset=214
+
+to=(224, 240)
+from=(224, 0)
+best symmetry=0
+best offset=49
+
+to=(240, 240)
+from=(64, 224)
+best symmetry=0
+best offset=239
+
