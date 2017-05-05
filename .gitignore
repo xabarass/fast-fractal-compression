@@ -24,3 +24,6 @@ FractalCompression.config
 FractalCompression.creator
 FractalCompression.files
 FractalCompression.includes
+
+*_release
+__pycache__
