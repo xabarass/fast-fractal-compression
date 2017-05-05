@@ -44,7 +44,6 @@ struct ifs_transformation_list{
     u_int32_t elements;
 };
 
-
 bool isScanlineOrder(enum ifs_type symmetry);
 bool isPositiveX(enum ifs_type symmetry);
 bool isPositiveY(enum ifs_type symmetry);

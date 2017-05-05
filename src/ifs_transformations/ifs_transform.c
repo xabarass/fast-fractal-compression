@@ -6,6 +6,8 @@ ERR_RET down_sample(pixel_value *src, int src_width, int start_x, int start_y, i
     int dest_x = 0;
     int dest_y = 0;
 
+    INCREMENT_FLOP_COUNT((target_size*target_size)*5, (target_size*target_size)*10,0,0);
+
     for (int y = start_y; y < start_y + target_size * 2; y += 2) {
         for (int x = start_x; x < start_x + target_size * 2; x += 2) {
             // Perform simple 2x2 average

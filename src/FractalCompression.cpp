@@ -16,6 +16,27 @@ inline bool exists_image(const std::string& name) {
   return (stat (name.c_str(), &buffer) == 0); 
 }
 
+struct global_op_count __GLOBAL_OP_COUNT;
+
+void init_counting_flops(){
+#ifdef COUNT_FLOPS
+    __GLOBAL_OP_COUNT.int_adds=0;
+    __GLOBAL_OP_COUNT.int_mults=0;
+    __GLOBAL_OP_COUNT.fp_adds=0;
+    __GLOBAL_OP_COUNT.fp_mults=0;
+#endif
+}
+
+void print_op_count(const char* name){
+#ifdef COUNT_FLOPS
+    cout<<"### Performance count for "<<name<<endl;
+    cout<<"int add: "<<__GLOBAL_OP_COUNT.int_adds<<endl;
+    cout<<"int mul: "<<__GLOBAL_OP_COUNT.int_mults<<endl;
+    cout<<"fp add: "<<__GLOBAL_OP_COUNT.fp_adds<<endl;
+    cout<<"fp mul: "<<__GLOBAL_OP_COUNT.fp_mults<<endl;
+#endif
+}
+
 int main(int argc, char** argv){
     cout<<"    ______           __        ______                __        __   "<<endl;
     cout<<"   / ____/___ ______/ /_      / ____/________ ______/ /_____ _/ /   "<<endl;
@@ -25,6 +46,8 @@ int main(int argc, char** argv){
     cout<<endl;
     cout<<"Git version: "<<" "<<s_GIT_SHA1_HASH<<" "<<s_GIT_REFSPEC<<endl;
     cout<<endl;
+
+
 
     // Load some parameters
     bool usage = true;
@@ -72,16 +95,21 @@ int main(int argc, char** argv){
     Encoder enc;
     Transforms transforms;
 
+    init_counting_flops();
     cycles_count_start ();
     enc.Encode(img, &transforms, threshold);
     int64_t encodeCycles = cycles_count_stop ();
+    print_op_count("encoder");
 
     printf("BLA Image height: %d, width: %d\n", img.GetHeight(), img.GetWidth());
+
     BMPImage result(outputFile, img.GetHeight(), img.GetWidth(), transforms.channels);
     Decoder dec;
+    init_counting_flops();
     cycles_count_start ();
     dec.Decode(&transforms, result, maxphases);
     int64_t decodeCycles = cycles_count_stop ();
+    print_op_count("decoder");
     result.Save();
 
     // Calculate compression ratio

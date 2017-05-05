@@ -32,6 +32,8 @@ set(DEBUG_FLAGS         "-O0 -g")
 option(USE_FMA "Enable FMA instructions" OFF)
 option(USE_VECTORIZE "Allow vectorization" OFF)
 
+option(GENERATE_FLOP_COUNT "Count number of flops, will slow down" OFF)
+
 set(PREDEFINED_CONFIGURATION "" CACHE STRING "Load predefined configuration")
 
 # ================================================================================
@@ -63,5 +65,10 @@ set(CMAKE_CXX_FLAGS_RELEASE ${OPTIMIZATION_FLAGS})
 # For degbugging only
 set(CMAKE_C_FLAGS_DEBUG     ${DEBUG_FLAGS})
 set(CMAKE_CXX_FLAGS_DEBUG   ${DEBUG_FLAGS})
+
+IF(GENERATE_FLOP_COUNT)
+    message("Counting operations, will slow down execution")
+    add_definitions(-DCOUNT_FLOPS=1)
+ENDIF(GENERATE_FLOP_COUNT)
 
 add_subdirectory(src)
