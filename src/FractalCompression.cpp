@@ -16,7 +16,9 @@ inline bool exists_image(const std::string& name) {
   return (stat (name.c_str(), &buffer) == 0); 
 }
 
-struct global_op_count __GLOBAL_OP_COUNT;
+#ifdef COUNT_FLOPS
+    struct global_op_count __GLOBAL_OP_COUNT;
+#endif
 
 void init_counting_flops(){
 #ifdef COUNT_FLOPS
