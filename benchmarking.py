@@ -13,16 +13,7 @@ from test_framework import test_transformation
 import json
 from pprint import pprint
 import sys
-
-if len(sys.argv)<=1:
-    print("You must provide name of a config file")
-    exit(-1)
-
-repo=Repo('.')
-
-bench_result_dir=os.path.join(os.getcwd(),"bench_results")
-if not os.path.exists(bench_result_dir):
-    os.makedirs(bench_result_dir)
+import pickle
 
 class Benchmark:
     def __init__(self, branch, bench_name):
@@ -39,9 +30,10 @@ re_perf=re.compile(
 )
 
 class BenchResult:
-    def __init__(self, branch_name, branch_index, result=None):
+    def __init__(self, branch_name, branch_index, image_name, result=None):
         self.branch_name=branch_name
         self.branch_index=branch_index
+        self.image_name=image_name
         if result:
             self.enc_cycles=result[0]
             self.dec_cycles=result[1]
@@ -68,6 +60,7 @@ def init_plot_data(image_results):
 
         for k, bp in branch_performance.items():
             while len(bp)<elements:
+                #If it's uneaven we need to tweak it
                 bp.append(BenchResult(k,k))
 
     return branch_performance
@@ -75,106 +68,150 @@ def init_plot_data(image_results):
 def draw_encode_timings(branch_performance, img_results):
     images=range(len(img_results))
 
-    colors=['ro','go','bo','yo', '']
+    colors=['ro','go','bo','yo']
 
     axes = plt.gca()
     plt.grid(True)
 
+    legends=[]
+
     for k, branch_perf in branch_performance.items():
         cycles=[]
         color=colors.pop()
+        legend_name="unknown"
         for bp in branch_perf:
             cycles.append(bp.enc_cycles)
+            legend_name=bp.branch_name
 
         plt.plot(images, cycles, color)
+        legends.append(legend_name)
+
+    plt.legend(legends)
 
     return plt
 
-benchmarks=[]
+def run_tests(benchmarks):
+    test_image_results={}
 
-try:
-    with open(sys.argv[1]) as data_file:    
-        data = json.load(data_file)
-except FileNotFoundError:
-    print("Config file not found!")
+    repo=Repo('.')
+    repo.remotes['origin'].fetch()
+
+    index=0;
+    for bench in benchmarks:
+        print("**** Benchmarking %s ****" %bench.branch)
+        if bench.branch in repo.refs:
+            print("Branch "+bench.branch+" already exists")
+            repo.refs[bench.branch].checkout()
+            repo.remotes.origin.pull()
+        else:
+            print("Branch "+bench.branch+" doesn't exist, checking out")
+            repo.git.checkout('refs/remotes/origin/'+bench.branch, b=bench.branch)
+
+        print("Configuring project")
+
+        release_dir=os.path.join(os.getcwd(),bench.branch+"_release")
+        if os.path.exists(release_dir):
+            shutil.rmtree(release_dir)
+
+        os.makedirs(release_dir)
+
+        cmake_command=['cmake']
+        for flag, prop in bench.compiler_flags.items():
+            cmake_command.append('-D'+flag+"="+prop)
+        cmake_command.append('-B'+release_dir)
+        cmake_command.append('-H.')
+
+        cmake_res=subprocess.check_call(cmake_command)
+
+        make_command=['make','-C',release_dir,'-j8']
+        make_res=subprocess.check_call(make_command)
+
+        image_dir=os.path.join(os.getcwd(),"test_images","benchmark")
+        if not os.path.exists(image_dir):
+            print("ERROR! Cannot run tests! Test images are not found on branch "+bench.branch)
+            continue
+
+        test_images = [f for f in listdir(image_dir) if isfile(join(image_dir, f))]
+        for image in test_images:
+            if image not in test_image_results:
+                test_image_results[image]=[]
+
+        run_command=[os.path.join(release_dir,'bin','fractal-compression')]
+
+        for image in test_images:
+            print("Testing image %s" %image)
+
+            command=run_command[:]
+            command_params=test_transformation.run_test(bench.branch, image)
+            command_elements=command_params.split(' ')
+            command+=command_elements;
+            command.append(os.path.join(image_dir, image))
+            output=subprocess.check_output(command)
+            results=re_perf.findall(output.decode("utf-8"))
+
+            test_transformation.compare_transformation_diff(bench.branch, image)
+            test_transformation.compare_image_diff(bench.branch, image)
+
+            assert len(results)==1
+            test_image_results[image].append(BenchResult(bench.branch, index, image, results[0]))
+
+        index=index+1
+
+    return test_image_results
+
+def load_benchmarks_from_config(config_file):
+    try:
+        with open(config_file) as data_file:    
+            data = json.load(data_file)
+    except FileNotFoundError:
+        print("Config file not found!")
+        exit(-1)
+
+    benchmarks=[]
+    for test in data["tests"]:
+        b=Benchmark(test['branch'], test['name'])
+        print("Added branch "+b.bench_name)
+        for k,v in test['compiler_flags'].items():
+            print("Adding cf %s %s" %(k,v))
+            b.add_compiler_flag(k,v)
+        benchmarks.append(b)
+
+    return benchmarks
+
+def load_benchmarks_from_cache(config_file):
+    try:
+        with open(config_file, "rb") as data_file:
+            data=pickle.load(data_file)
+            return data
+    except FileNotFoundError:
+        print("Config file not found!")
+        exit(-1)
+
+def save_benchmark_cache(data, config_file):
+    try:
+        with open(config_file, "wb") as data_file:
+            pickle.dump(data, data_file)
+    except FileNotFoundError:
+        print("Cannot save data to config file!")
+
+
+if len(sys.argv)<=1:
+    print("You must provide name of a config file")
     exit(-1)
 
-for test in data["tests"]:
-    b=Benchmark(test['branch'], test['name'])
-    print("Added branch "+b.bench_name)
-    for k,v in test['compiler_flags'].items():
-        print("Adding cf %s %s" %(k,v))
-        b.add_compiler_flag(k,v)
-    benchmarks.append(b)
 
-test_image_results={}
+CONFIG_FILE_NAME="cached_bench.p"
 
-repo.remotes['origin'].fetch()
+test_image_data=None
 
-index=0;
-for bench in benchmarks:
-    print("**** Benchmarking %s ****" %bench.branch)
-    # Switch to branch and pull changes
-    if bench.branch in repo.refs:
-        print("Branch "+bench.branch+" already exists")
-        repo.refs[bench.branch].checkout()
-        repo.remotes.origin.pull()
-    else:
-        print("Branch "+bench.branch+" doesn't exist, checking out")
-        repo.git.checkout('refs/remotes/origin/'+bench.branch, b=bench.branch)
+if sys.argv[1]=='-c':
+    test_image_data=load_benchmarks_from_cache(CONFIG_FILE_NAME)
+else:
+    benchmarks=load_benchmarks_from_config(sys.argv[1])
+    test_image_data=run_tests(benchmarks)
+    save_benchmark_cache(test_image_data, CONFIG_FILE_NAME)
 
-    #Configure project
-    print("Configuring project")
-
-    release_dir=os.path.join(os.getcwd(),bench.branch+"_release")
-    if os.path.exists(release_dir):
-        shutil.rmtree(release_dir)
-
-    os.makedirs(release_dir)
-
-    cmake_command=['cmake']
-    for flag, prop in bench.compiler_flags.items():
-        cmake_command.append('-D'+flag+"="+prop)
-    cmake_command.append('-B'+release_dir)
-    cmake_command.append('-H.')
-
-    cmake_res=subprocess.check_call(cmake_command)
-
-    make_command=['make','-C',release_dir,'-j8']
-    make_res=subprocess.check_call(make_command)
-
-    image_dir=os.path.join(os.getcwd(),"test_images","benchmark")
-    if not os.path.exists(image_dir):
-        print("ERROR! Cannot run tests! Test images are not found on branch "+bench.branch)
-        continue
-
-    test_images = [f for f in listdir(image_dir) if isfile(join(image_dir, f))]
-    for image in test_images:
-        if image not in test_image_results:
-            test_image_results[image]=[]
-
-    run_command=[os.path.join(release_dir,'bin','fractal-compression')]
-
-    for image in test_images:
-        print("Testing image %s" %image)
-
-        command=run_command[:]
-        command_params=test_transformation.run_test(bench.branch, image)
-        command_elements=command_params.split(' ')
-        command+=command_elements;
-        command.append(os.path.join(image_dir, image))
-        output=subprocess.check_output(command)
-        results=re_perf.findall(output.decode("utf-8"))
-
-        test_transformation.compare_transformation_diff(bench.branch, image)
-        test_transformation.compare_image_diff(bench.branch, image)
-
-        assert len(results)==1
-        test_image_results[image].append(BenchResult(bench.branch, index, results[0]))
-
-    index=index+1
-
-branch_perf=init_plot_data(test_image_results);
-plt=draw_encode_timings(branch_perf, test_image_results)
+branch_perf=init_plot_data(test_image_data);
+plt=draw_encode_timings(branch_perf, test_image_data)
 
 plt.show()
