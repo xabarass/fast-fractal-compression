@@ -1,3 +1,5 @@
+#!/usr/bin/python3
+
 from git import Repo
 import os
 import shutil
@@ -8,6 +10,13 @@ import re
 import matplotlib.pyplot as plt
 import matplotlib
 from test_framework import test_transformation
+import json
+from pprint import pprint
+import sys
+
+if len(sys.argv)<=1:
+    print("You must provide name of a config file")
+    exit(-1)
 
 repo=Repo('.')
 
@@ -16,9 +25,10 @@ if not os.path.exists(bench_result_dir):
     os.makedirs(bench_result_dir)
 
 class Benchmark:
-    def __init__(self, branch):
+    def __init__(self, branch, bench_name):
         self.branch=branch
         self.compiler_flags={'CMAKE_BUILD_TYPE':'Release'}
+        self.bench_name=bench_name
 
     def add_compiler_flag(self, name, value):
         self.compiler_flags[name]=value
@@ -80,15 +90,22 @@ def draw_encode_timings(branch_performance, img_results):
 
     return plt
 
-simd_bench=Benchmark('master')
-simd_bench.add_compiler_flag('USE_FMA','ON')
-simd_bench.add_compiler_flag('RDTSC_FAILBACK','ON')
+benchmarks=[]
 
-test_bench=Benchmark('simd')
-test_bench.add_compiler_flag('USE_FMA','ON')
-test_bench.add_compiler_flag('RDTSC_FAILBACK','ON')
+try:
+    with open(sys.argv[1]) as data_file:    
+        data = json.load(data_file)
+except FileNotFoundError:
+    print("Config file not found!")
+    exit(-1)
 
-benchmarks=[test_bench, simd_bench]
+for test in data["tests"]:
+    b=Benchmark(test['branch'], test['name'])
+    print("Added branch "+b.bench_name)
+    for k,v in test['compiler_flags'].items():
+        print("Adding cf %s %s" %(k,v))
+        b.add_compiler_flag(k,v)
+    benchmarks.append(b)
 
 test_image_results={}
 

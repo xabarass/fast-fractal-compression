@@ -33,7 +33,9 @@ def run_test(name, image_name):
 def compare_transformation_diff(name, image_name):
 	ref_path = os.path.join(LOG_FOLDER, LOG_REF_FOLDER, "{}.txt".format(image_name.split('.')[0]))
 	log_path = os.path.join(LOG_FOLDER, LOG_SUB_FOLDER, "{}.txt".format(name+image_name))
+
 	command = "diff -u {} {}".format(ref_path, log_path)
+	os.system(command)
 	output=None
 	try:
 		output = subprocess.check_output(command.split(' '))
