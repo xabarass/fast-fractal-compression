@@ -7,6 +7,7 @@ from os.path import isfile, join
 import re
 import matplotlib.pyplot as plt
 import matplotlib
+from test_framework import test_transformation
 
 repo=Repo('.')
 
@@ -64,7 +65,7 @@ def init_plot_data(image_results):
 def draw_encode_timings(branch_performance, img_results):
     images=range(len(img_results))
 
-    colors=['ro','go','bo','yo']
+    colors=['ro','go','bo','yo', '']
 
     axes = plt.gca()
     plt.grid(True)
@@ -139,11 +140,16 @@ for bench in benchmarks:
 
     for image in test_images:
         print("Testing image %s" %image)
-        command=run_command[:]
-        command.append(os.path.join(image_dir, image))
 
+        command=run_command[:]
+        command_params=test_transformation.run_test(bench.branch, image)
+        command_elements=command_params.split(' ')
+        command+=command_elements;
+        command.append(os.path.join(image_dir, image))
         output=subprocess.check_output(command)
         results=re_perf.findall(output.decode("utf-8"))
+
+        test_transformation.compare_transformation_diff(bench.branch, image)
 
         assert len(results)==1
         test_image_results[image].append(BenchResult(bench.branch, index, results[0]))
