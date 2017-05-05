@@ -8,6 +8,7 @@ ERR_RET print_transformation(struct ifs_transformation best_ifs) {
     printf("best symmetry=%d\n", best_ifs.transformation_type);
     printf("best offset=%d\n", best_ifs.offset);
     printf("best scale=%lf\n", best_ifs.scale);
+    printf("\n");
     return ERR_SUCCESS;
 }
 

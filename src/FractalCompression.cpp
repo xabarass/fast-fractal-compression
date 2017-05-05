@@ -33,6 +33,7 @@ int main(int argc, char** argv){
     string image_path;
     u_int32_t maxphases = 5;
     string outputFile="result.bmp";
+    string testFile="log.txt";
     for(int i=1; i<argc && usage; i++) {
         string param(argv[i]);
         if (param == "-v" && i + 1 < argc)
@@ -44,7 +45,9 @@ int main(int argc, char** argv){
         else if(param=="-o" && i + 1 < argc){
             outputFile=argv[i + 1];
         }
-
+        else if(param=="-f" && i + 1 < argc){
+            testFile=argv[i + 1];
+        }
         if (param.at(0) == '-') i++;
         else {
             image_path = param;
@@ -98,6 +101,17 @@ int main(int argc, char** argv){
     cout<<"No. of transformations: "<<transformationNumber<<endl;
     cout<<"Image size: w: "<<result.GetWidth()<<" h: "<<result.GetHeight()<<endl;
     cout<<"Compression ratio: "<<compressionRatio<<endl;
+
+    freopen(testFile.c_str(),"w",stdout);
+    for (int channel = 0; channel < transforms.channels; channel++) {
+        // Iterate over Transforms
+        struct ifs_transformation_list iter = transforms.ch[channel];
+        struct ifs_transformation* temp = iter.head;
+        while(temp != NULL) {
+            print_transformation(*temp);
+            temp = temp->next;
+        }
+    }
 
     //Free memory
     ifs_trans_clear_list(&transforms);
