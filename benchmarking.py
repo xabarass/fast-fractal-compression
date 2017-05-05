@@ -167,6 +167,7 @@ for bench in benchmarks:
         results=re_perf.findall(output.decode("utf-8"))
 
         test_transformation.compare_transformation_diff(bench.branch, image)
+        test_transformation.compare_image_diff(bench.branch, image)
 
         assert len(results)==1
         test_image_results[image].append(BenchResult(bench.branch, index, results[0]))

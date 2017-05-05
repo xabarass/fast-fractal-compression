@@ -1,0 +1,12 @@
+{
+    "tests":[
+        {
+            "name":"master_branch",
+            "branch":"master",
+            "compiler_flags":{
+                "USE_FMA":"ON",
+                "RDTSC_FAILBACK":"ON"
+            }
+        }
+    ]
+}
