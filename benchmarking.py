@@ -86,11 +86,15 @@ def draw_encode_timings(branch_performance, img_results):
         plt.plot(images, cycles, color)
         legends.append(legend_name)
 
+    plt.title('Runtime in cycles for different sample images')
+    plt.ylabel('# of cycles', rotation=0)
+    plt.xlabel('Image number')
     plt.legend(legends)
 
     return plt
 
 def run_tests(benchmarks):
+    #TODO: copy ref images from test_images/benchmark to temp location used for testin
     test_image_results={}
 
     repo=Repo('.')

@@ -28,5 +28,7 @@ FractalCompression.includes
 *_release
 __pycache__
 
+test_framework/image_log/*
 test_framework/transformation_log/*
-test_framework/transformation_log/*
+benchmark_images
+cached_bench.p
