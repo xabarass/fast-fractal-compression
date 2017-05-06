@@ -39,7 +39,46 @@ void print_op_count(const char* name){
 #endif
 }
 
+void test_ifs(){
+    struct ifs_transformation transformation;
+    transformation.from_x=0;
+    transformation.from_y=0;
+    transformation.to_x=0;
+    transformation.to_y=0;
+    transformation.scale=1;
+    transformation.offset=0;
+    transformation.transformation_type=SYM_NONE;
+
+#define B_S 4
+#define I_S 16
+    transformation.size=B_S;
+
+    int ind=0;
+    pixel_value src[I_S*I_S];
+    for (int i=0;i<I_S; ++i){
+        for (int j=0; j<I_S; ++j){
+            src[i*I_S+j]=ind++;
+            printf("%d\t",src[i*I_S+j]);
+        }
+        printf("\n");
+    }
+
+    pixel_value dst[B_S*B_S];
+    memset(dst, 0, B_S*B_S);
+
+    ifs_transformation_execute(&transformation, src, I_S/2, dst, B_S, true);
+
+    printf("Result\n");
+    for (int i=0;i<B_S; ++i){
+        for (int j=0; j<B_S; ++j){
+            printf("%d\t",dst[i*B_S+j]);
+        }
+        printf("\n");
+    }
+}
+
 int main(int argc, char** argv){
+//    test_ifs();
     cout<<"    ______           __        ______                __        __   "<<endl;
     cout<<"   / ____/___ ______/ /_      / ____/________ ______/ /_____ _/ /   "<<endl;
     cout<<"  / /_  / __ `/ ___/ __/_____/ /_  / ___/ __ `/ ___/ __/ __ `/ /    "<<endl;
@@ -48,8 +87,6 @@ int main(int argc, char** argv){
     cout<<endl;
     cout<<"Git version: "<<" "<<s_GIT_SHA1_HASH<<" "<<s_GIT_REFSPEC<<endl;
     cout<<endl;
-
-
 
     // Load some parameters
     bool usage = true;

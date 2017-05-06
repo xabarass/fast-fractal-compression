@@ -99,7 +99,7 @@ ERR_RET ifs_transformation_execute(struct ifs_transformation* transformation, pi
         for (int to_x = transformation->to_x; to_x < (transformation->to_x + transformation->size); to_x++)
         {
             int pixel = src[from_y * src_width + from_x];
-            pixel = (int)(transformation->scale*pixel) + offset;
+            pixel = (int)(scale*pixel) + offset;
 
             if (pixel < 0)
                 pixel = 0;
