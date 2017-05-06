@@ -14,6 +14,7 @@ import json
 from pprint import pprint
 import sys
 import pickle
+from shutil import copyfile
 
 class Benchmark:
     def __init__(self, branch, bench_name):
@@ -30,43 +31,31 @@ re_perf=re.compile(
 )
 
 class BenchResult:
-    def __init__(self, branch_name, branch_index, image_name, result=None):
+    def __init__(self, branch_name, result):
         self.branch_name=branch_name
-        self.branch_index=branch_index
-        self.image_name=image_name
-        if result:
-            self.enc_cycles=result[0]
-            self.dec_cycles=result[1]
-            self.transf_num=result[2]
-            self.img_size=(result[3],result[4])
-            self.compress_rat=result[5]
-        else:
-            self.enc_cycles=0
-            self.dec_cycles=0
-            self.transf_num=0
-            self.img_size=(0,0)
-            self.compress_rat=0
+        self.enc_cycles=result[0]
+        self.dec_cycles=result[1]
+        self.transf_num=result[2]
+        self.img_size=(result[3],result[4])
+        self.compress_rat=result[5]
 
 def init_plot_data(image_results):
+    image_results=sorted(image_results, key= lambda img: img.id)
+
     branch_performance={}
-    elements=0
-    for img, benchs in image_results.items():
-        elements=elements+1
-        for bench in benchs:
-            if not bench.branch_index in branch_performance:
-                branch_performance[bench.branch_index]=[]
+    for img in image_results:
+        index=0
+        for bench in img.results:
+            if not index in branch_performance:
+                branch_performance[index]=[]
 
-            branch_performance[bench.branch_index].append(bench)
-
-        for k, bp in branch_performance.items():
-            while len(bp)<elements:
-                #If it's uneaven we need to tweak it
-                bp.append(BenchResult(k,k))
+            branch_performance[index].append(bench)
+            index=index+1
 
     return branch_performance
 
 def draw_encode_timings(branch_performance, img_results):
-    images=range(len(img_results))
+    images=[x.id for x in img_results]
 
     colors=['ro','go','bo','yo']
 
@@ -93,14 +82,51 @@ def draw_encode_timings(branch_performance, img_results):
 
     return plt
 
-def run_tests(benchmarks):
-    #TODO: copy ref images from test_images/benchmark to temp location used for testin
-    test_image_results={}
+class TestImage:
+    def __init__(self, ti):
+        print("Loading image: %s id %d" %(ti["name"], ti["id"]))
+        self.id=ti["id"]
+        self.name=ti["name"]
+        self.op_count=ti["op_count"]
+        self.path=None
+        self.results=[]
+
+def get_test_images(relative_img_dir):
+    tmp_image_dir=os.path.join(os.getcwd(), "benchmark_images")
+    if not os.path.exists(tmp_image_dir):
+        os.makedirs(tmp_image_dir)
+
+    img_config=os.path.join(os.getcwd(), relative_img_dir, "ops.json")
+    if not os.path.exists(img_config):
+        raise Exception("Unknown image path!")
+
+    try:
+        with open(img_config) as data_file:    
+            data = json.load(data_file)
+    except FileNotFoundError:
+        raise Exception("Image folder doesn't have ops.json file!")
+
+    img_dir=os.path.join(os.getcwd(), relative_img_dir)
+    test_images=[]
+    for ti in data["test_images"]:
+        new_img=TestImage(ti)
+        src=os.path.join(img_dir, new_img.name)
+        dst=os.path.join(tmp_image_dir, new_img.name)
+
+        copyfile(src, dst)
+
+        new_img.path=dst
+        test_images.append(new_img)
+    
+    return test_images
+
+
+def run_tests(benchmarks, relative_img_dir):
+    test_images=get_test_images(relative_img_dir)
 
     repo=Repo('.')
     repo.remotes['origin'].fetch()
 
-    index=0;
     for bench in benchmarks:
         print("**** Benchmarking %s ****" %bench.branch)
         if bench.branch in repo.refs:
@@ -130,38 +156,27 @@ def run_tests(benchmarks):
         make_command=['make','-C',release_dir,'-j8']
         make_res=subprocess.check_call(make_command)
 
-        image_dir=os.path.join(os.getcwd(),"test_images","benchmark")
-        if not os.path.exists(image_dir):
-            print("ERROR! Cannot run tests! Test images are not found on branch "+bench.branch)
-            continue
-
-        test_images = [f for f in listdir(image_dir) if isfile(join(image_dir, f))]
-        for image in test_images:
-            if image not in test_image_results:
-                test_image_results[image]=[]
-
         run_command=[os.path.join(release_dir,'bin','fractal-compression')]
 
         for image in test_images:
-            print("Testing image %s" %image)
+                
+            print("Testing image %s" %image.name)
 
             command=run_command[:]
-            command_params=test_transformation.run_test(bench.branch, image)
+            command_params=test_transformation.run_test(bench.branch, image.name)
             command_elements=command_params.split(' ')
             command+=command_elements;
-            command.append(os.path.join(image_dir, image))
+            command.append(image.path)
             output=subprocess.check_output(command)
             results=re_perf.findall(output.decode("utf-8"))
 
-            test_transformation.compare_transformation_diff(bench.branch, image)
-            test_transformation.compare_image_diff(bench.branch, image)
+            test_transformation.compare_transformation_diff(bench.branch, image.name)
+            test_transformation.compare_image_diff(bench.branch, image.name)
 
             assert len(results)==1
-            test_image_results[image].append(BenchResult(bench.branch, index, image, results[0]))
+            image.results.append(BenchResult(bench.branch, results[0]))
 
-        index=index+1
-
-    return test_image_results
+    return test_images
 
 def load_benchmarks_from_config(config_file):
     try:
@@ -171,6 +186,7 @@ def load_benchmarks_from_config(config_file):
         print("Config file not found!")
         exit(-1)
 
+    img_dir=data["image_directory"]
     benchmarks=[]
     for test in data["tests"]:
         b=Benchmark(test['branch'], test['name'])
@@ -180,7 +196,7 @@ def load_benchmarks_from_config(config_file):
             b.add_compiler_flag(k,v)
         benchmarks.append(b)
 
-    return benchmarks
+    return benchmarks, img_dir
 
 def load_benchmarks_from_cache(config_file):
     try:
@@ -211,8 +227,8 @@ test_image_data=None
 if sys.argv[1]=='-c':
     test_image_data=load_benchmarks_from_cache(CONFIG_FILE_NAME)
 else:
-    benchmarks=load_benchmarks_from_config(sys.argv[1])
-    test_image_data=run_tests(benchmarks)
+    benchmarks, img_dir=load_benchmarks_from_config(sys.argv[1])
+    test_image_data=run_tests(benchmarks,img_dir)
     save_benchmark_cache(test_image_data, CONFIG_FILE_NAME)
 
 branch_perf=init_plot_data(test_image_data);
