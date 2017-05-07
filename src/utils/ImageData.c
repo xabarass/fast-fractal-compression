@@ -53,7 +53,7 @@ ERR_RET convert_from_RGB_to_YCbCr(struct image_data* data){
         LOGE("Image not in RGB format, can't convert!");
         return ERR_INVALID_ARGUMENT;
     }
-
+    INCREMENT_FLOP_COUNT(0,4*data->width*data->height, 4*data->width*data->height, 4*data->width*data->height)
     for (int i=0; i<data->width*data->height; ++i){
         rgb_to_ycbcr(data->image_channels[R][i], data->image_channels[G][i], data->image_channels[B][i],
                      data->image_channels[Y]+i, data->image_channels[Cb]+i, data->image_channels[Cr]+i);
@@ -68,7 +68,7 @@ ERR_RET convert_from_YCbCr_to_RGB(struct image_data* data){
         LOGE("Image not in YCbCr format, can't convert!");
         return ERR_INVALID_ARGUMENT;
     }
-
+    INCREMENT_FLOP_COUNT(0,0, 9*data->width*data->height, 9*data->width*data->height)
     for (int i=0; i<data->width*data->height; ++i){
         ycbcr_to_rgb(data->image_channels[Y][i], data->image_channels[Cb][i], data->image_channels[Cr][i],
                      data->image_channels[R]+i, data->image_channels[G]+i, data->image_channels[B]+i);

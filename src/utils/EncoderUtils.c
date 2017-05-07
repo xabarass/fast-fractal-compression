@@ -63,6 +63,7 @@ ERR_RET get_average_pixel(const pixel_value* domain_data, u_int32_t domain_width
     u_int32_t bottom = (size * size);
 
 	// Simple average of all pixels.
+	INCREMENT_FLOP_COUNT(size*size, size*size*2,0,0)
     for (size_t y = domain_y; y < domain_y + size; y++)
 	{
         for (size_t x = domain_x; x < domain_x + size; x++)
@@ -89,6 +90,7 @@ ERR_RET get_error(
 	double top = 0;
 	double bottom = (double)(size * size);
 
+	INCREMENT_FLOP_COUNT(size*size*3, size*size*10,size*size,0)
 	for (int y = 0; y < size; y++)
 	{
 		for (int x = 0; x < size; x++)
@@ -122,6 +124,7 @@ ERR_RET get_scale_factor(
 	int top = 0;
 	int bottom = 0;
 
+	INCREMENT_FLOP_COUNT(size*size*4, size*size*10,0,0)
 	for (int y = 0; y < size; y++)
 	{
 		for (int x = 0; x < size; x++)

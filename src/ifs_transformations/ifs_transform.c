@@ -61,6 +61,7 @@ ERR_RET ifs_trans_clear_list(struct Transforms *transforms){
 ERR_RET ifs_transformation_execute(struct ifs_transformation* transformation, pixel_value* src, u_int32_t src_width,
                                    pixel_value* dest, u_int32_t dest_width, bool downsampled){
 
+    INCREMENT_FLOP_COUNT(6, 0, 0, 0)
     int from_x = transformation->from_x / 2;
     int from_y = transformation->from_y / 2;
     int d_x = 1;
@@ -94,6 +95,8 @@ ERR_RET ifs_transformation_execute(struct ifs_transformation* transformation, pi
     int start_x = from_x;
     int start_y = from_y;
 
+    INCREMENT_FLOP_COUNT(2*transformation->size*transformation->size, 4*transformation->size*transformation->size, transformation->size*transformation->size, 0)
+    INCREMENT_FLOP_COUNT(transformation->size,0,0,0)
     for (int to_y = transformation->to_y; to_y < (transformation->to_y +  transformation->size); to_y++)
     {
         for (int to_x = transformation->to_x; to_x < (transformation->to_x + transformation->size); to_x++)
