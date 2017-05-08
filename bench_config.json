@@ -1,4 +1,5 @@
 {
+    "image_directory":"test_images/benchmark",
     "tests":[
         {
             "name":"master_branch",
@@ -11,6 +12,14 @@
         {
             "name":"simd_branch",
             "branch":"simd",
+            "compiler_flags":{
+                "USE_FMA":"ON",
+                "RDTSC_FAILBACK":"ON"
+            }
+        },
+        {
+            "name":"ssa",
+            "branch":"ssa_scalar_replacement",
             "compiler_flags":{
                 "USE_FMA":"ON",
                 "RDTSC_FAILBACK":"ON"
