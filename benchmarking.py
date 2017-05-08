@@ -31,13 +31,15 @@ re_perf=re.compile(
 )
 
 class BenchResult:
-    def __init__(self, branch_name, result):
+    def __init__(self, branch_name, result, enc_op_count, dec_op_count):
         self.branch_name=branch_name
         self.enc_cycles=result[0]
         self.dec_cycles=result[1]
         self.transf_num=result[2]
         self.img_size=(result[3],result[4])
         self.compress_rat=result[5]
+        self.enc_op_count=enc_op_count
+        self.dec_op_count=dec_op_count
 
 def init_plot_data(image_results):
     image_results=sorted(image_results, key= lambda img: img.id)
@@ -54,7 +56,7 @@ def init_plot_data(image_results):
 
     return branch_performance
 
-def draw_encode_timings(branch_performance, img_results):
+def draw_encode_timings(branch_performance, img_results, value_generator, title, y_label, x_label):
     images=[x.id for x in img_results]
 
     colors=['ro','go','bo','yo']
@@ -69,15 +71,15 @@ def draw_encode_timings(branch_performance, img_results):
         color=colors.pop()
         legend_name="unknown"
         for bp in branch_perf:
-            cycles.append(bp.enc_cycles)
+            cycles.append(value_generator(bp))
             legend_name=bp.branch_name
 
         plt.plot(images, cycles, color)
         legends.append(legend_name)
 
-    plt.title('Runtime in cycles for different sample images')
-    plt.ylabel('# of cycles', rotation=0)
-    plt.xlabel('Image number')
+    plt.title(title)
+    plt.ylabel(y_label)
+    plt.xlabel(x_label)
     plt.legend(legends)
 
     return plt
@@ -87,7 +89,8 @@ class TestImage:
         print("Loading image: %s id %d" %(ti["name"], ti["id"]))
         self.id=ti["id"]
         self.name=ti["name"]
-        self.op_count=ti["op_count"]
+        self.enc_op_count=ti["enc"]
+        self.dec_op_count=ti["dec"]
         self.path=None
         self.results=[]
 
@@ -174,7 +177,7 @@ def run_tests(benchmarks, relative_img_dir):
             test_transformation.compare_image_diff(bench.branch, image.name)
 
             assert len(results)==1
-            image.results.append(BenchResult(bench.branch, results[0]))
+            image.results.append(BenchResult(bench.branch, results[0], image.enc_op_count, image.dec_op_count))
 
     return test_images
 
@@ -232,6 +235,25 @@ else:
     save_benchmark_cache(test_image_data, CONFIG_FILE_NAME)
 
 branch_perf=init_plot_data(test_image_data);
-plt=draw_encode_timings(branch_perf, test_image_data)
 
+def create_runtime_plot(branch_perf, test_image_data):
+    return draw_encode_timings(
+        branch_perf, test_image_data, 
+        lambda b:int(b.enc_cycles),
+        title='Encoding runtime in cycles for different sample images',
+        y_label='# of cycles',
+        x_label='Image number'
+    )
+
+def create_performance_plot(branch_perf, test_image_data):
+    return draw_encode_timings(
+        branch_perf, test_image_data, 
+        lambda b:int(b.enc_op_count)/int(b.enc_cycles),
+        title='Encoding performance plot, in flops/cycle',
+        x_label='Image number',
+        y_label='performance'
+    )
+
+plt=create_performance_plot(branch_perf,test_image_data)
+# plt=create_runtime_plot(branch_perf,test_image_data)
 plt.show()
