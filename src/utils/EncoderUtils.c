@@ -124,7 +124,7 @@ ERR_RET get_scale_factor(
 	int top = 0;
 	int bottom = 0;
 
-	INCREMENT_FLOP_COUNT(size*size*4, size*size*10,0,0)
+    INCREMENT_FLOP_COUNT(size*size*4, size*size*10, 0, 0)
 	for (int y = 0; y < size; y++)
 	{
 		for (int x = 0; x < size; x++)

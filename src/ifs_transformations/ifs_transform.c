@@ -62,6 +62,7 @@ ERR_RET ifs_transformation_execute(struct ifs_transformation* transformation, pi
                                    pixel_value* dest, u_int32_t dest_width, bool downsampled){
 
     INCREMENT_FLOP_COUNT(6, 0, 0, 0)
+
     int from_x = transformation->from_x / 2;
     int from_y = transformation->from_y / 2;
     int d_x = 1;
@@ -73,7 +74,9 @@ ERR_RET ifs_transformation_execute(struct ifs_transformation* transformation, pi
 
     if (!downsampled)
     {
-        pixel_value* downsampled_img=(pixel_value*)malloc(transformation->size*transformation->size*sizeof(pixel_value));
+        assert(transformation->size<=BUFFER_SIZE);
+        static pixel_value buffer[BUFFER_SIZE*BUFFER_SIZE];
+        pixel_value* downsampled_img=buffer;
         down_sample(src, src_width, transformation->from_x, transformation->from_y, transformation->size, downsampled_img);
         src = downsampled_img;
         src_width = transformation->size;
@@ -95,7 +98,8 @@ ERR_RET ifs_transformation_execute(struct ifs_transformation* transformation, pi
     int start_x = from_x;
     int start_y = from_y;
 
-    INCREMENT_FLOP_COUNT(2*transformation->size*transformation->size, 4*transformation->size*transformation->size, transformation->size*transformation->size, 0)
+    INCREMENT_FLOP_COUNT(2*transformation->size*transformation->size,
+                         4*transformation->size*transformation->size, transformation->size*transformation->size, 0)
     INCREMENT_FLOP_COUNT(transformation->size,0,0,0)
     for (int to_y = transformation->to_y; to_y < (transformation->to_y +  transformation->size); to_y++)
     {
@@ -127,12 +131,6 @@ ERR_RET ifs_transformation_execute(struct ifs_transformation* transformation, pi
             from_y = start_y;
             from_x += d_x;
         }
-    }
-
-    if (!downsampled)
-    {
-        free(src);
-        src = NULL;
     }
 
     return ERR_SUCCESS;

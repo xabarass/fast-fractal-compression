@@ -28,7 +28,7 @@
 
 #include "frac_errors.h"
 
-
+#define BUFFER_SIZE (16)
 
 #define LOGT(...) printf("T [" MODULE_NAME"]: " __VA_ARGS__)
 #define LOGD(...) printf("D [" MODULE_NAME"]: " __VA_ARGS__)

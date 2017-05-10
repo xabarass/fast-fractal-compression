@@ -2,8 +2,6 @@
 
 #define MODULE_NAME "QuadTreeEncoder"
 
-#define BUFFER_SIZE (16)
-
 ERR_RET qtree_encode(struct Transforms* transformations, struct image_data* src, struct encoder_params params,
                      u_int32_t threshold_param){
 
@@ -27,16 +25,20 @@ ERR_RET qtree_encode(struct Transforms* transformations, struct image_data* src,
         transformations->color_mode=COLOR_MODE_RGB;
     }
 
+    //We do our crazy stuff here
     /*
      * Make sense because you are only working with two channels
      * [0] -> Original channel data
      * [1] -> Downsampled channel data
      */
-    init_image_data(&img, width, height, 2);
+
+    // We allocate only one channel other one is just a pointer to original
+    init_image_data(&img, width, height, 1);
+    img.image_channels[1]=img.image_channels[0];
     transformations->channels=src->channels;
 
     for (size_t channel=0; channel<src->channels; channel++){
-        memcpy(img.image_channels[0], src->image_channels[channel], size*sizeof(pixel_value));
+        img.image_channels[0]=src->image_channels[channel];
         down_sample(img.image_channels[0], width, 0,0, width/2, img.image_channels[1]);
         transformations->ch[channel].head=NULL;
         transformations->ch[channel].tail=NULL;
@@ -63,6 +65,7 @@ ERR_RET qtree_encode(struct Transforms* transformations, struct image_data* src,
             threshold /= 2;
     }
 
+    img.image_channels[0]=img.image_channels[1];
     clear_image_data(&img);
 
     return ERR_SUCCESS;
@@ -81,15 +84,16 @@ ERR_RET print_best_transformation(struct ifs_transformation best_ifs, double bes
 ERR_RET find_matches_for(struct image_data* img, struct ifs_transformation_list* transformations, u_int32_t to_x,
                          u_int32_t to_y, u_int32_t block_size, u_int32_t threshold){
 
+    assert(block_size<=BUFFER_SIZE);
+
     struct ifs_transformation best_ifs_transform;
     best_ifs_transform.transformation_type=SYM_NONE;
     double best_error = 1e9;
 
-    pixel_value* buffer=(pixel_value*)malloc(block_size*block_size*sizeof(pixel_value));
+    static pixel_value buffer[BUFFER_SIZE*BUFFER_SIZE];
 
     u_int32_t range_avarage;
     get_average_pixel(img->image_channels[0], img->width, to_x, to_y, block_size, &range_avarage);
-    // printf("Range Average: %d\n", range_avarage);
     for(size_t y=0; y<img->height; y+=block_size*2)
     {
         for (size_t x=0; x<img->width; x+=block_size*2)
@@ -97,7 +101,7 @@ ERR_RET find_matches_for(struct image_data* img, struct ifs_transformation_list*
             for(int transformation_type=0; transformation_type<SYM_MAX; ++transformation_type)
             {
                 enum ifs_type current_type=(enum ifs_type)transformation_type;
-                // printf("trandformation type %d %d\n", current_type, SYM_MAX);
+
                 struct ifs_transformation ifs={
                     .from_x=x,
                     .from_y=y,
@@ -139,6 +143,7 @@ ERR_RET find_matches_for(struct image_data* img, struct ifs_transformation_list*
                 if(!transformation_type)
                     break;
             }
+
         }
     }
 
@@ -157,8 +162,6 @@ ERR_RET find_matches_for(struct image_data* img, struct ifs_transformation_list*
         ifs_trans_push_back(transformations, &best_ifs_transform);
         // print_best_transformation(best_ifs_transform, best_error);
     }
-
-     free(buffer);
 
     return ERR_SUCCESS;
 }
