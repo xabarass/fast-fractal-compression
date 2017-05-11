@@ -22,7 +22,7 @@ set (CMAKE_RUNTIME_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/bin")
 # Default compiler flags, they will be extended by the other options
 # ================================================================================
 
-set(DEFAULT_FLAGS "-Wall -Wpedantic -Wchkp -Wno-cpp -Wno-variadic-macros")
+set(DEFAULT_FLAGS "-Wall -Wpedantic -Wno-cpp -Wno-variadic-macros")
 set(OPTIMIZATION_FLAGS  "-O3 -march=native")
 set(DEBUG_FLAGS         "-O0 -g")
 
@@ -55,7 +55,7 @@ ELSE(USE_VECTORIZE)
     SET(DEFAULT_FLAGS "${DEFAULT_FLAGS} -mavx")
 ENDIF(USE_VECTORIZE)
 
-set(CMAKE_C_FLAGS           ${DEFAULT_FLAGS})
+set(CMAKE_C_FLAGS           "${DEFAULT_FLAGS} -std=c99")
 set(CMAKE_CXX_FLAGS         "${DEFAULT_FLAGS} -std=c++11")
 
 # Default optimization
