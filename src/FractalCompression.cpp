@@ -47,7 +47,7 @@ void test_ifs(){
     transformation.to_y=0;
     transformation.scale=1;
     transformation.offset=0;
-    transformation.transformation_type=SYM_NONE;
+    transformation.transformation_type=SYM_R90;
 
 #define B_S 4
 #define I_S 16
@@ -66,7 +66,7 @@ void test_ifs(){
     pixel_value dst[B_S*B_S];
     memset(dst, 0, B_S*B_S);
 
-    ifs_transformation_execute(&transformation, src, I_S/2, dst, B_S, true);
+    ifs_transformation_execute(&transformation, src, I_S, dst, B_S, true);
 
     printf("Result\n");
     for (int i=0;i<B_S; ++i){
@@ -78,7 +78,10 @@ void test_ifs(){
 }
 
 int main(int argc, char** argv){
+
 //    test_ifs();
+//    return 0;
+
     cout<<"    ______           __        ______                __        __   "<<endl;
     cout<<"   / ____/___ ______/ /_      / ____/________ ______/ /_____ _/ /   "<<endl;
     cout<<"  / /_  / __ `/ ___/ __/_____/ /_  / ___/ __ `/ ___/ __/ __ `/ /    "<<endl;
