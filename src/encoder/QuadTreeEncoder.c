@@ -5,6 +5,7 @@
 /*******
  * Local params used to tweak sizes of elements in cache
  */
+
 #define CHUNK_SIZE 1
 #define MAX_RANGE_BLOCKS ((BUFFER_SIZE/2)*(BUFFER_SIZE/2))
 #define MAX_RANGE_BLOCKS_PER_CHUNK (MAX_RANGE_BLOCKS*CHUNK_SIZE)
@@ -93,6 +94,7 @@ void print_cleared_blocks(bool* finished){
 }
 
 static inline int get_block_index(int i, int j, int block_size){
+    //TODO: CHeck if its better to store these values in memory or to compute them there are only 64 elements
     block_size/=2;
     i*=block_size;
     j*=block_size;
