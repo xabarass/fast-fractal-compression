@@ -5,9 +5,10 @@
 /*******
  * Local params used to tweak sizes of elements in cache
  */
-#define CHUNK_SIZE 11
+#define CHUNK_SIZE 1
 #define MAX_RANGE_BLOCKS ((BUFFER_SIZE/2)*(BUFFER_SIZE/2))
 #define MAX_RANGE_BLOCKS_PER_CHUNK (MAX_RANGE_BLOCKS*CHUNK_SIZE)
+#define CHUNK_LINE ((BUFFER_SIZE/2)*CHUNK_SIZE)
 
 ERR_RET qtree_encode(struct Transforms* transformations, struct image_data* src, struct encoder_params params,
                      u_int32_t threshold_param){
@@ -45,10 +46,8 @@ ERR_RET qtree_encode(struct Transforms* transformations, struct image_data* src,
 
     unsigned total_chunks=(img.width/BUFFER_SIZE)*(img.height/BUFFER_SIZE);
 
-
-
     for (size_t channel=0; channel<src->channels; channel++){
-
+        printf("Channel: %d ==================================\n", channel);
         img.image_channels[0]=src->image_channels[channel];
         down_sample(img.image_channels[0], width, 0,0, width/2, img.image_channels[1]);
         transformations->ch[channel].head=NULL;
@@ -80,14 +79,49 @@ ERR_RET qtree_encode(struct Transforms* transformations, struct image_data* src,
     return ERR_SUCCESS;
 }
 
+void print_cleared_blocks(bool* finished){
+    int elements=0;
+
+    for(int i=0;i<CHUNK_SIZE;++i){
+        for(int j=0;j<MAX_RANGE_BLOCKS; ++j){
+            printf("%d ",finished[elements++]);
+        }
+        printf("\n");
+    }
+    printf("\n");
+
+}
+
+static inline int get_block_index(int i, int j, int block_size){
+    block_size/=2;
+    i*=block_size;
+    j*=block_size;
+
+    int block_index=i%2;
+    block_index+=(i/8)*64; i%=8;
+    block_index+=(i/4)*16; i%=4;
+    block_index+=(i/2)*4; i%=4;
+
+    int block_offset=(j%2)*2;
+    block_offset+=(j/4)*32; j%=4;
+    block_offset+=(j/2)*8;
+
+    block_index+=block_offset;
+
+    return block_index;
+}
+
 ERR_RET find_matches_for(struct image_data* img, struct ifs_transformation_list* transformations,
                          u_int32_t from_range_block, u_int32_t block_rows, u_int32_t threshold){
+
+//    printf("====== Starting new block from range block: %d\n", from_range_block);
 
     static pixel_value buffer[BUFFER_SIZE*BUFFER_SIZE];
     static u_int32_t range_avarages[MAX_RANGE_BLOCKS_PER_CHUNK];
     static double best_errors[MAX_RANGE_BLOCKS_PER_CHUNK];
     static struct ifs_transformation tmp_range_transformations[MAX_RANGE_BLOCKS_PER_CHUNK];
     static bool finished_blocks[MAX_RANGE_BLOCKS_PER_CHUNK];
+
     memset(finished_blocks, 0, sizeof(bool)*MAX_RANGE_BLOCKS_PER_CHUNK);
 
     int total_block_elements=block_rows*MAX_RANGE_BLOCKS;
@@ -95,14 +129,15 @@ ERR_RET find_matches_for(struct image_data* img, struct ifs_transformation_list*
     int block_columns=1;
     int blocks_remaining=block_rows;
     for(unsigned block_size=BUFFER_SIZE; block_size>=2 && blocks_remaining; block_size/=2){
-
+//        printf("Reducing block size: %d\n",block_size);
         int block_coordinate=from_range_block*BUFFER_SIZE;
-        int block_index=0;
         int jump_size=(block_size/2)*(block_size/2);
 
         for(int j=0; j<block_columns; ++j){
             block_coordinate=from_range_block*BUFFER_SIZE;
             for(int i=0; i<block_rows; ++i){
+                int block_index=get_block_index(i,j,block_size);
+
                 if(!finished_blocks[block_index]){
                     int from_x=block_coordinate%img->width;
                     int from_y=(block_coordinate/img->width)*BUFFER_SIZE+j*block_size;
@@ -110,10 +145,12 @@ ERR_RET find_matches_for(struct image_data* img, struct ifs_transformation_list*
                     get_average_pixel(img->image_channels[0], img->width, from_x, from_y, block_size,
                             range_avarages+(block_index));
 
+//                    printf("Avarage pixel for %d %d is %d, block index: %d, i,j: (%d, %d)\n",from_x, from_y, range_avarages[block_index], block_index,i,j);
+
                     best_errors[block_index]=1e9;
                 }
+
                 block_coordinate+=block_size;
-                block_index+=jump_size;
             }
         }
 
@@ -139,11 +176,11 @@ ERR_RET find_matches_for(struct image_data* img, struct ifs_transformation_list*
                     get_average_pixel(buffer, block_size, 0, 0, block_size, &domain_avg);
 
                     block_coordinate=from_range_block*BUFFER_SIZE;
-                    block_index=0;
 
                     for(int j=0; j<block_columns; ++j){
                         block_coordinate=from_range_block*BUFFER_SIZE;
                         for(int i=0; i<block_rows; ++i){
+                            int block_index=get_block_index(i,j,block_size);
 
                             if(!finished_blocks[block_index]){
                                 int from_x=block_coordinate%img->width;
@@ -159,6 +196,8 @@ ERR_RET find_matches_for(struct image_data* img, struct ifs_transformation_list*
                                         img->width, from_x, from_y, range_avarages[block_index],
                                         block_size, scale_factor, &error);
 
+//                                printf("Comparing rb: [%d, %d] with db: [%d, %d] block size: %d error: %g, range avg %d block index: %d\n",from_x, from_y, x, y, block_size, error, range_avarages[block_index], block_index);
+
                                 if(error<best_errors[block_index]){
                                     tmp_range_transformations[block_index].from_x=x;
                                     tmp_range_transformations[block_index].from_y=y;
@@ -172,17 +211,20 @@ ERR_RET find_matches_for(struct image_data* img, struct ifs_transformation_list*
                                     best_errors[block_index]=error;
 
                                     if(error<threshold){
+//                                        printf("\tFound good transformation rb: [%d, %d] db: [%d, %d] block size: %d error: %g\n", from_x, from_y, x, y, block_size, error);
+
                                         ifs_trans_push_back(transformations, tmp_range_transformations+block_index);
                                         for(int k=0;k<jump_size;++k){
                                             finished_blocks[block_index+k]=true;
                                         }
+
+//                                        print_cleared_blocks(finished_blocks);
                                         blocks_remaining--;
                                     }
                                 }
                             }
 
                             block_coordinate+=block_size;
-                            block_index+=jump_size;
                         }
                     }
 
