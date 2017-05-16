@@ -12,7 +12,7 @@
 enum ifs_type
 {
     SYM_NONE = 0,
-    SYM_R90,
+    SYM_R90=1,
     SYM_R180,
     SYM_R270,
     SYM_HFLIP,

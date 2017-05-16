@@ -47,10 +47,10 @@ void test_ifs(){
     transformation.to_y=0;
     transformation.scale=1;
     transformation.offset=0;
-    transformation.transformation_type=SYM_R90;
+    transformation.transformation_type=SYM_R180;
 
-#define B_S 4
-#define I_S 16
+#define B_S 6
+#define I_S 8
     transformation.size=B_S;
 
     int ind=0;
@@ -78,7 +78,6 @@ void test_ifs(){
 }
 
 int main(int argc, char** argv){
-
 //    test_ifs();
 //    return 0;
 
