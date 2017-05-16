@@ -94,7 +94,7 @@ int main(int argc, char** argv){
     // Load some parameters
     bool usage = true;
     int verb;
-    u_int32_t threshold = 100;
+    u_int32_t threshold = 50;
     string image_path;
     u_int32_t maxphases = 5;
     string outputFile="result.bmp";
