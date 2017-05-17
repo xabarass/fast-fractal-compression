@@ -13,12 +13,12 @@ enum ifs_type
 {
     SYM_NONE = 0,
     SYM_R90=1,
-    SYM_R180,
-    SYM_R270,
-    SYM_HFLIP,
-    SYM_VFLIP,
-    SYM_FDFLIP,
-    SYM_RDFLIP,
+    SYM_R180=2,
+    SYM_R270=3,
+    SYM_HFLIP=4,
+    SYM_VFLIP=5,
+    SYM_FDFLIP=6,
+    SYM_RDFLIP=7,
     SYM_MAX
 };
 

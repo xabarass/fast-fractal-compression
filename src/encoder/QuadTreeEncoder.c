@@ -2,9 +2,83 @@
 
 #define MODULE_NAME "QuadTreeEncoder"
 
-static pixel_value buffer[BUFFER_SIZE*BUFFER_SIZE];
+static
+pixel_value buffer[BUFFER_SIZE*BUFFER_SIZE];
 
-static inline u_int32_t get_average_pixel(const pixel_value* domain_data, u_int32_t domain_width,
+static
+inline
+ERR_RET ifs_transformation_execute_downsampled(int from_x, int from_y, enum ifs_type symmetry,
+                                    u_int32_t size, pixel_value* src, u_int32_t src_width,
+                                    pixel_value* dest, u_int32_t dest_width){
+
+    INCREMENT_FLOP_COUNT(6, 0, 0, 0)
+
+    from_x = from_x / 2;
+    from_y = from_y / 2;
+    int d_x = 1;
+    int d_y = 1;
+    bool in_order = (
+            symmetry == SYM_NONE ||
+            symmetry == SYM_R180 ||
+            symmetry == SYM_HFLIP ||
+            symmetry == SYM_VFLIP
+            );
+
+    if (!(  symmetry == SYM_NONE ||
+            symmetry == SYM_R90 ||
+            symmetry == SYM_VFLIP ||
+            symmetry == SYM_RDFLIP))
+    {
+        from_x += size - 1;
+        d_x = -1;
+    }
+
+    if (!(  symmetry == SYM_NONE ||
+            symmetry == SYM_R270 ||
+            symmetry == SYM_HFLIP ||
+            symmetry == SYM_RDFLIP))
+    {
+        from_y += size - 1;
+        d_y = -1;
+    }
+
+    int start_x = from_x;
+    int start_y = from_y;
+
+    INCREMENT_FLOP_COUNT(2*size*size,
+                         4*size*size, size*size, 0)
+    INCREMENT_FLOP_COUNT(size,0,0,0)
+
+    for (int to_y = 0; to_y < size; to_y++)
+    {
+        for (int to_x = 0; to_x < size; to_x++)
+        {
+            int pixel = src[from_y * src_width + from_x];
+            dest[to_y * dest_width + to_x] = pixel;
+
+            if (in_order)
+                from_x += d_x;
+            else
+                from_y += d_y;
+        }
+
+        if (in_order)
+        {
+            from_x= start_x;
+            from_y += d_y;
+        }
+        else
+        {
+            from_y = start_y;
+            from_x += d_x;
+        }
+    }
+
+    return ERR_SUCCESS;
+}
+
+static
+inline u_int32_t get_average_pixel(const pixel_value* domain_data, u_int32_t domain_width,
     u_int32_t domain_x, u_int32_t domain_y, u_int32_t size)
 {
     u_int32_t top = 0;
@@ -28,7 +102,8 @@ static inline u_int32_t get_average_pixel(const pixel_value* domain_data, u_int3
     return top/bottom;
 }
 
-static inline double get_error(
+static
+inline double get_error(
     pixel_value* domain_data, int domain_width, int domain_x, int domain_y, int domain_avg,
     pixel_value* range_data, int range_width, int range_x, int range_y, int range_avg,
     int size, double scale)
@@ -59,8 +134,8 @@ static inline double get_error(
     return top / bottom;
 }
 
-
-static inline double get_scale_factor(
+static
+inline double get_scale_factor(
     pixel_value* domain_data, int domain_width, int domain_x, int domain_y, int domain_avg,
     pixel_value* range_Data, int range_width, int range_x, int range_y, int range_avg,
     int size)
@@ -108,19 +183,45 @@ static inline double get_scale_factor(
     DST.size=SIZE;
 
 #define CALCULATE_ERR(SC, DM_X, DM_Y, DM_AVG, RB_X, RB_Y, RB_AVG, OFFSET, ERROR)\
-    double SC=get_scale_factor(img->image_channels[0], img->width, DM_X, DM_Y, DM_AVG,\
+    SC=get_scale_factor(img->image_channels[0], img->width, DM_X, DM_Y, DM_AVG,\
             buffer, block_size, RB_X, RB_Y, RB_AVG, half_block_size);\
-    int OFFSET = (int)(RB_AVG - SC * (double)DM_AVG);\
+    OFFSET = (int)(RB_AVG - SC * (double)DM_AVG);\
 \
-    double ERROR=get_error(buffer, block_size, RB_X, RB_Y, DM_AVG, img->image_channels[0],\
+    ERROR=get_error(buffer, block_size, RB_X, RB_Y, DM_AVG, img->image_channels[0],\
             img->width, DM_X, DM_Y, RB_AVG,\
             half_block_size, SC);
+
+#define UPDATE_MIN_ERROR(DM_X, DM_Y)\
+    printf("\tComparing block: rb: %d %d to %d %d size: %d error: %g\n", rb_x0, rb_y0, DM_X, DM_Y, half_block_size, tmp_error1);\
+    printf("\tComparing block: rb: %d %d to %d %d size: %d error: %g\n", rb_x1, rb_y0, DM_X, DM_Y, half_block_size, tmp_error2);\
+    printf("\tComparing block: rb: %d %d to %d %d size: %d error: %g\n", rb_x0, rb_y1, DM_X, DM_Y, half_block_size, tmp_error3);\
+    printf("\tComparing block: rb: %d %d to %d %d size: %d error: %g\n", rb_x1, rb_y1, DM_X, DM_Y, half_block_size, tmp_error4);\
+if(tmp_error1<error_1){\
+    ASSIGN_IFS_VALUES(best_ifs_1, DM_X, DM_Y, rb_x0, rb_y0, transformation_type, scale_factor1, offset1, half_block_size);\
+    error_1=tmp_error1;\
+}\
+\
+if(tmp_error2<error_2){\
+    ASSIGN_IFS_VALUES(best_ifs_2, DM_X, DM_Y, rb_x1, rb_y0, transformation_type, scale_factor2, offset2, half_block_size);\
+    error_2=tmp_error2;\
+}\
+\
+if(tmp_error3<error_3){\
+    ASSIGN_IFS_VALUES(best_ifs_3, DM_X, DM_Y, rb_x0, rb_y1, transformation_type, scale_factor3, offset3, half_block_size);\
+    error_3=tmp_error3;\
+}\
+\
+if(tmp_error4<error_4){\
+    ASSIGN_IFS_VALUES(best_ifs_4, DM_X, DM_Y, rb_x1, rb_y1, transformation_type, scale_factor4, offset4, half_block_size);\
+    error_4=tmp_error4;\
+}\
 
 static inline
 ERR_RET find_matches_for(struct image_data* img, struct ifs_transformation_list* transformations,
                          u_int32_t rb_x0, u_int32_t rb_y0, u_int32_t block_size, u_int32_t threshold){
 
     u_int32_t half_block_size=block_size/2;
+    u_int32_t double_block_size=block_size*2;
     u_int32_t rb_x1=rb_x0+half_block_size;
     u_int32_t rb_y1=rb_y0+half_block_size;
 
@@ -131,10 +232,6 @@ ERR_RET find_matches_for(struct image_data* img, struct ifs_transformation_list*
     u_int32_t avarage_pix_4=get_average_pixel(img->image_channels[0], img->width, rb_x1, rb_y1, half_block_size);
 
     bool found_match0=false;
-    bool found_match1=false;
-    bool found_match2=false;
-    bool found_match3=false;
-    bool found_match4=false;
 
     double error_0=1e9;
     double error_1=1e9;
@@ -148,25 +245,30 @@ ERR_RET find_matches_for(struct image_data* img, struct ifs_transformation_list*
     struct ifs_transformation best_ifs_3;
     struct ifs_transformation best_ifs_4;
 
-    for(size_t y=0; y<img->height; y+=block_size*2)
+    double scale_factor1;
+    double scale_factor2;
+    double scale_factor3;
+    double scale_factor4;
+
+    int offset1;
+    int offset2;
+    int offset3;
+    int offset4;
+
+    double tmp_error1;
+    double tmp_error2;
+    double tmp_error3;
+    double tmp_error4;
+
+    for(size_t y=0; y<img->height; y+=double_block_size)
     {
-        for (size_t x=0; x<img->width; x+=block_size*2)
+        for (size_t x=0; x<img->width; x+=double_block_size)
         {
             for(int transformation_type=0; transformation_type<SYM_R90; ++transformation_type)
             {
-                struct ifs_transformation ifs={
-                    .from_x=x,
-                    .from_y=y,
-                    .to_x=0,
-                    .to_y=0,
-                    .size=block_size,
-                    .transformation_type=transformation_type,
-                    .scale=1.0,
-                    .offset=0
-                };
-
-                ifs_transformation_execute(&ifs, img->image_channels[1], img->width/2, buffer, block_size, true);
-
+                ifs_transformation_execute_downsampled(x, y, transformation_type,
+                                                    block_size, img->image_channels[1], img->width/2,
+                                                    buffer, block_size);
                 // Bigger block
                 u_int32_t domain_avg0=get_average_pixel(buffer, block_size, 0, 0, block_size);
 
@@ -178,10 +280,13 @@ ERR_RET find_matches_for(struct image_data* img, struct ifs_transformation_list*
                         img->width, rb_x0, rb_y0, avarage_pix_0,
                         block_size, scale_factor);
 
+                printf("\tComparing first block: rb: %d %d to %d %d size: %d error: %g\n", rb_x0, rb_y0, x, y, block_size, error);
+
                 if(error<error_0){
                     ASSIGN_IFS_VALUES(best_ifs_0, x, y, rb_x0, rb_y0, transformation_type, scale_factor, offset, block_size);
 
                     error_0=error;
+
                     if(error<threshold){
                         found_match0=true;
                     }
@@ -194,59 +299,45 @@ ERR_RET find_matches_for(struct image_data* img, struct ifs_transformation_list*
                     u_int32_t domain_avg3=get_average_pixel(buffer, block_size, 0, half_block_size, half_block_size);
                     u_int32_t domain_avg4=get_average_pixel(buffer, block_size, half_block_size, half_block_size, half_block_size);
 
-                    // First block
                     CALCULATE_ERR(scale_factor1, rb_x0, rb_y0, domain_avg1, 0, 0, avarage_pix_1, offset1, tmp_error1);
+                    CALCULATE_ERR(scale_factor2, rb_x1, rb_y0, domain_avg2, 0, 0, avarage_pix_2, offset2, tmp_error2);
+                    CALCULATE_ERR(scale_factor3, rb_x0, rb_y1, domain_avg3, 0, 0, avarage_pix_3, offset3, tmp_error3);
+                    CALCULATE_ERR(scale_factor4, rb_x1, rb_y1, domain_avg4, 0, 0, avarage_pix_4, offset4, tmp_error4);
 
-                    // Second block
+                    UPDATE_MIN_ERROR(x,y);
+
+                    CALCULATE_ERR(scale_factor1, rb_x0, rb_y0, domain_avg1, half_block_size, 0, avarage_pix_1, offset1, tmp_error1);
                     CALCULATE_ERR(scale_factor2, rb_x1, rb_y0, domain_avg2, half_block_size, 0, avarage_pix_2, offset2, tmp_error2);
+                    CALCULATE_ERR(scale_factor3, rb_x0, rb_y1, domain_avg3, half_block_size, 0, avarage_pix_3, offset3, tmp_error3);
+                    CALCULATE_ERR(scale_factor4, rb_x1, rb_y1, domain_avg4, half_block_size, 0, avarage_pix_4, offset4, tmp_error4);
 
-                    // Third block
+                    UPDATE_MIN_ERROR((half_block_size+x),y);
+
+                    CALCULATE_ERR(scale_factor1, rb_x0, rb_y0, domain_avg1, 0, half_block_size, avarage_pix_1, offset1, tmp_error1);
+                    CALCULATE_ERR(scale_factor2, rb_x1, rb_y0, domain_avg2, 0, half_block_size, avarage_pix_2, offset2, tmp_error2);
                     CALCULATE_ERR(scale_factor3, rb_x0, rb_y1, domain_avg3, 0, half_block_size, avarage_pix_3, offset3, tmp_error3);
+                    CALCULATE_ERR(scale_factor4, rb_x1, rb_y1, domain_avg4, 0, half_block_size, avarage_pix_4, offset4, tmp_error4);
 
-                    // Forth block
+                    UPDATE_MIN_ERROR((half_block_size),(y+half_block_size));
+
+                    CALCULATE_ERR(scale_factor1, rb_x0, rb_y0, domain_avg1, half_block_size, half_block_size, avarage_pix_1, offset1, tmp_error1);
+                    CALCULATE_ERR(scale_factor2, rb_x1, rb_y0, domain_avg2, half_block_size, half_block_size, avarage_pix_2, offset2, tmp_error2);
+                    CALCULATE_ERR(scale_factor3, rb_x0, rb_y1, domain_avg3, half_block_size, half_block_size, avarage_pix_3, offset3, tmp_error3);
                     CALCULATE_ERR(scale_factor4, rb_x1, rb_y1, domain_avg4, half_block_size, half_block_size, avarage_pix_4, offset4, tmp_error4);
 
-                    if(tmp_error1<error_1){
-                        ASSIGN_IFS_VALUES(best_ifs_1, x, y, rb_x0, rb_y0, transformation_type, scale_factor1, offset1, half_block_size);
-                        error_1=tmp_error1;
-                        if(tmp_error1<threshold){
-                            found_match1=true;
-                        }
-                    }
-
-                    if(tmp_error2<error_2){
-                        ASSIGN_IFS_VALUES(best_ifs_2, x+block_size, y, rb_x1, rb_y0, transformation_type, scale_factor2, offset2, half_block_size);
-                        error_2=tmp_error2;
-                        if(tmp_error2<threshold){
-                            found_match2=true;
-                        }
-                    }
-
-                    if(tmp_error3<error_3){
-                        ASSIGN_IFS_VALUES(best_ifs_3, x, y+block_size, rb_x0, rb_y1, transformation_type, scale_factor3, offset3, half_block_size);
-                        error_3=tmp_error3;
-                        if(tmp_error3<threshold){
-                            found_match3=true;
-                        }
-                    }
-
-                    if(tmp_error4<error_4){
-                        ASSIGN_IFS_VALUES(best_ifs_4, x+block_size, y+block_size, rb_x1, rb_y1, transformation_type, scale_factor4, offset4, half_block_size);
-                        error_4=tmp_error4;
-                        if(tmp_error4<threshold){
-                            found_match4=true;
-                        }
-                    }
+                    UPDATE_MIN_ERROR((half_block_size+half_block_size),(y+half_block_size));
                 }
             }
         }
     }
 
     if(found_match0){
+        printf("Adding transformation: rb: %d %d to %d %d size: %d error: %g\n", rb_x0, rb_y0, best_ifs_0.from_x, best_ifs_0.from_y, block_size, error_0);
         ifs_trans_push_back(transformations, &best_ifs_0);
     }else if(block_size>4){
         u_int32_t quater_block_size=half_block_size/2;
-        if(found_match1){
+        if(error_1<threshold){
+            printf("Adding transformation: rb: %d %d to %d %d size: %d error: %g\n", rb_x0, rb_y0, best_ifs_1.from_x, best_ifs_1.from_y, half_block_size, error_1);
             ifs_trans_push_back(transformations, &best_ifs_1);
         }else{
             find_matches_for(img, transformations, rb_x0, rb_y0, quater_block_size, threshold);
@@ -255,7 +346,8 @@ ERR_RET find_matches_for(struct image_data* img, struct ifs_transformation_list*
             find_matches_for(img, transformations, rb_x0+quater_block_size, rb_y0+quater_block_size, quater_block_size, threshold);
         }
 
-        if(found_match2){
+        if(error_2<threshold){
+            printf("Adding transformation: rb: %d %d to %d %d size: %d error: %g\n", rb_x1, rb_y0, best_ifs_2.from_x, best_ifs_2.from_y, half_block_size, error_2);
             ifs_trans_push_back(transformations, &best_ifs_2);
         }else{
             find_matches_for(img, transformations, rb_x1, rb_y0, quater_block_size, threshold);
@@ -264,7 +356,8 @@ ERR_RET find_matches_for(struct image_data* img, struct ifs_transformation_list*
             find_matches_for(img, transformations, rb_x1+quater_block_size, rb_y0+quater_block_size, quater_block_size, threshold);
         }
 
-        if(found_match3){
+        if(error_3<threshold){
+            printf("Adding transformation: rb: %d %d to %d %d size: %d error: %g\n", rb_x0, rb_y1, best_ifs_3.from_x, best_ifs_3.from_y, half_block_size, error_3);
             ifs_trans_push_back(transformations, &best_ifs_3);
         }else{
             find_matches_for(img, transformations, rb_x0, rb_y1, quater_block_size, threshold);
@@ -273,7 +366,8 @@ ERR_RET find_matches_for(struct image_data* img, struct ifs_transformation_list*
             find_matches_for(img, transformations, rb_x0+quater_block_size, rb_y1+quater_block_size, quater_block_size, threshold);
         }
 
-        if(found_match4){
+        if(error_4<threshold){
+            printf("Adding transformation: rb: %d %d to %d %d size: %d error: %g\n", rb_x1, rb_y1, best_ifs_4.from_x, best_ifs_4.from_y, half_block_size, error_4);
             ifs_trans_push_back(transformations, &best_ifs_4);
         }else{
             find_matches_for(img, transformations, rb_x1, rb_y1, quater_block_size, threshold);
@@ -282,6 +376,11 @@ ERR_RET find_matches_for(struct image_data* img, struct ifs_transformation_list*
             find_matches_for(img, transformations, rb_x1+quater_block_size, rb_y1+quater_block_size, quater_block_size, threshold);
         }
     }else if(block_size==4){
+        printf("Adding transformation: rb: %d %d to %d %d size: %d error: %g\n", rb_x0, rb_y0, best_ifs_1.from_x, best_ifs_1.from_y, half_block_size, error_1);
+        printf("Adding transformation: rb: %d %d to %d %d size: %d error: %g\n", rb_x1, rb_y0, best_ifs_2.from_x, best_ifs_2.from_y, half_block_size, error_2);
+        printf("Adding transformation: rb: %d %d to %d %d size: %d error: %g\n", rb_x0, rb_y1, best_ifs_3.from_x, best_ifs_3.from_y, half_block_size, error_3);
+        printf("Adding transformation: rb: %d %d to %d %d size: %d error: %g\n", rb_x1, rb_y1, best_ifs_4.from_x, best_ifs_4.from_y, half_block_size, error_4);
+
         ifs_trans_push_back(transformations, &best_ifs_1);
         ifs_trans_push_back(transformations, &best_ifs_2);
         ifs_trans_push_back(transformations, &best_ifs_3);
@@ -358,15 +457,5 @@ ERR_RET qtree_encode(struct Transforms* transformations, struct image_data* src,
     img.image_channels[0]=img.image_channels[1];
     clear_image_data(&img);
 
-    return ERR_SUCCESS;
-}
-
-ERR_RET print_best_transformation(struct ifs_transformation best_ifs, double best_err) {
-    printf("to=(%d, %d)\n", best_ifs.to_x, best_ifs.to_y);
-    printf("from=(%d, %d)\n", best_ifs.from_x, best_ifs.from_y);
-    printf("best error=%lf\n", best_err);
-    printf("best symmetry=%d\n", best_ifs.transformation_type);
-    printf("best offset=%d\n", best_ifs.offset);
-    printf("best scale=%lf\n", best_ifs.scale);
     return ERR_SUCCESS;
 }
