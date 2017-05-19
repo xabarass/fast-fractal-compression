@@ -59,7 +59,7 @@ ERR_RET ifs_trans_clear_list(struct Transforms *transforms){
 }
 
 ERR_RET ifs_transformation_execute(struct ifs_transformation* transformation, pixel_value* src, u_int32_t src_width,
-                                   pixel_value* dest, u_int32_t dest_width, bool downsampled){
+                                   pixel_value* dest, u_int32_t dest_width, bool downsampled, pixel_value* buffer){
 
     INCREMENT_FLOP_COUNT(6, 0, 0, 0)
 
@@ -74,8 +74,6 @@ ERR_RET ifs_transformation_execute(struct ifs_transformation* transformation, pi
 
     if (!downsampled)
     {
-        assert(transformation->size<=BUFFER_SIZE);
-        static pixel_value buffer[BUFFER_SIZE*BUFFER_SIZE];
         pixel_value* downsampled_img=buffer;
         down_sample(src, src_width, transformation->from_x, transformation->from_y, transformation->size, downsampled_img);
         src = downsampled_img;

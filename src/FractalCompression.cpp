@@ -66,7 +66,7 @@ void test_ifs(){
     pixel_value dst[B_S*B_S];
     memset(dst, 0, B_S*B_S);
 
-    ifs_transformation_execute(&transformation, src, I_S, dst, B_S, true);
+    ifs_transformation_execute(&transformation, src, I_S, dst, B_S, true, NULL);
 
     printf("Result\n");
     for (int i=0;i<B_S; ++i){

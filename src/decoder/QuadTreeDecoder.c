@@ -11,7 +11,7 @@ ERR_RET print_transformation(struct ifs_transformation best_ifs) {
     return ERR_SUCCESS;
 }
 
-void qtree_decode(struct Transforms* transforms, int height, int width, struct image_data* destination) {
+void qtree_decode(struct Transforms* transforms, int height, int width, struct image_data* destination, pixel_value* buffer) {
     // Decoding starts here
     destination->channels = transforms->channels;
     for (int channel = 0; channel < destination->channels; channel++) {
@@ -22,7 +22,7 @@ void qtree_decode(struct Transforms* transforms, int height, int width, struct i
         struct ifs_transformation* temp = iter.head;
         while(temp != NULL) {
             // print_transformation(*temp);
-            ifs_transformation_execute(temp, original_image, destination->width, original_image, destination->width, false);
+            ifs_transformation_execute(temp, original_image, destination->width, original_image, destination->width, false, buffer);
             // Print the destination image
             temp = temp->next;
         }

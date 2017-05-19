@@ -19,7 +19,7 @@ enum ifs_type
     SYM_VFLIP=5,
     SYM_FDFLIP=6,
     SYM_RDFLIP=7,
-    SYM_MAX
+    SYM_MAX=8
 };
 
 struct ifs_transformation{
@@ -52,11 +52,12 @@ struct Transforms {
     struct ifs_transformation_list ch[3];
     int channels;
     enum color_mode color_mode;
+    size_t max_block_size;
 };
 
 ERR_RET ifs_trans_push_back(struct ifs_transformation_list* list, struct ifs_transformation* transformation);
 ERR_RET ifs_transformation_execute(struct ifs_transformation* transformation, pixel_value* src, u_int32_t src_width,
-                                   pixel_value* dest, u_int32_t dest_width, bool downsampled);
+                                   pixel_value* dest, u_int32_t dest_width, bool downsampled, pixel_value *buffer);
 ERR_RET ifs_trans_clear_list(struct Transforms* transforms);
 
 ERR_RET down_sample(pixel_value *src, int src_width, int start_x, int start_y, int target_size, pixel_value * sample);

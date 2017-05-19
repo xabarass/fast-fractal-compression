@@ -2,8 +2,9 @@
 
 #define MODULE_NAME "QuadTreeEncoder"
 
-static
-pixel_value buffer[BUFFER_SIZE*BUFFER_SIZE];
+static pixel_value* buffer;
+static size_t MAX_BUFFER_SIZE;
+static size_t MIN_BUFFER_SIZE;
 
 static
 inline
@@ -227,7 +228,7 @@ if(tmp_error4<error_4){\
 static inline
 ERR_RET find_matches_for(struct image_data* img, struct ifs_transformation_list* transformations,
                          u_int32_t rb_x0, u_int32_t rb_y0, u_int32_t block_size, u_int32_t threshold){
-
+//    printf("Find matches for, with block size: %d\n", block_size);
     u_int32_t half_block_size=block_size/2;
     u_int32_t double_block_size=block_size*2;
     u_int32_t rb_x1=rb_x0+half_block_size;
@@ -348,7 +349,7 @@ ERR_RET find_matches_for(struct image_data* img, struct ifs_transformation_list*
     if(found_match0){
 //        printf("Adding transformation: rb: %d %d to %d %d size: %d error: %g\n", rb_x0, rb_y0, best_ifs_0.from_x, best_ifs_0.from_y, block_size, error_0);
         ifs_trans_push_back(transformations, &best_ifs_0);
-    }else if(block_size>4){
+    }else if(block_size>(2*MIN_BUFFER_SIZE)){
         u_int32_t quater_block_size=half_block_size/2;
         if(error_1<threshold){
 //            printf("Adding transformation: rb: %d %d to %d %d size: %d error: %g\n", rb_x0, rb_y0, best_ifs_1.from_x, best_ifs_1.from_y, half_block_size, error_1);
@@ -389,7 +390,8 @@ ERR_RET find_matches_for(struct image_data* img, struct ifs_transformation_list*
             find_matches_for(img, transformations, rb_x1, rb_y1+quater_block_size, quater_block_size, threshold);
             find_matches_for(img, transformations, rb_x1+quater_block_size, rb_y1+quater_block_size, quater_block_size, threshold);
         }
-    }else if(block_size==4){
+    }else if(block_size==MIN_BUFFER_SIZE){
+//        printf("We have min block size\n");
 //        printf("Adding transformation: rb: %d %d to %d %d size: %d error: %g\n", rb_x0, rb_y0, best_ifs_1.from_x, best_ifs_1.from_y, half_block_size, error_1);
 //        printf("Adding transformation: rb: %d %d to %d %d size: %d error: %g\n", rb_x1, rb_y0, best_ifs_2.from_x, best_ifs_2.from_y, half_block_size, error_2);
 //        printf("Adding transformation: rb: %d %d to %d %d size: %d error: %g\n", rb_x0, rb_y1, best_ifs_3.from_x, best_ifs_3.from_y, half_block_size, error_3);
@@ -418,6 +420,17 @@ ERR_RET qtree_encode(struct Transforms* transformations, struct image_data* src,
     {
         return ERR_IMAGE_WRONG_SIZE;
     }
+
+    if(width!=height){
+        printf("ERROR! W!=H\n");
+        return ERR_IMAGE_WRONG_SIZE;
+    }
+
+    MAX_BUFFER_SIZE=width/32;
+    MIN_BUFFER_SIZE=MAX_BUFFER_SIZE/4;
+    buffer=malloc(MAX_BUFFER_SIZE*MAX_BUFFER_SIZE*sizeof(pixel_value));
+    transformations->max_block_size=MAX_BUFFER_SIZE;
+    printf("Starting to compress with block sizes MAX: %d MIN: %d\n", MAX_BUFFER_SIZE, MIN_BUFFER_SIZE);
 
     if(params.use_ycbcr){
         if(src->color_mode!=COLOR_MODE_YCbCr){
@@ -450,11 +463,11 @@ ERR_RET qtree_encode(struct Transforms* transformations, struct image_data* src,
         if (channel >= 1 && params.use_ycbcr)
             threshold *= 2;
 
-        for (size_t y = 0; y < img.height; y += BUFFER_SIZE)
+        for (size_t y = 0; y < img.height; y += MAX_BUFFER_SIZE)
         {
-            for (size_t x = 0; x < img.width; x += BUFFER_SIZE)
+            for (size_t x = 0; x < img.width; x += MAX_BUFFER_SIZE)
             {
-                find_matches_for(&img, transformations->ch+channel, x, y, BUFFER_SIZE, threshold);
+                find_matches_for(&img, transformations->ch+channel, x, y, MAX_BUFFER_SIZE, threshold);
                 #ifdef DEBUG
                 printf(".");
                 #endif
