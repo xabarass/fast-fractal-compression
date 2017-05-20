@@ -6,6 +6,15 @@ static pixel_value* buffer;
 static size_t MAX_BUFFER_SIZE;
 static size_t MIN_BUFFER_SIZE;
 
+void print_block(pixel_value* data, u_int32_t width, u_int32_t x, u_int32_t y, u_int32_t block_size){
+    for(int i=y;i<y+block_size;++i){
+        for(int j=x;j<x+block_size;++j){
+            printf("%03d ",data[i*width+j]);
+        }
+        printf("\n");
+    }
+}
+
 static
 inline
 ERR_RET ifs_transformation_execute_downsampled(int from_x, int from_y, enum ifs_type symmetry,
@@ -225,6 +234,36 @@ if(tmp_error4<error_4){\
     error_4=tmp_error4;\
 }\
 
+#define CALCULATE_MIN(X_1, Y_1, X_2, Y_2, X_3, Y_3, X_4, Y_4)\
+    CALCULATE_ERR(scale_factor1, rb_x0, rb_y0, domain_avg1, 0, 0, avarage_pix_1, offset1, tmp_error1);\
+    CALCULATE_ERR(scale_factor2, rb_x1, rb_y0, domain_avg1, 0, 0, avarage_pix_2, offset2, tmp_error2);\
+    CALCULATE_ERR(scale_factor3, rb_x0, rb_y1, domain_avg1, 0, 0, avarage_pix_3, offset3, tmp_error3);\
+    CALCULATE_ERR(scale_factor4, rb_x1, rb_y1, domain_avg1, 0, 0, avarage_pix_4, offset4, tmp_error4);\
+\
+    UPDATE_MIN_ERROR(X_1,Y_1);\
+\
+    CALCULATE_ERR(scale_factor1, rb_x0, rb_y0, domain_avg2, half_block_size, 0, avarage_pix_1, offset1, tmp_error1);\
+    CALCULATE_ERR(scale_factor2, rb_x1, rb_y0, domain_avg2, half_block_size, 0, avarage_pix_2, offset2, tmp_error2);\
+    CALCULATE_ERR(scale_factor3, rb_x0, rb_y1, domain_avg2, half_block_size, 0, avarage_pix_3, offset3, tmp_error3);\
+    CALCULATE_ERR(scale_factor4, rb_x1, rb_y1, domain_avg2, half_block_size, 0, avarage_pix_4, offset4, tmp_error4);\
+\
+    UPDATE_MIN_ERROR(X_2,Y_2);\
+\
+    CALCULATE_ERR(scale_factor1, rb_x0, rb_y0, domain_avg3, 0, half_block_size, avarage_pix_1, offset1, tmp_error1);\
+    CALCULATE_ERR(scale_factor2, rb_x1, rb_y0, domain_avg3, 0, half_block_size, avarage_pix_2, offset2, tmp_error2);\
+    CALCULATE_ERR(scale_factor3, rb_x0, rb_y1, domain_avg3, 0, half_block_size, avarage_pix_3, offset3, tmp_error3);\
+    CALCULATE_ERR(scale_factor4, rb_x1, rb_y1, domain_avg3, 0, half_block_size, avarage_pix_4, offset4, tmp_error4);\
+\
+    UPDATE_MIN_ERROR(X_3,Y_3);\
+\
+    CALCULATE_ERR(scale_factor1, rb_x0, rb_y0, domain_avg4, half_block_size, half_block_size, avarage_pix_1, offset1, tmp_error1);\
+    CALCULATE_ERR(scale_factor2, rb_x1, rb_y0, domain_avg4, half_block_size, half_block_size, avarage_pix_2, offset2, tmp_error2);\
+    CALCULATE_ERR(scale_factor3, rb_x0, rb_y1, domain_avg4, half_block_size, half_block_size, avarage_pix_3, offset3, tmp_error3);\
+    CALCULATE_ERR(scale_factor4, rb_x1, rb_y1, domain_avg4, half_block_size, half_block_size, avarage_pix_4, offset4, tmp_error4);\
+\
+    UPDATE_MIN_ERROR(X_4,Y_4);\
+
+
 static inline
 ERR_RET find_matches_for(struct image_data* img, struct ifs_transformation_list* transformations,
                          u_int32_t rb_x0, u_int32_t rb_y0, u_int32_t block_size, u_int32_t threshold){
@@ -276,13 +315,21 @@ ERR_RET find_matches_for(struct image_data* img, struct ifs_transformation_list*
     {
         for (size_t x=0; x<img->width; x+=double_block_size)
         {
-            for(int transformation_type=0; transformation_type<SYM_R90; ++transformation_type)
+            int x_half=x/2;
+            int y_half=y/2;
+
+            u_int32_t domain_avg0=get_average_pixel(img->image_channels[1], img->width/2, x_half, y_half, block_size);
+
+            u_int32_t domain_avg1=get_average_pixel(img->image_channels[1], img->width/2, x_half, y_half, half_block_size);
+            u_int32_t domain_avg2=get_average_pixel(img->image_channels[1], img->width/2, x_half+half_block_size, y_half, half_block_size);
+            u_int32_t domain_avg3=get_average_pixel(img->image_channels[1], img->width/2, x_half, y_half+half_block_size, half_block_size);
+            u_int32_t domain_avg4=get_average_pixel(img->image_channels[1], img->width/2, x_half+half_block_size, y_half+half_block_size, half_block_size);
+
+            for(int transformation_type=0; transformation_type<SYM_MAX; ++transformation_type)
             {
                 ifs_transformation_execute_downsampled(x, y, transformation_type,
                                                     block_size, img->image_channels[1], img->width/2,
                                                     buffer, block_size);
-                // Bigger block
-                u_int32_t domain_avg0=get_average_pixel(buffer, block_size, 0, 0, block_size);
 
                 double scale_factor=get_scale_factor(img->image_channels[0], img->width, rb_x0, rb_y0, domain_avg0,
                         buffer, block_size, 0 ,0, avarage_pix_0, block_size);
@@ -309,38 +356,56 @@ ERR_RET find_matches_for(struct image_data* img, struct ifs_transformation_list*
                     x_1=x+block_size;
                     y_1=y+block_size;
 
-                    u_int32_t domain_avg1=get_average_pixel(buffer, block_size, 0, 0, half_block_size);
-                    u_int32_t domain_avg2=get_average_pixel(buffer, block_size, half_block_size, 0, half_block_size);
-                    u_int32_t domain_avg3=get_average_pixel(buffer, block_size, 0, half_block_size, half_block_size);
-                    u_int32_t domain_avg4=get_average_pixel(buffer, block_size, half_block_size, half_block_size, half_block_size);
-
-                    CALCULATE_ERR(scale_factor1, rb_x0, rb_y0, domain_avg1, 0, 0, avarage_pix_1, offset1, tmp_error1);
-                    CALCULATE_ERR(scale_factor2, rb_x1, rb_y0, domain_avg1, 0, 0, avarage_pix_2, offset2, tmp_error2);
-                    CALCULATE_ERR(scale_factor3, rb_x0, rb_y1, domain_avg1, 0, 0, avarage_pix_3, offset3, tmp_error3);
-                    CALCULATE_ERR(scale_factor4, rb_x1, rb_y1, domain_avg1, 0, 0, avarage_pix_4, offset4, tmp_error4);
-
-                    UPDATE_MIN_ERROR(x,y);
-
-                    CALCULATE_ERR(scale_factor1, rb_x0, rb_y0, domain_avg2, half_block_size, 0, avarage_pix_1, offset1, tmp_error1);
-                    CALCULATE_ERR(scale_factor2, rb_x1, rb_y0, domain_avg2, half_block_size, 0, avarage_pix_2, offset2, tmp_error2);
-                    CALCULATE_ERR(scale_factor3, rb_x0, rb_y1, domain_avg2, half_block_size, 0, avarage_pix_3, offset3, tmp_error3);
-                    CALCULATE_ERR(scale_factor4, rb_x1, rb_y1, domain_avg2, half_block_size, 0, avarage_pix_4, offset4, tmp_error4);
-
-                    UPDATE_MIN_ERROR(x_1,y);
-
-                    CALCULATE_ERR(scale_factor1, rb_x0, rb_y0, domain_avg3, 0, half_block_size, avarage_pix_1, offset1, tmp_error1);
-                    CALCULATE_ERR(scale_factor2, rb_x1, rb_y0, domain_avg3, 0, half_block_size, avarage_pix_2, offset2, tmp_error2);
-                    CALCULATE_ERR(scale_factor3, rb_x0, rb_y1, domain_avg3, 0, half_block_size, avarage_pix_3, offset3, tmp_error3);
-                    CALCULATE_ERR(scale_factor4, rb_x1, rb_y1, domain_avg3, 0, half_block_size, avarage_pix_4, offset4, tmp_error4);
-
-                    UPDATE_MIN_ERROR(x,y_1);
-
-                    CALCULATE_ERR(scale_factor1, rb_x0, rb_y0, domain_avg4, half_block_size, half_block_size, avarage_pix_1, offset1, tmp_error1);
-                    CALCULATE_ERR(scale_factor2, rb_x1, rb_y0, domain_avg4, half_block_size, half_block_size, avarage_pix_2, offset2, tmp_error2);
-                    CALCULATE_ERR(scale_factor3, rb_x0, rb_y1, domain_avg4, half_block_size, half_block_size, avarage_pix_3, offset3, tmp_error3);
-                    CALCULATE_ERR(scale_factor4, rb_x1, rb_y1, domain_avg4, half_block_size, half_block_size, avarage_pix_4, offset4, tmp_error4);
-
-                    UPDATE_MIN_ERROR(x_1,y_1);
+                    switch (transformation_type){
+                    case SYM_NONE:
+                        CALCULATE_MIN(x,y,
+                                      x_1,y,
+                                      x,y_1,
+                                      x_1,y_1);
+                        break;
+                    case SYM_R90:
+                        CALCULATE_MIN(x,y_1,
+                                      x,y,
+                                      x_1,y_1,
+                                      x_1,y);
+                        break;
+                    case SYM_R180:
+                        CALCULATE_MIN(x_1,y_1,
+                                      x,y_1,
+                                      x_1,y,
+                                      x,y);
+                        break;
+                    case SYM_R270:
+                        CALCULATE_MIN(x_1,y,
+                                      x_1,y_1,
+                                      x,y,
+                                      x,y_1);
+                        break;
+                    case SYM_HFLIP:
+                        CALCULATE_MIN(x_1,y,
+                                      x_1,y_1,
+                                      x,y,
+                                      x,y_1);
+                        break;
+                    case SYM_VFLIP:
+                        CALCULATE_MIN(x,y_1,
+                                      x_1,y_1,
+                                      x,y,
+                                      x_1,y);
+                        break;
+                    case SYM_FDFLIP:
+                        CALCULATE_MIN(x_1,y_1,
+                                      x_1,y,
+                                      x,y_1,
+                                      x,y);
+                        break;
+                    case SYM_RDFLIP:
+                        CALCULATE_MIN(x,y,
+                                      x,y_1,
+                                      x_1,y,
+                                      x_1,y_1);
+                        break;
+                    }
                 }
             }
         }
@@ -427,6 +492,8 @@ ERR_RET qtree_encode(struct Transforms* transformations, struct image_data* src,
     }
 
     MAX_BUFFER_SIZE=width/32;
+    if(MAX_BUFFER_SIZE<16)
+           MAX_BUFFER_SIZE=16;
     MIN_BUFFER_SIZE=MAX_BUFFER_SIZE/4;
     buffer=malloc(MAX_BUFFER_SIZE*MAX_BUFFER_SIZE*sizeof(pixel_value));
     transformations->max_block_size=MAX_BUFFER_SIZE;
