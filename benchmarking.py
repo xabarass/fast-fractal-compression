@@ -109,6 +109,10 @@ def get_test_images(relative_img_dir):
     except FileNotFoundError:
         raise Exception("Image folder doesn't have ops.json file!")
 
+    initialized_flag=os.path.join(os.getcwd(), relative_img_dir, "initialized.txt")
+    if not os.path.exists(initialized_flag):
+        raise Exception("Images are not initialized! Please run resize.sh script from test_images/benchmark to create bmp images of required size")
+
     img_dir=os.path.join(os.getcwd(), relative_img_dir)
     test_images=[]
     for ti in data["test_images"]:

@@ -5,7 +5,8 @@
 *.so
 *.autosave
 src/GitVersion.cpp
-
+test_images/benchmark/initialized.txt
+test_images/benchmark/*.bmp
 
 CMakeFiles/
 CMakeCache.txt
