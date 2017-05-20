@@ -386,12 +386,10 @@ ERR_RET find_matches_for(struct image_data* img, struct ifs_transformation_list*
     }
 
     if(found_match0){
-//        printf("Adding transformation: rb: %d %d to %d %d size: %d error: %g\n", rb_x0, rb_y0, best_ifs_0.from_x, best_ifs_0.from_y, block_size, error_0);
         ifs_trans_push_back(transformations, &best_ifs_0);
     }else if(block_size>(2*MIN_BUFFER_SIZE)){
         u_int32_t quater_block_size=half_block_size/2;
         if(error_1<threshold){
-//            printf("Adding transformation: rb: %d %d to %d %d size: %d error: %g\n", rb_x0, rb_y0, best_ifs_1.from_x, best_ifs_1.from_y, half_block_size, error_1);
             ifs_trans_push_back(transformations, &best_ifs_1);
         }else{
             find_matches_for(img, transformations, rb_x0, rb_y0, quater_block_size, threshold);
@@ -401,7 +399,6 @@ ERR_RET find_matches_for(struct image_data* img, struct ifs_transformation_list*
         }
 
         if(error_2<threshold){
-//            printf("Adding transformation: rb: %d %d to %d %d size: %d error: %g\n", rb_x1, rb_y0, best_ifs_2.from_x, best_ifs_2.from_y, half_block_size, error_2);
             ifs_trans_push_back(transformations, &best_ifs_2);
         }else{
             find_matches_for(img, transformations, rb_x1, rb_y0, quater_block_size, threshold);
@@ -411,7 +408,6 @@ ERR_RET find_matches_for(struct image_data* img, struct ifs_transformation_list*
         }
 
         if(error_3<threshold){
-//            printf("Adding transformation: rb: %d %d to %d %d size: %d error: %g\n", rb_x0, rb_y1, best_ifs_3.from_x, best_ifs_3.from_y, half_block_size, error_3);
             ifs_trans_push_back(transformations, &best_ifs_3);
         }else{
             find_matches_for(img, transformations, rb_x0, rb_y1, quater_block_size, threshold);
@@ -421,7 +417,6 @@ ERR_RET find_matches_for(struct image_data* img, struct ifs_transformation_list*
         }
 
         if(error_4<threshold){
-//            printf("Adding transformation: rb: %d %d to %d %d size: %d error: %g\n", rb_x1, rb_y1, best_ifs_4.from_x, best_ifs_4.from_y, half_block_size, error_4);
             ifs_trans_push_back(transformations, &best_ifs_4);
         }else{
             find_matches_for(img, transformations, rb_x1, rb_y1, quater_block_size, threshold);
@@ -430,12 +425,6 @@ ERR_RET find_matches_for(struct image_data* img, struct ifs_transformation_list*
             find_matches_for(img, transformations, rb_x1+quater_block_size, rb_y1+quater_block_size, quater_block_size, threshold);
         }
     }else if(block_size==MIN_BUFFER_SIZE){
-//        printf("We have min block size\n");
-//        printf("Adding transformation: rb: %d %d to %d %d size: %d error: %g\n", rb_x0, rb_y0, best_ifs_1.from_x, best_ifs_1.from_y, half_block_size, error_1);
-//        printf("Adding transformation: rb: %d %d to %d %d size: %d error: %g\n", rb_x1, rb_y0, best_ifs_2.from_x, best_ifs_2.from_y, half_block_size, error_2);
-//        printf("Adding transformation: rb: %d %d to %d %d size: %d error: %g\n", rb_x0, rb_y1, best_ifs_3.from_x, best_ifs_3.from_y, half_block_size, error_3);
-//        printf("Adding transformation: rb: %d %d to %d %d size: %d error: %g\n", rb_x1, rb_y1, best_ifs_4.from_x, best_ifs_4.from_y, half_block_size, error_4);
-
         ifs_trans_push_back(transformations, &best_ifs_1);
         ifs_trans_push_back(transformations, &best_ifs_2);
         ifs_trans_push_back(transformations, &best_ifs_3);
