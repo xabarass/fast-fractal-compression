@@ -19,7 +19,7 @@ enum ifs_type
     SYM_VFLIP=5,
     SYM_FDFLIP=6,
     SYM_RDFLIP=7,
-    SYM_MAX=8
+    SYM_MAX
 };
 
 struct ifs_transformation{

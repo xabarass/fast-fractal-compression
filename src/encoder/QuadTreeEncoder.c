@@ -6,15 +6,6 @@ static pixel_value* buffer;
 static size_t MAX_BUFFER_SIZE;
 static size_t MIN_BUFFER_SIZE;
 
-void print_block(pixel_value* data, u_int32_t width, u_int32_t x, u_int32_t y, u_int32_t block_size){
-    for(int i=y;i<y+block_size;++i){
-        for(int j=x;j<x+block_size;++j){
-            printf("%03d ",data[i*width+j]);
-        }
-        printf("\n");
-    }
-}
-
 static
 inline
 ERR_RET ifs_transformation_execute_downsampled(int from_x, int from_y, enum ifs_type symmetry,
@@ -195,71 +186,57 @@ inline double get_scale_factor(
 #define CALCULATE_ERR(SC, DM_X, DM_Y, DM_AVG, RB_X, RB_Y, RB_AVG, OFFSET, ERROR)\
     SC=get_scale_factor(img->image_channels[0], img->width, DM_X, DM_Y, DM_AVG,\
             buffer, block_size, RB_X, RB_Y, RB_AVG, half_block_size);\
-    \
-\
     OFFSET = (int)(RB_AVG - SC * (double)DM_AVG);\
 \
     ERROR=get_error(buffer, block_size, RB_X, RB_Y, DM_AVG, img->image_channels[0],\
             img->width, DM_X, DM_Y, RB_AVG,\
             half_block_size, SC);
 
-/*
-printf("getting scaling factor: [%d, %d] avg: %d bs: %d WITH: [%d, %d] avg: %d bs: %d sf: %g\n",\
-                    DM_X, DM_Y, DM_AVG, block_size, RB_X, RB_Y, RB_AVG, half_block_size, SC);\
-
-    printf("\tComparing block: rb: %d %d to %d %d size: %d error: %g\n", rb_x0, rb_y0, DM_X, DM_Y, half_block_size, tmp_error1);\
-    printf("\tComparing block: rb: %d %d to %d %d size: %d error: %g\n", rb_x1, rb_y0, DM_X, DM_Y, half_block_size, tmp_error2);\
-    printf("\tComparing block: rb: %d %d to %d %d size: %d error: %g\n", rb_x0, rb_y1, DM_X, DM_Y, half_block_size, tmp_error3);\
-    printf("\tComparing block: rb: %d %d to %d %d size: %d error: %g\n", rb_x1, rb_y1, DM_X, DM_Y, half_block_size, tmp_error4);\
-    */
 
 #define UPDATE_MIN_ERROR(DM_X, DM_Y)\
 if(tmp_error1<error_1){\
     ASSIGN_IFS_VALUES(best_ifs_1, DM_X, DM_Y, rb_x0, rb_y0, transformation_type, scale_factor1, offset1, half_block_size);\
     error_1=tmp_error1;\
 }\
-\
 if(tmp_error2<error_2){\
     ASSIGN_IFS_VALUES(best_ifs_2, DM_X, DM_Y, rb_x1, rb_y0, transformation_type, scale_factor2, offset2, half_block_size);\
     error_2=tmp_error2;\
 }\
-\
 if(tmp_error3<error_3){\
     ASSIGN_IFS_VALUES(best_ifs_3, DM_X, DM_Y, rb_x0, rb_y1, transformation_type, scale_factor3, offset3, half_block_size);\
     error_3=tmp_error3;\
 }\
-\
 if(tmp_error4<error_4){\
     ASSIGN_IFS_VALUES(best_ifs_4, DM_X, DM_Y, rb_x1, rb_y1, transformation_type, scale_factor4, offset4, half_block_size);\
     error_4=tmp_error4;\
 }\
 
-#define CALCULATE_MIN(X_1, Y_1, X_2, Y_2, X_3, Y_3, X_4, Y_4)\
-    CALCULATE_ERR(scale_factor1, rb_x0, rb_y0, domain_avg1, 0, 0, avarage_pix_1, offset1, tmp_error1);\
-    CALCULATE_ERR(scale_factor2, rb_x1, rb_y0, domain_avg1, 0, 0, avarage_pix_2, offset2, tmp_error2);\
-    CALCULATE_ERR(scale_factor3, rb_x0, rb_y1, domain_avg1, 0, 0, avarage_pix_3, offset3, tmp_error3);\
-    CALCULATE_ERR(scale_factor4, rb_x1, rb_y1, domain_avg1, 0, 0, avarage_pix_4, offset4, tmp_error4);\
+#define CALCULATE_MIN(X_1, Y_1, AVG_1, X_2, Y_2, AVG_2, X_3, Y_3, AVG_3, X_4, Y_4, AVG_4)\
+    CALCULATE_ERR(scale_factor1, rb_x0, rb_y0, AVG_1, 0, 0, avarage_pix_1, offset1, tmp_error1);\
+    CALCULATE_ERR(scale_factor2, rb_x1, rb_y0, AVG_1, 0, 0, avarage_pix_2, offset2, tmp_error2);\
+    CALCULATE_ERR(scale_factor3, rb_x0, rb_y1, AVG_1, 0, 0, avarage_pix_3, offset3, tmp_error3);\
+    CALCULATE_ERR(scale_factor4, rb_x1, rb_y1, AVG_1, 0, 0, avarage_pix_4, offset4, tmp_error4);\
 \
     UPDATE_MIN_ERROR(X_1,Y_1);\
 \
-    CALCULATE_ERR(scale_factor1, rb_x0, rb_y0, domain_avg2, half_block_size, 0, avarage_pix_1, offset1, tmp_error1);\
-    CALCULATE_ERR(scale_factor2, rb_x1, rb_y0, domain_avg2, half_block_size, 0, avarage_pix_2, offset2, tmp_error2);\
-    CALCULATE_ERR(scale_factor3, rb_x0, rb_y1, domain_avg2, half_block_size, 0, avarage_pix_3, offset3, tmp_error3);\
-    CALCULATE_ERR(scale_factor4, rb_x1, rb_y1, domain_avg2, half_block_size, 0, avarage_pix_4, offset4, tmp_error4);\
+    CALCULATE_ERR(scale_factor1, rb_x0, rb_y0, AVG_2, half_block_size, 0, avarage_pix_1, offset1, tmp_error1);\
+    CALCULATE_ERR(scale_factor2, rb_x1, rb_y0, AVG_2, half_block_size, 0, avarage_pix_2, offset2, tmp_error2);\
+    CALCULATE_ERR(scale_factor3, rb_x0, rb_y1, AVG_2, half_block_size, 0, avarage_pix_3, offset3, tmp_error3);\
+    CALCULATE_ERR(scale_factor4, rb_x1, rb_y1, AVG_2, half_block_size, 0, avarage_pix_4, offset4, tmp_error4);\
 \
     UPDATE_MIN_ERROR(X_2,Y_2);\
 \
-    CALCULATE_ERR(scale_factor1, rb_x0, rb_y0, domain_avg3, 0, half_block_size, avarage_pix_1, offset1, tmp_error1);\
-    CALCULATE_ERR(scale_factor2, rb_x1, rb_y0, domain_avg3, 0, half_block_size, avarage_pix_2, offset2, tmp_error2);\
-    CALCULATE_ERR(scale_factor3, rb_x0, rb_y1, domain_avg3, 0, half_block_size, avarage_pix_3, offset3, tmp_error3);\
-    CALCULATE_ERR(scale_factor4, rb_x1, rb_y1, domain_avg3, 0, half_block_size, avarage_pix_4, offset4, tmp_error4);\
+    CALCULATE_ERR(scale_factor1, rb_x0, rb_y0, AVG_3, 0, half_block_size, avarage_pix_1, offset1, tmp_error1);\
+    CALCULATE_ERR(scale_factor2, rb_x1, rb_y0, AVG_3, 0, half_block_size, avarage_pix_2, offset2, tmp_error2);\
+    CALCULATE_ERR(scale_factor3, rb_x0, rb_y1, AVG_3, 0, half_block_size, avarage_pix_3, offset3, tmp_error3);\
+    CALCULATE_ERR(scale_factor4, rb_x1, rb_y1, AVG_3, 0, half_block_size, avarage_pix_4, offset4, tmp_error4);\
 \
     UPDATE_MIN_ERROR(X_3,Y_3);\
 \
-    CALCULATE_ERR(scale_factor1, rb_x0, rb_y0, domain_avg4, half_block_size, half_block_size, avarage_pix_1, offset1, tmp_error1);\
-    CALCULATE_ERR(scale_factor2, rb_x1, rb_y0, domain_avg4, half_block_size, half_block_size, avarage_pix_2, offset2, tmp_error2);\
-    CALCULATE_ERR(scale_factor3, rb_x0, rb_y1, domain_avg4, half_block_size, half_block_size, avarage_pix_3, offset3, tmp_error3);\
-    CALCULATE_ERR(scale_factor4, rb_x1, rb_y1, domain_avg4, half_block_size, half_block_size, avarage_pix_4, offset4, tmp_error4);\
+    CALCULATE_ERR(scale_factor1, rb_x0, rb_y0, AVG_4, half_block_size, half_block_size, avarage_pix_1, offset1, tmp_error1);\
+    CALCULATE_ERR(scale_factor2, rb_x1, rb_y0, AVG_4, half_block_size, half_block_size, avarage_pix_2, offset2, tmp_error2);\
+    CALCULATE_ERR(scale_factor3, rb_x0, rb_y1, AVG_4, half_block_size, half_block_size, avarage_pix_3, offset3, tmp_error3);\
+    CALCULATE_ERR(scale_factor4, rb_x1, rb_y1, AVG_4, half_block_size, half_block_size, avarage_pix_4, offset4, tmp_error4);\
 \
     UPDATE_MIN_ERROR(X_4,Y_4);\
 
@@ -267,7 +244,6 @@ if(tmp_error4<error_4){\
 static inline
 ERR_RET find_matches_for(struct image_data* img, struct ifs_transformation_list* transformations,
                          u_int32_t rb_x0, u_int32_t rb_y0, u_int32_t block_size, u_int32_t threshold){
-//    printf("Find matches for, with block size: %d\n", block_size);
     u_int32_t half_block_size=block_size/2;
     u_int32_t double_block_size=block_size*2;
     u_int32_t rb_x1=rb_x0+half_block_size;
@@ -339,8 +315,6 @@ ERR_RET find_matches_for(struct image_data* img, struct ifs_transformation_list*
                         img->width, rb_x0, rb_y0, avarage_pix_0,
                         block_size, scale_factor);
 
-//                printf("\tComparing first block: rb: %d %d to %d %d size: %d error: %g\n", rb_x0, rb_y0, x, y, block_size, error);
-
                 if(error<error_0){
                     ASSIGN_IFS_VALUES(best_ifs_0, x, y, rb_x0, rb_y0, transformation_type, scale_factor, offset, block_size);
 
@@ -358,52 +332,52 @@ ERR_RET find_matches_for(struct image_data* img, struct ifs_transformation_list*
 
                     switch (transformation_type){
                     case SYM_NONE:
-                        CALCULATE_MIN(x,y,
-                                      x_1,y,
-                                      x,y_1,
-                                      x_1,y_1);
+                        CALCULATE_MIN(x,y, domain_avg1,
+                                      x_1,y, domain_avg2,
+                                      x,y_1, domain_avg3,
+                                      x_1,y_1, domain_avg4);
                         break;
                     case SYM_R90:
-                        CALCULATE_MIN(x,y_1,
-                                      x,y,
-                                      x_1,y_1,
-                                      x_1,y);
+                        CALCULATE_MIN(x,y_1, domain_avg3,
+                                      x,y, domain_avg1,
+                                      x_1,y_1, domain_avg4,
+                                      x_1,y, domain_avg2);
                         break;
                     case SYM_R180:
-                        CALCULATE_MIN(x_1,y_1,
-                                      x,y_1,
-                                      x_1,y,
-                                      x,y);
+                        CALCULATE_MIN(x_1,y_1, domain_avg4,
+                                      x,y_1, domain_avg3,
+                                      x_1,y, domain_avg2,
+                                      x,y, domain_avg1);
                         break;
                     case SYM_R270:
-                        CALCULATE_MIN(x_1,y,
-                                      x_1,y_1,
-                                      x,y,
-                                      x,y_1);
+                        CALCULATE_MIN(x_1,y, domain_avg2,
+                                      x_1,y_1, domain_avg4,
+                                      x,y, domain_avg1,
+                                      x,y_1, domain_avg3);
                         break;
                     case SYM_HFLIP:
-                        CALCULATE_MIN(x_1,y,
-                                      x_1,y_1,
-                                      x,y,
-                                      x,y_1);
+                        CALCULATE_MIN(x_1,y, domain_avg2,
+                                      x,y, domain_avg1,
+                                      x_1,y_1, domain_avg4,
+                                      x,y_1, domain_avg3);
                         break;
                     case SYM_VFLIP:
-                        CALCULATE_MIN(x,y_1,
-                                      x_1,y_1,
-                                      x,y,
-                                      x_1,y);
+                        CALCULATE_MIN(x,y_1, domain_avg3,
+                                      x_1,y_1, domain_avg4,
+                                      x,y, domain_avg1,
+                                      x_1,y, domain_avg2);
                         break;
                     case SYM_FDFLIP:
-                        CALCULATE_MIN(x_1,y_1,
-                                      x_1,y,
-                                      x,y_1,
-                                      x,y);
+                        CALCULATE_MIN(x_1,y_1, domain_avg4,
+                                      x_1,y, domain_avg2,
+                                      x,y_1, domain_avg3,
+                                      x,y, domain_avg1);
                         break;
                     case SYM_RDFLIP:
-                        CALCULATE_MIN(x,y,
-                                      x,y_1,
-                                      x_1,y,
-                                      x_1,y_1);
+                        CALCULATE_MIN(x,y, domain_avg1,
+                                      x,y_1, domain_avg3,
+                                      x_1,y, domain_avg2,
+                                      x_1,y_1, domain_avg4);
                         break;
                     }
                 }
