@@ -11,8 +11,7 @@ do
     do
       echo "Processing $f file... $i"
       convert $f -resize ${SIZE}x${SIZE}^ tmp.bmp
-      #convert tmp.bmp -gravity center -extent ${SIZE}x${SIZE} ${i}_${SIZE}.bmp
-      convert tmp.bmp -gravity center -extent 256x256 ${i}_${SIZE}.bmp
+      convert tmp.bmp -gravity center -extent ${SIZE}x${SIZE} ${i}_${SIZE}.bmp
       ((i+=1))
     done
 done

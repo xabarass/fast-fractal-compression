@@ -16,6 +16,8 @@ import sys
 import pickle
 from shutil import copyfile
 
+LOG_FILE_NAME="ops.log"
+
 class Benchmark:
     def __init__(self, branch, bench_name):
         self.branch=branch
@@ -27,6 +29,11 @@ class Benchmark:
 
 re_perf=re.compile(
     r'#### PERFORMANCE RESULTS #####.Encode cycles: ([0-9]*).*?Decode cycles: ([0-9]*).*?No. of transformations: ([0-9]*).*?Image size: w: ([0-9]*) h: ([0-9]*).*?Compression ratio: ([0-9 .]*)',
+    re.M | re.DOTALL
+)
+
+re_op_count=re.compile(
+    r'### Performance count for (encoder|decoder).*?int add: (\d*).*?int mul: (\d*).*?fp add: (\d*).*?fp mul: (\d*).*?',
     re.M | re.DOTALL
 )
 
@@ -181,7 +188,13 @@ def run_tests(benchmarks, relative_img_dir):
             test_transformation.compare_image_diff(bench.branch, image.name)
 
             assert len(results)==1
-            image.results.append(BenchResult(bench.branch, results[0], image.enc_op_count, image.dec_op_count))
+            newResult=BenchResult(bench.branch, results[0], image.enc_op_count, image.dec_op_count)
+            print("Finished compressing image %s, total number of transformations: %s" %(image.name, newResult.transf_num))
+
+            op_counts=re_op_count.findall(output.decode("utf-8"))
+            log_op_count(op_counts, image.name, bench.branch, newResult.transf_num)
+
+            image.results.append(newResult)
 
     return test_images
 
@@ -221,15 +234,34 @@ def save_benchmark_cache(data, config_file):
     except FileNotFoundError:
         print("Cannot save data to config file!")
 
+def close_log_file():
+    LOG_FILE.close()
+
+def log_op_count(op_counts, image, branch, trans_number):
+    LOG_FILE.write("-----------\n");
+    LOG_FILE.write("> Image: %s from branch: %s has %s transformations\n" %(image, branch, trans_number));
+    if(len(op_counts)>=2):
+        LOG_FILE.write("> For encoding\n");
+        LOG_FILE.write("> Int add: %s  \n" %(op_counts[0][1]));
+        LOG_FILE.write("> Int mul: %s  \n" %(op_counts[0][2]));
+        LOG_FILE.write("> Fp add: %s  \n" %(op_counts[0][3]));
+        LOG_FILE.write("> Fp mul: %s  \n" %(op_counts[0][4]));
+
+        LOG_FILE.write("> For decoding\n");
+        LOG_FILE.write("> Int add: %s  \n" %(op_counts[1][1]));
+        LOG_FILE.write("> Int mul: %s  \n" %(op_counts[1][2]));
+        LOG_FILE.write("> Fp add: %s  \n" %(op_counts[1][3]));
+        LOG_FILE.write("> Fp mul: %s  \n" %(op_counts[1][4]));
 
 if len(sys.argv)<=1:
     print("You must provide name of a config file")
     exit(-1)
 
-
 CONFIG_FILE_NAME="cached_bench.p"
 
 test_image_data=None
+
+LOG_FILE = open(LOG_FILE_NAME, 'w')
 
 if sys.argv[1]=='-c':
     test_image_data=load_benchmarks_from_cache(CONFIG_FILE_NAME)
@@ -258,6 +290,10 @@ def create_performance_plot(branch_perf, test_image_data):
         y_label='performance'
     )
 
+
 plt=create_performance_plot(branch_perf,test_image_data)
 # plt=create_runtime_plot(branch_perf,test_image_data)
+
+close_log_file()
+
 plt.show()
