@@ -287,6 +287,10 @@ ERR_RET find_matches_for(struct image_data* img, struct ifs_transformation_list*
     int x_1;
     int y_1;
 
+    pixel_value* img_channels=img->image_channels[0];
+    pixel_value* img_channels_downsampled=img->image_channels[1];
+    int half_width=img->width/2;
+
     for(size_t y=0; y<img->height; y+=double_block_size)
     {
         for (size_t x=0; x<img->width; x+=double_block_size)
@@ -294,12 +298,12 @@ ERR_RET find_matches_for(struct image_data* img, struct ifs_transformation_list*
             int x_half=x/2;
             int y_half=y/2;
 
-            u_int32_t domain_avg0=get_average_pixel(img->image_channels[1], img->width/2, x_half, y_half, block_size);
+            u_int32_t domain_avg0=get_average_pixel(img_channels_downsampled, half_width, x_half, y_half, block_size);
 
-            u_int32_t domain_avg1=get_average_pixel(img->image_channels[1], img->width/2, x_half, y_half, half_block_size);
-            u_int32_t domain_avg2=get_average_pixel(img->image_channels[1], img->width/2, x_half+half_block_size, y_half, half_block_size);
-            u_int32_t domain_avg3=get_average_pixel(img->image_channels[1], img->width/2, x_half, y_half+half_block_size, half_block_size);
-            u_int32_t domain_avg4=get_average_pixel(img->image_channels[1], img->width/2, x_half+half_block_size, y_half+half_block_size, half_block_size);
+            u_int32_t domain_avg1=get_average_pixel(img_channels_downsampled, half_width, x_half, y_half, half_block_size);
+            u_int32_t domain_avg2=get_average_pixel(img_channels_downsampled, half_width, x_half+half_block_size, y_half, half_block_size);
+            u_int32_t domain_avg3=get_average_pixel(img_channels_downsampled, half_width, x_half, y_half+half_block_size, half_block_size);
+            u_int32_t domain_avg4=get_average_pixel(img_channels_downsampled, half_width, x_half+half_block_size, y_half+half_block_size, half_block_size);
 
             for(int transformation_type=0; transformation_type<SYM_MAX; ++transformation_type)
             {
