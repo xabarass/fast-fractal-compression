@@ -6,6 +6,7 @@
 #include <stdio.h>
 #include <stdint.h>
 #include <assert.h>
+#include "immintrin.h"
 
 typedef uint8_t u_int8_t;
 typedef uint32_t u_int32_t;
