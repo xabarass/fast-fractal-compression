@@ -25,6 +25,8 @@ ERR_RET init_image_data(struct image_data* img, uint32_t width, uint32_t height,
         return ERR_INVALID_ARGUMENT;
     }
 
+    static int FIX_BUFFER=80;
+
     img->width=width;
     img->height=height;
     img->channels=channels;
@@ -32,7 +34,8 @@ ERR_RET init_image_data(struct image_data* img, uint32_t width, uint32_t height,
     uint32_t size=width*height*channels;
 
     if(size){
-        pixel_value* buffer=malloc(size*sizeof(pixel_value));
+        INCREMENT_FLOP_COUNT(1, 0, 0, 0)
+        pixel_value* buffer=malloc(size*sizeof(pixel_value)+FIX_BUFFER);
         for(int i=0;i<channels;++i){
             img->image_channels[i]=buffer+(i*width*height);
         }
