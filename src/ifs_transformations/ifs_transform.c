@@ -3,65 +3,32 @@
 #define MODULE_NAME "ifsTransform"
 
 ERR_RET down_sample(pixel_value *src, int src_width, int start_x, int start_y, int target_size, pixel_value* sample) {
-
-    INCREMENT_FLOP_COUNT((target_size*target_size)*5, (target_size*target_size)*10,0,0);
-
-    uint32_t target_size2 = target_size*2;
-
-    if(target_size == 32) {
-        uint32_t dest_y = 0;
-        __m256i zeros = _mm256_set1_epi32(0);
-
-        for (int y = 0; y < target_size2; y += 2) {
-            uint32_t addr1 = (start_y + y) * src_width + start_x;
-            uint32_t addr2 = addr1 + src_width;
-
-            __m256i src1 = _mm256_loadu_si256(src + addr1);
-            __m256i src2 = _mm256_loadu_si256(src + addr2);
-
-            __m256i src1_1_16 = _mm256_unpacklo_epi8 (src1, zeros);
-            __m256i src1_2_16 = _mm256_unpackhi_epi8 (src1, zeros);
-
-            __m256i src2_1_16 = _mm256_unpacklo_epi8 (src2, zeros);
-            __m256i src2_2_16 = _mm256_unpackhi_epi8 (src2, zeros);
-
-            __m256i src12_lower  = _mm256_add_epi16 (src1_1_16, src2_1_16);
-            __m256i src12_higher = _mm256_add_epi16 (src1_2_16, src2_2_16);
-
-            __m256i src12_final = _mm256_hadd_epi16(src12_lower, src12_higher);
-
-            __m256i temp = _mm256_srli_epi16 (src12_final, 4);
-            __m256i temp1 = _mm256_packs_epi16 (temp, zeros);
-            __m256i ans = _mm256_permute4x64_epi64(temp1, 0b00100101);
-
-            __m256i mask = _mm256_set_epi32(0xFFFFFFFF, 0xFFFFFFFF, 0xFFFFFFFF, 0xFFFFFFFF, 0, 0, 0, 0);
-            _mm256_maskstore_epi32 (sample + dest_y*target_size , mask, ans);
-            dest_y++;
+    int dest_x = 0;
+    int dest_y = 0;
+    INCREMENT_FLOP_COUNT(2, 2, 0, 0)
+    int index_x = start_x + target_size * 2;
+    int index_y = start_y + target_size * 2;
+    for (int y = start_y; y < index_y; y += 2) {
+        INCREMENT_FLOP_COUNT(0, 2, 0, 0)
+        for (int x = start_x; x < index_x; x += 2) {
+            INCREMENT_FLOP_COUNT(3, 11, 0, 0)
+            // Perform simple 2x2 average
+            uint32_t pixel = 0;
+            int index_x = y * src_width + x;
+            int index_y = (y + 1) * src_width + x;
+//            printf("Down_Sample: y: %d x: %d src_width: %d\n", y, x, src_width);
+            pixel += src[index_x];
+            pixel += src[index_x + 1];
+            pixel += src[index_y];
+            pixel += src[index_y + 1];
+            pixel = pixel >> 2;
+            sample[dest_y * target_size + dest_x] = pixel;
+            dest_x++;
         }
-        return ERR_SUCCESS;
+        dest_y++;
+        dest_x = 0;
     }
-    else {
-        uint32_t dest_x = 0;
-        uint32_t dest_y = 0;
-
-        for (int y = 0; y < target_size2; y += 2) {
-            uint32_t addr1 = (start_y + y) * src_width + start_x;
-            uint32_t addr2 = addr1 + src_width;
-            for (int x = 0; x < target_size2; x += 2) {
-                uint32_t pixel = 0;
-                pixel += src[addr1 + x];
-                pixel += src[addr1 + x + 1];
-                pixel += src[addr2 + x];
-                pixel += src[addr2 + x + 1];
-                pixel /= 4;
-                sample[dest_y * target_size + dest_x] = pixel;
-                dest_x++;
-            }
-            dest_y++;
-            dest_x = 0;
-        }
-        return ERR_SUCCESS;
-    }
+    return ERR_SUCCESS;
 }
 
 ERR_RET ifs_trans_push_back(struct ifs_transformation_list* list, struct ifs_transformation* transformation){
