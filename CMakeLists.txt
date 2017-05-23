@@ -34,6 +34,13 @@ option(USE_VECTORIZE "Allow vectorization" OFF)
 
 option(GENERATE_FLOP_COUNT "Count number of flops, will slow down" OFF)
 
+IF (MY_COMPILER_OPTION STREQUAL "Intel")
+  MESSAGE(STATUS "** Compiling with Intel settings **")
+  SET(CMAKE_CXX_COMPILER "icpc")
+  SET(CMAKE_CXX_COMPILER "icc")
+  SET(CMAKE_CXX_FLAGS_RELEASE "-O3 -w")
+ENDIF ()
+
 set(PREDEFINED_CONFIGURATION "" CACHE STRING "Load predefined configuration")
 
 # ================================================================================
