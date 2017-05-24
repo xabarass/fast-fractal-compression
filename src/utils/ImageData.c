@@ -35,7 +35,7 @@ ERR_RET init_image_data(struct image_data* img, uint32_t width, uint32_t height,
 
     if(size){
         INCREMENT_FLOP_COUNT(1, 0, 0, 0)
-        pixel_value* buffer=malloc(size*sizeof(pixel_value)+FIX_BUFFER);
+        pixel_value* buffer=malloc(size*sizeof(pixel_value));
         for(int i=0;i<channels;++i){
             img->image_channels[i]=buffer+(i*width*height);
         }

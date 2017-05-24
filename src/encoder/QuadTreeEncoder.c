@@ -79,114 +79,99 @@ ERR_RET ifs_transformation_execute_downsampled(int from_x, int from_y, enum ifs_
 }
 
 static inline
-u_int32_t get_average_pixel(const pixel_value* domain_data, u_int32_t domain_width,
-    u_int32_t domain_x, u_int32_t domain_y, u_int32_t size)
+void get_average_pixel(const pixel_value* domain_data, uint32_t domain_width,
+                       uint32_t domain_x, uint32_t domain_y, uint32_t size, uint8_t* average_pixel)
 {
-    // Simple average of all pixels.
-    INCREMENT_FLOP_COUNT(size*size, size*size*2,0,0)
-
-    uint32_t bottom = size*size;
+    uint32_t blocksize = size/2;
     uint32_t top = 0;
-    uint32_t size_copy = size;
-
-    __m256i top1 = _mm256_set1_epi32(0);
-    __m256i top2 = _mm256_set1_epi32(0);
-    __m256i top3 = _mm256_set1_epi32(0);
-    __m256i top4 = _mm256_set1_epi32(0);
-    __m256i zeros = _mm256_set1_epi32(0);
-    __m256i mask64_1 = _mm256_set_epi64x(0, 0, 0, 0xFFFFFFFFFFFFFFFF);
-    __m256i mask64_2 = _mm256_set_epi64x(0, 0, 0xFFFFFFFFFFFFFFFF, 0xFFFFFFFFFFFFFFFF);
-
-    uint32_t curr = 0;
-    while(size >= 8) {
-        if(size >= 32) {
-            for(int y=0; y<size_copy; y++) {
-                uint32_t addr_domain = (domain_y+y)*domain_width + domain_x + curr;
-                //printf("HH %d %d\n", const1, const2);
-                __m256i domain_block = _mm256_loadu_si256(domain_data + addr_domain);
-
-                __m128i domain_block1 = _mm256_extracti128_si256(domain_block, 0);
-                __m128i domain_block2 = _mm256_extracti128_si256(domain_block, 1);
-
-                __m256i domain_temp1 = _mm256_cvtepu8_epi32(domain_block1);
-                __m128i domain_block1_hi = _mm_unpackhi_epi64(domain_block1, _mm_setzero_si128());
-                __m256i domain_temp2 = _mm256_cvtepu8_epi32(domain_block1_hi);
-                __m256i domain_temp3 = _mm256_cvtepu8_epi32(domain_block2);
-                __m128i domain_block2_hi = _mm_unpackhi_epi64(domain_block2, _mm_setzero_si128());
-                __m256i domain_temp4 = _mm256_cvtepu8_epi32(domain_block2_hi);
-
-                top1 = _mm256_add_epi32(top1, domain_temp1);
-                top2 = _mm256_add_epi32(top2, domain_temp2);
-                top3 = _mm256_add_epi32(top3, domain_temp3);
-                top4 = _mm256_add_epi32(top4, domain_temp4);
-
+    uint32_t bottom = size*size;
+    uint32_t mid_bottom = blocksize * blocksize;
+    uint8_t index = 0;
+    for(size_t i = 0; i < size; i += blocksize) {
+        for(size_t j = 0; j < size; j += blocksize) {
+            uint32_t temp_top = 0;
+            uint32_t blocksize_copy = blocksize;
+            __m256i top1 = _mm256_set1_epi32(0);
+            __m256i top2 = _mm256_set1_epi32(0);
+            __m256i top3 = _mm256_set1_epi32(0);
+            __m256i top4 = _mm256_set1_epi32(0);
+            __m256i zeros = _mm256_set1_epi32(0);
+            __m256i mask64_1 = _mm256_set_epi64x(0, 0, 0, 0xFFFFFFFFFFFFFFFF);
+            __m256i mask64_2 = _mm256_set_epi64x(0, 0, 0xFFFFFFFFFFFFFFFF, 0xFFFFFFFFFFFFFFFF);
+            uint32_t curr = 0;
+            while(blocksize_copy >= 8) {
+                if(blocksize_copy >= 32) {
+                    for(int y = i; y< i+blocksize; y++) {
+                        uint32_t addr_domain = (domain_y+y)*domain_width + domain_x + curr + j;
+                        __m256i domain_block = _mm256_loadu_si256(domain_data + addr_domain);
+                        __m128i domain_block1 = _mm256_extracti128_si256(domain_block, 0);
+                        __m128i domain_block2 = _mm256_extracti128_si256(domain_block, 1);
+                        __m256i domain_temp1 = _mm256_cvtepu8_epi32(domain_block1);
+                        __m128i domain_block1_hi = _mm_unpackhi_epi64(domain_block1, _mm_setzero_si128());
+                        __m256i domain_temp2 = _mm256_cvtepu8_epi32(domain_block1_hi);
+                        __m256i domain_temp3 = _mm256_cvtepu8_epi32(domain_block2);
+                        __m128i domain_block2_hi = _mm_unpackhi_epi64(domain_block2, _mm_setzero_si128());
+                        __m256i domain_temp4 = _mm256_cvtepu8_epi32(domain_block2_hi);
+                        top1 = _mm256_add_epi32(top1, domain_temp1);
+                        top2 = _mm256_add_epi32(top2, domain_temp2);
+                        top3 = _mm256_add_epi32(top3, domain_temp3);
+                        top4 = _mm256_add_epi32(top4, domain_temp4);
+                    }
+                    blocksize_copy -= 32;
+                    curr += 32;
+                }else if(blocksize_copy >= 16) {
+                    for (int y = i; y < i+blocksize; y++) {
+                        uint32_t const1 = (domain_y + y) * domain_width + domain_x + curr + j;
+                        __m256i domain_block = _mm256_maskload_epi64(domain_data + const1, mask64_2);
+                        __m128i domain_block1 = _mm256_castsi256_si128(domain_block);
+                        __m256i domain_temp1 = _mm256_cvtepu8_epi32(domain_block1);
+                        __m128i domain_block1_hi = _mm_unpackhi_epi64(domain_block1, _mm_setzero_si128());
+                        __m256i domain_temp2 = _mm256_cvtepu8_epi32(domain_block1_hi);
+                        top1 = _mm256_add_epi32(top1, domain_temp1);
+                        top2 = _mm256_add_epi32(top2, domain_temp2);
+                    }
+                    blocksize_copy -= 16;
+                    curr += 16;
+                }else if(blocksize_copy >= 8) {
+                    for(int y = i; y < i+blocksize; y++) {
+                        uint32_t const1 = (domain_y+y)*domain_width + domain_x+curr + j;
+                        __m256i domain_block = _mm256_maskload_epi64(domain_data + const1, mask64_1);
+                        __m128i domain_block1 = _mm256_castsi256_si128(domain_block);
+                        __m256i domain_temp1 = _mm256_cvtepu8_epi32(domain_block1);
+                        top1 = _mm256_add_epi32(top1, domain_temp1);
+                    }
+                    blocksize_copy -= 8;
+                    curr += 8;
+                }
             }
-            size = size - 32;
-            curr+=32;
-        }else if(size >= 16) {
-            for(int y=0; y<size_copy; y++) {
-                uint32_t const1 = (domain_y+y)*domain_width + domain_x +curr;
-                __m256i domain_block = _mm256_maskload_epi64(domain_data + const1, mask64_2);
-
-                __m128i domain_block1 = _mm256_castsi256_si128(domain_block);
-
-                __m256i domain_temp1 = _mm256_cvtepu8_epi32(domain_block1);
-                __m128i domain_block1_hi = _mm_unpackhi_epi64(domain_block1, _mm_setzero_si128());
-                __m256i domain_temp2 = _mm256_cvtepu8_epi32(domain_block1_hi);
-
-                top1 = _mm256_add_epi32(top1, domain_temp1);
-                top2 = _mm256_add_epi32(top2, domain_temp2);
-            }
-            size = size - 16;
-            curr+=16;
-        }else if(size >= 8) {
-            for(int y=0; y<size_copy; y++) {
-                uint32_t const1 = (domain_y+y)*domain_width + domain_x+curr;
-                __m256i domain_block = _mm256_maskload_epi64(domain_data + const1, mask64_1);
-
-                __m128i domain_block1 = _mm256_castsi256_si128(domain_block);
-                __m256i domain_temp1 = _mm256_cvtepu8_epi32(domain_block1);
-
-                top1 = _mm256_add_epi32(top1, domain_temp1);
-            }
-            size = size - 8;
-            curr+=8;
-        }
-    }
-
-    __m256i temp_top1 = _mm256_add_epi32(top1, top2);
-    __m256i temp_top3 = _mm256_add_epi32(top3, top4);
-
-    __m256i temp_top13 = _mm256_add_epi32(temp_top1, temp_top3);
-
-    // Bunch of hadd to get the final value
-
-    __m256i temp_t1 = _mm256_hadd_epi32(temp_top13, zeros);
-    __m256i temp_t2 = _mm256_hadd_epi32(temp_t1, zeros);
-
-    uint32_t array_top[8];
-
-    __m256i mask1 = _mm256_set_epi32(0xFFFFFFFF, 0xFFFFFFFF, 0xFFFFFFFF, 0xFFFFFFFF, 0xFFFFFFFF, 0xFFFFFFFF, 0xFFFFFFFF, 0xFFFFFFFF);
-
-    _mm256_maskstore_epi32(array_top, mask1, temp_t2);
-
-    top = array_top[0] + array_top[4];
-
-    for (size_t y = 0; y < size_copy; y++)
-    {
-        for (size_t x = 0; x < size; x++)
-        {
-            top += domain_data[(domain_y+y) * domain_width + domain_x + x +curr];
-
-            if (top < 0)
+            __m256i temp_top1 = _mm256_add_epi32(top1, top2);
+            __m256i temp_top3 = _mm256_add_epi32(top3, top4);
+            __m256i temp_top13 = _mm256_add_epi32(temp_top1, temp_top3);
+            // Bunch of hadd to get the final value
+            __m256i temp_t1 = _mm256_hadd_epi32(temp_top13, zeros);
+            __m256i temp_t2 = _mm256_hadd_epi32(temp_t1, zeros);
+            uint32_t array_top[8];
+            __m256i mask1 = _mm256_set_epi32(0xFFFFFFFF, 0xFFFFFFFF, 0xFFFFFFFF, 0xFFFFFFFF, 0xFFFFFFFF, 0xFFFFFFFF, 0xFFFFFFFF, 0xFFFFFFFF);
+            _mm256_maskstore_epi32(array_top, mask1, temp_t2);
+            temp_top = array_top[0] + array_top[4];
+            for (size_t y = i; y < i+blocksize; y++)
             {
-                printf("Error: Accumulator rolled over averaging pixels.\n");
-                return 0;
+                for (size_t x = 0; x < blocksize_copy; x++)
+                {
+                    temp_top += domain_data[(domain_y+y) * domain_width + domain_x + x + curr +j];
+                    if (temp_top < 0)
+                    {
+                        printf("Error: Accumulator rolled over averaging pixels.\n");
+                        return;
+                    }
+                }
             }
+            *(average_pixel+index) = temp_top/mid_bottom;
+            top += temp_top;
+            index++;
         }
     }
-
-    return top/bottom;
+    *(average_pixel+index) = top/bottom;
 }
 
 static inline
@@ -666,11 +651,14 @@ ERR_RET find_matches_for(struct image_data* img, struct ifs_transformation_list*
     u_int32_t rb_x1=rb_x0+half_block_size;
     u_int32_t rb_y1=rb_y0+half_block_size;
 
-    u_int32_t avarage_pix_0=get_average_pixel(img->image_channels[0], img->width, rb_x0, rb_y0, block_size);
-    u_int32_t avarage_pix_1=get_average_pixel(img->image_channels[0], img->width, rb_x0, rb_y0, half_block_size);
-    u_int32_t avarage_pix_2=get_average_pixel(img->image_channels[0], img->width, rb_x1, rb_y0, half_block_size);
-    u_int32_t avarage_pix_3=get_average_pixel(img->image_channels[0], img->width, rb_x0, rb_y1, half_block_size);
-    u_int32_t avarage_pix_4=get_average_pixel(img->image_channels[0], img->width, rb_x1, rb_y1, half_block_size);
+    static u_int8_t avg_pix_arr[5];
+
+    get_average_pixel(img->image_channels[0], img->width, rb_x0, rb_y0, block_size, avg_pix_arr);
+    u_int32_t avarage_pix_0=avg_pix_arr[4];
+    u_int32_t avarage_pix_1=avg_pix_arr[0];
+    u_int32_t avarage_pix_2=avg_pix_arr[1];
+    u_int32_t avarage_pix_3=avg_pix_arr[2];
+    u_int32_t avarage_pix_4=avg_pix_arr[3];
 
     bool found_match0=false;
 
@@ -715,12 +703,12 @@ ERR_RET find_matches_for(struct image_data* img, struct ifs_transformation_list*
             int x_half=x/2;
             int y_half=y/2;
 
-            u_int32_t domain_avg0=get_average_pixel(img_channels_downsampled, half_width, x_half, y_half, block_size);
-
-            u_int32_t domain_avg1=get_average_pixel(img_channels_downsampled, half_width, x_half, y_half, half_block_size);
-            u_int32_t domain_avg2=get_average_pixel(img_channels_downsampled, half_width, x_half+half_block_size, y_half, half_block_size);
-            u_int32_t domain_avg3=get_average_pixel(img_channels_downsampled, half_width, x_half, y_half+half_block_size, half_block_size);
-            u_int32_t domain_avg4=get_average_pixel(img_channels_downsampled, half_width, x_half+half_block_size, y_half+half_block_size, half_block_size);
+            get_average_pixel(img_channels_downsampled, half_width, x_half, y_half, block_size, avg_pix_arr);
+            u_int32_t domain_avg0=avg_pix_arr[4];
+            u_int32_t domain_avg1=avg_pix_arr[0];
+            u_int32_t domain_avg2=avg_pix_arr[1];
+            u_int32_t domain_avg3=avg_pix_arr[2];
+            u_int32_t domain_avg4=avg_pix_arr[3];
 
             for(int transformation_type=0; transformation_type<SYM_MAX; ++transformation_type)
             {
