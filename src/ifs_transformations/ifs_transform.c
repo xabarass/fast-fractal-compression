@@ -27,13 +27,13 @@ ERR_RET down_sample(pixel_value *src, int src_width, int start_x, int start_y, i
             __m256i src1 = _mm256_loadu_si256(src + addr1);
             __m256i src2 = _mm256_loadu_si256(src + addr2);
 
-            __m256i src1_1_16 = _mm256_srli_epi16(src1, 8);
+            __m256i src1_1_16 = _mm256_srli_epi16(src1, 10);
             __m256i src1_2_16 = _mm256_slli_epi16(src1, 8);
-            src1_2_16 = _mm256_srli_epi16(src1_2_16, 8);
+            src1_2_16 = _mm256_srli_epi16(src1_2_16, 10);
 
-            __m256i src2_1_16 = _mm256_srli_epi16(src2, 8);
+            __m256i src2_1_16 = _mm256_srli_epi16(src2, 10);
             __m256i src2_2_16 = _mm256_slli_epi16(src2, 8);
-            src2_2_16 = _mm256_srli_epi16(src2_2_16, 8);
+            src2_2_16 = _mm256_srli_epi16(src2_2_16, 10);
 
             INCREMENT_FLOP_COUNT(0, 16, 0, 0)
             __m256i sum0 = _mm256_add_epi16(src1_1_16, src1_2_16);
@@ -43,9 +43,6 @@ ERR_RET down_sample(pixel_value *src, int src_width, int start_x, int start_y, i
 
             INCREMENT_FLOP_COUNT(0, 16, 0, 0)
             __m256i sum_total = _mm256_add_epi16(sum0, sum1);
-
-
-            sum_total = _mm256_srli_epi16(sum_total, 2);
 
             __m256i temp1 = _mm256_packus_epi16(sum_total, zeros);
 
