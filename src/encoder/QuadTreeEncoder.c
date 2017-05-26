@@ -891,13 +891,11 @@ ERR_RET qtree_encode(struct Transforms* transformations, struct image_data* src,
     img.image_channels[1]=img.image_channels[0];
     transformations->channels=src->channels;
 
-    for (size_t channel=0; channel<src->channels; channel++){
-//        printf("Channel: %d ==================================\n", channel);
-        img.image_channels[0]=src->image_channels[channel];
-        down_sample(img.image_channels[0], width, 0,0, width/2, img.image_channels[1]);
-        transformations->ch[channel].head=NULL;
-        transformations->ch[channel].tail=NULL;
-        transformations->ch[channel].elements=0;
+    INCREMENT_FLOP_COUNT(0, channel_condition, 0, 0)
+
+    for (size_t channel = 0; channel < channel_condition; channel++){
+        img.image_channels[0] = src->image_channels[channel];
+        down_sample(img.image_channels[0], width, 0,0, width >> 1, img.image_channels[1]);
 
         if (channel >= 1 && params.use_ycbcr)
             threshold *= 2;

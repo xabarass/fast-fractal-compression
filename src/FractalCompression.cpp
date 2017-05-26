@@ -77,6 +77,8 @@ void test_ifs(){
     }
 }
 
+
+
 int main(int argc, char** argv){
 //    test_ifs();
 //    return 0;
@@ -135,7 +137,7 @@ int main(int argc, char** argv){
     img.Load();
     Encoder enc;
     Transforms transforms;
-
+    ifs_trans_init_transformations(&transforms, img.GetChannels());
     init_counting_flops();
     cycles_count_start ();
     enc.Encode(img, &transforms, threshold);
@@ -175,10 +177,10 @@ int main(int argc, char** argv){
     for (int channel = 0; channel < transforms.channels; channel++) {
         // Iterate over Transforms
         struct ifs_transformation_list iter = transforms.ch[channel];
-        struct ifs_transformation* temp = iter.head;
-        while(temp != NULL) {
+        struct ifs_transformation* temp = iter.array;
+        size_t elements=iter.elements;
+        for(int i=0;i<elements; ++i){
             print_transformation(*temp);
-            temp = temp->next;
         }
     }
 

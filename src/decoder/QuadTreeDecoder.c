@@ -19,12 +19,11 @@ void qtree_decode(struct Transforms* transforms, int height, int width, struct i
 
         // Iterate over Transforms
         struct ifs_transformation_list iter = transforms->ch[channel];
-        struct ifs_transformation* temp = iter.head;
-        while(temp != NULL) {
-            // print_transformation(*temp);
-            ifs_transformation_execute(temp, original_image, destination->width, original_image, destination->width, false, buffer);
-            // Print the destination image
-            temp = temp->next;
+        struct ifs_transformation* temp = iter.array;
+        size_t elements=iter.elements;
+        for(int i=0;i<elements; ++i){
+            ifs_transformation_execute(temp+i, original_image, destination->width, original_image, destination->width, false, buffer);
         }
+
     }
 }

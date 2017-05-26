@@ -39,8 +39,7 @@ struct ifs_transformation{
 };
 
 struct ifs_transformation_list{
-    struct ifs_transformation* head;
-    struct ifs_transformation* tail;
+    struct ifs_transformation* array;
     u_int32_t elements;
 };
 
@@ -55,6 +54,7 @@ struct Transforms {
     size_t max_block_size;
 };
 
+ERR_RET ifs_trans_init_transformations(struct Transforms* transforms, int number_of_channels);
 ERR_RET ifs_trans_push_back(struct ifs_transformation_list* list, struct ifs_transformation* transformation);
 ERR_RET ifs_transformation_execute(struct ifs_transformation* transformation, pixel_value* src, u_int32_t src_width,
                                    pixel_value* dest, u_int32_t dest_width, bool downsampled, pixel_value *buffer);

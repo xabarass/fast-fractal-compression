@@ -80,35 +80,35 @@ ERR_RET down_sample(pixel_value *src, int src_width, int start_x, int start_y, i
     return ERR_SUCCESS;
 }
 
+#define MAX_NUMBER_OF_TRANSFORMATIONS (1024+4096+16384+65536)
+static struct ifs_transformation CHANNELS[3][MAX_NUMBER_OF_TRANSFORMATIONS];
 
-ERR_RET ifs_trans_push_back(struct ifs_transformation_list *list, struct ifs_transformation *transformation) {
-    struct ifs_transformation *new_transformation = (struct ifs_transformation *) malloc(
-            sizeof(struct ifs_transformation));
-    memcpy(new_transformation, transformation, sizeof(struct ifs_transformation));
-    new_transformation->next = NULL;
-    if (list->head == NULL && list->tail == NULL) {
-        list->head = new_transformation;
-        list->tail = new_transformation;
-    } else {
-        assert(list->tail != NULL);
-        list->tail->next = new_transformation;
-        list->tail = new_transformation;
+ERR_RET ifs_trans_init_transformations(struct Transforms* transforms, int number_of_channels){
+    for(int i=0; i<number_of_channels;++i){
+        transforms->ch[i].array=CHANNELS[i];
+        transforms->ch[i].elements=0;
     }
-    list->elements++;
+
     return ERR_SUCCESS;
 }
 
-ERR_RET ifs_trans_clear_list(struct Transforms *transforms) {
-    for (int i = 0; i < transforms->channels; ++i) {
-        struct ifs_transformation_list *tr_list = transforms->ch + i;
-        while (tr_list->head != NULL) {
-            struct ifs_transformation *tmp = tr_list->head;
-            tr_list->head = tr_list->head->next;
-            free(tmp);
-        }
-        tr_list->tail = tr_list->head;
-        assert(tr_list->tail == NULL);
-    }
+ERR_RET ifs_trans_push_back(struct ifs_transformation_list* list, struct ifs_transformation* transformation){
+
+    INCREMENT_FLOP_COUNT(0, 1, 0, 0);
+
+    int element=list->elements++;
+    memcpy(list->array+element, transformation, sizeof(struct ifs_transformation));
+
+    return ERR_SUCCESS;
+}
+
+ERR_RET ifs_trans_clear_list(struct Transforms *transforms){
+//    INCREMENT_FLOP_COUNT(0, channels * 2, 0, 0);
+//    for(int i=0;i<transforms->channels;++i){
+//        struct ifs_transformation_list* tr_list=transforms->ch+i;
+//        free(tr_list->array);
+//        tr_list->elements=0;
+//    }
 
     return ERR_SUCCESS;
 }
