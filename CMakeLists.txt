@@ -23,7 +23,7 @@ set (CMAKE_RUNTIME_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/bin")
 # ================================================================================
 
 set(DEFAULT_FLAGS "-Wall -Wpedantic -Wno-cpp -Wno-variadic-macros")
-set(OPTIMIZATION_FLAGS  "-O3 -march=native")
+set(OPTIMIZATION_FLAGS  "-O3 -march=native  -ffast-math -funsafe-math-optimizations -ftree-vectorize -funroll-all-loops")
 set(DEBUG_FLAGS         "-O0 -g")
 
 # ================================================================================
