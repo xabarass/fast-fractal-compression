@@ -137,11 +137,13 @@ ERR_RET ifs_transformation_execute(struct ifs_transformation *transformation, pi
     }
 
     if (!isPositiveX(symmetry)) {
+        INCREMENT_FLOP_COUNT(0, 1, 0, 0)
         from_x += transformation->size - 1;
         d_x = -1;
     }
 
     if (!isPositiveY(symmetry)) {
+        INCREMENT_FLOP_COUNT(0, 1, 0, 0)
         from_y += transformation->size - 1;
         d_y = -1;
     }
