@@ -971,8 +971,9 @@ ERR_RET qtree_encode(struct Transforms* transformations, struct image_data* src,
     transformations->channels=src->channels;
 
     INCREMENT_FLOP_COUNT(0, channel_condition, 0, 0)
-
+    int channel_condition=src->channels;
     for (size_t channel = 0; channel < channel_condition; channel++){
+
         img.image_channels[0] = src->image_channels[channel];
         down_sample(img.image_channels[0], width, 0,0, width >> 1, img.image_channels[1]);
 
