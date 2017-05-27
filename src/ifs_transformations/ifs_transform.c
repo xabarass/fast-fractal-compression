@@ -94,7 +94,7 @@ ERR_RET ifs_trans_init_transformations(struct Transforms* transforms, int number
 
 ERR_RET ifs_trans_push_back(struct ifs_transformation_list* list, struct ifs_transformation* transformation){
 
-    INCREMENT_FLOP_COUNT(0, 1, 0, 0);
+    INCREMENT_FLOP_COUNT(0, 2, 0, 0);
 
     int element=list->elements++;
     memcpy(list->array+element, transformation, sizeof(struct ifs_transformation));
@@ -156,7 +156,9 @@ ERR_RET ifs_transformation_execute(struct ifs_transformation *transformation, pi
                          0)
     INCREMENT_FLOP_COUNT(transformation->size, 0, 0, 0)
     for (int to_y = transformation->to_y; to_y < (transformation->to_y + transformation->size); to_y++) {
+        INCREMENT_FLOP_COUNT(0, 1, 0, 0)
         for (int to_x = transformation->to_x; to_x < (transformation->to_x + transformation->size); to_x++) {
+            INCREMENT_FLOP_COUNT(2, 3, 0, 0)
             int pixel = src[from_y * src_width + from_x];
             pixel = (int) (scale * pixel) + offset;
 
@@ -164,15 +166,14 @@ ERR_RET ifs_transformation_execute(struct ifs_transformation *transformation, pi
                 pixel = 0;
             if (pixel > 255)
                 pixel = 255;
-
+            INCREMENT_FLOP_COUNT(1, 2, 0, 0)
             dest[to_y * dest_width + to_x] = pixel;
-
             if (in_order)
                 from_x += d_x;
             else
                 from_y += d_y;
         }
-
+        INCREMENT_FLOP_COUNT(0, 1, 0, 0)
         if (in_order) {
             from_x = start_x;
             from_y += d_y;

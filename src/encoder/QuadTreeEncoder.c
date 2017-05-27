@@ -214,6 +214,7 @@ double get_error(
     __m256i ran_avg = _mm256_set1_epi32(range_avg);
 
     double top = 0;
+    INCREMENT_FLOP_COUNT(0, 1, 0, 0)
     double bottom = (double)(size * size);
 
     uint32_t curr = 0;
@@ -779,6 +780,8 @@ ERR_RET find_matches_for(struct image_data* img, struct ifs_transformation_list*
     {
         for (size_t x=0; x<img->width; x+=double_block_size)
         {
+
+            INCREMENT_FLOP_COUNT(2, 0, 0, 0)
             int x_half=x/2;
             int y_half=y/2;
 
@@ -791,6 +794,7 @@ ERR_RET find_matches_for(struct image_data* img, struct ifs_transformation_list*
 
             for(int transformation_type=0; transformation_type<SYM_MAX; ++transformation_type)
             {
+                INCREMENT_FLOP_COUNT(2, 2, 0, 0)
                 ifs_transformation_execute_downsampled(x, y, transformation_type,
                                                     block_size, img->image_channels[1], img->width/2,
                                                     buffer, block_size);
@@ -815,6 +819,7 @@ ERR_RET find_matches_for(struct image_data* img, struct ifs_transformation_list*
 
                 // Smaller blocks
                 if(!found_match0){
+                    INCREMENT_FLOP_COUNT(0, 2, 0, 0)
                     x_1=x+block_size;
                     y_1=y+block_size;
 
@@ -876,10 +881,12 @@ ERR_RET find_matches_for(struct image_data* img, struct ifs_transformation_list*
     if(found_match0){
         ifs_trans_push_back(transformations, &best_ifs_0);
     }else if(block_size>(2*MIN_BUFFER_SIZE)){
+        INCREMENT_FLOP_COUNT(2, 0, 0, 0)
         u_int32_t quater_block_size=half_block_size/2;
         if(error_1<threshold){
             ifs_trans_push_back(transformations, &best_ifs_1);
         }else{
+            INCREMENT_FLOP_COUNT(0, 4, 0, 0)
             find_matches_for(img, transformations, rb_x0, rb_y0, quater_block_size, threshold);
             find_matches_for(img, transformations, rb_x0+quater_block_size, rb_y0, quater_block_size, threshold);
             find_matches_for(img, transformations, rb_x0, rb_y0+quater_block_size, quater_block_size, threshold);
@@ -889,6 +896,8 @@ ERR_RET find_matches_for(struct image_data* img, struct ifs_transformation_list*
         if(error_2<threshold){
             ifs_trans_push_back(transformations, &best_ifs_2);
         }else{
+            INCREMENT_FLOP_COUNT(0, 4, 0, 0)
+
             find_matches_for(img, transformations, rb_x1, rb_y0, quater_block_size, threshold);
             find_matches_for(img, transformations, rb_x1+quater_block_size, rb_y0, quater_block_size, threshold);
             find_matches_for(img, transformations, rb_x1, rb_y0+quater_block_size, quater_block_size, threshold);
@@ -898,6 +907,8 @@ ERR_RET find_matches_for(struct image_data* img, struct ifs_transformation_list*
         if(error_3<threshold){
             ifs_trans_push_back(transformations, &best_ifs_3);
         }else{
+            INCREMENT_FLOP_COUNT(0, 4, 0, 0)
+
             find_matches_for(img, transformations, rb_x0, rb_y1, quater_block_size, threshold);
             find_matches_for(img, transformations, rb_x0+quater_block_size, rb_y1, quater_block_size, threshold);
             find_matches_for(img, transformations, rb_x0, rb_y1+quater_block_size, quater_block_size, threshold);
@@ -907,6 +918,7 @@ ERR_RET find_matches_for(struct image_data* img, struct ifs_transformation_list*
         if(error_4<threshold){
             ifs_trans_push_back(transformations, &best_ifs_4);
         }else{
+            INCREMENT_FLOP_COUNT(0, 4, 0, 0)
             find_matches_for(img, transformations, rb_x1, rb_y1, quater_block_size, threshold);
             find_matches_for(img, transformations, rb_x1+quater_block_size, rb_y1, quater_block_size, threshold);
             find_matches_for(img, transformations, rb_x1, rb_y1+quater_block_size, quater_block_size, threshold);
@@ -942,6 +954,7 @@ ERR_RET qtree_encode(struct Transforms* transformations, struct image_data* src,
         return ERR_IMAGE_WRONG_SIZE;
     }
 
+    INCREMENT_FLOP_COUNT(4, 0, 0, 0)
     MAX_BUFFER_SIZE=width/32;
     if(MAX_BUFFER_SIZE<16)
            MAX_BUFFER_SIZE=16;
@@ -973,18 +986,26 @@ ERR_RET qtree_encode(struct Transforms* transformations, struct image_data* src,
     INCREMENT_FLOP_COUNT(0, channel_condition, 0, 0)
     int channel_condition=src->channels;
     for (size_t channel = 0; channel < channel_condition; channel++){
+        INCREMENT_FLOP_COUNT(0, 1, 0, 0)
 
         img.image_channels[0] = src->image_channels[channel];
         down_sample(img.image_channels[0], width, 0,0, width >> 1, img.image_channels[1]);
 
-        if (channel >= 1 && params.use_ycbcr)
+        if (channel >= 1 && params.use_ycbcr){
             threshold *= 2;
+            INCREMENT_FLOP_COUNT(1, 0, 0, 0)
+        }
+
 
         for (size_t y = 0; y < img.height; y += MAX_BUFFER_SIZE)
         {
+            INCREMENT_FLOP_COUNT(0, 1, 0, 0)
+
             for (size_t x = 0; x < img.width; x += MAX_BUFFER_SIZE)
             {
+                INCREMENT_FLOP_COUNT(0, 1, 0, 0)
                 find_matches_for(&img, transformations->ch+channel, x, y, MAX_BUFFER_SIZE, threshold);
+                INCREMENT_FLOP_COUNT(0, 1, 0, 0)
                 #ifdef DEBUG
                 printf(".");
                 #endif
@@ -994,8 +1015,10 @@ ERR_RET qtree_encode(struct Transforms* transformations, struct image_data* src,
             #endif
         }
 
-        if (channel >= 1 && params.use_ycbcr)
+        if (channel >= 1 && params.use_ycbcr){
+            INCREMENT_FLOP_COUNT(1, 0, 0, 0)
             threshold /= 2;
+        }
     }
 
     img.image_channels[0]=img.image_channels[1];
