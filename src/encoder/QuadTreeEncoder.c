@@ -39,6 +39,7 @@ ERR_RET ifs_transformation_execute_downsampled(int from_x, int from_y, enum ifs_
             symmetry == SYM_HFLIP ||
             symmetry == SYM_RDFLIP))
     {
+        INCREMENT_FLOP_COUNT(0, 2, 0, 0)
         from_y += size - 1;
         d_y = -1;
     }
@@ -46,14 +47,13 @@ ERR_RET ifs_transformation_execute_downsampled(int from_x, int from_y, enum ifs_
     int start_x = from_x;
     int start_y = from_y;
 
-    INCREMENT_FLOP_COUNT(2*size*size,
-                         4*size*size, size*size, 0)
-    INCREMENT_FLOP_COUNT(size,0,0,0)
 
     for (int to_y = 0; to_y < size; to_y++)
     {
+        INCREMENT_FLOP_COUNT(0, 1, 0, 0)
         for (int to_x = 0; to_x < size; to_x++)
         {
+            INCREMENT_FLOP_COUNT(2, 5, 0, 0)
             int pixel = src[from_y * src_width + from_x];
             dest[to_y * dest_width + to_x] = pixel;
 
@@ -63,6 +63,7 @@ ERR_RET ifs_transformation_execute_downsampled(int from_x, int from_y, enum ifs_
                 from_y += d_y;
         }
 
+        INCREMENT_FLOP_COUNT(0, 1, 0, 0)
         if (in_order)
         {
             from_x= start_x;
