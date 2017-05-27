@@ -292,6 +292,7 @@ double get_error(
             curr+=32;
         }else if(size >= 16) {
             for(int y=0; y<size; y++) {
+                INCREMENT_FLOP_COUNT(2, 5, 0, 0)
                 uint32_t const1 = (domain_y+y)*domain_width + domain_x +curr;
                 uint32_t const2 = (range_y+y)*range_width + range_x+curr;
 
