@@ -12,7 +12,7 @@ ERR_RET ifs_transformation_execute_downsampled(int from_x, int from_y, enum ifs_
                                     u_int32_t size, pixel_value* src, u_int32_t src_width,
                                     pixel_value* dest, u_int32_t dest_width){
 
-    INCREMENT_FLOP_COUNT(6, 0, 0, 0)
+    INCREMENT_FLOP_COUNT(2, 0, 0, 0)
 
     from_x = from_x / 2;
     from_y = from_y / 2;
@@ -30,6 +30,7 @@ ERR_RET ifs_transformation_execute_downsampled(int from_x, int from_y, enum ifs_
             symmetry == SYM_VFLIP ||
             symmetry == SYM_RDFLIP))
     {
+        INCREMENT_FLOP_COUNT(0, 2, 0, 0)
         from_x += size - 1;
         d_x = -1;
     }
@@ -53,7 +54,7 @@ ERR_RET ifs_transformation_execute_downsampled(int from_x, int from_y, enum ifs_
         INCREMENT_FLOP_COUNT(0, 1, 0, 0)
         for (int to_x = 0; to_x < size; to_x++)
         {
-            INCREMENT_FLOP_COUNT(2, 5, 0, 0)
+            INCREMENT_FLOP_COUNT(1, 5, 0, 0)
             int pixel = src[from_y * src_width + from_x];
             dest[to_y * dest_width + to_x] = pixel;
 
@@ -85,7 +86,7 @@ void get_average_pixel(const pixel_value* domain_data, uint32_t domain_width,
 {
     uint32_t blocksize = size/2;
     uint32_t top = 0;
-    INCREMENT_FLOP_COUNT(2, 0, 0, 0)
+    INCREMENT_FLOP_COUNT(3, 0, 0, 0)
     uint32_t mid_bottom = blocksize * blocksize;
     uint32_t bottom = size*size;
     uint8_t index = 0;
@@ -106,7 +107,7 @@ void get_average_pixel(const pixel_value* domain_data, uint32_t domain_width,
             while(blocksize_copy >= 8) {
                 if(blocksize_copy >= 32) {
                     for(int y = i; y< i+blocksize; y++) {
-                        INCREMENT_FLOP_COUNT(1, 5, 0, 0)
+                        INCREMENT_FLOP_COUNT(32, 6, 0, 0)
                         uint32_t addr_domain = (domain_y+y)*domain_width + domain_x + curr + j;
                         __m256i domain_block = _mm256_loadu_si256(domain_data + addr_domain);
                         __m128i domain_block1 = _mm256_extracti128_si256(domain_block, 0);
@@ -117,7 +118,6 @@ void get_average_pixel(const pixel_value* domain_data, uint32_t domain_width,
                         __m256i domain_temp3 = _mm256_cvtepu8_epi32(domain_block2);
                         __m128i domain_block2_hi = _mm_unpackhi_epi64(domain_block2, _mm_setzero_si128());
                         __m256i domain_temp4 = _mm256_cvtepu8_epi32(domain_block2_hi);
-                        INCREMENT_FLOP_COUNT(0, 4*8, 0, 0)
                         top1 = _mm256_add_epi32(top1, domain_temp1);
                         top2 = _mm256_add_epi32(top2, domain_temp2);
                         top3 = _mm256_add_epi32(top3, domain_temp3);
@@ -128,14 +128,13 @@ void get_average_pixel(const pixel_value* domain_data, uint32_t domain_width,
                     curr += 32;
                 }else if(blocksize_copy >= 16) {
                     for (int y = i; y < i+blocksize; y++) {
-                        INCREMENT_FLOP_COUNT(1, 5, 0, 0)
+                        INCREMENT_FLOP_COUNT(0, 22, 0, 0)
                         uint32_t const1 = (domain_y + y) * domain_width + domain_x + curr + j;
                         __m256i domain_block = _mm256_maskload_epi64(domain_data + const1, mask64_2);
                         __m128i domain_block1 = _mm256_castsi256_si128(domain_block);
                         __m256i domain_temp1 = _mm256_cvtepu8_epi32(domain_block1);
                         __m128i domain_block1_hi = _mm_unpackhi_epi64(domain_block1, _mm_setzero_si128());
                         __m256i domain_temp2 = _mm256_cvtepu8_epi32(domain_block1_hi);
-                        INCREMENT_FLOP_COUNT(0, 4*8, 0, 0)
                         top1 = _mm256_add_epi32(top1, domain_temp1);
                         top2 = _mm256_add_epi32(top2, domain_temp2);
                     }
@@ -144,12 +143,11 @@ void get_average_pixel(const pixel_value* domain_data, uint32_t domain_width,
                     curr += 16;
                 }else if(blocksize_copy >= 8) {
                     for(int y = i; y < i+blocksize; y++) {
-                        INCREMENT_FLOP_COUNT(1, 6, 0, 0)
+                        INCREMENT_FLOP_COUNT(8, 4, 0, 0)
                         uint32_t const1 = (domain_y+y)*domain_width + domain_x+curr + j;
                         __m256i domain_block = _mm256_maskload_epi64(domain_data + const1, mask64_1);
                         __m128i domain_block1 = _mm256_castsi256_si128(domain_block);
                         __m256i domain_temp1 = _mm256_cvtepu8_epi32(domain_block1);
-                        INCREMENT_FLOP_COUNT(0, 8, 0, 0)
                         top1 = _mm256_add_epi32(top1, domain_temp1);
                     }
                     INCREMENT_FLOP_COUNT(0, 2, 0, 0)
@@ -162,21 +160,21 @@ void get_average_pixel(const pixel_value* domain_data, uint32_t domain_width,
             __m256i temp_top3 = _mm256_add_epi32(top3, top4);
             __m256i temp_top13 = _mm256_add_epi32(temp_top1, temp_top3);
             // Bunch of hadd to get the final value
-            INCREMENT_FLOP_COUNT(0, 4, 0, 0)
+            INCREMENT_FLOP_COUNT(0, 8, 0, 0)
             __m256i temp_t1 = _mm256_hadd_epi32(temp_top13, zeros);
-            INCREMENT_FLOP_COUNT(0, 2, 0, 0)
+            INCREMENT_FLOP_COUNT(0, 8, 0, 0)
             __m256i temp_t2 = _mm256_hadd_epi32(temp_t1, zeros);
             uint32_t array_top[8];
             __m256i mask1 = _mm256_set_epi32(0xFFFFFFFF, 0xFFFFFFFF, 0xFFFFFFFF, 0xFFFFFFFF, 0xFFFFFFFF, 0xFFFFFFFF, 0xFFFFFFFF, 0xFFFFFFFF);
             _mm256_maskstore_epi32(array_top, mask1, temp_t2);
-            INCREMENT_FLOP_COUNT(0, 2, 0, 0)
+            INCREMENT_FLOP_COUNT(0, 1, 0, 0)
             temp_top = array_top[0] + array_top[4];
             for (size_t y = i; y < i+blocksize; y++)
             {
                 INCREMENT_FLOP_COUNT(0, 2, 0, 0)
                 for (size_t x = 0; x < blocksize_copy; x++)
                 {
-                    INCREMENT_FLOP_COUNT(1, 5, 0, 0)
+                    INCREMENT_FLOP_COUNT(1, 6, 0, 0)
                     temp_top += domain_data[(domain_y+y) * domain_width + domain_x + x + curr +j];
                     if (temp_top < 0)
                     {
@@ -185,7 +183,7 @@ void get_average_pixel(const pixel_value* domain_data, uint32_t domain_width,
                     }
                 }
             }
-            INCREMENT_FLOP_COUNT(0, 3, 0, 0)
+            INCREMENT_FLOP_COUNT(0, 4, 0, 0)
             *(average_pixel+index) = temp_top/mid_bottom;
             top += temp_top;
             index++;
@@ -225,7 +223,7 @@ double get_error(
     while(size >= 8) {
         if(size >= 32) {
             for(int y=0; y<size_copy; y++) {
-                INCREMENT_FLOP_COUNT(2, 9, 0, 0)
+                INCREMENT_FLOP_COUNT(0, 10, 0, 0)
                 uint32_t const1 = (domain_y+y)*domain_width + domain_x + curr;
                 uint32_t const2 = (range_y+y)*range_width + range_x + curr;
                 __m256i domain_block = _mm256_loadu_si256(domain_data + const1);
@@ -274,7 +272,6 @@ double get_error(
                 __m256 frange4 = _mm256_cvtepi32_ps(range4);
 
 
-
                 INCREMENT_FLOP_COUNT(0, 0, 8*4, 8*4)
                 __m256 diff1 = _mm256_fmsub_ps(scaling_factor, fdomain1, frange1);
                 __m256 diff2 = _mm256_fmsub_ps(scaling_factor, fdomain2, frange2);
@@ -310,6 +307,7 @@ double get_error(
                 __m128i range_block1_hi = _mm_unpackhi_epi64(range_block1, _mm_setzero_si128());
                 __m256i range_temp2 = _mm256_cvtepu8_epi32(range_block1_hi);
 
+                INCREMENT_FLOP_COUNT(16, 16, 0, 0)
                 __m256i domain1 = _mm256_sub_epi32(domain_temp1, dom_avg);
                 __m256i domain2 = _mm256_sub_epi32(domain_temp2, dom_avg);
 
@@ -347,7 +345,7 @@ double get_error(
 
                 __m256i domain_temp1 = _mm256_cvtepu8_epi32(domain_block1);
                 __m256i range_temp1 = _mm256_cvtepu8_epi32(range_block1);
-
+                INCREMENT_FLOP_COUNT(0, 0, 8*2, 0)
                 __m256i domain1 = _mm256_sub_epi32(domain_temp1, dom_avg);
                 __m256i range1 = _mm256_sub_epi32(range_temp1, ran_avg);
 
@@ -373,14 +371,14 @@ double get_error(
     __m256 temp_top2 = _mm256_add_ps(top3, top4);
     __m256 temp_top12 = _mm256_add_ps(temp_top1, temp_top2);
 
-    INCREMENT_FLOP_COUNT(0, 0, 0, 4)
+    INCREMENT_FLOP_COUNT(0, 0, 0, 8)
     __m256 temp = _mm256_hadd_ps(temp_top12, zeros);
-    INCREMENT_FLOP_COUNT(0, 0, 0, 2)
+    INCREMENT_FLOP_COUNT(0, 0, 0, 9)
     __m256 temp1 = _mm256_hadd_ps(temp, zeros);
 
     float top_temp[8];
     _mm256_store_ps(top_temp, temp1);
-    INCREMENT_FLOP_COUNT(0, 0, 0, 2)
+    INCREMENT_FLOP_COUNT(0, 0, 0, 3)
     top = (double) top_temp[0] + (double) top_temp[4];
 
     for (int y = 0; y < size_copy; y++)
@@ -437,7 +435,7 @@ double get_scale_factor(
     while(size >= 8) {
         if(size >= 32) {
             for(int y=0; y<size_copy; y++) {
-                INCREMENT_FLOP_COUNT(2, 5, 0, 0)
+                INCREMENT_FLOP_COUNT(3, 5, 0, 0)
                 uint32_t addr_domain = (domain_y+y)*domain_width + domain_x + curr;
                 uint32_t addr_range = (range_y+y)*range_width + range_x + curr;
 
@@ -508,6 +506,7 @@ double get_scale_factor(
                 bottom3 = _mm256_add_epi32(bottom3, denominator3);
                 bottom4 = _mm256_add_epi32(bottom4, denominator4);
             }
+            INCREMENT_FLOP_COUNT(0, 2, 0, 0)
             curr += 32;
             size -= 32;
         }else if(size>=16) {
@@ -606,13 +605,13 @@ double get_scale_factor(
 
     // Bunch of hadd to get the final value
 
-    INCREMENT_FLOP_COUNT(0, 4, 0, 0)
+    INCREMENT_FLOP_COUNT(0, 8, 0, 0)
     __m256i temp_t1 = _mm256_hadd_epi32(temp_top13, zeros);
-    INCREMENT_FLOP_COUNT(0, 4, 0, 0)
+    INCREMENT_FLOP_COUNT(0, 8, 0, 0)
     __m256i temp_b1 = _mm256_hadd_epi32(temp_bottom13, zeros);
-    INCREMENT_FLOP_COUNT(0, 2, 0, 0)
+    INCREMENT_FLOP_COUNT(0, 8, 0, 0)
     __m256i temp_t2 = _mm256_hadd_epi32(temp_t1, zeros);
-    INCREMENT_FLOP_COUNT(0, 2, 0, 0)
+    INCREMENT_FLOP_COUNT(0, 8, 0, 0)
     __m256i temp_b2 = _mm256_hadd_epi32(temp_b1, zeros);
 
     int array_top[8];
@@ -622,7 +621,7 @@ double get_scale_factor(
     _mm256_maskstore_epi32(array_bottom, mask1, temp_b2);
 
 
-    INCREMENT_FLOP_COUNT(0, 2, 0, 0)
+    INCREMENT_FLOP_COUNT(0, 5, 0, 0)
     top = array_top[0] + array_top[4];
     bottom = array_bottom[0] + array_bottom[4];
 
@@ -668,6 +667,7 @@ double get_scale_factor(
     DST.size=SIZE;
 
 #define CALCULATE_ERR(SC, DM_X, DM_Y, DM_AVG, RB_X, RB_Y, RB_AVG, OFFSET, ERROR)\
+    INCREMENT_FLOP_COUNT(2, 0, 0, 0)\
     SC=get_scale_factor(img->image_channels[0], img->width, DM_X, DM_Y, DM_AVG,\
             buffer, block_size, RB_X, RB_Y, RB_AVG, half_block_size);\
     OFFSET = (int)(RB_AVG - SC * (double)DM_AVG);\
@@ -728,6 +728,7 @@ if(tmp_error4<error_4){\
 static inline
 ERR_RET find_matches_for(struct image_data* img, struct ifs_transformation_list* transformations,
                          u_int32_t rb_x0, u_int32_t rb_y0, u_int32_t block_size, u_int32_t threshold){
+    INCREMENT_FLOP_COUNT(0, 5, 0, 0)
     u_int32_t half_block_size=block_size/2;
     u_int32_t double_block_size=block_size*2;
     u_int32_t rb_x1=rb_x0+half_block_size;
@@ -780,10 +781,11 @@ ERR_RET find_matches_for(struct image_data* img, struct ifs_transformation_list*
 
     for(size_t y=0; y<img->height; y+=double_block_size)
     {
+        INCREMENT_FLOP_COUNT(0, 1, 0, 0)
         for (size_t x=0; x<img->width; x+=double_block_size)
         {
 
-            INCREMENT_FLOP_COUNT(2, 0, 0, 0)
+            INCREMENT_FLOP_COUNT(3, 0, 0, 0)
             int x_half=x/2;
             int y_half=y/2;
 
