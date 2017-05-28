@@ -33,6 +33,7 @@ option(USE_FMA "Enable FMA instructions" OFF)
 option(USE_VECTORIZE "Allow vectorization" OFF)
 
 option(GENERATE_FLOP_COUNT "Count number of flops, will slow down" OFF)
+option(COUNT_DETAIL_RUNTIME "Count number of cycles for each function" OFF)
 
 IF (MY_COMPILER_OPTION STREQUAL "Intel")
   MESSAGE(STATUS "** Compiling with Intel settings **")
@@ -77,5 +78,11 @@ IF(GENERATE_FLOP_COUNT)
     message("Counting operations, will slow down execution")
     add_definitions(-DCOUNT_FLOPS=1)
 ENDIF(GENERATE_FLOP_COUNT)
+
+IF(COUNT_DETAIL_RUNTIME)
+    message("Counting detailed function cycles")
+    add_definitions(-DCOUNT_DETAIL_CYCLES=1)
+ENDIF(COUNT_DETAIL_RUNTIME)
+
 
 add_subdirectory(src)

@@ -7,6 +7,7 @@
 #include <stdint.h>
 #include <assert.h>
 #include "immintrin.h"
+#include <include/perf.h>
 
 typedef uint8_t u_int8_t;
 typedef uint32_t u_int32_t;
@@ -28,6 +29,29 @@ typedef uint32_t u_int32_t;
 
 #else
     #define INCREMENT_FLOP_COUNT(_int_mul, _int_add, fp_mul, fp_add)
+#endif
+
+
+#ifdef COUNT_DETAIL_CYCLES
+    struct global_function_cycle_count{
+        size_t get_average_pixel_cycles;
+        size_t get_error_cycles;
+        size_t get_scale_factor_cycles;
+        size_t down_sample_cycles;
+        size_t ifs_transformation_execute_cycles;
+    };
+
+    extern struct global_function_cycle_count __COUNT_DETAIL_CYCLES;
+
+
+    #define INCREMENT_CYCLE_COUNT(_get_average_pixel_cycles, _get_error_cycles, _get_scale_factor_cycles, _down_sample_cycles, _ifs_transformation_execute_cycles) __COUNT_DETAIL_CYCLES.get_average_pixel_cycles+=(_get_average_pixel_cycles);\
+            __COUNT_DETAIL_CYCLES.get_error_cycles+=(_get_error_cycles);\
+            __COUNT_DETAIL_CYCLES.get_scale_factor_cycles+=(_get_scale_factor_cycles);\
+            __COUNT_DETAIL_CYCLES.down_sample_cycles+=(_down_sample_cycles);\
+            __COUNT_DETAIL_CYCLES.ifs_transformation_execute_cycles+=(_ifs_transformation_execute_cycles);\
+
+#else
+    #define INCREMENT_CYCLE_COUNT(_get_average_pixel_cycles, _get_error_cycles, _get_scale_factor_cycles, _down_sample_cycles, _ifs_transformation_execute_cycles)
 #endif
 
 #include "frac_errors.h"

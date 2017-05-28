@@ -12,6 +12,9 @@ ERR_RET ifs_transformation_execute_downsampled(int from_x, int from_y, enum ifs_
                                     u_int32_t size, pixel_value* src, u_int32_t src_width,
                                     pixel_value* dest, u_int32_t dest_width){
 
+#ifdef COUNT_DETAIL_CYCLES
+    cycles_count_start ();
+#endif
     INCREMENT_FLOP_COUNT(2, 0, 0, 0)
 
     from_x = from_x / 2;
@@ -76,7 +79,10 @@ ERR_RET ifs_transformation_execute_downsampled(int from_x, int from_y, enum ifs_
             from_x += d_x;
         }
     }
-
+#ifdef COUNT_DETAIL_CYCLES
+    int64_t cycles = cycles_count_stop();
+	INCREMENT_CYCLE_COUNT(0,0,0,0,cycles)
+#endif
     return ERR_SUCCESS;
 }
 
@@ -84,6 +90,9 @@ static inline
 void get_average_pixel(const pixel_value* domain_data, uint32_t domain_width,
                        uint32_t domain_x, uint32_t domain_y, uint32_t size, uint8_t* average_pixel)
 {
+#ifdef COUNT_DETAIL_CYCLES
+    cycles_count_start ();
+#endif
     uint32_t blocksize = size/2;
     uint32_t top = 0;
     INCREMENT_FLOP_COUNT(3, 0, 0, 0)
@@ -191,6 +200,10 @@ void get_average_pixel(const pixel_value* domain_data, uint32_t domain_width,
     }
     INCREMENT_FLOP_COUNT(0, 1, 0, 0)
     *(average_pixel+index) = top/bottom;
+    #ifdef COUNT_DETAIL_CYCLES
+        int64_t cycles = cycles_count_stop();
+        INCREMENT_CYCLE_COUNT(cycles,0,0,0,0)
+    #endif
 }
 
 static inline
@@ -199,7 +212,9 @@ double get_error(
     pixel_value* range_data, int range_width, int range_x, int range_y, int range_avg,
     int size, double scale)
 {
-
+#ifdef COUNT_DETAIL_CYCLES
+    cycles_count_start ();
+#endif
     uint32_t size_copy = size;
     __m256 top1 = _mm256_setzero_ps();
     __m256 top2 = _mm256_setzero_ps();
@@ -402,6 +417,10 @@ double get_error(
             }
         }
     }
+#ifdef COUNT_DETAIL_CYCLES
+    int64_t cycles = cycles_count_stop();
+ 	INCREMENT_CYCLE_COUNT(0,cycles,0,0,0)
+#endif
     return top / bottom;
 }
 
@@ -411,6 +430,9 @@ double get_scale_factor(
         pixel_value* range_data, int range_width, int range_x, int range_y, int range_avg,
         int size)
 {
+#ifdef COUNT_DETAIL_CYCLES
+    cycles_count_start ();
+#endif
     __m256i mask64_1 = _mm256_set_epi64x(0, 0, 0, 0xFFFFFFFFFFFFFFFF);
     __m256i mask64_2 = _mm256_set_epi64x(0, 0, 0xFFFFFFFFFFFFFFFF, 0xFFFFFFFFFFFFFFFF);
     __m256i mask1 = _mm256_set_epi32(0xFFFFFFFF, 0xFFFFFFFF, 0xFFFFFFFF, 0xFFFFFFFF, 0xFFFFFFFF, 0xFFFFFFFF, 0xFFFFFFFF, 0xFFFFFFFF);
@@ -652,7 +674,10 @@ double get_scale_factor(
         top = 0;
         bottom = 1;
     }
-
+#ifdef COUNT_DETAIL_CYCLES
+    int64_t cycles = cycles_count_stop();
+ 	INCREMENT_CYCLE_COUNT(0,0,cycles,0,0)
+#endif
     return ((double)top) / ((double)bottom);
 }
 

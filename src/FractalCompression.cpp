@@ -20,12 +20,35 @@ inline bool exists_image(const std::string& name) {
     struct global_op_count __GLOBAL_OP_COUNT;
 #endif
 
+#ifdef COUNT_DETAIL_CYCLES
+    struct global_function_cycle_count __COUNT_DETAIL_CYCLES;
+#endif
 void init_counting_flops(){
 #ifdef COUNT_FLOPS
     __GLOBAL_OP_COUNT.int_adds=0;
     __GLOBAL_OP_COUNT.int_mults=0;
     __GLOBAL_OP_COUNT.fp_adds=0;
     __GLOBAL_OP_COUNT.fp_mults=0;
+#endif
+}
+
+void init_counting_cycles(){
+#ifdef COUNT_DETAIL_CYCLES
+    __COUNT_DETAIL_CYCLES.get_average_pixel_cycles=0;
+    __COUNT_DETAIL_CYCLES.get_error_cycles=0;
+    __COUNT_DETAIL_CYCLES.get_scale_factor_cycles=0;
+    __COUNT_DETAIL_CYCLES.down_sample_cycles=0;
+    __COUNT_DETAIL_CYCLES.ifs_transformation_execute_cycles=0;
+#endif
+}
+void print_detailed_cycles(){
+#ifdef COUNT_DETAIL_CYCLES
+    cout<<"get_average_pixel_cycles: "<<__COUNT_DETAIL_CYCLES.get_average_pixel_cycles<<endl;
+    cout<<"get_error_cycles: "<<__COUNT_DETAIL_CYCLES.get_error_cycles<<endl;
+    cout<<"get_scale_factor_cycles: "<<__COUNT_DETAIL_CYCLES.get_scale_factor_cycles<<endl;
+    cout<<"down_sample_cycles: "<<__COUNT_DETAIL_CYCLES.down_sample_cycles<<endl;
+    cout<<"ifs_transformation_execute_cycles: "<<__COUNT_DETAIL_CYCLES.ifs_transformation_execute_cycles<<endl;
+
 #endif
 }
 
@@ -39,6 +62,11 @@ void print_op_count(const char* name){
 #endif
 }
 
+void print_detail_cycles(const char* name){
+#ifdef COUNT_DETAIL_CYCLES
+
+#endif
+}
 void test_ifs(){
     struct ifs_transformation transformation;
     transformation.from_x=0;
@@ -139,9 +167,12 @@ int main(int argc, char** argv){
     Transforms transforms;
     ifs_trans_init_transformations(&transforms, img.GetChannels());
     init_counting_flops();
+    init_counting_cycles();
     cycles_count_start ();
+
     enc.Encode(img, &transforms, threshold);
     int64_t encodeCycles = cycles_count_stop ();
+    print_detailed_cycles();
     print_op_count("encoder");
 
     printf("BLA Image height: %d, width: %d\n", img.GetHeight(), img.GetWidth());
