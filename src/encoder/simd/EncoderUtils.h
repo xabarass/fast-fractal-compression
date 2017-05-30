@@ -7,6 +7,9 @@ static inline
 u_int32_t get_average_pixel(const pixel_value* domain_data, u_int32_t domain_width,
                        u_int32_t domain_x, u_int32_t domain_y, u_int32_t size)
 {
+#ifdef COUNT_DETAIL_CYCLES
+    cycles_count_start ();
+#endif
     // Simple average of all pixels.
         INCREMENT_FLOP_COUNT(1,0,0,0)
         uint32_t bottom = size*size;
@@ -112,6 +115,10 @@ u_int32_t get_average_pixel(const pixel_value* domain_data, u_int32_t domain_wid
                 }
             }
         }
+#ifdef COUNT_DETAIL_CYCLES
+    int64_t cycles = cycles_count_stop();
+    INCREMENT_CYCLE_COUNT(cycles,0,0,0,0)
+#endif
         return top/bottom;
 }
 

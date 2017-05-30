@@ -7,6 +7,9 @@ static
 inline u_int32_t get_average_pixel(const pixel_value* domain_data, u_int32_t domain_width,
     u_int32_t domain_x, u_int32_t domain_y, u_int32_t size)
 {
+#ifdef COUNT_DETAIL_CYCLES
+    cycles_count_start ();
+#endif
     INCREMENT_FLOP_COUNT(1, 1, 0, 0)
     u_int32_t top1 = 0;
     u_int32_t top2 = 0;
@@ -38,12 +41,19 @@ inline u_int32_t get_average_pixel(const pixel_value* domain_data, u_int32_t dom
         printf("Error: Accumulator rolled over averaging pixels.\n");
         return ERR_ACCUM_ROLL;
     }
+#ifdef COUNT_DETAIL_CYCLES
+    int64_t cycles = cycles_count_stop();
+    INCREMENT_CYCLE_COUNT(cycles,0,0,0,0)
+#endif
     return top1 / bottom;
 }
 
 static inline
 void get_average_pixel_bulk(const pixel_value* domain_data, uint32_t domain_width,
     uint32_t domain_x, uint32_t domain_y, uint32_t size, uint8_t* average_pixel) {
+#ifdef COUNT_DETAIL_CYCLES
+    cycles_count_start ();
+#endif
     int blocksize = size/2;
     uint32_t top = 0;
     uint32_t bottom = size*size;
@@ -63,6 +73,10 @@ void get_average_pixel_bulk(const pixel_value* domain_data, uint32_t domain_widt
         }
     }
     *(average_pixel+index) = top/bottom;
+#ifdef COUNT_DETAIL_CYCLES
+    int64_t cycles = cycles_count_stop();
+    INCREMENT_CYCLE_COUNT(cycles,0,0,0,0)
+#endif
 }
 
 static
@@ -71,6 +85,9 @@ inline double get_error(
     pixel_value* range_data, int range_width, int range_x, int range_y, int range_avg,
     int size, double scale)
 {
+#ifdef COUNT_DETAIL_CYCLES
+    cycles_count_start ();
+#endif
     INCREMENT_FLOP_COUNT(1, 0, 0, 0)
     double top = 0;
     double bottom = (double)(size * size);
@@ -95,7 +112,10 @@ inline double get_error(
             }
         }
     }
-
+#ifdef COUNT_DETAIL_CYCLES
+    int64_t cycles = cycles_count_stop();
+    INCREMENT_CYCLE_COUNT(0,cycles,0,0,0)
+#endif
     return top / bottom;
 }
 
@@ -105,6 +125,9 @@ inline double get_scale_factor(
     pixel_value* range_Data, int range_width, int range_x, int range_y, int range_avg,
     int size)
 {
+#ifdef COUNT_DETAIL_CYCLES
+    cycles_count_start ();
+#endif
     int top = 0;
     int bottom = 0;
 
@@ -134,7 +157,10 @@ inline double get_scale_factor(
         top = 0;
         bottom = 1;
     }
-
+#ifdef COUNT_DETAIL_CYCLES
+    int64_t cycles = cycles_count_stop();
+    INCREMENT_CYCLE_COUNT(0,0,cycles,0,0)
+#endif
     return ((double)top) / ((double)bottom);
 }
 

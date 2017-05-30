@@ -175,8 +175,5 @@ int main(int argc, char** argv){
     cout<<"Image size: w: "<<img.GetWidth()<<" h: "<<img.GetHeight()<<endl;
     cout<<"Compression ratio: "<<compressionRatio<<endl;
 
-    //Free memory
-    ifs_trans_clear_list(&transforms);
-
     return 0;
 }
