@@ -153,6 +153,8 @@ int main(int argc, char** argv){
         decodeCycles = cycles_count_stop ();
         print_op_count("decoder");
         result.Save();
+    }else{
+        cout<<"Not running decoding"<<endl;
     }
 
     // Calculate compression ratio
