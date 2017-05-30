@@ -23,17 +23,19 @@ set (CMAKE_RUNTIME_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/bin")
 # ================================================================================
 
 set(DEFAULT_FLAGS "-Wall -Wpedantic -Wno-cpp -Wno-variadic-macros")
-set(OPTIMIZATION_FLAGS  "-O3 -march=native  -ffast-math -funsafe-math-optimizations -ftree-vectorize -funroll-all-loops")
+set(OPTIMIZATION_FLAGS  "-O3")
 set(DEBUG_FLAGS         "-O0 -g")
 
 # ================================================================================
 # Options to customize build
 # ================================================================================
+
+# Optimizations regarding compiler optimizations
 option(USE_FMA "Enable FMA instructions" OFF)
 option(USE_VECTORIZE "Allow vectorization" OFF)
-
-option(GENERATE_FLOP_COUNT "Count number of flops, will slow down" OFF)
-option(COUNT_DETAIL_RUNTIME "Count number of cycles for each function" OFF)
+option(USE_MATH_FLAGS "Use math flags" ON)
+option(USE_CACHE_OPT "Use cache optimization" ON)
+option(USE_BULK_COMPUTE "Use bulk compute of average pixel" ON)
 
 IF (MY_COMPILER_OPTION STREQUAL "Intel")
   MESSAGE(STATUS "** Compiling with Intel settings **")
@@ -41,6 +43,10 @@ IF (MY_COMPILER_OPTION STREQUAL "Intel")
   SET(CMAKE_CXX_COMPILER "icc")
   SET(CMAKE_CXX_FLAGS_RELEASE "-O3 -w")
 ENDIF ()
+
+# Optimizations regarding cycle counting
+option(GENERATE_FLOP_COUNT "Count number of flops, will slow down" OFF)
+option(COUNT_DETAIL_RUNTIME "Count number of cycles for each function" OFF)
 
 set(PREDEFINED_CONFIGURATION "" CACHE STRING "Load predefined configuration")
 
@@ -63,6 +69,12 @@ ELSE(USE_VECTORIZE)
     SET(DEFAULT_FLAGS "${DEFAULT_FLAGS} ")
 ENDIF(USE_VECTORIZE)
 
+IF(USE_MATH_FLAGS)
+    SET(DEFAULT_FLAGS "${DEFAULT_FLAGS} -march=native -ffast-math -funsafe-math-optimizations -ftree-vectorize -funroll-all-loops")
+ELSE(USE_MATH_FLAGS)
+    SET(DEFAULT_FLAGS "${DEFAULT_FLAGS} ")
+ENDIF(USE_MATH_FLAGS)
+
 set(CMAKE_C_FLAGS           "${DEFAULT_FLAGS} -std=c99")
 set(CMAKE_CXX_FLAGS         "${DEFAULT_FLAGS} -std=c++11")
 
@@ -78,11 +90,5 @@ IF(GENERATE_FLOP_COUNT)
     message("Counting operations, will slow down execution")
     add_definitions(-DCOUNT_FLOPS=1)
 ENDIF(GENERATE_FLOP_COUNT)
-
-IF(COUNT_DETAIL_RUNTIME)
-    message("Counting detailed function cycles")
-    add_definitions(-DCOUNT_DETAIL_CYCLES=1)
-ENDIF(COUNT_DETAIL_RUNTIME)
-
 
 add_subdirectory(src)

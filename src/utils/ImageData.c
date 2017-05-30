@@ -22,10 +22,9 @@ inline void ycbcr_to_rgb(pixel_value y, pixel_value cb, pixel_value cr,
 
 ERR_RET init_image_data(struct image_data* img, uint32_t width, uint32_t height, uint8_t channels){
     if(channels>3){
+        printf("Too many channels!\n");
         return ERR_INVALID_ARGUMENT;
     }
-
-    static int FIX_BUFFER=80;
 
     img->width=width;
     img->height=height;

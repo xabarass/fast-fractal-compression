@@ -3,7 +3,6 @@
 
 #include <utils/ImageData.h>
 #include <ifs_transformations/ifs_transform.h>
-#include <utils/EncoderUtils.h>
 
 struct encoder_params{
     u_int32_t compress_ratio;

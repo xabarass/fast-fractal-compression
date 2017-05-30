@@ -2,7 +2,6 @@ set(UTILS_SRC
     Image.cpp
     ImageData.c
     BMPImage.cpp
-    EncoderUtils.c
 )
 add_library(utils STATIC ${UTILS_SRC})
 
