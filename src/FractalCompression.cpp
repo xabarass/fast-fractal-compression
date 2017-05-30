@@ -86,6 +86,7 @@ int main(int argc, char** argv){
     u_int32_t maxphases = 5;
     string outputFile="result.bmp";
     string testFile="log.txt";
+    bool decode=true;
     for(int i=1; i<argc && usage; i++) {
         string param(argv[i]);
         if (param == "-v" && i + 1 < argc)
@@ -99,6 +100,9 @@ int main(int argc, char** argv){
         }
         else if(param=="-f" && i + 1 < argc){
             testFile=argv[i + 1];
+        }
+        else if(param=="-d" && i+1<argc){
+            decode=(string(argv[i+1])==string("1"))?true:false;
         }
         if (param.at(0) == '-') i++;
         else {
@@ -121,28 +125,33 @@ int main(int argc, char** argv){
 
     BMPImage img(image_path.c_str());
     img.Load();
+
+    // Encoding part
     Encoder enc;
     Transforms transforms;
     ifs_trans_init_transformations(&transforms, img.GetChannels());
     init_counting_flops();
     init_counting_cycles();
-    cycles_count_start ();
 
     enc.Encode(img, &transforms, threshold);
+
     int64_t encodeCycles = cycles_count_stop ();
     print_detailed_cycles();
     print_op_count("encoder");
 
     printf("Image height: %d, width: %d\n", img.GetHeight(), img.GetWidth());
 
-    BMPImage result(outputFile, img.GetHeight(), img.GetWidth(), transforms.channels);
-    Decoder dec;
-    init_counting_flops();
-    cycles_count_start ();
-    dec.Decode(&transforms, result, maxphases);
-    int64_t decodeCycles = cycles_count_stop ();
-    print_op_count("decoder");
-    result.Save();
+    int64_t decodeCycles=0;
+    if(decode){
+        BMPImage result(outputFile, img.GetHeight(), img.GetWidth(), transforms.channels);
+        Decoder dec;
+        init_counting_flops();
+        cycles_count_start ();
+        dec.Decode(&transforms, result, maxphases);
+        decodeCycles = cycles_count_stop ();
+        print_op_count("decoder");
+        result.Save();
+    }
 
     // Calculate compression ratio
     int64_t transformationsSize=0;
@@ -159,19 +168,8 @@ int main(int argc, char** argv){
     cout<<"Encode cycles: "<<encodeCycles<<endl;
     cout<<"Decode cycles: "<<decodeCycles<<endl;
     cout<<"No. of transformations: "<<transformationNumber<<endl;
-    cout<<"Image size: w: "<<result.GetWidth()<<" h: "<<result.GetHeight()<<endl;
+    cout<<"Image size: w: "<<img.GetWidth()<<" h: "<<img.GetHeight()<<endl;
     cout<<"Compression ratio: "<<compressionRatio<<endl;
-
-    freopen(testFile.c_str(),"w",stdout);
-    for (int channel = 0; channel < transforms.channels; channel++) {
-        // Iterate over Transforms
-        struct ifs_transformation_list iter = transforms.ch[channel];
-        struct ifs_transformation* temp = iter.array;
-        size_t elements=iter.elements;
-        for(int i=0;i<elements; ++i){
-            print_transformation(*temp);
-        }
-    }
 
     //Free memory
     ifs_trans_clear_list(&transforms);

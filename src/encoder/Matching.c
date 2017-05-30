@@ -25,29 +25,29 @@ ERR_RET find_matches_for(struct image_data* img, struct ifs_transformation_list*
 
     int height = img->height;
     int width = img->width;
+    u_int32_t half_width=width>>1;
 
     for(size_t y=0; y < height; y+=increment)
     {
         INCREMENT_FLOP_COUNT(0, 1, 0, 0)
         for (size_t x=0; x < width; x+=increment)
         {
-            u_int32_t domain_avg=get_average_pixel(img->image_channels[1], img->width>>1, x>>1, y>>1, block_size);
+            u_int32_t domain_avg=get_average_pixel(img->image_channels[1], half_width, x>>1, y>>1, block_size);
 
             INCREMENT_FLOP_COUNT(0, 1, 0, 0)
             for(int transformation_type=0; transformation_type<SYM_MAX; ++transformation_type)
             {
                 INCREMENT_FLOP_COUNT(0, 2, 1, 0)
-
                 ifs_transformation_execute_downsampled(x, y, transformation_type,
-                                                            block_size, img->image_channels[1], img->width>>1,
+                                                            block_size, img->image_channels[1], half_width,
                                                             buffer, block_size);
 
                 double scale_factor=get_scale_factor(img->image_channels[0], img->width, to_x, to_y, domain_avg,
                         buffer, block_size, 0 ,0, range_avarage, block_size);
                 int offset = (int)(range_avarage - scale_factor * (double)domain_avg);
 
-                double error=get_error(buffer, block_size, 0,0,domain_avg,img->image_channels[0],
-                        img->width, to_x, to_y, range_avarage, block_size, scale_factor);
+                double error=get_error(buffer, block_size, 0,0, domain_avg,img->image_channels[0],
+                        width, to_x, to_y, range_avarage, block_size, scale_factor);
 
                 if(error<best_error){
                     ASSIGN_IFS_VALUES(best_ifs_transform, x, y, to_x, to_y, transformation_type, scale_factor, offset, block_size);
@@ -105,7 +105,6 @@ ERR_RET match_blocks(struct Transforms* transformations, struct image_data* src,
             {
                 INCREMENT_FLOP_COUNT(0, 1, 0, 0)
                 find_matches_for(img, transformations->ch+channel, x, y, MAX_BUFFER_SIZE, threshold);
-                INCREMENT_FLOP_COUNT(0, 1, 0, 0)
                 #ifdef DEBUG
                 printf(".");
                 #endif
