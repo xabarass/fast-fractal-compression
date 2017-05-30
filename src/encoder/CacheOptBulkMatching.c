@@ -229,8 +229,8 @@ ERR_RET match_blocks(struct Transforms* transformations, struct image_data* src,
                      pixel_value* allocated_block_buffer, size_t max_buffer_size, size_t min_buffer_size){
 
     buffer=allocated_block_buffer;
-    MIN_BUFFER_SIZE=min_buffer_size;
     MAX_BUFFER_SIZE=max_buffer_size;
+    MIN_BUFFER_SIZE=max_buffer_size>>2;
 
     size_t half_size=size>>1;
 

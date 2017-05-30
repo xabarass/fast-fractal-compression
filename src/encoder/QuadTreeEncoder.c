@@ -24,13 +24,11 @@ ERR_RET qtree_encode(struct Transforms* transformations, struct image_data* src,
 
     static pixel_value* buffer;
     static size_t max_buffer_size;
-    static size_t min_buffer_size;
 
     INCREMENT_FLOP_COUNT(4, 0, 0, 0)
     max_buffer_size=width/32;
     if(max_buffer_size<16)
            max_buffer_size=16;
-    min_buffer_size=max_buffer_size/4;
     buffer=malloc(max_buffer_size*max_buffer_size*sizeof(pixel_value));
     transformations->max_block_size=max_buffer_size;
 
@@ -54,7 +52,7 @@ ERR_RET qtree_encode(struct Transforms* transformations, struct image_data* src,
     img.image_channels[1]=img.image_channels[0];
     transformations->channels=src->channels;
 
-    match_blocks(transformations,src,&img,threshold,src->channels,width,params.use_ycbcr,buffer,max_buffer_size,min_buffer_size);
+    match_blocks(transformations,src,&img,threshold,src->channels,width,params.use_ycbcr,buffer,max_buffer_size);
 
     img.image_channels[0]=img.image_channels[1];
     clear_image_data(&img);

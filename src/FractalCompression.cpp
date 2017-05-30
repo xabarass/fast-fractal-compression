@@ -67,50 +67,8 @@ void print_detail_cycles(const char* name){
 
 #endif
 }
-void test_ifs(){
-    struct ifs_transformation transformation;
-    transformation.from_x=0;
-    transformation.from_y=0;
-    transformation.to_x=0;
-    transformation.to_y=0;
-    transformation.scale=1;
-    transformation.offset=0;
-    transformation.transformation_type=SYM_R180;
-
-#define B_S 6
-#define I_S 8
-    transformation.size=B_S;
-
-    int ind=0;
-    pixel_value src[I_S*I_S];
-    for (int i=0;i<I_S; ++i){
-        for (int j=0; j<I_S; ++j){
-            src[i*I_S+j]=ind++;
-            printf("%d\t",src[i*I_S+j]);
-        }
-        printf("\n");
-    }
-
-    pixel_value dst[B_S*B_S];
-    memset(dst, 0, B_S*B_S);
-
-    ifs_transformation_execute(&transformation, src, I_S, dst, B_S, true, NULL);
-
-    printf("Result\n");
-    for (int i=0;i<B_S; ++i){
-        for (int j=0; j<B_S; ++j){
-            printf("%d\t",dst[i*B_S+j]);
-        }
-        printf("\n");
-    }
-}
-
-
 
 int main(int argc, char** argv){
-//    test_ifs();
-//    return 0;
-
     cout<<"    ______           __        ______                __        __   "<<endl;
     cout<<"   / ____/___ ______/ /_      / ____/________ ______/ /_____ _/ /   "<<endl;
     cout<<"  / /_  / __ `/ ___/ __/_____/ /_  / ___/ __ `/ ___/ __/ __ `/ /    "<<endl;
@@ -118,7 +76,7 @@ int main(int argc, char** argv){
     cout<<"/_/    \\__,_/____/\\__/     /_/   /_/   \\__,_/\\___/\\__/\\__,_/_/"<<endl;
     cout<<endl;
     cout<<"Git version: "<<" "<<s_GIT_SHA1_HASH<<" "<<s_GIT_REFSPEC<<endl;
-    cout<<endl;
+    cout<<"Build type:"<<UTILS_TYPE<<MATCHING_TYPE<<endl;
 
     // Load some parameters
     bool usage = true;
@@ -175,7 +133,7 @@ int main(int argc, char** argv){
     print_detailed_cycles();
     print_op_count("encoder");
 
-    printf("BLA Image height: %d, width: %d\n", img.GetHeight(), img.GetWidth());
+    printf("Image height: %d, width: %d\n", img.GetHeight(), img.GetWidth());
 
     BMPImage result(outputFile, img.GetHeight(), img.GetWidth(), transforms.channels);
     Decoder dec;
