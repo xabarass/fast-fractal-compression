@@ -226,7 +226,7 @@ ERR_RET find_matches_for(struct image_data* img, struct ifs_transformation_list*
 
 ERR_RET match_blocks(struct Transforms* transformations, struct image_data* src, struct image_data* img,
                      u_int32_t threshold, int number_of_channels, size_t size, bool usingYcbCr,
-                     pixel_value* allocated_block_buffer, size_t max_buffer_size, size_t min_buffer_size){
+                     pixel_value* allocated_block_buffer, size_t max_buffer_size){
 
     buffer=allocated_block_buffer;
     MAX_BUFFER_SIZE=max_buffer_size;
