@@ -132,6 +132,7 @@ int main(int argc, char** argv){
     ifs_trans_init_transformations(&transforms, img.GetChannels());
     init_counting_flops();
     init_counting_cycles();
+    cycles_count_start();
 
     enc.Encode(img, &transforms, threshold);
 
@@ -141,6 +142,7 @@ int main(int argc, char** argv){
 
     printf("Image height: %d, width: %d\n", img.GetHeight(), img.GetWidth());
 
+    // Decoder part
     int64_t decodeCycles=0;
     if(decode){
         BMPImage result(outputFile, img.GetHeight(), img.GetWidth(), transforms.channels);
