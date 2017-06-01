@@ -1,33 +1,22 @@
 # Fractal compression project 
 
-Build debug version with enabled FMA in project root directory with RDTSC benchmarking falback off
+Project uses `CMake` as a build system. There are different flags that can be used to generate project with different level of optimizations:
+1. `USE_FMA` - use Fused multiply–add instructions. (default ON)
+2. `USE_VECTORIZE` - Use SIMD instructions for computation. (default ON)
+3. `USE_CACHE_OPT` - Use cache friendly implementation of the algorithm, using precomputation. (default ON)
+4. `USE_BULK_COMPUTE` - Use special functions for getting average pixels that returns values for 2 levels of recursion at once. Can be used only as an addition to cache optimization. (default ON)
+5. `RDTSC_FAILBACK` - Use RDTSC hardware counters for measuring performance. If disabled Intel PCM is used, requires aditional kernel modules and sudo root access to the machine. (default ON)
+
+Building a project:
 ```sh
-$ cmake -DCMAKE_BUILD_TYPE=Debug -DUSE_FMA=ON -DRDTSC_FAILBACK=OFF .
+$ cmake -DCMAKE_BUILD_TYPE=Release -DUSE_FMA=ON -DRDTSC_FAILBACK=ON -DGENERATE_FLOP_COUNT=ON -DUSE_VECTORIZE=ON -DUSE_CACHE_OPT=ON -DUSE_BULK_COMPUTE=OFF
 $ make
-$ cd bin
-$ ./fractal-compression 
+$ ./fractal-compression <path_to_image.bmp>
 ```
-Build release version without FMA in build directory release
-```sh
-$ cmake -DCMAKE_BUILD_TYPE=Release -DUSE_FMA=ON -Brelease -H.
-$ cd release
-$ make
-$ cd bin
-$ ./fractal-compression 
-```
+
 ### Useful links
 
-List of useful course links
-
-* [Course webpage](https://www.inf.ethz.ch/personal/markusp/teaching/263-2300-ETH-spring17/course.html) - Contains course information and more
 * [Intel Intrinsics](https://software.intel.com/sites/landingpage/IntrinsicsGuide/) - Intrinsics references
 * [Agner's table](http://www.agner.org/optimize/instruction_tables.pdf) - Agners instruction table
 * [Manual](http://www.intel.com/content/dam/www/public/us/en/documents/manuals/64-ia-32-architectures-optimization-manual.pdf) - Intel's software optimization manual
-* [Moodle](https://moodle-app2.let.ethz.ch/course/view.php?id=3122) - Homework submission
-
-
-### Todos
-
- - Finish default implementation
- - Start implementing optimizations
 
