@@ -2,7 +2,6 @@
 
 #define MODULE_NAME "ifsTransform"
 
-
 #define MAX_NUMBER_OF_TRANSFORMATIONS (1024+4096+16384+65536)
 static struct ifs_transformation CHANNELS[3][MAX_NUMBER_OF_TRANSFORMATIONS];
 

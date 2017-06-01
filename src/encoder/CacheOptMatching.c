@@ -259,13 +259,7 @@ ERR_RET match_blocks(struct Transforms* transformations, struct image_data* src,
                 INCREMENT_FLOP_COUNT(0, 1, 0, 0)
                 find_matches_for(img, transformations->ch+channel, x, y, MAX_BUFFER_SIZE, threshold);
                 INCREMENT_FLOP_COUNT(0, 1, 0, 0)
-                #ifdef DEBUG
-                printf(".");
-                #endif
             }
-            #ifdef DEBUG
-            printf("\n");
-            #endif
         }
 
         if (channel >= 1 && usingYcbCr){
