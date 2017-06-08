@@ -1,7 +1,6 @@
 #include "Decoder.h"
 
 Decoder::Decoder(){
-
 }
 
 void Decoder::Decode(Transforms* transform, Image& result, int maxphases){

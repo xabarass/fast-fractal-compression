@@ -23,7 +23,9 @@ set (CMAKE_RUNTIME_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/bin")
 # ================================================================================
 
 set(DEFAULT_FLAGS "-Wall -Wpedantic -Wno-cpp -Wno-variadic-macros")
+set(INTEL_DEFAULT_FLAGS "-Wall")
 set(OPTIMIZATION_FLAGS  "-O3")
+set(INTEL_OPTIMIZATION_FLAGS  "-O3 -march=CORE-AVX2 -axCORE-AVX2 -xCORE-AVX2 -parallel -finline-functions -ip -fp-model fast -unroll -opt-prefetch=4")
 set(DEBUG_FLAGS         "-O0 -g")
 
 # ================================================================================
@@ -37,12 +39,6 @@ option(USE_MATH_FLAGS "Use math flags" ON)
 option(USE_CACHE_OPT "Use cache optimization" ON)
 option(USE_BULK_COMPUTE "Use bulk compute of average pixel" ON)
 
-IF (MY_COMPILER_OPTION STREQUAL "Intel")
-  MESSAGE(STATUS "** Compiling with Intel settings **")
-  SET(CMAKE_CXX_COMPILER "icpc")
-  SET(CMAKE_CXX_COMPILER "icc")
-  SET(CMAKE_CXX_FLAGS_RELEASE "-O3 -w")
-ENDIF ()
 
 # Optimizations regarding cycle counting
 option(GENERATE_FLOP_COUNT "Count number of flops, will slow down" OFF)
@@ -58,9 +54,17 @@ IF(OPTIMIZATION_TYPE)
 ENDIF(OPTIMIZATION_TYPE)
 
 IF(USE_FMA)
-    SET(DEFAULT_FLAGS "${DEFAULT_FLAGS} -mfma")
+    IF(INTEL_COMPILER)
+        SET(DEFAULT_FLAGS "${INTEL_DEFAULT_FLAGS} -fma")
+    ELSE(INTEL_COMPILER)
+        SET(DEFAULT_FLAGS "${DEFAULT_FLAGS} -mfma")
+    ENDIF(INTEL_COMPILER)
 ELSE(USE_FMA)
-    SET(DEFAULT_FLAGS "${DEFAULT_FLAGS} -mno-fma")
+    IF(INTEL_COMPILER)
+        SET(DEFAULT_FLAGS "${INTEL_DEFAULT_FLAGS} -mno-fma")
+    ELSE(INTEL_COMPILER)
+        SET(DEFAULT_FLAGS "${DEFAULT_FLAGS} -no-fma")
+    ENDIF(INTEL_COMPILER)
 ENDIF(USE_FMA)
 
 IF(USE_VECTORIZE)
@@ -97,6 +101,16 @@ set(CMAKE_CXX_FLAGS_RELEASE ${OPTIMIZATION_FLAGS})
 # For degbugging only
 set(CMAKE_C_FLAGS_DEBUG     ${DEBUG_FLAGS})
 set(CMAKE_CXX_FLAGS_DEBUG   ${DEBUG_FLAGS})
+
+IF(INTEL_COMPILER)
+        message(STATUS "Setting the intel compiler flag")
+        set(CMAKE_CXX_COMPILER "icpc")
+        set(CMAKE_C_COMPILER "icc")
+        set(CMAKE_C_FLAGS "${INTEL_DEFAULT_FLAGS} -std=c99")
+        set(CMAKE_CXX_FLAGS "${INTEL_DEFAULT_FLAGS} -std=c++11")
+        set(CMAKE_C_FLAGS_RELEASE   ${INTEL_OPTIMIZATION_FLAGS})
+        set(CMAKE_CXX_FLAGS_RELEASE ${INTEL_OPTIMIZATION_FLAGS})
+ENDIF(INTEL_COMPILER)
 
 IF(GENERATE_FLOP_COUNT)
     message("Counting operations, will slow down execution")
