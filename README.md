@@ -20,3 +20,5 @@ $ ./fractal-compression <path_to_image.bmp>
 * [Agner's table](http://www.agner.org/optimize/instruction_tables.pdf) - Agners instruction table
 * [Manual](http://www.intel.com/content/dam/www/public/us/en/documents/manuals/64-ia-32-architectures-optimization-manual.pdf) - Intel's software optimization manual
 
+### Original implementation
+Implementation used as a reference: (https://github.com/kennberg/fractal-compression)
