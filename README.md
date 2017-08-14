@@ -14,8 +14,6 @@ $ make
 $ ./fractal-compression <path_to_image.bmp>
 ```
 
-[Design paper] (./report-06.pdf)
-
 ### Useful links
 
 * [Intel Intrinsics](https://software.intel.com/sites/landingpage/IntrinsicsGuide/) - Intrinsics references
